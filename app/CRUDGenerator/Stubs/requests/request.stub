@@ -1,0 +1,22 @@
+<?php
+
+namespace App\Http\Requests\{{ CLASS_NAME }};
+
+use Illuminate\Foundation\Http\FormRequest;
+
+/**
+ * Class {{ CLASS_NAME }}Request
+ * @package App\Http\Requests\{{ CLASS_NAME }}
+ */
+class {{ CLASS_NAME }}Request extends FormRequest
+{
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules(): array
+    {
+        return [];
+    }
+}

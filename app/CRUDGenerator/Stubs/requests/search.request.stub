@@ -1,0 +1,24 @@
+<?php
+
+namespace App\Http\Requests\{{ CLASS_NAME }};
+
+use App\Http\Requests\Core\DatatableSearchRequest;
+
+/**
+ * Class {{ CLASS_NAME }}SearchRequest
+ * @package App\Http\Requests\{{ CLASS_NAME }}
+ */
+class {{ CLASS_NAME }}SearchRequest extends DatatableSearchRequest
+{
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules(): array
+    {
+        return parent::rules() + [
+                'f.id' => 'nullable|integer_with_max',
+            ];
+    }
+}

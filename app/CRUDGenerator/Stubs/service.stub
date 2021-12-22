@@ -1,0 +1,23 @@
+<?php
+
+namespace {{ ROOT_NAMESPACE }}Services\{{ CLASS_NAME }};
+
+use {{ ROOT_NAMESPACE }}Contracts\{{ CLASS_NAME }}\I{{ CLASS_NAME }}Repository;
+use {{ ROOT_NAMESPACE }}Services\BaseService;
+
+/**
+ * Class {{ CLASS_NAME }}Service
+ * @package {{ ROOT_NAMESPACE }}Services\{{ CLASS_NAME }}
+ */
+class {{ CLASS_NAME }}Service extends BaseService
+{
+    /**
+     * {{ CLASS_NAME }}Service constructor.
+     *
+     * @param I{{ CLASS_NAME }}Repository $repository
+     */
+    public function __construct(I{{ CLASS_NAME }}Repository $repository)
+    {
+        $this->repository = $repository;
+    }
+}

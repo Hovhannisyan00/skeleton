@@ -1,0 +1,43 @@
+<?php
+
+namespace {{ ROOT_NAMESPACE }}Models\{{ CLASS_NAME }};
+
+use {{ ROOT_NAMESPACE }}Models\Base\Search;
+use Illuminate\Database\Eloquent\Builder;
+
+/**
+ * Class {{ CLASS_NAME }}Search
+ * @package {{ ROOT_NAMESPACE }}Models\Article
+ */
+class {{ CLASS_NAME }}Search extends Search
+{
+    /**
+     * @var string[]
+     */
+    protected $orderables = [
+        'id'
+    ];
+
+    /**
+     * @return Builder
+     */
+    protected function query(): Builder
+    {
+        $filters = $this->filters;
+
+        return {{ CLASS_NAME }}::select(
+            'id'
+        )
+            ->when(!empty($filters['id']), function ($query) use ($filters) {
+                $query->where('id', $filters['id']);
+            });
+    }
+
+    /**
+     * @return int
+     */
+    public function totalCount(): int
+    {
+        return {{ CLASS_NAME }}::count();
+    }
+}
