@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Contracts\File\IFileRepository;
+use App\Http\Requests\File\FileUploadRequest;
 use App\Services\File\FileService;
 use Illuminate\Http\JsonResponse;
 
@@ -25,6 +26,22 @@ class FileController extends BaseController
     {
         parent::__construct($service);
         $this->repository = $repository;
+    }
+
+    public function getConfig($fileConfigKey)
+    {
+        return config("files.$fileConfigKey");
+    }
+
+    /**
+     * Function to store file
+     *
+     * @param FileUploadRequest $request
+     * @return JsonResponse
+     */
+    public function storeTempFile(FileUploadRequest $request): JsonResponse
+    {
+        return response()->json($this->service->storeTempFile($request->validated()));
     }
 
     /**

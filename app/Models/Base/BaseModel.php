@@ -4,6 +4,7 @@ namespace App\Models\Base;
 
 use App\Models\File\File;
 use App\Scopes\Base\ActiveScope;
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -38,14 +39,15 @@ class BaseModel extends Model
     const SHOW_STATUSES = [
         self::SHOW_STATUS_ACTIVE,
         self::SHOW_STATUS_INACTIVE,
-    ]
+        self::SHOW_STATUS_DELETED
+    ];
 
-    ;/**
+    /**
      * @var array
      */
     const SHOW_STATUSES_FOR_SELECT = [
-        self::SHOW_STATUS_ACTIVE => '',
-        self::SHOW_STATUS_INACTIVE => '',
+        self::SHOW_STATUS_ACTIVE,
+        self::SHOW_STATUS_INACTIVE
     ];
 
     /**
@@ -142,6 +144,7 @@ class BaseModel extends Model
     /**
      * @param $query
      * @return Builder
+     * @throws BindingResolutionException
      */
     public function scopeJoinTo($query): Builder
     {

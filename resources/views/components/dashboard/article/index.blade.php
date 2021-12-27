@@ -10,7 +10,10 @@
                             <x-dashboard.form._input name="id" type="number"/>
                         </div>
                         <div class="col-md-4 form-group">
-                            <x-dashboard.form._input name="slug"/>
+                            <x-dashboard.form._input name="title"/>
+                        </div>
+                        <div class="col-md-4 form-group">
+                            <x-dashboard.form._input name="description"/>
                         </div>
                     </div>
                     <div class="col-md-1 form-group text-right d-flex flex-column justify-content-end">
@@ -23,7 +26,8 @@
                         <thead>
                         <tr>
                             <th data-key="id">{{ __('__dashboard.label.id') }}</th>
-                            <th data-key="slug">{{ __('__dashboard.label.slug') }}</th>
+                            <th data-key="title">{{ __('__dashboard.label.title') }}</th>
+                            <th data-key="description">{{ __('__dashboard.label.description') }}</th>
                             <th data-key="publish_date">{{ __('__dashboard.label.publish_date') }}</th>
                             <th data-key="created_at">{{ __('__dashboard.label.created_at') }}</th>
                             <th class="text-center">{{ __('__dashboard.label.actions') }}</th>
@@ -37,7 +41,7 @@
 
     <x-slot name="scripts">
         <script src="{{ asset('/js/dashboard/core/DataTable.js') }}"></script>
-        <script src="{{ asset('/js/dashboard/articles/index.js') }}"></script>
+        <script src="{{ asset('/js/dashboard/article/index.js') }}"></script>
     </x-slot>
 </x-dashboard.layouts.app>
 

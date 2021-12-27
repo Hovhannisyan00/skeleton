@@ -5,13 +5,12 @@
             <div class="card-body">
                 <x-dashboard.form._form
                     :action="$viewMode === 'add' ? route('dashboard.{{ ROUTE_NAME }}.store') : route('dashboard.{{ ROUTE_NAME }}.update', ${{ VARIABLE_NAME }}->id)"
-                    :method="$viewMode !== 'add' ?: 'put'"
+                    :method="$viewMode === 'add' ? 'post' : 'put'"
                     :indexUrl="route('dashboard.{{ ROUTE_NAME }}.index')"
-                    hasShowStatus
                 >
                     <div class="row">
                         <div class="col-lg-6 form-group">
-                            <x-dashboard.form._input name="name" value="{{ ${{ VARIABLE_NAME }}->name ?? '' }}"/>
+                            <x-dashboard.form._input name="name" :value="${{ VARIABLE_NAME }}->name ?? ''"/>
                         </div>
                     </div>
                 </x-dashboard.form._form>

@@ -39,7 +39,7 @@ class UserController extends BaseController
      */
     public function index(): View
     {
-        return $this->dashboardView('users.index');
+        return $this->dashboardView('user.index');
     }
 
     /**
@@ -66,7 +66,7 @@ class UserController extends BaseController
      */
     public function create(): View
     {
-        return $this->dashboardView('users.create', $this->service->getViewData());
+        return $this->dashboardView('user.form', $this->service->getViewData());
     }
 
     /**
@@ -85,17 +85,6 @@ class UserController extends BaseController
     }
 
     /**
-     * Display the specified resource.
-     * @param int $id
-     * @return Response
-     * @todo
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Function to return users edit view
      *
      * @param int $id
@@ -103,7 +92,7 @@ class UserController extends BaseController
      */
     public function edit(int $id): View
     {
-        return $this->dashboardView('users.edit', $this->service->getViewData($id));
+        return $this->dashboardView('user.form', $this->service->getViewData($id), 'edit');
     }
 
     /**

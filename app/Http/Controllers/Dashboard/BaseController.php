@@ -4,8 +4,6 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
 use App\Traits\Helpers\ResponseFunctions;
-use Illuminate\Contracts\Foundation\Application;
-use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 
 /**
@@ -45,7 +43,7 @@ class BaseController extends Controller
     {
         $vars['viewMode'] = $viewMode;
 
-        $this->generateSubHeaderData($view);
+        $this->generateSubHeaderData($view, $viewMode);
 
         return view(self::DASHBOARD_VIEW_PREFIX . ($view ? '.' . $view : $view), $vars);
     }
@@ -54,11 +52,18 @@ class BaseController extends Controller
      * Function to generate sub header data
      *
      * @param $view
+     * @param $viewMode
      * @return void
      */
-    private function generateSubHeaderData($view): void
+    private function generateSubHeaderData($view, $viewMode): void
     {
-        view()->composer('*', function () use ($view) {
+        // Form mode
+        view()->composer('*.form', function () use ($view, $viewMode) {
+            view()->share('sub_header_data', ['pageName' => $view . '.' . $viewMode]);
+        });
+
+        // Index mode
+        view()->composer('*.index', function () use ($view) {
             view()->share('sub_header_data', ['pageName' => $view]);
         });
     }

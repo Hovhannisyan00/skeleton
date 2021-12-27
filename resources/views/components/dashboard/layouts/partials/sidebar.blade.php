@@ -1,7 +1,15 @@
 <div class="left-menu">
     {{--    iconner    https://preview.keenthemes.com/metronic/demo1/features/icons/svg.html--}}
     <div class="brand d-flex align-items-center">
-        <a href="/" class="brand-logo" aria-label="brand">SORT IT</a>
+        <div>
+            <a href="/" class="brand-logo" aria-label="brand">
+                Dashboard Core
+            </a>
+            <br>
+            <p class="text-white">
+                {{ env('DASHBOARD_VERSION') }} - {{ env('LAST_UPDATED_AT') }}
+            </p>
+        </div>
         <button class="brand-toggle" type="button" aria-label="minimaize menu">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"

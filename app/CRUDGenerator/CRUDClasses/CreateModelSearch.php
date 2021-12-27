@@ -15,11 +15,11 @@ class CreateModelSearch extends CRUDGeneratorAbstract
     /**
      * CreateModel constructor.
      *
-     * @param $className
+     * @param $arguments
      */
-    public function __construct($className)
+    public function __construct($arguments)
     {
-        parent::__construct($className);
+        parent::__construct($arguments);
 
         $this->config = $this->getConfig(self::MODEL_SEARCH);
     }

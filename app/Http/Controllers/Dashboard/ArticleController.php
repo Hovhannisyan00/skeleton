@@ -32,7 +32,7 @@ class ArticleController extends BaseController
      */
     public function index(): View
     {
-        return $this->dashboardView('articles.index');
+        return $this->dashboardView('article.index');
     }
 
     /**
@@ -59,7 +59,7 @@ class ArticleController extends BaseController
      */
     public function create(): View
     {
-        return $this->dashboardView('articles.form');
+        return $this->dashboardView('article.form');
     }
 
     /**
@@ -85,7 +85,7 @@ class ArticleController extends BaseController
      */
     public function edit(int $id): View
     {
-        return $this->dashboardView('articles.form', $this->service->getViewData($id), 'edit');
+        return $this->dashboardView('article.form', $this->service->getViewData($id), 'edit');
     }
 
     /**

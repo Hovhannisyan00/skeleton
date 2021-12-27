@@ -1,9 +1,9 @@
 const options = {
   pathOptions: {
-    searchPath: route('dashboard.{{ CLASS_NAME }}.getListData'),
-    deletePath: route('dashboard.{{ CLASS_NAME }}.destroy', ':id'),
-    editPath: route('dashboard.{{ CLASS_NAME }}.edit', ':id'),
-    showPath: route('dashboard.{{ CLASS_NAME }}.show', ':id'),
+    searchPath: route('dashboard.{{ ROUTE_NAME }}.getListData'),
+    deletePath: route('dashboard.{{ ROUTE_NAME }}.destroy', ':id'),
+    editPath: route('dashboard.{{ ROUTE_NAME }}.edit', ':id'),
+    showPath: route('dashboard.{{ ROUTE_NAME }}.show', ':id'),
   },
 
   relations: {},

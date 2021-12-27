@@ -1,5 +1,6 @@
 <?php
 
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -103,6 +104,61 @@ if (!function_exists('getAllRoutesName')) {
     }
 }
 
+
+/* ========================================================================================
+                                Date Helper Functions - Start
+ ======================================================================================== */
+
+if (!function_exists("getDateFormat")) {
+    function getDateFormat()
+    {
+        return config('dashboard.date_format');
+    }
+}
+
+if (!function_exists("getDateFormatFront")) {
+    function getDateFormatFront()
+    {
+        return config('dashboard.date_format_front');
+    }
+}
+
+if (!function_exists("getDateTimeFormat")) {
+    function getDateTimeFormat()
+    {
+        return config('dashboard.date_time_format');
+    }
+}
+
+if (!function_exists("getDateTimeFormatFront")) {
+    function getDateTimeFormatFront()
+    {
+        return config('dashboard.date_time_format_front');
+    }
+}
+
+if (!function_exists("formattedDate")) {
+    function formattedDate($date): string
+    {
+        return Carbon::parse($date)->format(getDateFormatFront());
+    }
+}
+
+if (!function_exists("getDashboardDates")) {
+    function getDashboardDates(): array
+    {
+        return [
+            'date_format' => getDateFormat(),
+            'date_format_front' => getDateFormatFront(),
+            'date_time_format' => getDateTimeFormat(),
+            'date_time_format_front' => getDateTimeFormatFront(),
+        ];
+    }
+}
+
+/* ========================================================================================
+                                Date Helper Functions - End
+ ======================================================================================== */
 
 
 

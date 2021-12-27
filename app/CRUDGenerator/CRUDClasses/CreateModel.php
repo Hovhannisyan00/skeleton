@@ -11,17 +11,18 @@ use App\CRUDGenerator\CRUDGeneratorAbstract;
 class CreateModel extends CRUDGeneratorAbstract
 {
     const MODEL = 'model';
+    const MODEL_WITH_ML = 'model_with_ml';
 
     /**
      * CreateModel constructor.
      *
-     * @param $className
+     * @param $arguments
      */
-    public function __construct($className)
+    public function __construct($arguments)
     {
-        parent::__construct($className);
+        parent::__construct($arguments);
 
-        $this->config = $this->getConfig(self::MODEL);
+        $this->config = $this->getConfig($arguments['migrationMl'] ? self::MODEL_WITH_ML : self::MODEL);
     }
 
     public function make(): void

@@ -33,6 +33,20 @@ return [
         'stub_directory_path' => 'models'
     ],
 
+    'model_with_ml' => [
+        'path' => "$rootNamespace\\Models\\:attribute",
+        'file_name' => ":attribute.php",
+        'stub_file_name' => 'model-with-ml',
+        'stub_directory_path' => 'models'
+    ],
+
+    'ml_model' => [
+        'path' => "$rootNamespace\\Models\\:attribute",
+        'file_name' => ":attributeMls.php",
+        'stub_file_name' => 'ml-model',
+        'stub_directory_path' => 'models'
+    ],
+
     'model_search' => [
         'path' => "$rootNamespace\\Models\\:attribute",
         'file_name' => ":attributeSearch.php",

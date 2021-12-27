@@ -4,9 +4,10 @@ namespace App\Services\File;
 
 use App\Repositories\File\FileRepository;
 use App\Services\BaseService;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Support\Str;
 
 /**
  * Class FileService
@@ -23,7 +24,6 @@ class FileService extends BaseService
     {
         $this->repository = $repository;
     }
-
 
     /**
      * Function to store file
@@ -43,11 +43,10 @@ class FileService extends BaseService
             ];
 
             if (is_array($files)) {
-                foreach ($files as $file) {
-                    $this->create($model, $configAttributes, $file);
+                foreach ($files as $fileName) {
+                    $this->create($model, $configAttributes, $fileName, true);
                 }
             } else {
-                $this->deleteModelFile($model, $fieldName);
                 $this->create($model, $configAttributes, $files);
             }
         }
@@ -58,25 +57,37 @@ class FileService extends BaseService
      *
      * @param Model $model
      * @param array $configAttributes
-     * @param $file
+     * @param $fileName
+     * @param bool $isArray
      */
-    public function create(Model $model, array $configAttributes, $file)
+    public function create(Model $model, array $configAttributes, $fileName, bool $isArray = false)
     {
         $fieldName = $configAttributes['field_name'];
         $fileType = $configAttributes['file_type'];
 
         $dir_prefix = strtolower(class_basename($model));
         $path = $dir_prefix . '/' . $fieldName;
-        $fileName = uniqid() . '_' . Str::slug($file->getClientOriginalName(), '.');
+        $fileBaseName = explode('/', $fileName)[1] ?? null;
 
-        Storage::disk('uploads')->putFileAs($path, $file, $fileName);
+        if ($fileBaseName) {
+            if (!$isArray) {
+                $this->deleteModelFile($model, $fieldName);
+            }
 
-        $model->files($fieldName)->create([
-            'field_name' => $fieldName,
-            'file_name' => $fileName,
-            'file_type' => $fileType,
-            'dir_prefix' => $dir_prefix
-        ]);
+            $move = $this->movePendingFileToUploadsFolder($fileBaseName, [
+                'pending' => $fileName,
+                'uploads' => $path
+            ]);
+
+            if ($move) {
+                $model->files($fieldName)->create([
+                    'field_name' => $fieldName,
+                    'file_name' => $fileBaseName,
+                    'file_type' => $fileType,
+                    'dir_prefix' => $dir_prefix
+                ]);
+            }
+        }
     }
 
     /**
@@ -117,5 +128,76 @@ class FileService extends BaseService
     private function deleteFilePhysically($file)
     {
         Storage::disk('uploads')->delete($file->dir_prefix . '/' . $file->field_name . '/' . $file->file_name);
+    }
+
+    /**
+     * Function to move tmp file from pending dir to upload dir
+     *
+     * @param $fileName
+     * @param null $customDirectory
+     * @return bool
+     */
+    public static function movePendingFileToUploadsFolder($fileName, $customDirectory = null): bool
+    {
+        if (Storage::disk('pending')->exists($customDirectory['pending'])) {
+            // convert to full paths
+            $fullPathPending = Storage::disk('pending')->getDriver()->getAdapter()->applyPathPrefix($customDirectory['pending']);
+
+            $filePath = isset($customDirectory['uploads']) ? '/' . $customDirectory['uploads'] . '/' . $fileName : $fileName;
+
+            $fullPathUploads = Storage::disk('uploads')->getDriver()->getAdapter()->applyPathPrefix($filePath);
+
+            // make destination folder
+            if (!File::exists(dirname($fullPathUploads))) {
+                File::makeDirectory(dirname($fullPathUploads), null, true);
+            }
+
+            return File::move($fullPathPending, $fullPathUploads);
+        }
+
+        return false;
+    }
+
+    /**
+     * Function to store file
+     *
+     * @param $data
+     * @return array
+     */
+    public function storeTempFile($data): array
+    {
+        $disk = Storage::disk('pending');
+        $file = $data['file'];
+        $config = config("files.{$data['config_key']}");
+        $originalName = $file->getClientOriginalName();
+        $filename = basename($originalName, '.' . pathinfo($originalName, PATHINFO_EXTENSION));
+        $filename = uniqid() . '_' . mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $filename) . '.' . $file->getClientOriginalExtension();
+        $path = now()->format('d-m-Y');
+
+        $disk->putFileAs($path, $file, $filename);
+
+        return [
+            'file_url' => $disk->url($path . '/' . $filename),
+            'name' => $path . '/' . $filename,
+            'original_name' => $file->getClientOriginalName(),
+            'file_type' => $config['file_type'],
+        ];
+    }
+
+    /**
+     * Function to remove last days temp files
+     */
+    public static function removeTempFiles()
+    {
+        $disk = Storage::disk('pending');
+        $pastDay = now()->subDay();
+        $directories = $disk->allDirectories();
+
+        foreach ($directories as $directory) {
+            $directoryDate = Carbon::parse($directory);
+            if (!$pastDay->lt($directoryDate)) {
+                $disk->deleteDirectory($directory);
+            }
+        }
     }
 }

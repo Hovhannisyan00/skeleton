@@ -6,15 +6,15 @@ use App\CRUDGenerator\CRUDGeneratorAbstract;
 use Illuminate\Support\Str;
 
 /**
- * Class CreateJs
+ * Class CreateModel
  * @package App\CRUDGenerator\CRUDClasses
  */
-class CreateJs extends CRUDGeneratorAbstract
+class CreateMlModel extends CRUDGeneratorAbstract
 {
-    const JS = 'js';
+    const ML_MODEL = 'ml_model';
 
     /**
-     * CreateJs constructor.
+     * CreateModel constructor.
      *
      * @param $arguments
      */
@@ -22,13 +22,13 @@ class CreateJs extends CRUDGeneratorAbstract
     {
         parent::__construct($arguments);
 
-        $this->config = $this->getConfig(self::JS);
+        $this->config = $this->getConfig(self::ML_MODEL);
     }
 
     public function make(): void
     {
-        foreach ($this->config['files'] as $file) {
-            $this->createFolderAndFile($this->getSourceFile($file));
+        if ($this->arguments['migrationMl']){
+            $this->createFolderAndFile($this->getSourceFile($this->config));
         }
     }
 
@@ -37,7 +37,7 @@ class CreateJs extends CRUDGeneratorAbstract
      */
     public function getMessageText(): string
     {
-        return ucfirst(self::JS);
+        return $this->className . ' ml model';
     }
 
     /**
@@ -47,12 +47,11 @@ class CreateJs extends CRUDGeneratorAbstract
      */
     protected function stubVariables(): array
     {
-        $className = Str::snake($this->className, '-');
-        $routeName = Str::snake(Str::plural($this->className), '-');
+        $variableName = lcfirst(Str::singular($this->className));
 
         return [
-            'CLASS_NAME' => $className,
-            'ROUTE_NAME' => $routeName
+            'CLASS_NAME' => $this->className,
+            'VARIABLE_NAME' => $variableName
         ];
     }
 }

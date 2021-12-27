@@ -24,17 +24,18 @@ class MenuSeeder extends Seeder
 
         $menus = [
             [
-                'title' => 'Users',
-                'slug' => 'users',
-                'url' => route('dashboard.users.index'),
-                'icon' => 'flaticon-users-1',
+                'title' => 'Translation Manager',
+                'slug' => 'translation-manager',
+                'url' => route('dashboard.translation.manager'),
+                'icon' => 'fas fa-language',
                 'type' => 'admin',
                 'role' => [Role::ROLE_SUPER_ADMIN, Role::ROLE_ADMINISTRATOR]
             ],
             [
-                'title' => 'Research Areas',
-                'slug' => 'research-areas',
-                'url' => route('dashboard.research-areas.index'),
+                'title' => 'Users',
+                'slug' => 'users',
+                'url' => route('dashboard.users.index'),
+                'icon' => 'flaticon-users-1',
                 'type' => 'admin',
                 'role' => [Role::ROLE_SUPER_ADMIN, Role::ROLE_ADMINISTRATOR]
             ],
@@ -46,15 +47,6 @@ class MenuSeeder extends Seeder
                 'type' => 'admin',
                 'role' => [Role::ROLE_SUPER_ADMIN, Role::ROLE_ADMINISTRATOR]
             ],
-            [
-                'title' => 'Translation Manager',
-                'slug' => 'translation-manager',
-                'url' => route('dashboard.translation.manager'),
-                'icon' => 'fas fa-language',
-                'type' => 'admin',
-                'role' => [Role::ROLE_SUPER_ADMIN, Role::ROLE_ADMINISTRATOR]
-            ],
-
         ];
 
         foreach ($menus as $menu) {

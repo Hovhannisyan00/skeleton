@@ -4,12 +4,10 @@
 
     {{ $slot }}
     @isset($hasShowStatus)
-    <div class="custom-control custom-switch form-group">
-        <input type="checkbox" name="show_status" class="custom-control-input" checked value="1" id="__show__status">
-        <label class="custom-control-label __show__status_label" for="__show__status">
-            <span>Toggle this switch element</span>
-        </label>
-    </div>
+        <x-dashboard.form._show-status
+            class="mb-4"
+            :value="$showStatus ?? ''"
+        />
     @endisset
 
     <div class="d-flex justify-content-end ml-auto">

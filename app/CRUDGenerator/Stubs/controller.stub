@@ -73,7 +73,7 @@ class {{ CLASS_NAME }}Controller extends BaseController
         //$this->service->createOrUpdate($request->validated());
 
         return $this->sendOkCreated([
-            'redirectUrl' => route('dashboard.{{ FOLDER_NAME }}.index')
+            'redirectUrl' => route('dashboard.{{ PLURAL_CLASS_NAME }}.index')
         ]);
     }
 
@@ -110,7 +110,7 @@ class {{ CLASS_NAME }}Controller extends BaseController
         //$this->service->createOrUpdate($request->validated(), $id);
 
         return $this->sendOkUpdated([
-            'redirectUrl' => route('dashboard.{{ FOLDER_NAME }}.index')
+            'redirectUrl' => route('dashboard.{{ PLURAL_CLASS_NAME }}.index')
         ]);
     }
 

@@ -21,6 +21,7 @@ class Article extends BaseModel
     protected $fillable = [
         'slug',
         'publish_date',
+        'show_status'
     ];
 
     /**
@@ -78,6 +79,6 @@ class Article extends BaseModel
      */
     public function getPublishDateAttribute($value): string
     {
-        return Carbon::parse($value)->format('d.m.Y');
+        return Carbon::parse($value)->format(getDateFormatFront());
     }
 }

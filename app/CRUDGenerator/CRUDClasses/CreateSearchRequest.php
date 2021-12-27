@@ -16,11 +16,11 @@ class CreateSearchRequest extends CRUDGeneratorAbstract
     /**
      * CreateController constructor.
      *
-     * @param $className
+     * @param $arguments
      */
-    public function __construct($className)
+    public function __construct($arguments)
     {
-        parent::__construct($className);
+        parent::__construct($arguments);
 
         $this->config = $this->getConfig(self::REQUEST_REQUEST);
     }

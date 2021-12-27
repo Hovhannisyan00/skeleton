@@ -16,6 +16,11 @@ abstract class CRUDGeneratorAbstract
     use CRUDHelper;
 
     /**
+     * @var array
+     */
+    protected $arguments;
+
+    /**
      * @var string
      */
     protected $className;
@@ -28,11 +33,12 @@ abstract class CRUDGeneratorAbstract
     /**
      * CRUDGeneratorAbstract constructor.
      *
-     * @param $className
+     * @param $arguments
      */
-    public function __construct($className)
+    public function __construct($arguments)
     {
-        $this->className = $className;
+        $this->arguments = $arguments;
+        $this->className = $arguments['className'];
     }
 
     /**

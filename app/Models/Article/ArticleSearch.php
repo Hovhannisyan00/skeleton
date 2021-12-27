@@ -3,7 +3,6 @@
 namespace App\Models\Article;
 
 use App\Models\Base\Search;
-use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 
 /**
@@ -17,8 +16,9 @@ class ArticleSearch extends Search
      */
     protected $orderables = [
         'id',
-        'slug',
+        'title',
         'publish_date',
+        'description',
         'created_at'
     ];
 
@@ -29,18 +29,21 @@ class ArticleSearch extends Search
     {
         $filters = $this->filters;
 
-        return Article::joinTo(ArticleMls::class)->select(
+        return Article::joinMl()->select(
             'id',
-            'slug',
             'publish_date',
             'title',
+            'description',
             'created_at'
         )
             ->when(!empty($filters['id']), function ($query) use ($filters) {
                 $query->where('id', $filters['id']);
             })
-            ->when(!empty($filters['slug']), function ($query) use ($filters) {
-                $query->like('slug', $filters['slug']);
+            ->when(!empty($filters['title']), function ($query) use ($filters) {
+                $query->like('title', $filters['title']);
+            })
+            ->when(!empty($filters['description']), function ($query) use ($filters) {
+                $query->like('description', $filters['description']);
             })
             ->when(!empty($filters['created_at']), function ($query) use ($filters) {
                 $query->orderBy('created_at', $filters['created_at']);

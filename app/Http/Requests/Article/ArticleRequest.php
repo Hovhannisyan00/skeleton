@@ -20,11 +20,11 @@ class ArticleRequest extends FormRequest
         return [
             'slug' => 'required|string_with_max',
             'publish_date' => 'required|date',
-            'photo' => config('files.article.photo.validation'),
+            'photo' => 'required|string_with_max',
             'ml' => 'required|array',
-            "ml.en.title" => 'required|string_with_max',
-            'ml.en.short_description' => 'required|string_with_max',
-            'ml.en.description' => 'required|string|max:5000',
+            "ml.*.title" => 'required|string_with_max',
+            'ml.*.short_description' => 'required|string_with_max',
+            'ml.*.description' => 'required|string|max:5000',
         ];
     }
 }

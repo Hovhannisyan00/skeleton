@@ -23,9 +23,7 @@ class UserRequest extends FormRequest
             'email' => 'required|string|string_with_max|email|unique:users,email,' . request()->user,
             'role_ids' => 'required|array',
             'role_ids.*' => 'required|integer_with_max|exists:roles,id',
-            'research_area_ids' => 'required|array',
-            'research_area_ids.*' => 'required|integer_with_max|exists:research_areas,id',
-            'signature' => config('files.user.signature.validation'),
+            'signature' => 'required|string_with_max',
         ];
 
         if (request()->user){

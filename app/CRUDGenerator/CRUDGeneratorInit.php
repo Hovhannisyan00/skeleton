@@ -2,6 +2,7 @@
 
 namespace App\CRUDGenerator;
 
+use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Output\ConsoleOutput;
@@ -33,13 +34,14 @@ class CRUDGeneratorInit
         $this->consoleOutput = new ConsoleOutput();
     }
 
+    /**
+     * @throws BindingResolutionException
+     */
     public function init()
     {
         foreach (glob("app/CRUDGenerator/CRUDClasses/*.php") as $filename) {
             $class = str_replace('/', '\\', ucfirst(explode(".", $filename)[0]));
-            $classInstance = app()->make($class, [
-                'className' => $this->arguments['className']
-            ]);
+            $classInstance = app()->makeWith($class, ['arguments' => $this->arguments]);
             $classInstance->make();
             $classInstance->showMessage();
         }
@@ -84,10 +86,19 @@ class CRUDGeneratorInit
      */
     private function successMessage(): void
     {
-        $textMessage = '
-<fg=yellow>Please don\'t forget add this code</>
-<fg=green>// ' . $this->arguments['className'] . 'Repository registration
-$this->app->singleton(I' . $this->arguments['className'] . 'Repository::class, ' . $this->arguments['className'] . 'Repository::class);</> <fg=yellow>in RepositoryServiceProvider.</>';
+        $routeName = Str::snake(Str::plural($this->arguments['className']), '-');
+        $name = Str::snake(Str::plural($this->arguments['className']), '.');
+        $plural = Str::plural($this->arguments['className']);
+
+        $textMessage = "
+<fg=yellow>Please don't forget put this codes</>
+<fg=blue>1) </>
+<fg=green>// {$this->arguments['className']}Repository registration
+\$this->app->singleton(I{$this->arguments['className']}Repository::class, {$this->arguments['className']}Repository::class);</> <fg=yellow>in RepositoryServiceProvider.</>
+<fg=blue>2) </>
+<fg=green>// $plural
+Route::resource('$routeName', {$this->arguments['className']}Controller::class);
+Route::get('$routeName/dataTable/get-list', [{$this->arguments['className']}Controller::class, 'getListData'])->name('$name.getListData');</> <fg=yellow>in dashboard.php</>";
         $this->consoleOutput->writeln($textMessage);
     }
 

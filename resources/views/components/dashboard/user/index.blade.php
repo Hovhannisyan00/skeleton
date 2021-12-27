@@ -26,10 +26,10 @@
                         <thead>
                         <tr>
                             <th data-key="id">{{ __('__dashboard.label.id') }}</th>
-                            <th data-key="first_name">{{ __('__dashboard.first_name') }}</th>
-                            <th data-key="last_name">{{ __('__dashboard.last_name') }}</th>
-                            <th data-key="email">{{ __('__dashboard.email') }}</th>
-                            <th data-key="roles" data-orderable="false">{{ __('__dashboard.user.role') }}</th>
+                            <th data-key="first_name">{{ __('__dashboard.label.first_name') }}</th>
+                            <th data-key="last_name">{{ __('__dashboard.label.last_name') }}</th>
+                            <th data-key="email">{{ __('__dashboard.label.email') }}</th>
+                            <th data-key="roles" data-orderable="false">{{ __('__dashboard.label.roles') }}</th>
                             <th data-key="created_at">{{ __('__dashboard.label.created_at') }}</th>
                             <th class="text-center" style="width: 90px">{{ __('__dashboard.label.actions') }}</th>
                         </tr>
@@ -42,7 +42,7 @@
 
     <x-slot name="scripts">
         <script src="{{ asset('/js/dashboard/core/DataTable.js') }}"></script>
-        <script src="{{ asset('/js/dashboard/users/index.js') }}"></script>
+        <script src="{{ asset('/js/dashboard/user/index.js') }}"></script>
     </x-slot>
 </x-dashboard.layouts.app>
 
