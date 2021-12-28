@@ -322,7 +322,8 @@ localStorage.removeItem('_message'); // datepicker
 
 $('.datepicker').attr('autocomplete', 'off');
 $('.datepicker').datepicker({
-  format: 'dd.mm.yyyy',
+  // eslint-disable-next-line no-undef
+  format: $dashboardDates.js.date_format_front,
   orientation: 'bottom'
 }).on('changeDate', function (ev) {
   $('.datepicker').datepicker('hide');

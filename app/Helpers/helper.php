@@ -137,6 +137,13 @@ if (!function_exists("getDateTimeFormatFront")) {
     }
 }
 
+if (!function_exists("getJsDateFormatFront")) {
+    function getJsDateFormatFront()
+    {
+        return config('dashboard.js.date_format_front');
+    }
+}
+
 if (!function_exists("formattedDate")) {
     function formattedDate($date): string
     {
@@ -152,6 +159,9 @@ if (!function_exists("getDashboardDates")) {
             'date_format_front' => getDateFormatFront(),
             'date_time_format' => getDateTimeFormat(),
             'date_time_format_front' => getDateTimeFormatFront(),
+            'js' => [
+                'date_format_front' => getJsDateFormatFront(),
+            ]
         ];
     }
 }
