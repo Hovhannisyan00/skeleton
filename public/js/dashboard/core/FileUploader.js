@@ -195,3 +195,5 @@ class FileUploader {
   }
   // Delete functions end
 }
+
+new FileUploader();

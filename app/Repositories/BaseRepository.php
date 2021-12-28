@@ -200,12 +200,17 @@ class BaseRepository implements IBaseRepository
     /**
      * Function to return get for select
      *
-     * @param string $value
-     * @param string $text
+     * @param string $column
+     * @param string $key
+     * @param array $with
      * @return Collection
      */
-    public function getForSelect(string $value = 'id', string $text = 'name'): Collection
+    public function getForSelect(string $column = 'name', string $key = 'id', array $with = []): Collection
     {
-        return $this->model->pluck($text, $value);
+        if (empty($with)){
+            return $this->model->pluck($column, $key);
+        }
+
+        return $this->model::with($with)->get()->pluck($column, $key);
     }
 }
