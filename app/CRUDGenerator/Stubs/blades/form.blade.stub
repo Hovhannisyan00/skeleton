@@ -9,7 +9,7 @@
                     :indexUrl="route('dashboard.{{ ROUTE_NAME }}.index')"
                 >
                     <div class="row">
-                        <div class="col-lg-6 form-group">
+                        <div class="col-lg-6 form-group required">
                             <x-dashboard.form._input name="name" :value="${{ VARIABLE_NAME }}->name ?? ''"/>
                         </div>
                     </div>

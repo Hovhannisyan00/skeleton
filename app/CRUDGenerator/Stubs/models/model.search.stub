@@ -26,7 +26,8 @@ class {{ CLASS_NAME }}Search extends Search
         $filters = $this->filters;
 
         return {{ CLASS_NAME }}::select(
-            'id'
+            'id',
+            'name'
         )
             ->when(!empty($filters['id']), function ($query) use ($filters) {
                 $query->where('id', $filters['id']);

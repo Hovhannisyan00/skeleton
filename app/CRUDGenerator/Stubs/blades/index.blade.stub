@@ -20,6 +20,7 @@
                         <thead>
                         <tr>
                             <th data-key="id">{{ __('__dashboard.label.id') }}</th>
+                            <th data-key="name">{{ __('__dashboard.label.name') }}</th>
                             <th class="text-center">{{ __('__dashboard.label.actions') }}</th>
                         </tr>
                         </thead>

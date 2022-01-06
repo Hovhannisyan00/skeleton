@@ -13,5 +13,7 @@ class {{ CLASS_NAME }} extends BaseModel
     /**
      * @var string[]
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'name'
+    ];
 }

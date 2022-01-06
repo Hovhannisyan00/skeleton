@@ -55,12 +55,12 @@ class CRUDGenerator extends Command
     public function handle(): void
     {
         $className = $this->ask('What is your class name?(singular)');
-        $migration = $this->confirm('Do you want to create migration? (yes|no)', false);
-        $migrationMl = $this->confirm('Do you want to create migration for multi language? (yes|no)', false);
+//        $migration = $this->confirm('Do you want to create migration?', false);
+        $migrationMl = $this->confirm('Do you want to create migration for multi language?', false);
 
         (new CRUDGeneratorInit([
             'className' => $className,
-            'migration' => $migration,
+//            'migration' => $migration,
             'migrationMl' => $migrationMl,
         ]))->init();
     }
