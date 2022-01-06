@@ -3,7 +3,7 @@
         <div class="card mb-4">
             <div class="card-header">
                 <div class="card-title">
-                    <h3 class="card-label">{{ $sub_header_data['pageName'] ?? '' }}</h3>
+                    <h3 class="card-label">{{ $subHeaderData['pageName'] ?? '' }}</h3>
                 </div>
             </div>
             <div class="card-body">

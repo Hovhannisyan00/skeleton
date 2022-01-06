@@ -7,6 +7,7 @@
        id="{{ $name }}.{{ $randomNum }}"
        @isset($autocomplete) autocomplete="off" @endisset
        @isset($readonly) readonly @endisset
+       @isset($disabled) disabled @endisset
        placeholder="{{ $title }}"
        name="{{ $name ?? '' }}"
        value="{{ $value ?? '' }}"

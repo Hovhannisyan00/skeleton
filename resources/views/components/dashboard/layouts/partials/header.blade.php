@@ -3,6 +3,9 @@
         <a href="/" class="brand-logo d-xl-none">
             <img src="/img/logo.svg" width="100" alt="Logo">
         </a>
+
+        {{-- Notification Block --}}
+        @if(config('dashboard.show_notification'))
         <a href="#" class="notification-btn ml-auto position-relative dropdown-toggle" data-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false">
             <i>15</i>
@@ -75,12 +78,14 @@
             </div>
             <a href="#" class="notification-link-all">SEE ALL</a>
         </div>
+        @endif
 
-        <div class="btn-group lang-drop">
+        {{-- Lnaguage Block --}}
+        <div class="btn-group lang-drop {{!config('dashboard.show_notification') ? 'ml-auto' : ''}}">
             <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-label="lang"
                     aria-haspopup="true" aria-expanded="false">
                 <img
-                    src="{{m_lang_icon_path(LaravelLocalization::getCurrentLocale())}}"
+                    src="{{langIconPath(LaravelLocalization::getCurrentLocale())}}"
                     alt="" width="20px" height="20px">
             </button>
             <div class="dropdown-menu dropdown-menu-right">
@@ -88,13 +93,15 @@
                     @if(LaravelLocalization::getCurrentLocale() != $localCode)
                         <a class="dropdown-item"
                            href="{{ LaravelLocalization::getLocalizedURL($localCode, null, [], true) }}">
-                            <img src="{{m_lang_icon_path($localCode)}}" alt="" width="20px" height="20px">
+                            <img src="{{langIconPath($localCode)}}" alt="" width="20px" height="20px">
                             <span class="navi-text">{{__($localCode)}}</span>
                         </a>
                     @endif
                 @endforeach
             </div>
         </div>
+
+        {{-- User Block --}}
         <div class="btn-group">
             <button type="button" class="btn dropdown-toggle d-flex align-items-center" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
@@ -102,14 +109,20 @@
                 <span class="flaticon-user ml-2"></span>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-                <button class="dropdown-item" type="button">
+                <a href="{{dashboardRoute('profile.index')}}" class="dropdown-item" type="button">
                     <i class="flaticon2-user-1 mr-2"></i>
-                    My Profile
-                </button>
-                <button class="dropdown-item" type="button">
+                    {{__('__dashboard.profile.dropdown')}}
+                </a>
+                <button class="dropdown-item" type="button" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                     <i class="flaticon-logout  mr-2"></i>
-                    Log out
+                    {{__('__dashboard.global.log_out')}}
                 </button>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                      style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+
             </div>
         </div>
 

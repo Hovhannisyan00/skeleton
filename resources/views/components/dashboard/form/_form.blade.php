@@ -4,13 +4,17 @@
 
     {{ $slot }}
     @isset($hasShowStatus)
-        <x-dashboard.form._show-status
-            class="mb-4"
-            :value="$showStatus ?? ''"
-        />
+       <div class="row">
+          <div class="col-lg-6">
+              <x-dashboard.form._show-status
+                  class="mb-4"
+                  :value="$showStatus ?? ''"
+              />
+          </div>
+       </div>
     @endisset
 
-    <div class="d-flex justify-content-end ml-auto">
+    <div class="d-flex justify-content-end ml-auto form-bottom-buttons">
         @isset($footer)
             {{ $footer }}
         @else

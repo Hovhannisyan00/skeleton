@@ -62,6 +62,8 @@ $menu-icon-hover-color: #3699FF;
 }
 .brand-logo{
 
+    color: #fff;
+
     img{
         max-height: 55px;
         max-width: 160px;
@@ -159,6 +161,7 @@ $menu-icon-hover-color: #3699FF;
             padding: 9px 20px;
             font-size: 14px;
             min-height: 44px;
+            color: #fff;
 
             &[aria-expanded=true], &.active{
                 background-color: #2f3a70;

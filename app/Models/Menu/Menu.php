@@ -22,9 +22,15 @@ class Menu extends BaseModel
      */
     protected $guard_name = 'web';
 
+    /**
+     * @var string
+     */
     const MENU_TYPE_ADMIN = 'admin';
     const MENU_TYPE_PROFILE = 'profile';
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'title',
         'slug',
@@ -47,6 +53,8 @@ class Menu extends BaseModel
     }
 
     /**
+     * Function to get admin type menu
+     *
      * @param Builder $builder
      */
     public function scopeAdmin(Builder $builder)
@@ -55,6 +63,8 @@ class Menu extends BaseModel
     }
 
     /**
+     * Function to get child menus
+     *
      * @return HasMany
      */
     public function children(): HasMany

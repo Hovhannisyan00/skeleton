@@ -45,12 +45,14 @@ class FormRequest {
       $('.form-group').removeClass('is-invalid');
       // eslint-disable-next-line no-restricted-syntax
       for (const [key, value] of Object.entries(error.errors)) {
-        const hasErrorSpan = this.formEl.find(`.validation-error[data-name="${key}"]`);
-        this.formEl.find(`.validation-error[data-name="${key}"]`).html(value);
-        this.formEl.find(`.validation-error[data-name="${key}[]"]`).html(value);
+        let hasErrorSpan = this.formEl.find(`.validation-error[data-name="${key}"]`);
+
+        if(!hasErrorSpan.length){
+          hasErrorSpan = this.formEl.find(`.validation-error[data-name="${key}[]"]`);
+        }
 
         hasErrorSpan.closest('.form-group').addClass('is-invalid');
-        hasErrorSpan.addClass('has-error');
+        hasErrorSpan.html(value).addClass('has-error');
       }
 
       this.scrollToFirstError();

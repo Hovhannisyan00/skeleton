@@ -21,7 +21,7 @@ class FileController extends BaseController
      */
     public function __construct(
         IFileRepository $repository,
-        FileService     $service
+        FileService $service
     )
     {
         parent::__construct($service);

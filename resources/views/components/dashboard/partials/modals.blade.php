@@ -1,5 +1,5 @@
 <div class="modal fade" id="d_confirm__modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-sm" role="dialog">
+    <div class="modal-dialog modal-md" role="dialog">
         <div class="modal-content border-0">
             <div class="modal-header">
                 <h5 class="modal-title">{{ __('__dashboard.modal.confirm_action') }}</h5>

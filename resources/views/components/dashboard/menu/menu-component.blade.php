@@ -17,7 +17,7 @@
                     <ul class="menu-nav">
                         @foreach($menu->children as $child)
                             <li class="menu-item">
-                                <a href="{{ $child->url }}" class="menu-link">
+                                <a href="{{ urlWithLng($child->url) }}" class="menu-link">
                                     <i class="menu-bullet-line">
                                         <span></span>
                                     </i>
@@ -28,8 +28,8 @@
                     </ul>
                 </div>
         @else
-            <li class="menu-item">
-                <a href="{{ $menu->url }}" class="menu-link">
+            <li class="menu-item ">
+                <a href="{{ urlWithLng($menu->url) }}" class="menu-link {{(request()->is('*'.$menu->url.'*')) ? 'active' : ''}}">
                 <span class="svg-icon">
                     <i class="{{ $menu->icon }}"></i>
                 </span>

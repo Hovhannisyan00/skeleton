@@ -6,8 +6,8 @@ use App\Http\Requests\Article\ArticleRequest;
 use App\Http\Requests\Article\ArticleSearchRequest;
 use App\Models\Article\ArticleSearch;
 use App\Services\Article\ArticleService;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
-use Illuminate\View\View;
 
 /**
  * Class ArticleController
