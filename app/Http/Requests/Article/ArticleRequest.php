@@ -21,6 +21,8 @@ class ArticleRequest extends FormRequest
             'slug' => 'required|string_with_max',
             'publish_date' => 'required|date',
             'photo' => 'required|string_with_max',
+            'show_status' => 'required|show_status_validator',
+
             'ml' => 'required|array',
             "ml.*.title" => 'required|string_with_max',
             'ml.*.short_description' => 'required|string_with_max',

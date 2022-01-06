@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Base\BaseModel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
@@ -53,6 +54,22 @@ class ValidatorServiceProvider extends ServiceProvider
             return $this->validator($data, $rules);
 
         }, trans('validation.custom.between.numeric', ['min' => $minIntegerLength, 'max' => $maxIntegerLength]));
+
+        // Show status validator
+        Validator::extend('show_status_validator', function ($attribute, $value, $parameters) use ($minIntegerLength, $maxIntegerLength) {
+            $data = [];
+
+            if (str_contains($attribute, '.')) {
+                $data = $this->dataArray(explode('.', $attribute), $value);
+            } else {
+                $data[$attribute] = $value;
+            }
+
+            $rules = [$attribute => "in:" . implode(',', BaseModel::SHOW_STATUSES_FOR_SELECT)];
+
+            return $this->validator($data, $rules);
+
+        }, trans('validation.invalid'));
     }
 
     /**

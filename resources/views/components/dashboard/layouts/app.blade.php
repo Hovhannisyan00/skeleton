@@ -42,6 +42,11 @@
         }
         echo json_encode($trans);
         ?>;
+
+        window.$trans = (key) => {
+            return _.get(window.trans, key, key);
+        };
+
     </script>
 </head>
 <body>

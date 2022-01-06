@@ -19,7 +19,7 @@ class ActiveScope implements Scope
     public function apply(Builder $builder, Model $model)
     {
         if ($model->hasShowStatus()) {
-            $builder->where('show_status', BaseModel::SHOW_STATUS_ACTIVE);
+            $builder->where('show_status', '!=', BaseModel::SHOW_STATUS_DELETED);
         }
     }
 }

@@ -98,8 +98,10 @@ return array(
     'select' => [
         'option' => [
             'show_status_1' => 'Active',
-            'show_status_2' => 'In Active'
-        ]
+            'show_status_2' => 'Inactive',
+            'default' => 'Select'
+        ],
+
     ],
 
     'modal' => [

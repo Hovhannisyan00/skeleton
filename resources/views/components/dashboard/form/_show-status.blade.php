@@ -8,6 +8,9 @@
         id="{{ $name }}.{{$randomNum}}"
         class="form-control {{ $class ?? '' }}"
 >
+    @if(isset($defaultOption))
+        <option value=""> {{ __('__dashboard.select.option.default') }}</option>
+    @endif
     @foreach(\App\Models\Base\BaseModel::SHOW_STATUSES_FOR_SELECT as $item)
         <option value="{{ $item }}"
                 @if(isset($value) && $item == $value) selected @endif

@@ -8,7 +8,7 @@ use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
 
 //
-Route::get('/',  [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/',  [DashboardController::class, 'index']);
 
 // Files
 Route::get('files/get-config/{file_config_key}', [FileController::class, 'getConfig'])->name('files.getConfig');

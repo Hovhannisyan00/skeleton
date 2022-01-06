@@ -21,6 +21,7 @@ class ArticleSearchRequest extends DatatableSearchRequest
                 'f.id' => 'nullable|integer_with_max',
                 'f.slug' => 'nullable|string_with_max',
                 'f.publish_date' => 'nullable|date',
+                'f.show_status' => 'nullable|show_status_validator',
             ];
     }
 }

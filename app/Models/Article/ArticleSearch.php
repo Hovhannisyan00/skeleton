@@ -34,6 +34,7 @@ class ArticleSearch extends Search
             'publish_date',
             'title',
             'description',
+            'show_status',
             'created_at'
         )
             ->when(!empty($filters['id']), function ($query) use ($filters) {
@@ -44,6 +45,9 @@ class ArticleSearch extends Search
             })
             ->when(!empty($filters['description']), function ($query) use ($filters) {
                 $query->like('description', $filters['description']);
+            })
+            ->when(!empty($filters['show_status']), function ($query) use ($filters) {
+                $query->where('show_status', $filters['show_status']);
             })
             ->when(!empty($filters['created_at']), function ($query) use ($filters) {
                 $query->orderBy('created_at', $filters['created_at']);
