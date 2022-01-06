@@ -179,6 +179,14 @@ class DataTable {
     _selfDataTable.tableReload();
   }
 
+  defaultSearchData() {
+
+    let self = this;
+    $.each(this.searchFormEl.find('.default-search'), function (k, item) {
+      self.searchData[`f[${$(item).attr('name')}]`] = $(item).val();
+    });
+  }
+
   createDataTable() {
     this.table = this.tableEl.DataTable(this.options);
   }
@@ -191,6 +199,7 @@ class DataTable {
   init() {
     _selfDataTable = this;
     this.actions();
+    this.defaultSearchData();
     this.generateOptions();
     this.eventListener();
     this.$_functions();

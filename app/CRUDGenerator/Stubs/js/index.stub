@@ -7,6 +7,10 @@ const options = {
   },
 
   relations: {},
+
+  actions: {
+      show: false,
+  },
 };
 // eslint-disable-next-line no-new,no-undef
 new DataTable(options);

@@ -15,6 +15,9 @@
                         <div class="col-md-4 form-group">
                             <x-dashboard.form._input name="description"/>
                         </div>
+                        <div class="col-md-4 form-group">
+                            <x-dashboard.form._show-status class="default-search" defaultOption/>
+                        </div>
                     </div>
                     <div class="col-md-1 form-group text-right d-flex flex-column justify-content-end">
                         <x-dashboard.form._loader_btn/>
@@ -30,6 +33,7 @@
                             <th data-key="description">{{ __('__dashboard.label.description') }}</th>
                             <th data-key="publish_date">{{ __('__dashboard.label.publish_date') }}</th>
                             <th data-key="created_at">{{ __('__dashboard.label.created_at') }}</th>
+                            <th data-key="show_status">{{ __('__dashboard.label.show_status') }}</th>
                             <th class="text-center">{{ __('__dashboard.label.actions') }}</th>
                         </tr>
                         </thead>

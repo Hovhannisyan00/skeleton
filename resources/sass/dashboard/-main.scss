@@ -26,6 +26,20 @@ $icon-hover-color: #3699FF;
     }
 }
 
+span.show-status-2{
+    display: inline-block;
+    background-color: #e75252;
+    padding: 5px 10px;
+    color: #fff;
+}
+
+span.show-status-1{
+    display: inline-block;
+    background-color: #2ca12c;
+    padding: 5px 10px;
+    color: #fff;
+}
+
 .notification-btn {
     padding: 3px 6px;
     border-radius: 0.42rem;
