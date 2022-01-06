@@ -40,7 +40,7 @@
                         <div class="col-lg-6 form-group required">
                             <x-dashboard.form._input name="password" type="password"/>
                         </div>
-                        <div class="col-lg-6 form-group required">
+                        <div class="col-lg-6 form-group">
                             <x-dashboard.form._input name="password_confirmation" type="password"/>
                         </div>
                     </div>

@@ -3,12 +3,8 @@
 namespace App\Models\User;
 
 use App\Models\File\File;
-use App\Models\ResearchArea\ResearchArea;
-use App\Services\File\FileService;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -61,17 +57,6 @@ class User extends Authenticatable
         'created_at' => 'datetime:d.m.Y',
     ];
 
-
-    /**
-     * Function to return research areas
-     *
-     * @return BelongsToMany
-     */
-    public function researchAreas(): BelongsToMany
-    {
-        return $this->belongsToMany(ResearchArea::class);
-    }
-
     /**
      * Function to return user all files
      *
@@ -98,5 +83,15 @@ class User extends Authenticatable
     public function getSignatureAttribute(): ?Model
     {
         return $this->files('signature')->first();
+    }
+
+    /**
+     * Function to return user name
+     *
+     * @return string
+     */
+    public function name(): string
+    {
+        return $this->first_name . ' ' . $this->last_name;
     }
 }

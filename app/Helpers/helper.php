@@ -4,9 +4,41 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
+
+/* ========================================================================================
+                                Route Helper Functions - Start
+ ======================================================================================== */
+
+if (!function_exists("urlWithLng")) {
+    function urlWithLng($url)
+    {
+        return url(currentLanguageCode() . '/' . ltrim($url, '/'));
+    }
+}
+
+if (!function_exists('routeWithLng')) {
+    function routeWithLng($name, $parameters = [], $absolute = true)
+    {
+        return app('url')->route($name, $parameters, $absolute);
+    }
+}
+
+if (!function_exists("dashboardRoute")) {
+    function dashboardRoute($name)
+    {
+        return route('dashboard.' . $name);
+    }
+}
+
+/* ========================================================================================
+                                Route Helper Functions - End
+ ======================================================================================== */
+
+
 /* ========================================================================================
                                 Translation Helper Functions - Start
  ======================================================================================== */
+
 if (!function_exists("currentLanguageCode")) {
     function currentLanguageCode(): string
     {
@@ -63,31 +95,24 @@ if (!function_exists("getTrans")) {
                                 Translation Helper Functions - End
  ======================================================================================== */
 
+if (!function_exists('langIconPath')) {
 
-function m_lang_icon_path($lang = null): string
-{
-    switch ($lang) {
-        case  'ru':
-            return '/img/Flag_of_Russia.svg';
-        case  'hy':
-            return '/img/Armenia_-_Rounded_Rectangle.svg';
-        default:
-            return '/img/united-states.svg';
+    function langIconPath($lang = null): string
+    {
+        switch ($lang) {
+            case  'ru':
+                return '/img/Flag_of_Russia.svg';
+            case  'hy':
+                return '/img/Armenia_-_Rounded_Rectangle.svg';
+            default:
+                return '/img/united-states.svg';
+        }
     }
 }
 
-function active_link($path = '', $prefix = '/_dashboard')
-{
-    $path = $path ? '/' . $path : '';
-    return Request::is(LaravelLocalization::getCurrentLocale() . $prefix . $path);
-}
 
 if (!function_exists('getAllRoutesName')) {
-    /**
-     * Function to return all routes name
-     *
-     * @return array
-     */
+
     function getAllRoutesName(): array
     {
         $routeCollection = Route::getRoutes()->get();
@@ -103,7 +128,6 @@ if (!function_exists('getAllRoutesName')) {
         return $routesName;
     }
 }
-
 
 /* ========================================================================================
                                 Date Helper Functions - Start
@@ -169,6 +193,3 @@ if (!function_exists("getDashboardDates")) {
 /* ========================================================================================
                                 Date Helper Functions - End
  ======================================================================================== */
-
-
-

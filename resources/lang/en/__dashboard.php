@@ -1,6 +1,11 @@
 <?php
 
 return array(
+    'title' => "Dashboard",
+
+    'global' => [
+        'log_out' => "logout",
+    ],
     'menu' =>
         array(
             'translation-manager' => 'Translation Manager',
@@ -18,16 +23,19 @@ return array(
 
             'form' => [
                 'add' => [
-                    'title' => 'Create User'
-                ]
+                    'title' => 'Create User',
+                ],
+                'edit' => [
+                    'title' => 'Edit User',
+                    'description' => '',
+                ],
             ]
         ),
 
     'article' => [
         'form' => [
             'edit' => [
-                'title' => 'Articles',
-                'create' => 'Create Article',
+                'title' => 'Edit Article',
                 'description' => '',
             ],
 
@@ -42,6 +50,16 @@ return array(
             'create' => 'Create Article',
             'description' => '',
         ],
+    ],
+
+    'profile' => [
+
+        'index' => [
+            'title' => 'My Profile',
+            'description' => '',
+        ],
+
+        'dropdown' => 'My Profile'
     ],
 
     'button' => [

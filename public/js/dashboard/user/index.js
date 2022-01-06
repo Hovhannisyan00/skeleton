@@ -9,6 +9,10 @@ const options = {
   relations: {
     roles: 'name',
   },
+
+  actions: {
+    show: false,
+  },
 };
 // eslint-disable-next-line no-new,no-undef
 new DataTable(options);

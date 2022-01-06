@@ -5,9 +5,9 @@ namespace App\Http\Controllers\Dashboard;
 use App\Contracts\Role\IRoleRepository;
 use App\Http\Requests\Role\RoleSearchRequest;
 use App\Models\RoleAndPermission\RoleSearch;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\View\View;
 
 /**
  * Class RoleController

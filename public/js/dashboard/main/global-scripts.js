@@ -125,21 +125,21 @@ window.$func = {
                     }
                     mask = d + mask;
                 });
-                 return mask;
+                  return mask;
             }
-             /!*if (amount){
+              /!*if (amount){
                let decimalCount = Math.abs(decimals);
                 decimalCount = isNaN(decimals) ? 2 : decimals;
-                 const negativeSign = amount < 0 ? "-" : "";
-                 let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimals)).toString();
+                  const negativeSign = amount < 0 ? "-" : "";
+                  let i = parseInt(amount = Math.abs(Number(amount) || 0).toFixed(decimals)).toString();
                 let j = (i.length > 3) ? i.length % 3 : 0;
-                 return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimals ? decimal + Math.abs(amount - i).toFixed(decimals).slice(2) : "");
+                  return negativeSign + (j ? i.substr(0, j) + thousands : '') + i.substr(j).replace(/(\d{3})(?=\d)/g, "$1" + thousands) + (decimals ? decimal + Math.abs(amount - i).toFixed(decimals).slice(2) : "");
             }*!/
-             return ''
-         } catch (e) {
+              return ''
+          } catch (e) {
             console.log(amount)
         }
-     } */
+      } */
   jqueryMask: function jqueryMask() {
     $('.kt_date_input').mask('00.00.0000', {// placeholder: "dd/mm/yyyy"
     });

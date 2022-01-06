@@ -8,5 +8,7 @@ return [
     'js' => [
         'date_format' => env('JS_DATE_FORMAT', 'yyyy-mm-dd'),
         'date_format_front' => env('JS_DATE_FORMAT_FRONT', 'dd.mm.yyyy'),
-    ]
+    ],
+
+    'show_notification' => env('SHOW_NOTIFICATION', true)
 ];
