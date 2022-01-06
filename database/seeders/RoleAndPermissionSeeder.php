@@ -20,8 +20,6 @@ class RoleAndPermissionSeeder extends Seeder
      */
     public function run()
     {
-
-
         $roles = [
             [
                 'id' => 1,
@@ -30,22 +28,7 @@ class RoleAndPermissionSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'name' => Role::ROLE_ADMINISTRATOR,
-                'guard_name' => 'web',
-            ],
-            [
-                'id' => 3,
-                'name' => Role::ROLE_STUDENT,
-                'guard_name' => 'web',
-            ],
-            [
-                'id' => 4,
-                'name' => Role::ROLE_FACILITATOR,
-                'guard_name' => 'web',
-            ],
-            [
-                'id' => 5,
-                'name' => Role::ROLE_SENIOR_FACILITATOR,
+                'name' => Role::ROLE_USER,
                 'guard_name' => 'web',
             ]
         ];

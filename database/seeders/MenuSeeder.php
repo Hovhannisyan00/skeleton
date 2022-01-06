@@ -29,7 +29,7 @@ class MenuSeeder extends Seeder
                 'url' => route('dashboard.translation.manager', [], false),
                 'icon' => 'fas fa-language',
                 'type' => 'admin',
-                'role' => [Role::ROLE_SUPER_ADMIN, Role::ROLE_ADMINISTRATOR]
+                'role' => [Role::ROLE_SUPER_ADMIN]
             ],
             [
                 'title' => 'Users',
@@ -37,7 +37,7 @@ class MenuSeeder extends Seeder
                 'url' => route('dashboard.users.index', [], false),
                 'icon' => 'flaticon-users-1',
                 'type' => 'admin',
-                'role' => [Role::ROLE_SUPER_ADMIN, Role::ROLE_ADMINISTRATOR]
+                'role' => [Role::ROLE_SUPER_ADMIN]
             ],
             [
                 'title' => 'Articles',
@@ -45,7 +45,7 @@ class MenuSeeder extends Seeder
                 'url' => route('dashboard.articles.index', [], false),
                 'icon' => 'fab fa-autoprefixer',
                 'type' => 'admin',
-                'role' => [Role::ROLE_SUPER_ADMIN, Role::ROLE_ADMINISTRATOR]
+                'role' => [Role::ROLE_SUPER_ADMIN]
             ],
         ];
 
