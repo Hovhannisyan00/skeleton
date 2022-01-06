@@ -13,7 +13,7 @@ class CRUDGenerator extends Command
      *
      * @var string
      */
-    protected $signature = 'crud:generator {--m} {--ml}';
+    protected $signature = 'crud:generator';
 
     /**
      * The console command description.
@@ -54,9 +54,9 @@ class CRUDGenerator extends Command
      */
     public function handle(): void
     {
-        $migration = $this->option('m');
-        $migrationMl = $this->option('ml');
         $className = $this->ask('What is your class name?(singular)');
+        $migration = $this->confirm('Do you want to create migration? (yes|no)', false);
+        $migrationMl = $this->confirm('Do you want to create migration for multi language? (yes|no)', false);
 
         (new CRUDGeneratorInit([
             'className' => $className,
