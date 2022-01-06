@@ -7,7 +7,7 @@ use App\Http\Requests\{{ CLASS_NAME }}\{{ CLASS_NAME }}SearchRequest;
 use App\Models\{{ CLASS_NAME }}\{{ CLASS_NAME }}Search;
 use App\Services\{{ CLASS_NAME }}\{{ CLASS_NAME }}Service;
 use Illuminate\Http\JsonResponse;
-use Illuminate\View\View;
+use Illuminate\Contracts\View\View;
 
 /**
  * Class {{ CLASS_NAME }}Controller
