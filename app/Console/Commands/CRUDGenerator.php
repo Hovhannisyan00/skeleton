@@ -26,15 +26,16 @@ class CRUDGenerator extends Command
         1) Request
         2) Controller
         3) Model
-        4) Repository
-        5) Interface
-        6) Service
-        7) SearchRequest
-        8) ModelSearch
-        9) blade creating
-        10) js creating
-        11) migration by class name
-        12) migration ml by class name
+        4) ML Model
+        5) Repository
+        6) Interface
+        7) Service
+        8) SearchRequest
+        9) ModelSearch
+        10) blade creating
+        11) js creating
+        12) migration by class name
+        13) migration ml by class name
     ';
 
     /**
