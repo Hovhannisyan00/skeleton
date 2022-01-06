@@ -58,11 +58,9 @@ class CRUDGeneratorInit
      */
     private function makeMigration(): void
     {
-        if ($this->arguments['migration'] || $this->arguments['migrationMl']) {
-            $tableName = Str::plural(Str::snake($this->arguments['className'], '_'));
-            Artisan::call("make:migration create_{$tableName}_table");
-            $this->consoleOutput->writeln("<fg=green>Migration created successfully</>");
-        }
+        $tableName = Str::plural(Str::snake($this->arguments['className'], '_'));
+        Artisan::call("make:migration create_{$tableName}_table");
+        $this->consoleOutput->writeln("<fg=green>Migration created successfully</>");
     }
 
     /**

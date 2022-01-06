@@ -49,7 +49,7 @@ return [
         'uploads' => [
             'driver' => 'local',
             'root' => storage_path('app/public/uploads'),
-            'url' => env('APP_URL').'/storage/uploads',
+            'url' => '/storage/uploads',
             'visibility' => 'public',
         ],
 
@@ -67,7 +67,7 @@ return [
         'pending' => [
             'driver' => 'local',
             'root' => storage_path('app/public/pending'),
-            'url' => env('APP_URL').'/storage/pending',
+            'url' => '/storage/pending',
         ],
     ],
 

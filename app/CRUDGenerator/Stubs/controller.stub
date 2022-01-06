@@ -6,8 +6,9 @@ use App\Http\Requests\{{ CLASS_NAME }}\{{ CLASS_NAME }}Request;
 use App\Http\Requests\{{ CLASS_NAME }}\{{ CLASS_NAME }}SearchRequest;
 use App\Models\{{ CLASS_NAME }}\{{ CLASS_NAME }}Search;
 use App\Services\{{ CLASS_NAME }}\{{ CLASS_NAME }}Service;
+use App\Contracts\{{ CLASS_NAME }}\I{{ CLASS_NAME }}Repository;
 use Illuminate\Http\JsonResponse;
-use Illuminate\View\View;
+use Illuminate\Contracts\View\View;
 
 /**
  * Class {{ CLASS_NAME }}Controller
@@ -19,10 +20,16 @@ class {{ CLASS_NAME }}Controller extends BaseController
      * {{ CLASS_NAME }}Controller constructor.
      *
      * @param {{ CLASS_NAME }}Service $service
+     * @param I{{ CLASS_NAME }}Repository $repository
      */
-    public function __construct({{ CLASS_NAME }}Service $service)
+    public function __construct(
+        {{ CLASS_NAME }}Service $service,
+        I{{ CLASS_NAME }}Repository $repository
+    )
     {
         parent::__construct($service);
+
+        $this->repository = $repository;
     }
 
     /**
@@ -70,7 +77,7 @@ class {{ CLASS_NAME }}Controller extends BaseController
      */
     public function store({{ CLASS_NAME }}Request $request): JsonResponse
     {
-        //$this->service->createOrUpdate($request->validated());
+        $this->repository->create($request->validated());
 
         return $this->sendOkCreated([
             'redirectUrl' => route('dashboard.{{ PLURAL_CLASS_NAME }}.index')
@@ -95,7 +102,9 @@ class {{ CLASS_NAME }}Controller extends BaseController
      */
     public function edit(int $id): View
     {
-        return $this->dashboardView('{{ FOLDER_NAME }}.form', [], 'edit');
+        ${{ FOLDER_NAME }} = $this->repository->findOrFail($id);
+
+        return $this->dashboardView('{{ FOLDER_NAME }}.form', ['{{ FOLDER_NAME }}' => ${{ FOLDER_NAME }}], 'edit');
     }
 
     /**
@@ -107,7 +116,7 @@ class {{ CLASS_NAME }}Controller extends BaseController
      */
     public function update({{ CLASS_NAME }}Request $request, int $id): JsonResponse
     {
-        //$this->service->createOrUpdate($request->validated(), $id);
+        $this->repository->update($id, $request->validated());
 
         return $this->sendOkUpdated([
             'redirectUrl' => route('dashboard.{{ PLURAL_CLASS_NAME }}.index')
@@ -122,7 +131,7 @@ class {{ CLASS_NAME }}Controller extends BaseController
      */
     public function destroy(int $id): JsonResponse
     {
-        //$this->service->delete($id);
+        $this->repository->destroy($id);
         return $this->sendOkDeleted();
     }
 }

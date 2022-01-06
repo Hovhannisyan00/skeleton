@@ -70,6 +70,42 @@ class BaseRepository implements IBaseRepository
     }
 
     /**
+     * @param int $id
+     * @return Model
+     */
+    public function findOrFail(int $id): Model
+    {
+        return $this->model->findOrFail($id);
+    }
+
+    /**
+     * @param string $id
+     * @return Model
+     */
+    public function findOrFailUUID(string $id): Model
+    {
+        return $this->model->findOrFail($id);
+    }
+
+    /**
+     * @param string $uuid
+     * @return Model
+     */
+    public function firstOrFailByUUID(string $uuid): Model
+    {
+        return $this->model->where(['uuid' => $uuid])->firstOrFail();
+    }
+
+    /**
+     * @param string $token
+     * @return Model
+     */
+    public function firstOrFailByToken(string $token): Model
+    {
+        return $this->model->where(['token' => $token])->firstOrFail();
+    }
+
+    /**
      * @return Collection
      */
     public function all(): Collection
@@ -93,6 +129,23 @@ class BaseRepository implements IBaseRepository
     public function getWhereIn(array $whereIn): Collection
     {
         return $this->model->whereIn('id', $whereIn)->get();
+    }
+
+    /**
+     * Function to return get for select
+     *
+     * @param string $column
+     * @param string $key
+     * @param array $with
+     * @return Collection
+     */
+    public function getForSelect(string $column = 'name', string $key = 'id', array $with = []): Collection
+    {
+        if (empty($with)){
+            return $this->model->pluck($column, $key);
+        }
+
+        return $this->model::with($with)->get()->pluck($column, $key);
     }
 
     /**
@@ -139,18 +192,9 @@ class BaseRepository implements IBaseRepository
 
     /**
      * @param int $id
-     * @return void
-     */
-    public function destroy(int $id): void
-    {
-        $this->model->destroy($id);
-    }
-
-    /**
-     * @param int $id
      * @return bool
      */
-    public function physicallyDelete(int $id): bool
+    public function destroy(int $id): bool
     {
         $this->model->findOrFail($id);
 
@@ -197,20 +241,4 @@ class BaseRepository implements IBaseRepository
         }
     }
 
-    /**
-     * Function to return get for select
-     *
-     * @param string $column
-     * @param string $key
-     * @param array $with
-     * @return Collection
-     */
-    public function getForSelect(string $column = 'name', string $key = 'id', array $with = []): Collection
-    {
-        if (empty($with)){
-            return $this->model->pluck($column, $key);
-        }
-
-        return $this->model::with($with)->get()->pluck($column, $key);
-    }
 }
