@@ -3,13 +3,13 @@
         <div class="card mb-4">
             <div class="card-header">
                 <div class="card-title">
-                    <h3 class="card-label">{{ $sub_header_data['pageName'] ?? '' }}</h3>
+                    <h3 class="card-label">{{ $subHeaderData['pageName'] ?? '' }}</h3>
                 </div>
 
                 <div class="ml-auto">
                     <a href="{{ route('dashboard.users.create') }}" class="btn btn-create">
                         <i class="flaticon2-plus mr-2"></i>
-                        {{ __($sub_header_data['pageName'].'.create') }}
+                        {{ __($subHeaderData['pageName'].'.create') }}
                     </a>
                 </div>
             </div>

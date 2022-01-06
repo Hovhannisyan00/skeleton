@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
         $users = User::factory()->count(100)->create();
 
         foreach ($users as $user){
-            $user->assignRole(Role::ROLES[rand(1, 4)]);
+            $user->assignRole(Role::ROLE_USER);
         }
     }
 }

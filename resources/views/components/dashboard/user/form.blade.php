@@ -5,7 +5,7 @@
             <div class="card-body">
                 <x-dashboard.form._form
                     :action="$viewMode === 'add' ? route('dashboard.users.store') : route('dashboard.users.update', $user->id)"
-                    :indexUrl="route('dashboard.articles.index')"
+                    :indexUrl="route('dashboard.users.index')"
                     :method="$viewMode === 'add' ? 'post' : 'put'"
                     hasShowStatus
                 >
@@ -40,7 +40,7 @@
                         <div class="col-lg-6 form-group required">
                             <x-dashboard.form._input name="password" type="password"/>
                         </div>
-                        <div class="col-lg-6 form-group required">
+                        <div class="col-lg-6 form-group">
                             <x-dashboard.form._input name="password_confirmation" type="password"/>
                         </div>
                     </div>

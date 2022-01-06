@@ -16,16 +16,6 @@
 </div>
 <div class="row">
     <div class="col-lg-6 form-group">
-        <x-dashboard.form._select
-            name="research_area_ids[]"
-            :data="$researchAreas"
-            multiple
-            class="select2"
-            title="Research Areas"
-            :value="$userResearchAreaIds ?? ''"
-        />
-    </div>
-    <div class="col-lg-6 form-group">
         <x-dashboard.form._file name="signature" :value="$user->signature ?? ''"/>
     </div>
 </div>

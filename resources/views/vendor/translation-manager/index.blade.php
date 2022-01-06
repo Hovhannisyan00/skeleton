@@ -1,7 +1,7 @@
 <x-dashboard.layouts.app>
     @php
         view()->composer('*', function () {
-                view()->share('sub_header_data', ['pageName' => 'translations']);
+                view()->share('subHeaderData', ['pageName' => 'translations']);
         });
     @endphp
 

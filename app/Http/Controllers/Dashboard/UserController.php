@@ -7,9 +7,8 @@ use App\Http\Requests\User\UserRequest;
 use App\Http\Requests\User\UserSearchRequest;
 use App\Models\User\UserSearch;
 use App\Services\User\UserService;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Response;
-use Illuminate\View\View;
 
 /**
  * Class UserController
@@ -25,7 +24,7 @@ class UserController extends BaseController
      */
     public function __construct(
         IUserRepository $repository,
-        UserService     $service
+        UserService $service
     )
     {
         parent::__construct($service);

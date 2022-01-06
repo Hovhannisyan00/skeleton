@@ -12117,6 +12117,15 @@ select.form-control:not([multiple]):focus {
   font-weight: 400;
 }
 
+.form-group.is-invalid .select2-selection {
+  border-color: #dc3545 !important;
+}
+
+.form-bottom-buttons {
+  border-top: 1px solid #eee;
+  padding-top: 25px;
+}
+
 .btn {
   padding: 0.731rem 1rem;
   border-radius: 0.42rem;
@@ -12767,6 +12776,9 @@ select.form-control:not([multiple]):focus {
   }
 }
 
+.brand-logo {
+  color: #fff;
+}
 .brand-logo img {
   max-height: 55px;
   max-width: 160px;
@@ -12858,6 +12870,7 @@ select.form-control:not([multiple]):focus {
   padding: 9px 20px;
   font-size: 14px;
   min-height: 44px;
+  color: #fff;
 }
 .menu-nav > .menu-item > .menu-link[aria-expanded=true], .menu-nav > .menu-item > .menu-link.active {
   background-color: #2f3a70;
@@ -13786,7 +13799,7 @@ select.form-control:not([multiple]):focus {
 .wrapper {
   padding-left: 265px;
   background: #EEF0F8;
-  min-height: 50vh;
+  min-height: 1000px;
 }
 @media (max-width: 1199px) {
   .wrapper {

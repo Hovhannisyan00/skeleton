@@ -14,10 +14,19 @@ class BaseController extends Controller
 {
     use ResponseFunctions;
 
+    /**
+     * @var string
+     */
     protected const DASHBOARD_VIEW_PREFIX = 'components.dashboard';
 
+    /**
+     * @var null
+     */
     protected $service;
 
+    /**
+     * @var
+     */
     protected $repository;
 
     /**
@@ -29,7 +38,6 @@ class BaseController extends Controller
     {
         $this->service = $service;
     }
-
 
     /**
      * Function to show dashboard view
@@ -59,12 +67,12 @@ class BaseController extends Controller
     {
         // Form mode
         view()->composer('*.form', function () use ($view, $viewMode) {
-            view()->share('sub_header_data', ['pageName' => $view . '.' . $viewMode]);
+            view()->share('subHeaderData', ['pageName' => $view . '.' . $viewMode]);
         });
 
         // Index mode
         view()->composer('*.index', function () use ($view) {
-            view()->share('sub_header_data', ['pageName' => $view]);
+            view()->share('subHeaderData', ['pageName' => $view]);
         });
     }
 }

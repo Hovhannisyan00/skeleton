@@ -78,7 +78,6 @@ class UserService extends BaseService
             'roles' => $this->roleRepository->getForSelect(),
             'user' => $user ?? null,
             'userRoleIds' => $userRoleIds ?? null,
-            'userResearchAreaIds' => $userResearchAreaIds ?? null,
         ];
     }
 
