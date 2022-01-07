@@ -136,16 +136,23 @@ class BaseRepository implements IBaseRepository
      *
      * @param string $column
      * @param string $key
-     * @param array $with
      * @return Collection
      */
-    public function getForSelect(string $column = 'name', string $key = 'id', array $with = []): Collection
+    public function getForSelect(string $column = 'name', string $key = 'id'): Collection
     {
-        if (empty($with)){
-            return $this->model->pluck($column, $key);
-        }
+        return $this->model->pluck($column, $key);
+    }
 
-        return $this->model::with($with)->get()->pluck($column, $key);
+    /**
+     * Function to return get for select by join Ml
+     *
+     * @param string $column
+     * @param string $key
+     * @return Collection
+     */
+    public function getForSelectMl(string $column = 'name', string $key = 'id'): Collection
+    {
+        return $this->model->joinML()->pluck($column, $key);
     }
 
     /**

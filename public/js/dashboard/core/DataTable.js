@@ -37,7 +37,7 @@ class DataTable {
                 </button>`;
       },
     };
-    this.options.actions = { ...defaultActions, ...this.options.actions };
+    this.options.actions = {...defaultActions, ...this.options.actions};
   }
 
   renderActions(data, type, row, meta) {
@@ -87,9 +87,9 @@ class DataTable {
         name: columnName,
         orderable: $(field).data('orderable') ?? true,
       };
-      const { columnsRender } = this.options;
+      const {columnsRender} = this.options;
       if (columnsRender && columnsRender[columnName]) {
-        column = { ...column, ...columnsRender[column.data] };
+        column = {...column, ...columnsRender[column.data]};
       }
       if (columnName) {
         columns.push(this.columnRenderRelation(column));
@@ -119,7 +119,7 @@ class DataTable {
   async ajaxSend(data, callback) {
     this.resetForm();
     // eslint-disable-next-line no-undef
-    await axios(this.pathOptions.searchPath, { params: this.generateRequestData(data) })
+    await axios(this.pathOptions.searchPath, {params: this.generateRequestData(data)})
       .then((resp) => {
         callback(resp.data);
       }).catch(this.errorHandler.bind(this));
@@ -149,7 +149,7 @@ class DataTable {
       order: [[0, 'desc']],
       columns: this.getAndGenerateColumns(),
     };
-    this.options = { ...options, ...this.options };
+    this.options = {...options, ...this.options};
   }
 
   tableReload() {
@@ -164,7 +164,7 @@ class DataTable {
 
   searchFromLoader(is) {
     const spinner = this.searchFormEl.find('button.search__form__btn .spinner-border');
-    if (is) spinner.css({ display: 'inline-block' });
+    if (is) spinner.css({display: 'inline-block'});
     else spinner.hide();
   }
 
@@ -172,9 +172,15 @@ class DataTable {
     e.preventDefault();
     _selfDataTable.searchFromLoader(true);
     const searchData = $(this).serializeArray();
-    // eslint-disable-next-line array-callback-return
-    searchData.map((item) => {
-      _selfDataTable.searchData[`f[${item.name}]`] = item.value;
+
+    searchData.map((item, id) => {
+
+      let addArrayBrackets = '';
+      if ($(this).find('select[name="' + item.name + '"][multiple]').length) {
+        addArrayBrackets = '[' + id + ']'
+      }
+
+      _selfDataTable.searchData[`f[${item.name}]` + addArrayBrackets] = item.value;
     });
     _selfDataTable.tableReload();
   }
