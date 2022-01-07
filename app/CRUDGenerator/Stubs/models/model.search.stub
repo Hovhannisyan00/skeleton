@@ -15,7 +15,7 @@ class {{ CLASS_NAME }}Search extends Search
      * @var string[]
      */
     protected $orderables = [
-        'id'
+        'id','name'
     ];
 
     /**

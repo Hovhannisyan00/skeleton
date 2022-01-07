@@ -4,7 +4,8 @@
 /public/css/app.css
 /public/css/dashboard/dashboard-app.css
 /public/js/app.js
-/public/js/dashboard/main
+/public/js/dashboard/main/dashboard-app.js
+/public/js/dashboard/main/global-scripts.js
 /public/mix-manifest.json
 /storage/*.key
 /vendor

@@ -73,6 +73,7 @@ return array(
         'id' => 'ID',
         'name' => 'Name',
         'slug' => 'Slug',
+        'select' => 'Select',
         'publish_date' => 'Publish date',
         'created_at' => 'Created at',
         'actions' => 'Actions',
@@ -99,7 +100,7 @@ return array(
         'option' => [
             'show_status_1' => 'Active',
             'show_status_2' => 'Inactive',
-            'default' => 'Select'
+            'default' => 'All'
         ],
 
     ],

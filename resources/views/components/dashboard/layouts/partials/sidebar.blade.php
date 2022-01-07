@@ -1,6 +1,7 @@
 <div class="left-menu">
     {{--    iconner    https://preview.keenthemes.com/metronic/demo1/features/icons/svg.html--}}
     <div class="brand d-flex align-items-center">
+        @if(config('app.env') != 'production')
         <div>
             <a href="/" class="brand-logo" aria-label="brand">
                 Dashboard Core
@@ -10,7 +11,8 @@
                 {{ env('DASHBOARD_VERSION') }} - {{ env('LAST_UPDATED_AT') }}
             </p>
         </div>
-        <button class="brand-toggle" type="button" aria-label="minimaize menu">
+        @endif
+        {{--<button class="brand-toggle" type="button" aria-label="minimaize menu">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px"
                          height="24px" viewBox="0 0 24 24" version="1.1">
@@ -27,7 +29,7 @@
                     </g>
                 </svg>
                 </span>
-        </button>
+        </button>--}}
     </div>
 
     <div id="simple-bar" class="simple-bar">

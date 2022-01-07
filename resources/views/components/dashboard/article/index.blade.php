@@ -16,7 +16,7 @@
                             <x-dashboard.form._input name="description"/>
                         </div>
                         <div class="col-md-4 form-group">
-                            <x-dashboard.form._show-status class="default-search" defaultOption/>
+                            <x-dashboard.form._show-status class="default-search" defaultOption :value="App\Models\Base\BaseModel::SHOW_STATUS_ACTIVE"/>
                         </div>
                     </div>
                     <div class="col-md-1 form-group text-right d-flex flex-column justify-content-end">
