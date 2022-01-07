@@ -21,7 +21,6 @@
     <x-slot name="scripts">
         <script>
             new FormRequest();
-            $('.select2').select2();
         </script>
     </x-slot>
 </x-dashboard.layouts.app>
