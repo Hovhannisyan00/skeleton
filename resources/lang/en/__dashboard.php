@@ -100,7 +100,8 @@ return array(
         'option' => [
             'show_status_1' => 'Active',
             'show_status_2' => 'Inactive',
-            'default' => 'All'
+            'default' => 'select',
+            'all' => 'All',
         ],
 
     ],

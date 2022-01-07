@@ -9,7 +9,7 @@
         class="form-control {{ $class ?? '' }}"
 >
     @if(isset($defaultOption))
-        <option value=""> {{ __('__dashboard.select.option.default') }}</option>
+        <option value=""> {{ __('__dashboard.select.option.all') }}</option>
     @endif
     @foreach(\App\Models\Base\BaseModel::SHOW_STATUSES_FOR_SELECT as $item)
         <option value="{{ $item }}"
