@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Storage;
  */
 trait CRUDHelper
 {
-
     /**
      * Function to create file.
      *
