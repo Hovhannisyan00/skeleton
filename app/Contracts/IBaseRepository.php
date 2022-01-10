@@ -33,6 +33,10 @@ interface IBaseRepository
 
     public function getWhereIn(array $whereIn): Collection;
 
+    public function getForSelect(string $column = 'name', string $key = 'id'): Collection;
+
+    public function getForSelectMl(string $column = 'name', string $key = 'id'): Collection;
+
     public function update(int $id, array $data): Model;
 
     public function updateOrCreate(array $whereData, array $data): Model;

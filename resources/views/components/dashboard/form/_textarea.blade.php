@@ -4,7 +4,7 @@
 @endphp
 <label for="{{ $name }}.{{ $randomNum }}" class="control-label">{{ $title }}</label>
 <textarea
-       id="@isset($id){{ $id }}@else{{ $name }}.{{ $randomNum }}@endisset"
+       id="{{empty($id) ? $name.'_'.$randomNum : $id}}"
        @isset($autocomplete) autocomplete="off" @endisset
        @isset($readonly) readonly @endisset
        placeholder="{{ $title }}"

@@ -4,7 +4,7 @@
 @endphp
 <label for="{{ $name }}.{{ $randomNum }}" class="control-label">{{ $title }}</label>
 <input type="{{ $type ?? 'text' }}"
-       id="{{ $name }}.{{ $randomNum }}"
+       id="{{empty($id) ? $name.'_'.$randomNum : $id}}"
        @isset($autocomplete) autocomplete="off" @endisset
        @isset($readonly) readonly @endisset
        @isset($disabled) disabled @endisset

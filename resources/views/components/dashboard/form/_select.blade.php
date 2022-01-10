@@ -4,7 +4,7 @@
 @endphp
 <label for="{{ $name }}.{{ $randomNum }}" class="control-label">{{ $title }}</label>
 <select name="{{ $name }}"
-        id="{{ $name }}.{{$randomNum}}"
+        id="{{empty($id) ? $name.'_'.$randomNum : $id}}"
         class="form-control {{ $class ?? '' }}"
         @isset($multiple) multiple @endisset
         @isset($placeholder) placeholder="{{ $placeholder }}" @endisset

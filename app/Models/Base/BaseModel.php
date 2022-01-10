@@ -157,9 +157,9 @@ class BaseModel extends Model
             $localKey = $params['l_k'] ?? 'id';
             $foreignKey = $params['f_k'] ?? $this->getForeignKey();
 
-            $query->on($joinTable . '.' . $foreignKey, '=', $table . '.'.$localKey);
+            $query->on($joinTable . '.' . $foreignKey, '=', $table . '.' . $localKey);
 
-            if(isset($params['where'])){
+            if (isset($params['where'])) {
                 $query->where($params['where']);
             }
         });
@@ -186,5 +186,18 @@ class BaseModel extends Model
         }
 
         return false;
+    }
+
+    /**
+     * @param $query
+     * @param array $excludeColumns
+     * @return mixed
+     */
+    public function scopeExclude($query, $excludeColumns = [])
+    {
+        $selectColumns = array_diff($this->fillable, $excludeColumns);
+        $selectColumns[] = 'id';
+
+        return $query->select($selectColumns);
     }
 }
