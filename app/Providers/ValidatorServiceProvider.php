@@ -22,6 +22,7 @@ class ValidatorServiceProvider extends ServiceProvider
         $maxStringLength = 250;
         $minIntegerLength = 0;
         $maxIntegerLength = 2000000000;
+        $maxTextLength = 5000;
 
         // Max String
         Validator::extend('string_with_max', function ($attribute, $value, $parameters) use ($maxStringLength) {
@@ -34,6 +35,22 @@ class ValidatorServiceProvider extends ServiceProvider
             }
 
             $rules = [$attribute => "string|max:" . $maxStringLength];
+
+            return $this->validator($data, $rules);
+
+        }, trans('validation.custom.max.string', ['max' => $maxStringLength]));
+
+        // Max Text
+        Validator::extend('text_with_max', function ($attribute, $value, $parameters) use ($maxTextLength) {
+            $data = [];
+
+            if (str_contains($attribute, '.')) {
+                $data = $this->dataArray(explode('.', $attribute), $value);
+            } else {
+                $data[$attribute] = $value;
+            }
+
+            $rules = [$attribute => "string|max:" . $maxTextLength];
 
             return $this->validator($data, $rules);
 
@@ -56,7 +73,7 @@ class ValidatorServiceProvider extends ServiceProvider
         }, trans('validation.custom.between.numeric', ['min' => $minIntegerLength, 'max' => $maxIntegerLength]));
 
         // Show status validator
-        Validator::extend('show_status_validator', function ($attribute, $value, $parameters) use ($minIntegerLength, $maxIntegerLength) {
+        Validator::extend('show_status_validator', function ($attribute, $value, $parameters) {
             $data = [];
 
             if (str_contains($attribute, '.')) {
