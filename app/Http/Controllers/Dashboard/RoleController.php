@@ -16,7 +16,6 @@ use Illuminate\Http\Response;
  */
 class RoleController extends BaseController
 {
-
     /**
      * RoleController constructor.
      *
@@ -24,7 +23,6 @@ class RoleController extends BaseController
      */
     public function __construct(IRoleRepository $repository)
     {
-        parent::__construct();
         $this->repository = $repository;
     }
 

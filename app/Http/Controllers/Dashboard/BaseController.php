@@ -22,22 +22,12 @@ class BaseController extends Controller
     /**
      * @var null
      */
-    protected $service;
+    protected $service = null;
 
     /**
-     * @var
+     * @var null
      */
-    protected $repository;
-
-    /**
-     * BaseController constructor.
-     *
-     * @param null $service
-     */
-    public function __construct($service = null)
-    {
-        $this->service = $service;
-    }
+    protected $repository = null;
 
     /**
      * Function to show dashboard view

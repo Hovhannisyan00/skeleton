@@ -27,7 +27,7 @@ class UserController extends BaseController
         UserService $service
     )
     {
-        parent::__construct($service);
+        $this->service = $service;
         $this->repository = $repository;
     }
 

@@ -17,7 +17,7 @@ class ProfileController extends BaseController
      */
     public function __construct(UserService $userService)
     {
-        parent::__construct($userService);
+        $this->service = $userService;
     }
 
     /**
