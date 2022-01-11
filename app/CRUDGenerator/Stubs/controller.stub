@@ -27,8 +27,7 @@ class {{ CLASS_NAME }}Controller extends BaseController
         I{{ CLASS_NAME }}Repository $repository
     )
     {
-        parent::__construct($service);
-
+        $this->service = $service;
         $this->repository = $repository;
     }
 
