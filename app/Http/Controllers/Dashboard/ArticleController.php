@@ -22,7 +22,7 @@ class ArticleController extends BaseController
      */
     public function __construct(ArticleService $service)
     {
-        parent::__construct($service);
+        $this->service = $service;
     }
 
     /**
