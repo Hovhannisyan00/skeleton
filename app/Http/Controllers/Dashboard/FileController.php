@@ -24,7 +24,7 @@ class FileController extends BaseController
         FileService $service
     )
     {
-        parent::__construct($service);
+        $this->service = $service;
         $this->repository = $repository;
     }
 
