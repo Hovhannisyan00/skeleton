@@ -57,7 +57,7 @@ class UserService extends BaseService
             $user = $id ? $this->repository->update($id, $data) : $this->repository->create($data);
             $user->assignRole($data['role_ids']);
 
-            $this->fileService->storeFile($user, $data, config('files.user'));
+            $this->fileService->storeFile($user, $data);
         });
     }
 
@@ -76,21 +76,8 @@ class UserService extends BaseService
 
         return [
             'roles' => $this->roleRepository->getForSelect(),
-            'user' => $user ?? null,
+            'user' => $user ?? $this->repository->getInstance(),
             'userRoleIds' => $userRoleIds ?? null,
         ];
-    }
-
-    /**
-     * Function to delete user
-     *
-     * @param int $id
-     * @return void
-     */
-    public function delete(int $id): void
-    {
-        $user = $this->repository->find($id);
-        $this->fileService->deleteModelFile($user);
-        $this->repository->destroy($id);
     }
 }

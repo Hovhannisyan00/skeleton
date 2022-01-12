@@ -48,13 +48,17 @@ class CreateController extends CRUDGeneratorAbstract
     {
         $singularClassName = Str::snake(Str::singular($this->className), ' ');
         $pluralClassName = Str::snake(Str::plural($this->className), ' ');
+        $pluralClassWithDelimiterName = Str::snake(Str::plural($this->className), '-');
         $folderName = Str::snake($this->className, '-');
+        $camelCase = Str::camel(Str::snake($this->className, ' '));
 
         return [
             'CLASS_NAME' => $this->className,
             'SINGULAR_CLASS_NAME' => $singularClassName,
             'PLURAL_CLASS_NAME' => $pluralClassName,
-            'FOLDER_NAME' => $folderName
+            'PLURAL_CLASS_NAME_WITH_DELIMITER' => $pluralClassWithDelimiterName,
+            'FOLDER_NAME' => $folderName,
+            'CAMEL_CASE_CLASS_NAME' => $camelCase,
         ];
     }
 }

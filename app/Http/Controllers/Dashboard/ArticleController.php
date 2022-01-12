@@ -59,7 +59,7 @@ class ArticleController extends BaseController
      */
     public function create(): View
     {
-        return $this->dashboardView('article.form');
+        return $this->dashboardView('article.form', $this->service->getViewData());
     }
 
     /**

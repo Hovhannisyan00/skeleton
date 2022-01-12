@@ -2,6 +2,7 @@
 
 namespace App\Models\Article;
 
+use App\Files\HasFileData;
 use App\Models\Base\BaseModel;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
@@ -15,6 +16,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  */
 class Article extends BaseModel
 {
+    use HasFileData;
+
     /**
      * @var string[]
      */

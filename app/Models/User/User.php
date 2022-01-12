@@ -2,6 +2,8 @@
 
 namespace App\Models\User;
 
+use App\Files\HasFileData;
+use App\Models\Base\ModelHelperFunctions;
 use App\Models\File\File;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -20,7 +22,9 @@ class User extends Authenticatable
     use HasApiTokens,
         HasFactory,
         Notifiable,
-        HasRoles;
+        HasRoles,
+        ModelHelperFunctions,
+        HasFileData;
 
     /**
      * The attributes that are mass assignable.
@@ -56,6 +60,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'created_at' => 'datetime:d.m.Y',
     ];
+
+    /**
+     * Function to set model files config name
+     *
+     * @return string
+     */
+    public function setFileConfigName(): string
+    {
+        return self::getClassName();
+    }
 
     /**
      * Function to return user all files

@@ -13,24 +13,24 @@
                         <div class="col-lg-6 form-group required">
                             <x-dashboard.form.uploader._file
                                 name="signature"
-                                configKey="user"
-                                :value="$user->signature ?? ''"
+                                :configKey="$user->getFileConfigName()"
+                                :value="$user->signature"
                             />
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-lg-6 form-group required">
-                            <x-dashboard.form._input name="first_name" value="{{ $user->first_name ?? '' }}"/>
+                            <x-dashboard.form._input name="first_name" value="{{ $user->first_name}}"/>
                         </div>
                         <div class="col-lg-6 form-group required">
-                            <x-dashboard.form._input name="last_name" value="{{ $user->last_name ?? '' }}"/>
+                            <x-dashboard.form._input name="last_name" value="{{ $user->last_name}}"/>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-lg-6 form-group required">
-                            <x-dashboard.form._input name="email" type="email" value="{{ $user->email ?? '' }}"/>
+                            <x-dashboard.form._input name="email" type="email" value="{{ $user->email}}"/>
                         </div>
                         <div class="col-lg-6 form-group required">
                             <x-dashboard.form._select name="role_ids[]" :data="$roles" :value="$userRoleIds ?? ''"

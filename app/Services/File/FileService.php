@@ -30,10 +30,11 @@ class FileService extends BaseService
      *
      * @param Model $model
      * @param array $data
-     * @param array $config
      */
-    public function storeFile(Model $model, array $data, array $config)
+    public function storeFile(Model $model, array $data)
     {
+        $config = $this->getConfig($model);
+
         foreach ($config as $fieldName => $fieldValue) {
             $files = $data[$fieldName] ?? [];
 
@@ -60,7 +61,7 @@ class FileService extends BaseService
      * @param $fileName
      * @param bool $isArray
      */
-    public function create(Model $model, array $configAttributes, $fileName, bool $isArray = false)
+    private function create(Model $model, array $configAttributes, $fileName, bool $isArray = false)
     {
         $fieldName = $configAttributes['field_name'];
         $fileType = $configAttributes['file_type'];
@@ -113,7 +114,7 @@ class FileService extends BaseService
      *
      * @param int $id
      */
-    public function delete(int $id)
+    public function deleteFile(int $id)
     {
         $file = $this->repository->find($id);
         $this->deleteFilePhysically($file);
@@ -137,7 +138,7 @@ class FileService extends BaseService
      * @param null $customDirectory
      * @return bool
      */
-    public static function movePendingFileToUploadsFolder($fileName, $customDirectory = null): bool
+    private function movePendingFileToUploadsFolder($fileName, $customDirectory = null): bool
     {
         if (Storage::disk('pending')->exists($customDirectory['pending'])) {
             // convert to full paths
@@ -199,5 +200,21 @@ class FileService extends BaseService
                 $disk->deleteDirectory($directory);
             }
         }
+    }
+
+    /**
+     * Function to get model config file
+     *
+     * @param $model
+     * @return \Illuminate\Config\Repository|\Illuminate\Contracts\Foundation\Application|mixed
+     * @throws \Exception
+     */
+    private function getConfig($model): array
+    {
+        if (!$model::hasFilesData()) {
+            throw new \Exception('In Model Please use HasFilesData trait');
+        }
+
+        return config('files.'.$model->getFileConfigName());
     }
 }
