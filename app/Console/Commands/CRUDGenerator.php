@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\CRUDGenerator\CRUDGeneratorInit;
 use Illuminate\Console\Command;
 use Illuminate\Contracts\Container\BindingResolutionException;
+use Illuminate\Support\Str;
 
 class CRUDGenerator extends Command
 {
@@ -54,12 +55,12 @@ class CRUDGenerator extends Command
      */
     public function handle(): void
     {
-        $className = $this->ask('What is your class name?(singular)');
+        $className = $this->ask('What is your class name?(singular). Examples - article, productCategory');
 //        $migration = $this->confirm('Do you want to create migration?', false);
         $migrationMl = $this->confirm('Do you want to create migration for multi language?', false);
 
         (new CRUDGeneratorInit([
-            'className' => $className,
+            'className' => Str::ucfirst($className),
 //            'migration' => $migration,
             'migrationMl' => $migrationMl,
         ]))->init();

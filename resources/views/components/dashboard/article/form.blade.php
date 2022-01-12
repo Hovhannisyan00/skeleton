@@ -8,22 +8,22 @@
                     :indexUrl="route('dashboard.articles.index')"
                     :method="$viewMode === 'add' ? 'post' : 'put'"
 
-                    :showStatus="$article->show_status ?? ''"
+                    :showStatus="$article->show_status"
                     hasShowStatus
                 >
                     <div class="row">
                         <div class="col-lg-6 form-group required">
-                            <x-dashboard.form._input name="slug" :value="$article->slug ?? ''"/>
+                            <x-dashboard.form._input name="slug" :value="$article->slug"/>
                         </div>
                         <div class="col-lg-6 form-group required">
                             <x-dashboard.form._input name="publish_date" class="datepicker"
-                                                     :value="$article->publish_date ?? ''"/>
+                                                     :value="$article->publish_date"/>
                         </div>
                         <div class="col-lg-6 form-group required">
                             <x-dashboard.form.uploader._file
                                 name="photo"
-                                configKey="article"
-                                :value="$article->photo ?? ''"
+                                :configKey="$article->getFileConfigName()"
+                                :value="$article->photo"
                             />
                         </div>
                     </div>

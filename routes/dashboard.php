@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',  [DashboardController::class, 'index']);
 
 // Files
-Route::get('files/get-config/{file_config_key}', [FileController::class, 'getConfig'])->name('files.getConfig');
 Route::delete('files/delete/{file_id}', [FileController::class, 'delete'])->name('files.delete');
 Route::post('files/store-temp-file', [FileController::class, 'storeTempFile'])->name('files.storeTempFile');
 

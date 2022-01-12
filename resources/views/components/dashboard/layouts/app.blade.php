@@ -30,18 +30,7 @@
         window.$dashboardDates = @json(getDashboardDates());
 
         // JS Translation
-        window.trans = <?php
-        // copy all translations from /resources/lang/CURRENT_LOCALE/* to global JS variable
-        $lang_files = File::files(resource_path() . '/lang/' . App::getLocale());
-        $trans = [];
-        foreach ($lang_files as $f) {
-            $filename = pathinfo($f)['filename'];
-            if (pathinfo($f)['filename'] == '__dashboard') {
-                $trans[$filename] = trans($filename);
-            }
-        }
-        echo json_encode($trans);
-        ?>;
+        window.trans = @json(getTrans())
 
         window.$trans = (key) => {
             return _.get(window.trans, key, key);

@@ -28,11 +28,6 @@ class FileController extends BaseController
         $this->repository = $repository;
     }
 
-    public function getConfig($fileConfigKey)
-    {
-        return config("files.$fileConfigKey");
-    }
-
     /**
      * Function to store file
      *

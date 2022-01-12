@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\CRUDGenerator\CRUDGeneratorDelete;
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 
 /**
  * Class CRUDGeneratorRemove
@@ -45,7 +46,7 @@ class CRUDGeneratorRemove extends Command
         $className = $this->ask('What is your class name?');
 
         (new CRUDGeneratorDelete([
-            'className' => $className,
+            'className' => Str::ucfirst($className),
         ]))->deleteCrudData();
     }
 }

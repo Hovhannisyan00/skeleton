@@ -5,7 +5,6 @@ namespace App\Repositories\User;
 use App\Contracts\User\IUserRepository;
 use App\Models\User\User;
 use App\Repositories\BaseRepository;
-use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class UserRepository

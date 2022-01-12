@@ -18,7 +18,7 @@ use Illuminate\Support\Str;
  */
 class BaseModel extends Model
 {
-    use HasFactory;
+    use HasFactory, ModelHelperFunctions;
 
     /**
      * @var string
@@ -177,18 +177,6 @@ class BaseModel extends Model
     }
 
     /**
-     * @return bool
-     */
-    public function hasShowStatus(): bool
-    {
-        if (in_array('show_status', $this->getFillable())) {
-            return true;
-        }
-
-        return false;
-    }
-
-    /**
      * @param $query
      * @param array $excludeColumns
      * @return mixed
@@ -199,5 +187,15 @@ class BaseModel extends Model
         $selectColumns[] = 'id';
 
         return $query->select($selectColumns);
+    }
+
+    /**
+     * Function to set file config key
+     *
+     * @return string
+     */
+    public function setFileConfigName(): string
+    {
+        return static::getClassName();
     }
 }

@@ -166,7 +166,7 @@ class FileUploader {
   createHtmlForFile(fileInfo) {
     switch (fileInfo.file_type) {
       case 'image':
-        return `<img src="${fileInfo.file_url}" alt="${fileInfo.original_name}" width="100" height="100">`;
+        return `<img src="${fileInfo.file_url}" alt="${fileInfo.original_name}" class="upload-file-img">`;
       default:
         return `<span class="mr-5 text-primary p-2">${fileInfo.original_name}</span>`;
     }

@@ -65,7 +65,7 @@ class {{ CLASS_NAME }}Controller extends BaseController
      */
     public function create(): View
     {
-        return $this->dashboardView('{{ FOLDER_NAME }}.form', []);
+        return $this->dashboardView('{{ FOLDER_NAME }}.form', $this->service->getViewData());
     }
 
     /**
@@ -76,10 +76,11 @@ class {{ CLASS_NAME }}Controller extends BaseController
      */
     public function store({{ CLASS_NAME }}Request $request): JsonResponse
     {
+     // $this->service->createOrUpdate($request->validated()); // For ML, File
         $this->repository->create($request->validated());
 
         return $this->sendOkCreated([
-            'redirectUrl' => route('dashboard.{{ PLURAL_CLASS_NAME }}.index')
+            'redirectUrl' => route('dashboard.{{ PLURAL_CLASS_NAME_WITH_DELIMITER }}.index')
         ]);
     }
 
@@ -101,9 +102,10 @@ class {{ CLASS_NAME }}Controller extends BaseController
      */
     public function edit(int $id): View
     {
-        ${{ FOLDER_NAME }} = $this->repository->findOrFail($id);
+        ${{ CAMEL_CASE_CLASS_NAME }} = $this->repository->find($id);
 
-        return $this->dashboardView('{{ FOLDER_NAME }}.form', ['{{ FOLDER_NAME }}' => ${{ FOLDER_NAME }}], 'edit');
+    //  return $this->dashboardView('{{ FOLDER_NAME }}.form', $this->service->getViewData($id), 'edit'); // For ML, File
+        return $this->dashboardView('{{ FOLDER_NAME }}.form', ['{{ CAMEL_CASE_CLASS_NAME }}' => ${{ CAMEL_CASE_CLASS_NAME }}], 'edit');
     }
 
     /**
@@ -115,10 +117,11 @@ class {{ CLASS_NAME }}Controller extends BaseController
      */
     public function update({{ CLASS_NAME }}Request $request, int $id): JsonResponse
     {
+     // $this->service->createOrUpdate($request->validated(), $id);
         $this->repository->update($id, $request->validated());
 
         return $this->sendOkUpdated([
-            'redirectUrl' => route('dashboard.{{ PLURAL_CLASS_NAME }}.index')
+            'redirectUrl' => route('dashboard.{{ PLURAL_CLASS_NAME_WITH_DELIMITER }}.index')
         ]);
     }
 
@@ -130,6 +133,7 @@ class {{ CLASS_NAME }}Controller extends BaseController
      */
     public function destroy(int $id): JsonResponse
     {
+     // $this->service->delete($id); // For ML, File
         $this->repository->destroy($id);
         return $this->sendOkDeleted();
     }

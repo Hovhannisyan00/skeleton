@@ -4,6 +4,7 @@ namespace App\CRUDGenerator;
 
 use App\CRUDGenerator\Traits\CRUDHelper;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 /**
@@ -48,7 +49,12 @@ class CRUDGeneratorDelete
 
             if ($moduleName != 'controller') {
 
-                $absolutePath = $this->replaceAttributeByClassName($module['path'], $this->className);
+                $className = $this->className;
+                if (in_array($moduleName, ['blades', 'js'])) {
+                    $className = Str::snake($className, '-');
+                }
+
+                $absolutePath = $this->replaceAttributeByClassName($module['path'], $className);
 
                 if ($disk->exists($absolutePath)) {
                     $disk->deleteDirectory($absolutePath);
@@ -69,6 +75,8 @@ class CRUDGeneratorDelete
         }
 
         (new ConsoleOutput())->writeln("<fg=red>Migration Please remove Manually!!</>");
+        (new ConsoleOutput())->writeln("<fg=red>From RepositoryServiceProvider Please remove Manually!!</>");
+        (new ConsoleOutput())->writeln("<fg=red>From Routes Please remove Manually!!</>");
         (new ConsoleOutput())->writeln("<fg=green>SuccessFully Deleted!!</>");
     }
 }

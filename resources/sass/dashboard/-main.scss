@@ -533,7 +533,7 @@ div.dataTables_wrapper div.dataTables_length select {
         margin-right: 10px;
         border-radius: 4px;
         overflow: hidden;
-        background: #fff;
+        background: #363636;
         min-height: 30px;
         display: flex;
         align-items: center;
@@ -551,6 +551,10 @@ div.dataTables_wrapper div.dataTables_length select {
         &:hover{
             background-color: #ff0000;
         }
+    }
+
+    .upload-file-img{
+        max-width: 100px;
     }
 }
 
