@@ -91,13 +91,7 @@ class FileUploader {
     const fileItem = $(this.$fileListEl)
       .find(`.file__item[data-index=${fileIndex}]`);
 
-    if (fileInfo.file_type === 'file') {
-      fileItem.css({
-        width: 'auto',
-        height: 'auto',
-      });
-    }
-
+    fileItem.addClass('file__item__type__' + fileInfo.file_type)
     fileItem.html(this.createHtmlForFile(fileInfo));
   }
 

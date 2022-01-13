@@ -1,4 +1,4 @@
-<div class="mr-2 position-relative file__item mb-2">
+<div class="mr-2 position-relative file__item mb-2 file__item__type__{{$item->file_type}}">
     <button class="position-absolute __delete__file __confirm__delete__btn"
             data-event-name="deleteFileItemInDbEvent"
             data-url="{{ route('dashboard.files.delete', $item->id) }}"
