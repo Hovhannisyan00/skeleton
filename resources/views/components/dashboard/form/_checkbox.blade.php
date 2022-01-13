@@ -2,15 +2,17 @@
     $randomNum = rand();
     $title = __('__dashboard.label.'.($title ?? $name));
 @endphp
-<label for="{{ $name }}_{{ $randomNum }}" class="control-label">{{ $title }}</label>
-<input type="{{ $type ?? 'text' }}"
+<div class="custom-checkbox mb-2">
+<input type="checkbox"
        id="{{empty($id) ? $name.'_'.$randomNum : $id}}"
-       @isset($autocomplete) autocomplete="off" @endisset
        @isset($readonly) readonly @endisset
        @isset($disabled) disabled @endisset
-       placeholder="{{ $title }}"
+       @if(isset($checked) && $checked) checked @endif
        name="{{ $name ?? '' }}"
-       value="{{ $value ?? '' }}"
-       class="form-control {{ $class ?? '' }}"
+       value="{{ $value ?? '1' }}"
+       class="form-check-input {{ $class ?? '' }}"
 >
+<label for="{{ $name }}_{{ $randomNum }}" class="control-label checkbox-label">{{ $title }}</label>
+</div>
 <x-dashboard.form._error :name="$name"></x-dashboard.form._error>
+

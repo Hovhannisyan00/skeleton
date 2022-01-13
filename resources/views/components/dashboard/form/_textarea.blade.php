@@ -2,7 +2,7 @@
     $randomNum = rand();
     $title = __('__dashboard.label.'.($title ?? $name));
 @endphp
-<label for="{{ $name }}.{{ $randomNum }}" class="control-label">{{ $title }}</label>
+<label for="{{ $name }}_{{ $randomNum }}" class="control-label">{{ $title }}</label>
 <textarea
        id="{{empty($id) ? $name.'_'.$randomNum : $id}}"
        @isset($autocomplete) autocomplete="off" @endisset

@@ -591,7 +591,7 @@ table.dataTable > thead > tr th{
     margin-left: 5px;
 }
 
-.form-group.required .control-label:after {
+.form-group.required .control-label:not(.checkbox-label):after {
     content:"*";
     color:red;
 }
