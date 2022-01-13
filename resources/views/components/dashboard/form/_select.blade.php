@@ -2,7 +2,7 @@
     $randomNum = rand();
     $title = __('__dashboard.label.'.($title ?? str_replace('[]', '',$name)));
 @endphp
-<label for="{{ $name }}.{{ $randomNum }}" class="control-label">{{ $title }}</label>
+<label for="{{ $name }}_{{ $randomNum }}" class="control-label">{{ $title }}</label>
 <select name="{{ $name }}"
         id="{{empty($id) ? $name.'_'.$randomNum : $id}}"
         class="form-control {{ $class ?? '' }}"
