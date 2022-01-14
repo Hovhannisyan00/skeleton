@@ -9,23 +9,6 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 
 /* ========================================================================================
-                                Global Helper Functions - Start
- ======================================================================================== */
-
-if (!function_exists("getAuthUserRoles")) {
-    function getAuthUserRolesName(): array
-    {
-        return Auth::user()->roles->pluck('name')->all();
-    }
-}
-
-
-/* ========================================================================================
-                                Global Helper Functions - Start
- ======================================================================================== */
-
-
-/* ========================================================================================
                                 Route Helper Functions - Start
  ======================================================================================== */
 
@@ -240,6 +223,13 @@ if (!function_exists("getRolesIdName")) {
         }
 
         return $roles;
+    }
+}
+
+if (!function_exists("getAuthUserRolesName")) {
+    function getAuthUserRolesName(): array
+    {
+        return Auth::user()->roles->pluck('name')->all();
     }
 }
 
