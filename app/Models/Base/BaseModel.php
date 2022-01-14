@@ -56,6 +56,11 @@ class BaseModel extends Model
     public $hasUserInfo = false;
 
     /**
+     * @var array
+     */
+    public $defaultValues = [];
+
+    /**
      * Default all rows check show_status=1 ,disable that check
      * @var bool
      */
