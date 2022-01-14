@@ -6,9 +6,9 @@
     <title>Dashboard Core</title>
     {{ $css ?? '' }}
     <link href="{{ asset('/css/dashboard/datatable.css') }}" rel="stylesheet">
-{{--    <link href="{{ asset('/css/dashboard/styles.css') }}" rel="stylesheet">--}}
     <link href="{{mix('/css/dashboard/dashboard-app.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
     <script>
         // JS get route by route name
         const routesData = @json(getAllRoutesName());
@@ -42,7 +42,6 @@
 <x-dashboard.partials.modals></x-dashboard.partials.modals>
 
 <script src="{{ mix('/js/dashboard/main/dashboard-app.js') }}"></script>
-{{--<script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>--}}
 <script src="{{ asset('/js/dashboard/ckeditor.js') }}"></script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
