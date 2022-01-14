@@ -44,6 +44,10 @@ class BaseRepository implements IBaseRepository
      */
     public function create(array $data): Model
     {
+        if ($this->model->defaultValues) {
+            $data = array_merge($this->model->defaultValues, $data);
+        }
+
         return $this->model->create($data);
     }
 
@@ -163,6 +167,10 @@ class BaseRepository implements IBaseRepository
     public function update(int $id, array $data): Model
     {
         $model = $this->find($id);
+        if ($model->defaultValues) {
+            $data = array_merge($model->defaultValues, $data);
+        }
+
         $model->update($data);
         return $model->refresh();
     }

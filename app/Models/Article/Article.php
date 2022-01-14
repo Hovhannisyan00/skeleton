@@ -19,6 +19,13 @@ class Article extends BaseModel
     use HasFileData;
 
     /**
+     * in create/update set default values for model
+     *
+     * @var array
+     */
+    public $defaultValues = [];
+
+    /**
      * @var string[]
      */
     protected $fillable = [
