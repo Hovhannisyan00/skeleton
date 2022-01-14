@@ -1,6 +1,7 @@
 <?php
 
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -193,3 +194,13 @@ if (!function_exists("getDashboardDates")) {
 /* ========================================================================================
                                 Date Helper Functions - End
  ======================================================================================== */
+
+if (!function_exists("getAuthUserRoles")) {
+    /**
+     * @return array
+     */
+    function getAuthUserRolesName(): array
+    {
+        return Auth::user()->roles->pluck('name')->all();
+    }
+}

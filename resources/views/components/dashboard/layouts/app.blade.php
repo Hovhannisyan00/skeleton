@@ -11,32 +11,20 @@
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <script>
         // JS get route by route name
-        window.route = (name, params = null) => {
-            const routesData = @json(getAllRoutesName());
-            const route = routesData[name];
-            let uri = routesData[name].uri.toString();
-
-            route.parameters.map((item, index) => {
-                if (Array.isArray(params)) {
-                    uri = uri.replace(`{${item}}`, params[index])
-                } else {
-                    uri = uri.replace(`{${item}}`, params);
-                }
-            });
-            return location.origin + '/' + uri;
-        };
+        const routesData = @json(getAllRoutesName());
 
         // Dates Format
         window.$dashboardDates = @json(getDashboardDates());
 
         // JS Translation
-        window.trans = @json(getTrans())
+        window.trans = @json(getTrans());
 
-        window.$trans = (key) => {
-            return _.get(window.trans, key, key);
-        };
-
+        window.$app = {
+            roles: @json(getAuthUserRolesName()),
+            permissions: []
+        }
     </script>
+    <script src="{{ asset('js/dashboard/dashboard-init.js') }}"></script>
 </head>
 <body>
 <main class="d-flex page">
