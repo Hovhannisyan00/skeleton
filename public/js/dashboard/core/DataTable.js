@@ -5,6 +5,7 @@ let _selfDataTable;
 class DataTable {
   constructor(options = {}, tableId = '#__data__table') {
     this.initVariables(options, tableId);
+    this.columnDefaultRender(options);
     this.init();
   }
 
@@ -16,6 +17,19 @@ class DataTable {
     this.searchFormEl = $(`#${this.searchFormId}`);
     this.searchData = {};
     this.pathOptions = options.pathOptions;
+  }
+
+  columnDefaultRender(options){
+
+    const showStatusRender = {
+      show_status: {
+        render(showStatus) {
+          return `<span class="show-status-${showStatus}">${$trans('__dashboard.select.option.show_status_'+showStatus)}</span>`;
+        }
+      }
+    }
+
+    options.columnsRender = {...showStatusRender, ...options.columnsRender}
   }
 
   actions() {
@@ -87,10 +101,13 @@ class DataTable {
         name: columnName,
         orderable: $(field).data('orderable') ?? true,
       };
+
       const {columnsRender} = this.options;
+
       if (columnsRender && columnsRender[columnName]) {
         column = {...column, ...columnsRender[column.data]};
       }
+
       if (columnName) {
         columns.push(this.columnRenderRelation(column));
       }
