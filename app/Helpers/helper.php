@@ -1,9 +1,28 @@
 <?php
 
+use App\Models\RoleAndPermission\Role;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
+
+/* ========================================================================================
+                                Global Helper Functions - Start
+ ======================================================================================== */
+
+if (!function_exists("getAuthUserRoles")) {
+    function getAuthUserRolesName(): array
+    {
+        return Auth::user()->roles->pluck('name')->all();
+    }
+}
+
+
+/* ========================================================================================
+                                Global Helper Functions - Start
+ ======================================================================================== */
 
 
 /* ========================================================================================
@@ -195,12 +214,35 @@ if (!function_exists("getDashboardDates")) {
                                 Date Helper Functions - End
  ======================================================================================== */
 
-if (!function_exists("getAuthUserRoles")) {
-    /**
-     * @return array
-     */
-    function getAuthUserRolesName(): array
+
+/* ========================================================================================
+                                Roles Helper Functions - Start
+ ======================================================================================== */
+
+
+if (!function_exists("getRoles")) {
+    function getRoles(): array
     {
-        return Auth::user()->roles->pluck('name')->all();
+        $roles = [];
+        foreach (Role::ROLES as $role) {
+            $roles[Str::upper($role)] = $role;
+        }
+        return $roles;
     }
 }
+
+if (!function_exists("getRolesIdName")) {
+    function getRolesIdName(): array
+    {
+        $roles = [];
+        foreach (Role::all() as $role) {
+            $roles[Str::upper($role->name)] = (string)$role->id;
+        }
+
+        return $roles;
+    }
+}
+
+/* ========================================================================================
+                                Roles Helper Functions - End
+ ======================================================================================== */
