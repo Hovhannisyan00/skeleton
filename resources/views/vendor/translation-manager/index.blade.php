@@ -315,6 +315,23 @@
                 a.status-1 {
                     font-weight: bold;
                 }
+
+                .btn.open-menu{
+                    display: none !important;
+                }
+
+                body {
+                    font-size: 13px;
+                    font-family: Poppins, Helvetica, "sans-serif"
+                }
+
+                .btn{
+                    font-size: 13px;
+                }
+
+                .subheader-left-title{
+                    font-size: 14px;
+                }
             </style>
             <script>
                 jQuery(document).ready(function ($) {

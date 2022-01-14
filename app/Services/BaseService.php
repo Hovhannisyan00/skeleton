@@ -88,7 +88,12 @@ class BaseService
             $this->fileService()->deleteModelFile($model);
         }
 
-        $this->repository->destroy($id);
+        if ($model->hasShowStatus()) {
+            $this->repository->softDelete($id);
+        } else {
+            $this->repository->destroy($id);
+        }
+
     }
 
     /**

@@ -47,7 +47,7 @@ class CreateMlModel extends CRUDGeneratorAbstract
      */
     protected function stubVariables(): array
     {
-        $variableName = lcfirst(Str::singular($this->className));
+        $variableName = Str::snake($this->className, '_');
 
         return [
             'CLASS_NAME' => $this->className,
