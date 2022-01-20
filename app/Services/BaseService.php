@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Services\File\FileService;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -26,10 +27,11 @@ class BaseService
      *
      * @param $data
      * @param int|null $id
+     * @return Model
      */
-    public function createOrUpdate($data, int $id = null)
+    public function createOrUpdate($data, int $id = null): Model
     {
-        DB::transaction(function () use ($id, $data) {
+        return DB::transaction(function () use ($id, $data) {
             $model = $id ? $this->repository->update($id, $data) : $this->repository->create($data);
 
             // Ml
@@ -41,6 +43,8 @@ class BaseService
             if ($model::hasFilesData()) {
                 $this->fileService()->storeFile($model, $data);
             }
+
+            return $model;
         });
     }
 

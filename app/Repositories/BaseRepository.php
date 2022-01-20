@@ -136,6 +136,24 @@ class BaseRepository implements IBaseRepository
     }
 
     /**
+     * @param array $where
+     * @return Collection
+     */
+    public function getWhere(array $where): Collection
+    {
+        return $this->model->where($where)->get();
+    }
+
+    /**
+     * @param array $where
+     * @return Model|null
+     */
+    public function firstWhere(array $where): ?Model
+    {
+        return $this->model->where($where)->first();
+    }
+
+    /**
      * Function to return get for select
      *
      * @param string $column

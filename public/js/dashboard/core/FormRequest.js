@@ -1,30 +1,29 @@
-// eslint-disable-next-line no-underscore-dangle
-let _selfFormRequest;
-
 // eslint-disable-next-line no-unused-vars
 class FormRequest {
-  constructor(options, formId = '__form__request') {
+  constructor(formId = '__form__request', options) {
     this.options = options;
     this.formId = formId;
     this.formEl = $(`#${formId}`);
     this.init();
   }
 
-  async formSubmit(e) {
-    e.preventDefault();
-    const method = $(this).attr('method');
-    const url = $(this).attr('action');
-    const formData = new FormData(this);
-    await _selfFormRequest.sendData(method, url, formData);
+  async formSubmit(event) {
+    event.preventDefault();
+    let form = event.target;
+
+    const method = $(form).attr('method');
+    const url = $(form).attr('action');
+    const formData = new FormData(form);
+    await this.sendData(method, url, formData);
   }
 
   async sendData(method, url, formData) {
-    _selfFormRequest.formEl.find('.validation-error').html('');
+    this.formEl.find('.validation-error').html('');
     this.formRequestLoader();
     // eslint-disable-next-line no-undef
     await axios.post(url, formData)
-      .then(_selfFormRequest.successHandler.bind(_selfFormRequest))
-      .catch(_selfFormRequest.errorHandler.bind(_selfFormRequest));
+      .then(this.successHandler.bind(this))
+      .catch(this.errorHandler.bind(this));
     this.formRequestLoader(false);
   }
 
@@ -47,7 +46,7 @@ class FormRequest {
       for (const [key, value] of Object.entries(error.errors)) {
         let hasErrorSpan = this.formEl.find(`.validation-error[data-name="${key}"]`);
 
-        if(!hasErrorSpan.length){
+        if (!hasErrorSpan.length) {
           hasErrorSpan = this.formEl.find(`.validation-error[data-name="${key}[]"]`);
         }
 
@@ -77,7 +76,7 @@ class FormRequest {
     const spinner = this.formEl.find('button.form__request__send__btn .spinner-border');
     const btn = this.formEl.find('button.form__request__send__btn');
     if (is) {
-      spinner.css({ display: 'inline-block' });
+      spinner.css({display: 'inline-block'});
       btn.prop('disabled', true);
     } else {
       spinner.hide();
@@ -86,11 +85,10 @@ class FormRequest {
   }
 
   clickSubmit() {
-    this.formEl.submit(this.formSubmit);
+    this.formEl.submit(this.formSubmit.bind(this));
   }
 
   init() {
-    _selfFormRequest = this;
     this.clickSubmit();
   }
 }
