@@ -33,6 +33,10 @@ interface IBaseRepository
 
     public function getWhereIn(array $whereIn): Collection;
 
+    public function getWhere(array $where): Collection;
+
+    public function firstWhere(array $where): ?Model;
+
     public function getForSelect(string $column = 'name', string $key = 'id'): Collection;
 
     public function getForSelectMl(string $column = 'name', string $key = 'id'): Collection;

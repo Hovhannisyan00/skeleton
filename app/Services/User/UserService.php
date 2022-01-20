@@ -6,6 +6,7 @@ use App\Contracts\Role\IRoleRepository;
 use App\Repositories\User\UserRepository;
 use App\Services\BaseService;
 use App\Services\File\FileService;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
@@ -33,9 +34,9 @@ class UserService extends BaseService
      * @param FileService $fileService
      */
     public function __construct(
-        UserRepository          $repository,
-        IRoleRepository         $roleRepository,
-        FileService             $fileService
+        UserRepository $repository,
+        IRoleRepository $roleRepository,
+        FileService $fileService
     )
     {
         $this->repository = $repository;
@@ -48,16 +49,19 @@ class UserService extends BaseService
      *
      * @param $data
      * @param int|null $id
+     * @return Model
      */
-    public function createOrUpdate($data, int $id = null)
+    public function createOrUpdate($data, int $id = null): Model
     {
         $data['password'] = Hash::make($data['password']);
 
-        DB::transaction(function () use($id, $data) {
+        return DB::transaction(function () use ($id, $data) {
             $user = $id ? $this->repository->update($id, $data) : $this->repository->create($data);
             $user->assignRole($data['role_ids']);
 
             $this->fileService->storeFile($user, $data);
+
+            return $user;
         });
     }
 

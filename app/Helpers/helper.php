@@ -70,6 +70,13 @@ if (!function_exists("currentLanguageImg")) {
     }
 }
 
+if (!function_exists("languageDisplayName")) {
+    function languageDisplayName($lang)
+    {
+        return LaravelLocalization::getSupportedLocales()[$lang]['displayName'];
+    }
+}
+
 if (!function_exists("getTrans")) {
     function getTrans(): array
     {
