@@ -6,7 +6,7 @@ $(function () {
 
   datetimePickerInit();
 
-  ckEditorInit();
+  // ckEditorInit();
 
   openMenu();
 
@@ -18,6 +18,7 @@ function select2Init() {
   });
 }
 
+// Not Used For Now
 function ckEditorInit() {
   const ckeditorEls = document.querySelectorAll('.ckeditor5');
   ckeditorEls.forEach((item) => {

@@ -1,6 +1,3 @@
-// eslint-disable-next-line no-underscore-dangle
-let _selfDataTable;
-
 // eslint-disable-next-line no-unused-vars
 class DataTable {
   constructor(options = {}, tableId = '#__data__table') {
@@ -19,12 +16,12 @@ class DataTable {
     this.pathOptions = options.pathOptions;
   }
 
-  columnDefaultRender(options){
+  columnDefaultRender(options) {
 
     const showStatusRender = {
       show_status: {
         render(showStatus) {
-          return `<span class="show-status-${showStatus}">${$trans('__dashboard.select.option.show_status_'+showStatus)}</span>`;
+          return `<span class="show-status-${showStatus}">${$trans('__dashboard.select.option.show_status_' + showStatus)}</span>`;
         }
       }
     }
@@ -185,21 +182,24 @@ class DataTable {
     else spinner.hide();
   }
 
-  searchFormSubmit(e) {
-    e.preventDefault();
-    _selfDataTable.searchFromLoader(true);
-    const searchData = $(this).serializeArray();
+  searchFormSubmit(event) {
+    event.preventDefault();
+    const el = event.target;
+
+    this.searchFromLoader(true);
+    const searchData = $(el).serializeArray();
 
     searchData.map((item, id) => {
 
       let addArrayBrackets = '';
-      if ($(this).find('select[name="' + item.name + '"][multiple]').length) {
+      if ($(el).find('select[name="' + item.name + '"][multiple]').length) {
         addArrayBrackets = '[' + id + ']'
       }
 
-      _selfDataTable.searchData[`f[${item.name}]` + addArrayBrackets] = item.value;
+      this.searchData[`f[${item.name}]` + addArrayBrackets] = item.value;
     });
-    _selfDataTable.tableReload();
+
+    this.tableReload();
   }
 
   defaultSearchData() {
@@ -216,11 +216,10 @@ class DataTable {
 
   $_functions() {
     this.createDataTable();
-    this.searchFormEl.submit(this.searchFormSubmit);
+    this.searchFormEl.submit(this.searchFormSubmit.bind(this));
   }
 
   init() {
-    _selfDataTable = this;
     this.actions();
     this.defaultSearchData();
     this.generateOptions();
