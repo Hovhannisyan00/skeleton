@@ -28,6 +28,28 @@
                         </div>
                     </div>
 
+                    {{-- Multiple Group --}}
+                    {{--<x-dashboard.form.multiple-group class="grouped" :multipleData="$article->group_multiple_fields ?? []">
+
+                        <div class="form-group col-lg-12 mt-4">
+                            <x-dashboard.form._input_multiple title="grouped_title" dataName="title" name="group_multiple_fields[0][title]"/>
+                        </div>
+
+                        <div class="form-group col-lg-12 mt-4">
+                            <x-dashboard.form._input_multiple title="grouped_link" noLabel dataName="link" name="group_multiple_fields[0][link]"/>
+                        </div>
+
+                    </x-dashboard.form.multiple-group>--}}
+
+                    {{-- Multiple --}}
+                    {{--<x-dashboard.form.multiple-group :multipleData="$article->multiple_fields ?? []">
+
+                        <div class="form-group col-lg-12 mt-4">
+                            <x-dashboard.form._input_multiple title="multiple" noLabel name="multiple_fields[0]"/>
+                        </div>
+
+                    </x-dashboard.form.multiple-group>--}}
+
                     <x-dashboard.form.ml-form :mlData="$articleMl ?? ''">
                         <div class="form-group mt-4 required">
                             <x-dashboard.form._input name="title"/>

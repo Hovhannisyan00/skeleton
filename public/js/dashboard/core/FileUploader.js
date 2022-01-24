@@ -1,5 +1,3 @@
-let _selfFileUploader;
-
 // eslint-disable-next-line no-underscore-dangle,no-unused-vars
 class FileUploader {
   constructor() {
@@ -7,13 +5,12 @@ class FileUploader {
   }
 
   init() {
-    _selfFileUploader = this;
     this.deleteFileEvent();
     this.$_functions();
   }
 
   $_functions() {
-    $('body').on('click', '.__delete__file__btn', this.deleteFileHandler);
+    $('body').on('click', '.__delete__file__btn', this.deleteFileHandler.bind(this));
     $('input[type=file]').change(this.fileChangeHandle.bind(this));
   }
 
@@ -167,14 +164,17 @@ class FileUploader {
   }
 
   // Delete functions start
-  deleteFileHandler() {
-    const index = $(this).data('index');
-    _selfFileUploader.$fileErrorBox.find(`ul li[data-index="${index}"]`).remove();
-    if (!_selfFileUploader.$fileErrorBox.find('ul li').length) {
-      _selfFileUploader.$fileErrorBox.hide();
+  deleteFileHandler(event) {
+    const el = event.target;
+    const index = $(el).data('index');
+
+    this.$fileErrorBox.find(`ul li[data-index="${index}"]`).remove();
+    if (!this.$fileErrorBox.find('ul li').length) {
+      this.$fileErrorBox.hide();
     }
-    $(this).closest('.file__item').remove();
-    _selfFileUploader.deleteFileEvent();
+
+    $(el).closest('.file__item').remove();
+    this.deleteFileEvent();
   }
 
   deleteFileEvent() {
