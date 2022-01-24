@@ -50,6 +50,7 @@
 <script src="{{ asset('/js/dashboard/core/ConfirmModal.js') }}"></script>
 <script src="{{ asset('/js/dashboard/core/FormRequest.js') }}"></script>
 <script src="{{ asset('/js/dashboard/core/FileUploader.js') }}"></script>
+<script src="{{ asset('/js/dashboard/core/MultipleInputs.js') }}"></script>
 
 {{ $scripts ?? '' }}
 

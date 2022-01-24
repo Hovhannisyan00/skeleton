@@ -1,10 +1,10 @@
 @php
-    $randomNum = rand();
     $title = __('__dashboard.label.'.($title ?? $name));
+    $labelId = empty($id) ? $name.'_'.rand() : $id;
 @endphp
-<label for="{{ $name }}_{{ $randomNum }}" class="control-label">{{ $title }}</label>
+<label for="{{$labelId}}" class="control-label">{{ $title }}</label>
 <textarea
-       id="{{empty($id) ? $name.'_'.$randomNum : $id}}"
+       id="{{$labelId}}"
        @isset($autocomplete) autocomplete="off" @endisset
        @isset($readonly) readonly @endisset
        placeholder="{{ $title }}"

@@ -1,10 +1,10 @@
 @php
-    $randomNum = rand();
     $title = __('__dashboard.label.'.($title ?? str_replace('[]', '',$name)));
+    $labelId = empty($id) ? $name.'_'.rand() : $id;
 @endphp
-<label for="{{ $name }}_{{ $randomNum }}" class="control-label">{{ $title }}</label>
+<label for="{{$labelId}}" class="control-label">{{ $title }}</label>
 <select name="{{ $name }}"
-        id="{{empty($id) ? $name.'_'.$randomNum : $id}}"
+        id="{{$labelId}}"
         class="form-control {{ $class ?? '' }}"
         @isset($multiple) multiple @endisset
         @isset($placeholder) placeholder="{{ $placeholder }}" @endisset

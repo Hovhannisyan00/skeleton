@@ -48,11 +48,22 @@ class MlForm extends Base
             if ($this->mlData && $this->mlData->count()){
                 $this->setValue($input, $name);
             }
-            if ($attribute == self::ATTRIBUTE_NAME){
-                $newval = "ml[$this->lngCode][$name]";
-            }else{
-                $newval = "ml.$this->lngCode.$name";
+
+            $multipleName ='';
+            if (($pos = strpos($name, "[")) !== FALSE) {
+                $multipleName = substr($name, $pos);
+                $name = explode('[',$name,2)[0];
             }
+
+            if ($attribute == self::ATTRIBUTE_NAME){
+                $newval = "ml[$this->lngCode][$name]$multipleName";
+            }else{
+
+                $multipleName = getArrayNameDot($multipleName);
+
+                $newval = "ml.$this->lngCode.$name$multipleName";
+            }
+
             $input->setAttribute($attribute, $newval);
         }
     }
