@@ -610,6 +610,10 @@ table.dataTable > thead > tr th{
 
     margin-bottom: 20px;
 
+    .multiple-group-content{
+        margin-bottom: 15px;
+    }
+
     .group-item{
         position: relative;
     }
@@ -617,25 +621,70 @@ table.dataTable > thead > tr th{
     .remove-multiple-item{
         position: absolute;
         color: red;
-        top: 5px;
-        right: 5px;
+        top: -1px;
+        right: 2px;
         font-size: 18px;
         cursor: pointer;
     }
 
-    .group-item:not(.grouped){
-        .remove-multiple-item{
-            top: -5px;
-            right: 0;
+    .multiple-group-content.grouped{
+
+        .group-item{
+            position: relative;
+            background-color: #fbfbfb;
+            padding: 20px;
+            border: 1px solid #eee;
+        }
+
+        .group-item .form-group{
+            margin-bottom: 0;
+        }
+
+        .group-item .form-group:not(:first-child){
+            margin-top: 15px;
+        }
+
+        .group-item:not(:last-child){
+            margin-bottom: 10px;
+        }
+
+    }
+
+    .multiple-group-content.content-group{
+
+        background-color: #fbfbfb;
+        border: 1px solid #eee;
+        padding: 20px;
+
+        .group-item{
+            .remove-multiple-item{
+                top: -24px;
+                right: 0;
+            }
+
+            .form-group{
+                margin-bottom: 0;
+            }
+        }
+
+        .group-item:not(:last-child){
+            .form-group{
+                margin-bottom: 30px;
+            }
         }
     }
 
-    .group-item.grouped{
-        position: relative;
-        background-color: #fbfbfb;
-        margin-bottom: 10px;
+}
+
+.bordered-tabs{
+    .tab-content{
+        border: 1px solid #dee2e6;
         padding: 0 20px;
-        border: 1px solid #eee;
+        margin-bottom: 1.75rem;
+        border-top-color: transparent;
     }
 
+    .nav-link{
+        color: #000;
+    }
 }

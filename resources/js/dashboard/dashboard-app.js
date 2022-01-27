@@ -16,3 +16,4 @@ require('./plugins/datatables.net');
 // eslint-disable-next-line import/extensions
 require('./plugins/DataTablesBootstrap.js');
 require('./plugins/jquery.mask.min');
+require('jquery-datetimepicker');

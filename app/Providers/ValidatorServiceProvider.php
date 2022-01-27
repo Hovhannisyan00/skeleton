@@ -87,6 +87,22 @@ class ValidatorServiceProvider extends ServiceProvider
             return $this->validator($data, $rules);
 
         }, trans('validation.invalid'));
+
+        // Datetime validator
+        Validator::extend('datetime', function ($attribute, $value, $parameters) {
+            $data = [];
+
+            if (str_contains($attribute, '.')) {
+                $data = $this->dataArray(explode('.', $attribute), $value);
+            } else {
+                $data[$attribute] = $value;
+            }
+
+            $rules = [$attribute => "date_format:".getDateTimeFormat()];
+
+            return $this->validator($data, $rules);
+
+        }, trans('validation.invalid'));
     }
 
     /**

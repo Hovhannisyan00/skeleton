@@ -47,7 +47,7 @@ class FileController extends BaseController
      */
     public function delete(int $id): JsonResponse
     {
-        $this->service->delete($id);
+        $this->service->deleteFile($id);
         return $this->sendOkDeleted();
     }
 }

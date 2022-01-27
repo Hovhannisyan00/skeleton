@@ -42,8 +42,20 @@ class File extends BaseModel
      * @var string[]
      */
     protected $appends = [
-        'file_path'
+        'file_path',
+        'file_url',
     ];
+
+    /**
+     * Function to generate file url
+     *
+     * @return string
+     */
+    public function getFileUrlAttribute(): string
+    {
+        return Storage::disk('uploads')
+            ->url($this->dir_prefix . '/' . $this->field_name . '/' . $this->file_name);
+    }
 
     /**
      * Function to generate file path
@@ -53,7 +65,7 @@ class File extends BaseModel
     public function getFilePathAttribute(): string
     {
         return Storage::disk('uploads')
-            ->url($this->dir_prefix . '/' . $this->field_name . '/' . $this->file_name);
+            ->path($this->dir_prefix . '/' . $this->field_name . '/' . $this->file_name);
     }
 
 }

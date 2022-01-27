@@ -14,7 +14,7 @@ $(function () {
 
 function select2Init() {
   $('.select2').select2({
-    placeholder: $trans('__dashboard.label.select')
+    placeholder: $trans('__dashboard.select.option.default')
   });
 }
 
@@ -37,19 +37,22 @@ function datepickerInit() {
 
   const datepickerInputs = $('.datepicker');
 
-  if(datepickerInputs.length){
-    datepickerInputs.attr('autocomplete', 'off');
-    datepickerInputs.datepicker({
-      // eslint-disable-next-line no-undef
-      format: $dashboardDates.js.date_format_front,
-      orientation: 'bottom',
-    }).on('changeDate', (ev) => {
-      datepickerInputs.datepicker('hide');
-    });
+  if (datepickerInputs.length) {
 
-    $(document).on('focus', '.datepicker', function () {
-      $(this).mask('00.00.0000');
-    });
+    $.each(datepickerInputs, function () {
+
+      const self = $(this);
+
+      self.datetimepicker({
+        timepicker: false,
+        format: 'd.m.Y',
+        onChangeDateTime: function (dp, $input) {
+          let backendVal = moment($input.val(), "DD.MM.YYYY").format($dashboardDates.js.date_format)
+          self.siblings('.backend-date-value').val(backendVal)
+        }
+      });
+
+    })
   }
 }
 
@@ -57,7 +60,23 @@ function datetimePickerInit() {
 
   const datetimePickerInputs = $('.datetimepicker');
 
-  // datetimePickerInputs.datetimepicker();
+  if (datetimePickerInputs.length) {
+
+    $.each(datetimePickerInputs, function () {
+
+      const self = $(this);
+
+      self.datetimepicker({
+        format: 'd.m.Y H:i',
+        onChangeDateTime: function (dp, $input) {
+          let backendVal = moment($input.val(), "DD.MM.YYYY HH:mm").format($dashboardDates.js.date_time_format)
+          self.siblings('.backend-date-value').val(backendVal)
+        }
+      });
+
+    });
+
+  }
 }
 
 function openMenu() {
