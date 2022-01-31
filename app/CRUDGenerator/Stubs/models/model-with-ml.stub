@@ -15,7 +15,9 @@ class {{ CLASS_NAME }} extends BaseModel
     /**
      * @var string[]
      */
-    protected $fillable = [];
+    protected $fillable = [
+        'name'
+    ];
 
     /**
      * Function to get ml data

@@ -8,7 +8,7 @@ use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
 
 //
-Route::get('/',  [DashboardController::class, 'index']);
+Route::get('/', [DashboardController::class, 'index']);
 
 // Files
 Route::delete('files/delete/{file_id}', [FileController::class, 'delete'])->name('files.delete');
@@ -27,5 +27,5 @@ Route::resource('articles', ArticleController::class);
 Route::get('articles/dataTable/get-list', [ArticleController::class, 'getListData'])->name('articles.getListData');
 
 // Profile
-Route::get('profile',  [ProfileController::class, 'index'])->name('profile.index');
+Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
 

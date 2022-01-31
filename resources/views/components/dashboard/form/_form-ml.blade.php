@@ -24,7 +24,7 @@
         <ul class="nav nav-tabs" id="{{$tabId}}" role="tablist">
             <li class="nav-item">
                 <a class="nav-link active" id="general" data-toggle="tab" href="#{{$tabLocalId}}__general" role="tab" aria-controls="home"
-                   aria-selected="true">General</a>
+                   aria-selected="true">{{__('__dashboard.tab.general')}}</a>
             </li>
             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                 <li class="nav-item">
