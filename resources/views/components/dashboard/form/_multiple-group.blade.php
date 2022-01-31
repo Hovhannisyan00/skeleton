@@ -22,5 +22,5 @@
 
         @endempty
     </div>
-    <button type="button" class="btn btn-success core-multiple-button">Add More</button>
+    <button type="button" class="btn btn-success core-multiple-button"> {{ __('__dashboard.button.add_more') }}</button>
 </div>

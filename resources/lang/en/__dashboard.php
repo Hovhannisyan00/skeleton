@@ -67,6 +67,7 @@ return array(
         'cancel' => 'Cancel',
         'save' => 'Save',
         'delete' => 'Delete',
+        'add_more' => 'Add more',
     ],
 
     'label' => [

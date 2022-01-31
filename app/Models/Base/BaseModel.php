@@ -51,17 +51,19 @@ class BaseModel extends Model
     ];
 
     /**
+     * In Create/Update or Delete functions save user_id and user_ip values
      * @var bool
      */
     public $hasUserInfo = false;
 
     /**
+     * Create function set default values for create data
      * @var array
      */
     public $defaultValues = [];
 
     /**
-     * Default all rows check show_status=1 ,disable that check
+     * Default get all rows (show_status=1) ,disable that check
      * @var bool
      */
     protected static $getOnlyActiveRows = true;
@@ -81,7 +83,7 @@ class BaseModel extends Model
     ];
 
     /**
-     *
+     * Function to boot model creating/updating
      */
     public static function boot()
     {
@@ -130,6 +132,8 @@ class BaseModel extends Model
     }
 
     /**
+     * Function to get model current ml data
+     *
      * @param $query
      * @return Builder
      */
@@ -147,6 +151,8 @@ class BaseModel extends Model
     }
 
     /**
+     * Function to join tables
+     *
      * @param $query
      * @return Builder
      * @throws BindingResolutionException
@@ -171,27 +177,43 @@ class BaseModel extends Model
     }
 
     /**
+     * Function to order by sort_order
+     *
      * @param $query
      * @param string $mode
-     * @return mixed
+     * @return Builder
      */
-    public function scopeOrdered($query, string $mode = 'ASC')
+    public function scopeOrdered($query, string $mode = 'ASC'): Builder
     {
         $table = $this->getTable();
         return $query->orderBy($table . '.sort_order', $mode)->orderByDesc($table . '.id');
     }
 
     /**
+     * Function to exclude select data
+     *
      * @param $query
      * @param array $excludeColumns
-     * @return mixed
+     * @return Builder
      */
-    public function scopeExclude($query, $excludeColumns = [])
+    public function scopeExclude($query, $excludeColumns = []): Builder
     {
         $selectColumns = array_diff($this->fillable, $excludeColumns);
         $selectColumns[] = 'id';
 
         return $query->select($selectColumns);
+    }
+
+    /**
+     *  Function to get only active data
+     *
+     * @param $query
+     * @return Builder
+     */
+    public function scopeActive($query): Builder
+    {
+        $table = $this->getTable();
+        return $query->orderBy($table . '.show_status', self::SHOW_STATUS_ACTIVE);
     }
 
     /**
