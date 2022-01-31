@@ -150,13 +150,32 @@ class FileService extends BaseService
 
             // make destination folder
             if (!File::exists(dirname($fullPathUploads))) {
-                File::makeDirectory(dirname($fullPathUploads), null, true);
+                File::makeDirectory(dirname($fullPathUploads), 0755, true);
             }
 
             return File::move($fullPathPending, $fullPathUploads);
         }
 
         return false;
+    }
+
+    /**
+     * Function to move files from pending to uploads
+     *
+     * @param $fileName
+     * @param null $customDirectory
+     * @return string
+     */
+    public function moveToUploadsFolder($fileName, $customDirectory = null): string
+    {
+        $fileBaseName = explode('/', $fileName)[1] ?? null;
+
+        $this->movePendingFileToUploadsFolder($fileBaseName, [
+            'pending' => $fileName,
+            'uploads' => $customDirectory
+        ]);
+
+        return $fileBaseName;
     }
 
     /**
@@ -178,6 +197,7 @@ class FileService extends BaseService
         $disk->putFileAs($path, $file, $filename);
 
         return [
+            'status' => 'OK',
             'file_url' => $disk->url($path . '/' . $filename),
             'name' => $path . '/' . $filename,
             'original_name' => $file->getClientOriginalName(),

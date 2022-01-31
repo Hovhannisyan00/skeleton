@@ -94,13 +94,17 @@ return array(
         'signature' => 'Signature',
         'password' => 'Password',
         'password_confirmation' => 'Confirm Password',
+        'grouped_title' => 'Title',
+        'grouped_link' => 'Link',
+        'multiple_author' => 'Author',
+        'release_date_time' => 'Release datetime',
     ],
 
     'select' => [
         'option' => [
             'show_status_1' => 'Active',
             'show_status_2' => 'Inactive',
-            'default' => 'select',
+            'default' => 'Select',
             'all' => 'All',
         ],
 

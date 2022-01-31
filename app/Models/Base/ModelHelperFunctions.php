@@ -3,6 +3,7 @@
 namespace App\Models\Base;
 
 use App\Files\HasFileData;
+use Illuminate\Support\Str;
 
 /**
  * Trait ModelHelperFunctions
@@ -17,7 +18,7 @@ trait ModelHelperFunctions
      */
     public static function getClassName(): string
     {
-        return lcfirst(class_basename(static::class));
+        return lcfirst(Str::snake(class_basename(static::class)));
     }
 
     /**
