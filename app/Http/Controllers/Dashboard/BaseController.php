@@ -63,6 +63,7 @@ class BaseController extends Controller
         // Index mode
         view()->composer('*.index', function () use ($view) {
             view()->share('subHeaderData', ['pageName' => $view]);
+            view()->share('isIndexPage', true);
         });
     }
 }

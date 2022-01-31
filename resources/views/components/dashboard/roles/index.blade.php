@@ -46,7 +46,6 @@
     </div>
 
     <x-slot name="scripts">
-        <script src="{{ asset('/js/dashboard/core/DataTable.js') }}"></script>
         <script>
             const options = {
                 pathOptions: {

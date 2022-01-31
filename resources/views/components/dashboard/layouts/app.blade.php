@@ -12,8 +12,7 @@
     <link href="{{mix('/css/dashboard/dashboard-app.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
-{{--    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}" />--}}
-
+    {{-- Data for Js files  --}}
     <script>
         // JS get route by route name
         const routesData = @json(getAllRoutesName());
@@ -33,6 +32,7 @@
     <script src="{{ asset('js/dashboard/dashboard-init.js') }}"></script>
 </head>
 <body>
+
 <main class="d-flex page">
     <x-dashboard.layouts.partials.sidebar></x-dashboard.layouts.partials.sidebar>
 
@@ -49,14 +49,19 @@
 
 <script src="{{ mix('/js/dashboard/main/dashboard-app.js') }}"></script>
 <script src="{{ asset('/js/dashboard/ckeditor.js') }}"></script>
+<script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
 
-<script type="text/javascript" src="{{ asset('plugins/moment/moment.min.js') }}"></script>
-
+{{-- Core Js  --}}
 <script src="{{ mix('/js/dashboard/main/global-scripts.js') }}"></script>
 <script src="{{ asset('/js/dashboard/core/ConfirmModal.js') }}"></script>
 <script src="{{ asset('/js/dashboard/core/FormRequest.js') }}"></script>
 <script src="{{ asset('/js/dashboard/core/FileUploader.js') }}"></script>
 <script src="{{ asset('/js/dashboard/core/MultipleInputs.js') }}"></script>
+
+{{-- Index pages add Datatable Js  --}}
+@if(isset($isIndexPage))
+<script src="{{ asset('/js/dashboard/core/DataTable.js') }}"></script>
+@endif
 
 {{ $scripts ?? '' }}
 

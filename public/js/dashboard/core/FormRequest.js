@@ -65,11 +65,14 @@ class FormRequest {
       $(`.nav-tabs a[href="#${firstError.closest('.tab-pane').attr('id')}"]`).tab('show');
     }
 
-    setTimeout(() => {
-      $('html, body').animate({
-        scrollTop: firstError.offset().top - 300,
-      }, 200);
-    }, 150);
+    if(firstError.length){
+      setTimeout(() => {
+        $('html, body').animate({
+          scrollTop: firstError.offset().top - 300,
+        }, 200);
+      }, 150);
+    }
+
   }
 
   formRequestLoader(is = true) {

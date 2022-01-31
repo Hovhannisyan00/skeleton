@@ -136,5 +136,19 @@ abstract class CRUDGeneratorAbstract
         ];
     }
 
+    /**
+     * Function to check crud has ml
+     *
+     * @return bool
+     */
+    public function hasMl(): bool
+    {
+        if ($this->arguments['migrationMl']) {
+            return true;
+        }
+
+        return false;
+    }
+
 
 }

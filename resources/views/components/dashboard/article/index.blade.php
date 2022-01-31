@@ -44,7 +44,6 @@
     </div>
 
     <x-slot name="scripts">
-        <script src="{{ asset('/js/dashboard/core/DataTable.js') }}"></script>
         <script src="{{ asset('/js/dashboard/article/index.js') }}"></script>
     </x-slot>
 </x-dashboard.layouts.app>
