@@ -4,7 +4,6 @@ class MultipleInputs {
     this.coreParentClass = 'core-multiple-inputs';
   }
 
-
   _addMultipleItem() {
 
     const $this = this;

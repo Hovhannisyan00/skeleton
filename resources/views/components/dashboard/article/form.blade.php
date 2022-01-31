@@ -1,24 +1,24 @@
 <x-dashboard.layouts.app>
     <div class="container-fluid">
         <div class="card mb-4">
-            <x-dashboard.layouts.partials.card-header/>
-            <div class="card-body">
-                <x-dashboard.form._form
-                    :action="$viewMode === 'add' ? route('dashboard.articles.store') : route('dashboard.articles.update', $article->id)"
-                    :indexUrl="route('dashboard.articles.index')"
-                    :method="$viewMode === 'add' ? 'post' : 'put'"
+            <x-dashboard.form._form-ml
+                :action="$viewMode === 'add' ? route('dashboard.articles.store') : route('dashboard.articles.update', $article->id)"
+                :indexUrl="route('dashboard.articles.index')"
+                :method="$viewMode === 'add' ? 'post' : 'put'"
 
-                    :showStatus="$article->show_status"
-                    hasShowStatus
-                >
+                :mlData="$articleMl ?? ''"
+                :showStatus="$article->show_status ?? ''"
+            >
+
+                {{-- General Data --}}
+                <x-slot name="generalTabData">
                     <div class="row">
                         <div class="col-lg-6 form-group required">
                             <x-dashboard.form._input name="slug" :value="$article->slug"/>
                         </div>
 
                         <div class="col-lg-6 form-group required">
-                            <x-dashboard.form._date name="publish_date" class="datepicker"
-                                                     :value="$article->publish_date"/>
+                            <x-dashboard.form._date name="publish_date" class="datepicker" :value="$article->publish_date"/>
                         </div>
 
                         <div class="col-lg-6 form-group required">
@@ -30,8 +30,7 @@
                         </div>
 
                         <div class="col-lg-6 form-group required">
-                            <x-dashboard.form._date dateTime name="release_date_time" class="datetimepicker"
-                                                     :value="$article->release_date_time"/>
+                            <x-dashboard.form._date dateTime name="release_date_time" class="datetimepicker" :value="$article->release_date_time"/>
                         </div>
                     </div>
 
@@ -56,29 +55,31 @@
                         </div>
 
                     </x-dashboard.form.multiple-group>
+                </x-slot>
 
-                    <x-dashboard.form.ml-form :mlData="$articleMl ?? ''">
-                        <div class="form-group mt-4 required">
-                            <x-dashboard.form._input name="title"/>
-                        </div>
-                        <div class="form-group mt-4 required">
-                            <x-dashboard.form._input name="short_description"/>
-                        </div>
-                        <div class="form-group required">
-                            <x-dashboard.form._textarea name="description" class="ckeditor5"/>
-                        </div>
-                        <div class="form-group">
-                            <x-dashboard.form._textarea name="meta_description"/>
-                        </div>
-                        <div class="form-group mt-4">
-                            <x-dashboard.form._input name="meta_title"/>
-                        </div>
-                        <div class="form-group mt-4">
-                            <x-dashboard.form._input name="keywords"/>
-                        </div>
-                    </x-dashboard.form.ml-form>
-                </x-dashboard.form._form>
-            </div>
+                {{-- ML Data --}}
+                <x-slot name="mlTabsData">
+                    <div class="form-group required">
+                        <x-dashboard.form._input name="title"/>
+                    </div>
+                    <div class="form-group required">
+                        <x-dashboard.form._input name="short_description"/>
+                    </div>
+                    <div class="form-group required">
+                        <x-dashboard.form._textarea name="description" class="ckeditor5"/>
+                    </div>
+                    <div class="form-group">
+                        <x-dashboard.form._textarea name="meta_description"/>
+                    </div>
+                    <div class="form-group mt-4">
+                        <x-dashboard.form._input name="meta_title"/>
+                    </div>
+                    <div class="form-group mt-4">
+                        <x-dashboard.form._input name="keywords"/>
+                    </div>
+                </x-slot>
+
+            </x-dashboard.form._form-ml>
         </div>
     </div>
 

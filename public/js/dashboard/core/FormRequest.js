@@ -67,8 +67,8 @@ class FormRequest {
 
     setTimeout(() => {
       $('html, body').animate({
-        scrollTop: firstError.offset().top - 200,
-      }, 300);
+        scrollTop: firstError.offset().top - 300,
+      }, 200);
     }, 150);
   }
 

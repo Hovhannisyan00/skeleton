@@ -11,6 +11,7 @@ localStorage.removeItem('_message');
 
 // ClassicEditor
 const ckeditorEls = document.querySelectorAll('.ckeditor5');
+
 ckeditorEls.forEach((item) => {
   ClassicEditor.create(item, {
     cloudServices: {
