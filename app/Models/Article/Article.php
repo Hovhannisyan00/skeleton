@@ -31,14 +31,10 @@ class Article extends BaseModel
     protected $fillable = [
         'slug',
         'publish_date',
+        'release_date_time',
+        'multiple_group_data',
+        'multiple_author',
         'show_status'
-    ];
-
-    /**
-     * @var string[]
-     */
-    protected $dates = [
-        'publish_date'
     ];
 
     /**
@@ -48,28 +44,17 @@ class Article extends BaseModel
      */
     protected $casts = [
         'created_at' => 'datetime:d.m.Y',
-        'publish_date' => 'datetime:d.m.Y',
+
+        'multiple_group_data' => 'array',
+        'multiple_author' => 'array',
     ];
 
     /**
-     * Function to get ml data
-     *
-     * @return HasMany
+     * @var string[]
      */
-    public function mls(): HasMany
-    {
-        return $this->hasMany(ArticleMls::class);
-    }
-
-    /**
-     * Function to return current ml
-     *
-     * @return HasOne
-     */
-    public function currentMl(): HasOne
-    {
-        return $this->hasOne(ArticleMls::class)->where('lng_code', currentLanguageCode());
-    }
+    protected $dates = [
+        'publish_date',
+    ];
 
     /**
      * Function to return photo
@@ -89,6 +74,37 @@ class Article extends BaseModel
      */
     public function getPublishDateAttribute($value): string
     {
-        return Carbon::parse($value)->format(getDateFormatFront());
+        return $value ? Carbon::parse($value)->format(getDateFormatFront()) : '';
+    }
+
+    /**
+     * Function to return formatted release date
+     *
+     * @param $value
+     * @return string
+     */
+    public function getReleaseDatetimeAttribute($value): string
+    {
+        return $value ? Carbon::parse($value)->format(getDateTimeFormatFront()) : '';
+    }
+
+    /**
+     * Function to get ml data
+     *
+     * @return HasMany
+     */
+    public function mls(): HasMany
+    {
+        return $this->hasMany(ArticleMls::class);
+    }
+
+    /**
+     * Function to return current ml
+     *
+     * @return HasOne
+     */
+    public function currentMl(): HasOne
+    {
+        return $this->hasOne(ArticleMls::class)->where('lng_code', currentLanguageCode());
     }
 }

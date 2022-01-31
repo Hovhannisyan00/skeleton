@@ -4,10 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard Core</title>
-    {{ $css ?? '' }}
+
+    {{-- Styles  --}}
+    {{ $head ?? '' }}
+
     <link href="{{ asset('/css/dashboard/datatable.css') }}" rel="stylesheet">
     <link href="{{mix('/css/dashboard/dashboard-app.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+
+{{--    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/daterangepicker/daterangepicker.css') }}" />--}}
 
     <script>
         // JS get route by route name
@@ -19,6 +24,7 @@
         // JS Translation
         window.trans = @json(getTrans());
 
+        // Roles
         window.$app = {
             roles: @json(getAuthUserRolesName()),
             permissions: []
@@ -44,7 +50,7 @@
 <script src="{{ mix('/js/dashboard/main/dashboard-app.js') }}"></script>
 <script src="{{ asset('/js/dashboard/ckeditor.js') }}"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="{{ asset('plugins/moment/moment.min.js') }}"></script>
 
 <script src="{{ mix('/js/dashboard/main/global-scripts.js') }}"></script>
 <script src="{{ asset('/js/dashboard/core/ConfirmModal.js') }}"></script>

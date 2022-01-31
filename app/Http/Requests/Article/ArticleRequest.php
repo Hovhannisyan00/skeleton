@@ -20,7 +20,16 @@ class ArticleRequest extends FormRequest
         return [
             'slug' => 'required|string_with_max',
             'publish_date' => 'required|date',
+            'release_date_time' => 'required|datetime',
             'photo' => 'required|string_with_max',
+
+            'multiple_group_data' => 'nullable|array',
+            'multiple_group_data.*.title' => 'nullable|string_with_max',
+            'multiple_group_data.*.link' => 'nullable|url|string_with_max',
+
+            'multiple_author' => 'nullable|array',
+            'multiple_author.*' => 'nullable|string_with_max',
+
             'show_status' => 'required|show_status_validator',
 
             'ml' => 'required|array',

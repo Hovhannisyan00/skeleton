@@ -171,17 +171,32 @@ if (!function_exists("getDateTimeFormatFront")) {
     }
 }
 
-if (!function_exists("getJsDateFormatFront")) {
-    function getJsDateFormatFront()
-    {
-        return config('dashboard.js.date_format_front');
-    }
-}
-
 if (!function_exists("formattedDate")) {
     function formattedDate($date): string
     {
         return Carbon::parse($date)->format(getDateFormatFront());
+    }
+}
+
+if (!function_exists("formatDateForBackend")) {
+    function formatDateForBackend($date): string
+    {
+        if ($date) {
+            return Carbon::createFromFormat(getDateFormatFront(), $date)->format(getDateFormat());
+        }
+
+        return $date;
+    }
+}
+
+if (!function_exists("formatDateTimeForBackend")) {
+    function formatDateTimeForBackend($dateTime): string
+    {
+        if ($dateTime) {
+            return Carbon::createFromFormat(getDateTimeFormatFront(), $dateTime)->format(getDateTimeFormat());
+        }
+
+        return $dateTime;
     }
 }
 
@@ -194,7 +209,8 @@ if (!function_exists("getDashboardDates")) {
             'date_time_format' => getDateTimeFormat(),
             'date_time_format_front' => getDateTimeFormatFront(),
             'js' => [
-                'date_format_front' => getJsDateFormatFront(),
+                'date_format' => config('dashboard.js.date_format'),
+                'date_time_format' => config('dashboard.js.date_time_format'),
             ]
         ];
     }

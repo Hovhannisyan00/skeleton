@@ -7,11 +7,21 @@ use DOMDocument;
 use DOMXPath;
 use Illuminate\Contracts\View\View;
 
-class MlForm extends Base
+/**
+ * Class MlTabs
+ * @package App\View\Components\Dashboard\Form
+ */
+class MlTabs extends Base
 {
+    /**
+     * @var string
+     */
     const ATTRIBUTE_NAME = 'name';
     const ATTRIBUTE_DATA_NAME = 'data-name';
 
+    /**
+     * @var string
+     */
     const TAG_INPUT = 'input';
     const TAG_TEXTAREA = 'textarea';
 
@@ -20,6 +30,9 @@ class MlForm extends Base
      */
     protected $lngCode;
 
+    /**
+     * @var
+     */
     protected $mlData;
 
     /**
@@ -45,19 +58,19 @@ class MlForm extends Base
     {
         foreach ($inputs as $input) {
             $name = $input->getAttribute($attribute);
-            if ($this->mlData && $this->mlData->count()){
+            if ($this->mlData && $this->mlData->count()) {
                 $this->setValue($input, $name);
             }
 
-            $multipleName ='';
+            $multipleName = '';
             if (($pos = strpos($name, "[")) !== FALSE) {
                 $multipleName = substr($name, $pos);
-                $name = explode('[',$name,2)[0];
+                $name = explode('[', $name, 2)[0];
             }
 
-            if ($attribute == self::ATTRIBUTE_NAME){
+            if ($attribute == self::ATTRIBUTE_NAME) {
                 $newval = "ml[$this->lngCode][$name]$multipleName";
-            }else{
+            } else {
 
                 $multipleName = getArrayNameDot($multipleName);
 
@@ -78,9 +91,9 @@ class MlForm extends Base
     {
         $columnValue = $this->mlData[$this->lngCode]->$name;
         $tagName = $input->tagName;
-        if ($tagName === self::TAG_INPUT){
+        if ($tagName === self::TAG_INPUT) {
             $input->setAttribute('value', $columnValue);
-        }elseif($tagName === self::TAG_TEXTAREA){
+        } elseif ($tagName === self::TAG_TEXTAREA) {
             $input->textContent = $columnValue;
         }
     }
@@ -112,6 +125,6 @@ class MlForm extends Base
      */
     public function render(): View
     {
-        return $this->dashboardComponent('form._ml-form');
+        return $this->dashboardComponent('form._ml-tabs');
     }
 }

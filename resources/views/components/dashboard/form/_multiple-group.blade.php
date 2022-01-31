@@ -1,7 +1,7 @@
 <div class="core-multiple-inputs">
-    <div class="multiple-group-content">
+    <div class="multiple-group-content {{$class}}">
         @empty($multipleData)
-            <div class="group-item {{$class}}" data-index="{{$index}}">
+            <div class="group-item" data-index="{{$index}}">
                 <div class="row">
                     {{$slot}}
                 </div>
@@ -9,7 +9,7 @@
         @else
 
             @foreach($multipleData as $index => $groupData)
-                <div class="group-item {{$class}}" data-index="{{$index}}">
+                <div class="group-item" data-index="{{$index}}">
                     <div class="row">
                         {{$renderHtml($slot,$groupData,$index)}}
 

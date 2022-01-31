@@ -138,7 +138,6 @@ class MultipleGroup extends Base
         }
     }
 
-
     /**
      * Get the view / contents that represent the component.
      *

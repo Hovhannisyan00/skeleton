@@ -16,7 +16,10 @@ class CreateArticlesTable extends Migration
         Schema::create('articles', function (Blueprint $table) {
             $table->id();
             $table->string('slug');
-            $table->dateTime('publish_date');
+            $table->date('publish_date');
+            $table->dateTime('release_date_time');
+            $table->json('multiple_group_link');
+            $table->json('multiple_author');
             $table->showStatus();
             $table->timestamps();
         });
