@@ -2,7 +2,6 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\Admin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -71,9 +70,6 @@ class Kernel extends HttpKernel
         'localeSessionRedirect'   => \Mcamara\LaravelLocalization\Middleware\LocaleSessionRedirect::class,
         'localeCookieRedirect'    => \Mcamara\LaravelLocalization\Middleware\LocaleCookieRedirect::class,
         'localeViewPath'          => \Mcamara\LaravelLocalization\Middleware\LaravelLocalizationViewPath::class,
-
-        //Admin
-        'admin'                   => Admin::class,
 
         //Spatie Middleware
         'role' => \Spatie\Permission\Middlewares\RoleMiddleware::class,

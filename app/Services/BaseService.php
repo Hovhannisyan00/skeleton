@@ -97,7 +97,6 @@ class BaseService
         } else {
             $this->repository->destroy($id);
         }
-
     }
 
     /**

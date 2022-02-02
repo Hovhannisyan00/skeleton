@@ -25,6 +25,9 @@ class CreateSearchRequest extends CRUDGeneratorAbstract
         $this->config = $this->getConfig(self::REQUEST_REQUEST);
     }
 
+    /**
+     * @return void
+     */
     public function make(): void
     {
         $this->createFolderAndFile($this->getSourceFile($this->config));
