@@ -1,6 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 class FormRequest {
-  constructor(formId = '__form__request', options) {
+  constructor(options, formId = '__form__request') {
     this.options = options;
     this.formId = formId;
     this.formEl = $(`#${formId}`);
@@ -20,6 +20,11 @@ class FormRequest {
   async sendData(method, url, formData) {
     this.formEl.find('.validation-error').html('');
     this.formRequestLoader();
+
+    if(this.__checkOptionMethodsExist() && this.options.methods.beforeSendRequest){
+      this.options.methods.beforeSendRequest();
+    }
+
     // eslint-disable-next-line no-undef
     await axios.post(url, formData)
       .then(this.successHandler.bind(this))
@@ -30,6 +35,11 @@ class FormRequest {
   // eslint-disable-next-line class-methods-use-this
   successHandler(resp) {
     resp = resp.data;
+
+    if(this.__checkOptionMethodsExist() && this.options.methods.afterSuccess){
+      return this.options.methods.afterSuccess(resp);
+    }
+
     if (resp.redirectUrl) {
       localStorage.setItem('_message', resp.message);
       location.href = resp.redirectUrl;
@@ -55,6 +65,10 @@ class FormRequest {
       }
 
       this.scrollToFirstError();
+
+      if(this.__checkOptionMethodsExist() && this.options.methods.afterError){
+        this.options.methods.afterError(error);
+      }
     }
   }
 
@@ -93,5 +107,9 @@ class FormRequest {
 
   init() {
     this.clickSubmit();
+  }
+
+  __checkOptionMethodsExist(){
+    return typeof this.options != "undefined" && typeof this.options.methods != "undefined";
   }
 }
