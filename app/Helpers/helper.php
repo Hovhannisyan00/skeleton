@@ -33,6 +33,13 @@ if (!function_exists("dashboardRoute")) {
     }
 }
 
+if (!function_exists("routeIs")) {
+    function routeIs($name)
+    {
+        return Route::is($name);
+    }
+}
+
 /* ========================================================================================
                                 Route Helper Functions - End
  ======================================================================================== */
