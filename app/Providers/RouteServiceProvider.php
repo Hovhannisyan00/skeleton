@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\RoleAndPermission\Role;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Http\Request;
@@ -62,12 +63,11 @@ class RouteServiceProvider extends ServiceProvider
                 ->as('dashboard.')
                 ->middleware([
                     'web',
-                    'admin',
                     'localeSessionRedirect',
                     'localizationRedirect',
                     'localeViewPath',
-                    'role:super-admin',
                     'auth',
+                    'role:' . Role::ROLE_SUPER_ADMIN,
                 ])
                 ->namespace($this->namespace)
 //                ->middleware('auth')

@@ -24,6 +24,9 @@ class CreateModelSearch extends CRUDGeneratorAbstract
         $this->config = $this->getConfig(self::MODEL_SEARCH);
     }
 
+    /**
+     * @return void
+     */
     public function make(): void
     {
         $this->createFolderAndFile($this->getSourceFile($this->config));

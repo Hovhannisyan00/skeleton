@@ -25,6 +25,9 @@ class CreateRepository extends CRUDGeneratorAbstract
         $this->config = $this->getConfig(self::REPOSITORY);
     }
 
+    /**
+     * @return void
+     */
     public function make(): void
     {
         $this->createFolderAndFile($this->getSourceFile($this->config));
