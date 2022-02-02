@@ -1,12 +1,11 @@
 @php
     $title = __('__dashboard.label.'.($title ?? $name));
     $labelId = empty($id) ? $name.'_'.rand() : $id;
-    $dateTime = empty($dateTime) ? false : true;
 
-    if($dateTime){
-        $backendValue = formatDateTimeForBackend($value ?? '');
-    }else{
+    if(empty($dateTime)){
         $backendValue = formatDateForBackend($value ?? '');
+    }else{
+       $backendValue = formatDateTimeForBackend($value ?? '');
     }
 @endphp
 
