@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use App\Services\File\FileService;
+use App\Services\File\FileTempService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
@@ -40,7 +41,7 @@ class BaseService
             }
 
             // Files
-            if ($model::hasFilesData()) {
+            if ($model->hasFilesData()) {
                 $this->fileService()->storeFile($model, $data);
             }
 
@@ -88,7 +89,7 @@ class BaseService
     public function delete(int $id): void
     {
         $model = $this->repository->find($id);
-        if ($model::hasFilesData()) {
+        if ($model->hasFilesData()) {
             $this->fileService()->deleteModelFile($model);
         }
 
@@ -102,10 +103,10 @@ class BaseService
     /**
      * Function to get FileService class
      *
-     * @return FileService
+     * @return FileTempService
      */
     private function fileService()
     {
-        return app()->make(FileService::class);
+        return app()->make(FileTempService::class);
     }
 }

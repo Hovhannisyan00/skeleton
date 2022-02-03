@@ -47,7 +47,10 @@ function datepickerInit() {
         timepicker: false,
         format: 'd.m.Y',
         onChangeDateTime: function (dp, $input) {
-          let backendVal = moment($input.val(), "DD.MM.YYYY").format($dashboardDates.js.date_format)
+          let backendVal = '';
+          if ($input.val()) {
+            backendVal = moment($input.val(), "DD.MM.YYYY").format($dashboardDates.js.date_format)
+          }
           self.siblings('.backend-date-value').val(backendVal)
         }
       });
@@ -69,7 +72,10 @@ function datetimePickerInit() {
       self.datetimepicker({
         format: 'd.m.Y H:i',
         onChangeDateTime: function (dp, $input) {
-          let backendVal = moment($input.val(), "DD.MM.YYYY HH:mm").format($dashboardDates.js.date_time_format)
+          let backendVal = '';
+          if ($input.val()) {
+            backendVal = moment($input.val(), "DD.MM.YYYY HH:mm").format($dashboardDates.js.date_time_format)
+          }
           self.siblings('.backend-date-value').val(backendVal)
         }
       });

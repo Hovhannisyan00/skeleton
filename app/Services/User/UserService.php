@@ -6,6 +6,7 @@ use App\Contracts\Role\IRoleRepository;
 use App\Repositories\User\UserRepository;
 use App\Services\BaseService;
 use App\Services\File\FileService;
+use App\Services\File\FileTempService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -31,12 +32,12 @@ class UserService extends BaseService
      *
      * @param UserRepository $repository
      * @param IRoleRepository $roleRepository
-     * @param FileService $fileService
+     * @param FileTempService $fileService
      */
     public function __construct(
         UserRepository $repository,
         IRoleRepository $roleRepository,
-        FileService $fileService
+        FileTempService $fileService
     )
     {
         $this->repository = $repository;

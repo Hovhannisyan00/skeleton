@@ -78,7 +78,7 @@ class Article extends BaseModel
     }
 
     /**
-     * Function to return formatted release date
+     * Function to return formatted release datetime
      *
      * @param $value
      * @return string
