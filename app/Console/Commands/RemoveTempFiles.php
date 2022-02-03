@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Services\File\FileService;
+use App\Services\File\FileTempService;
 use Illuminate\Console\Command;
 
 class RemoveTempFiles extends Command
@@ -31,8 +31,13 @@ class RemoveTempFiles extends Command
         parent::__construct();
     }
 
+    /**
+     * Function to remove old temp files
+     *
+     * @return void
+     */
     public function handle()
     {
-        FileService::removeTempFiles();
+        FileTempService::removeTempFiles();
     }
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Contracts\File\IFileRepository;
 use App\Http\Requests\File\FileUploadRequest;
-use App\Services\File\FileService;
+use App\Services\File\FileTempService;
 use Illuminate\Http\JsonResponse;
 
 /**
@@ -17,11 +17,11 @@ class FileController extends BaseController
      * FileController constructor.
      *
      * @param IFileRepository $repository
-     * @param FileService $service
+     * @param FileTempService $service
      */
     public function __construct(
         IFileRepository $repository,
-        FileService $service
+        FileTempService $service
     )
     {
         $this->service = $service;

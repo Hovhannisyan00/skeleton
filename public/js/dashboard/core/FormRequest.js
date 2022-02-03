@@ -4,6 +4,7 @@ class FormRequest {
     this.options = options;
     this.formId = formId;
     this.formEl = $(`#${formId}`);
+    this.cardBody = this.formEl.find('.card-body');
     this.init();
   }
 
@@ -25,6 +26,8 @@ class FormRequest {
       this.options.methods.beforeSendRequest();
     }
 
+    this.cardBody.addClass('loading-content');
+
     // eslint-disable-next-line no-undef
     await axios.post(url, formData)
       .then(this.successHandler.bind(this))
@@ -37,13 +40,18 @@ class FormRequest {
     resp = resp.data;
 
     if(this.__checkOptionMethodsExist() && this.options.methods.afterSuccess){
+      this.cardBody.removeClass('loading-content');
+
       return this.options.methods.afterSuccess(resp);
     }
 
     if (resp.redirectUrl) {
       localStorage.setItem('_message', resp.message);
       location.href = resp.redirectUrl;
+    }else{
+      this.cardBody.removeClass('loading-content');
     }
+
   }
 
   errorHandler(error) {
@@ -70,6 +78,8 @@ class FormRequest {
         this.options.methods.afterError(error);
       }
     }
+
+    this.cardBody.removeClass('loading-content');
   }
 
   scrollToFirstError() {
