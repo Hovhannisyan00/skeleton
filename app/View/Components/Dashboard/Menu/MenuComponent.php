@@ -5,8 +5,6 @@ namespace App\View\Components\Dashboard\Menu;
 use App\Models\Menu\Menu;
 use App\View\Components\Dashboard\Base;
 use Illuminate\Contracts\View\View;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\View\Component;
 
 /**
  * class MenuComponent
@@ -27,14 +25,14 @@ class MenuComponent extends Base
     /**
      * Function to render Menu view
      *
-     * @return View|Closure|string
+     * @return View
      */
     public function render(): View
     {
         $groupName = Menu::admin()
             ->whereNull('parent_id')
-            ->with('children')
-            ->orderBy('sort')
+            ->with('subMenu')
+            ->orderBy('sort_order')
             ->get()
             ->groupBy('group_name');
 

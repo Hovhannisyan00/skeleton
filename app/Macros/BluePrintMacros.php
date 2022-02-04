@@ -40,4 +40,16 @@ class BluePrintMacros
             $this->enum('show_status', BaseModel::SHOW_STATUSES)->default(BaseModel::SHOW_STATUS_ACTIVE);
         };
     }
+
+    /**
+     * Function to set sort order
+     *
+     * @return \Closure
+     */
+    public function sortOrder()
+    {
+        return function () {
+            $this->integer('sort_order')->nullable();
+        };
+    }
 }

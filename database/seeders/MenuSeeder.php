@@ -45,12 +45,29 @@ class MenuSeeder extends Seeder
                 'url' => route('dashboard.articles.index', [], false),
                 'icon' => 'fab fa-autoprefixer',
                 'type' => 'admin',
-                'role' => [Role::ROLE_SUPER_ADMIN]
+                'role' => [Role::ROLE_SUPER_ADMIN],
+                /*'sub' =>  [
+                    [
+                        'title' => 'Sub Article',
+                        'slug' => 'sub_articles',
+                        'url' => route('dashboard.articles.index', [], false),
+                        'icon' => 'fab fa-autoprefixer',
+                        'type' => 'admin',
+                        'role' => [Role::ROLE_SUPER_ADMIN]
+                    ]
+                ],*/
             ],
+
         ];
 
         foreach ($menus as $menu) {
             $createdMenu = Menu::create($menu);
+
+            foreach ($menu['sub'] ?? [] as $subMenu){
+                $subMenu['parent_id'] = $createdMenu->id;
+                Menu::create($subMenu);
+            }
+
             $createdMenu->assignRole($menu['role']);
         }
     }

@@ -3,7 +3,7 @@
         <li class="menu-item-group">{{ $key }}</li>
     @endif
     @foreach($menus as $menu)
-        @if($menu->children->count())
+        @if($menu->subMenu->count())
             <li class="menu-item">
                 <a class="menu-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
                    aria-controls="collapseExample">
@@ -15,13 +15,13 @@
                 </a>
                 <div class="collapse" data-parent="#menu-nav" id="collapseExample">
                     <ul class="menu-nav">
-                        @foreach($menu->children as $child)
+                        @foreach($menu->subMenu as $subMenu)
                             <li class="menu-item">
-                                <a href="{{ urlWithLng($child->url) }}" class="menu-link">
+                                <a href="{{ urlWithLng($subMenu->url) }}" class="menu-link">
                                     <i class="menu-bullet-line">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">{{ __('__dashboard.menu.'.$child->slug) }}</span>
+                                    <span class="menu-text">{{ __('__dashboard.menu.'.$subMenu->slug) }}</span>
                                 </a>
                             </li>
                         @endforeach

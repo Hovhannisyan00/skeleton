@@ -24,7 +24,7 @@ class CreateMenusTable extends Migration
             $table->string('icon')->nullable();
             $table->boolean('show_status')->default(1);
             $table->enum('type', [Menu::MENU_TYPE_ADMIN, Menu::MENU_TYPE_PROFILE]);
-            $table->integer('sort')->nullable();
+            $table->sortOrder();
             $table->timestamps();
         });
     }
