@@ -50,13 +50,6 @@ class Article extends BaseModel
     ];
 
     /**
-     * @var string[]
-     */
-    protected $dates = [
-        'publish_date',
-    ];
-
-    /**
      * Function to return photo
      *
      * @return Model

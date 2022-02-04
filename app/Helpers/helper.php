@@ -188,22 +188,14 @@ if (!function_exists("formattedDate")) {
 if (!function_exists("formatDateForBackend")) {
     function formatDateForBackend($date): string
     {
-        if ($date) {
-            return Carbon::createFromFormat(getDateFormatFront(), $date)->format(getDateFormat());
-        }
-
-        return $date;
+        return $date ? Carbon::createFromFormat(getDateFormatFront(), $date)->format(getDateFormat()) : '';
     }
 }
 
 if (!function_exists("formatDateTimeForBackend")) {
     function formatDateTimeForBackend($dateTime): string
     {
-        if ($dateTime) {
-            return Carbon::createFromFormat(getDateTimeFormatFront(), $dateTime)->format(getDateTimeFormat());
-        }
-
-        return $dateTime;
+        return $dateTime ? Carbon::createFromFormat(getDateTimeFormatFront(), $dateTime)->format(getDateTimeFormat()) : '';
     }
 }
 

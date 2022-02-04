@@ -47,7 +47,7 @@ class Menu extends BaseModel
      *
      * @return void
      */
-    protected static function booted()
+    protected static function booted(): void
     {
         static::addGlobalScope(new UserMenuScope());
     }

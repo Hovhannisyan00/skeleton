@@ -161,6 +161,7 @@ class DataTable {
       searching: false,
       ajax: this.ajaxSend.bind(this),
       order: [[0, 'desc']],
+      pageLength: 25,
       columns: this.getAndGenerateColumns(),
     };
     this.options = {...options, ...this.options};

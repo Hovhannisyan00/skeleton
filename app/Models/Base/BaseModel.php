@@ -84,8 +84,10 @@ class BaseModel extends Model
 
     /**
      * Function to boot model creating/updating
+     *
+     * @return void
      */
-    public static function boot()
+    public static function boot(): void
     {
         parent::boot();
 
@@ -116,6 +118,8 @@ class BaseModel extends Model
     }
 
     /**
+     * Function to get model files (morph table)
+     *
      * @param null $fieldName
      * @param null $fileType
      * @return MorphMany

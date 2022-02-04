@@ -17,25 +17,16 @@ class FileTempService extends FileService
      *
      * @param Model $model
      * @param array $data
+     * @return void
      */
-    public function storeFile(Model $model, array $data)
+    public function storeFile(Model $model, array $data): void
     {
-        $config = $model->getFileConfig();
-
-        foreach ($config as $fieldName => $fieldValue) {
+        foreach ($model->getFileConfig() as $fieldName => $configData) {
             $files = $data[$fieldName] ?? [];
+            $files = is_array($files) ?: [$files];
 
-            $configAttributes = [
-                'field_name' => $fieldName,
-                'file_type' => $fieldValue['file_type']
-            ];
-
-            if (is_array($files)) {
-                foreach ($files as $fileName) {
-                    $this->create($model, $configAttributes, $fileName, true);
-                }
-            } else {
-                $this->create($model, $configAttributes, $files);
+            foreach ($files as $fileName) {
+                $this->create($model, $configData, $fileName, true);
             }
         }
     }
@@ -44,17 +35,18 @@ class FileTempService extends FileService
      * Function to create file
      *
      * @param Model $model
-     * @param array $configAttributes
+     * @param array $configData
      * @param $fileName
      * @param bool $isArray
+     * @return void
      */
-    private function create(Model $model, array $configAttributes, $fileName, bool $isArray = false)
+    private function create(Model $model, array $configData, $fileName, bool $isArray = false): void
     {
-        $fieldName = $configAttributes['field_name'];
-        $fileType = $configAttributes['file_type'];
+        $fieldName = $configData['field_name'];
+        $fileType = $configData['file_type'];
 
-        $dir_prefix = strtolower(class_basename($model));
-        $path = $dir_prefix . '/' . $fieldName;
+        $dirPrefix = $model::getClassName();
+        $path = $dirPrefix . '/' . $fieldName;
         $fileBaseName = explode('/', $fileName)[1] ?? null;
 
         if ($fileBaseName) {
@@ -62,9 +54,9 @@ class FileTempService extends FileService
                 $this->deleteModelFile($model, $fieldName);
             }
 
-            $move = $this->movePendingFileToUploadsFolder($fileBaseName, [
+            $move = $this->movePendingFileToUploadsFolder($fileBaseName, $configData, [
                 'pending' => $fileName,
-                'uploads' => $path
+                'uploads' => $path,
             ]);
 
             if ($move) {
@@ -72,7 +64,7 @@ class FileTempService extends FileService
                     'field_name' => $fieldName,
                     'file_name' => $fileBaseName,
                     'file_type' => $fileType,
-                    'dir_prefix' => $dir_prefix
+                    'dir_prefix' => $dirPrefix
                 ]);
             }
         }
@@ -81,23 +73,22 @@ class FileTempService extends FileService
     /**
      * Function to store file
      *
-     * @param $data
+     * @param array $data
      * @return array
      */
-    public function storeTempFile($data): array
+    public function storeTempFile(array $data): array
     {
-        $disk = Storage::disk('pending');
         $file = $data['file'];
         $config = config("files.{$data['config_key']}");
 
         $filename = $this->getFileName($file);
         $path = now()->format('d-m-Y');
 
-        $disk->putFileAs($path, $file, $filename);
+        $this->pendingDisk->putFileAs($path, $file, $filename);
 
         return [
             'status' => 'OK',
-            'file_url' => $disk->url($path . '/' . $filename),
+            'file_url' => $this->pendingDisk->url($path . '/' . $filename),
             'name' => $path . '/' . $filename,
             'original_name' => $file->getClientOriginalName(),
             'file_type' => $config['file_type'],
@@ -109,7 +100,7 @@ class FileTempService extends FileService
      *
      * @return void
      */
-    public static function removeTempFiles()
+    public static function removeTempFiles(): void
     {
         $disk = Storage::disk('pending');
         $pastDay = now()->subDay();
@@ -126,15 +117,16 @@ class FileTempService extends FileService
     /**
      * Function to move files from pending to uploads
      *
-     * @param $fileName
-     * @param null $customDirectory
+     * @param string $fileName
+     * @param string $customDirectory
+     * @param array $configData
      * @return string
      */
-    public function moveToUploadsFolder($fileName, $customDirectory = null): string
+    public function moveToUploadsFolder(string $fileName, string $customDirectory = '', array $configData = []): string
     {
         $fileBaseName = explode('/', $fileName)[1] ?? null;
 
-        $this->movePendingFileToUploadsFolder($fileBaseName, [
+        $this->movePendingFileToUploadsFolder($fileBaseName, $configData, [
             'pending' => $fileName,
             'uploads' => $customDirectory
         ]);
