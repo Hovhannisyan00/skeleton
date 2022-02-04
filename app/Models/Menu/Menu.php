@@ -67,8 +67,8 @@ class Menu extends BaseModel
      *
      * @return HasMany
      */
-    public function children(): HasMany
+    public function subMenu(): HasMany
     {
-        return $this->hasMany(self::class, 'parent_id')->orderBy('sort');
+        return $this->hasMany(self::class, 'parent_id')->orderBy('sort_order');
     }
 }

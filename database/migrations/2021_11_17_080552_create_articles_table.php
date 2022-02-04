@@ -18,7 +18,7 @@ class CreateArticlesTable extends Migration
             $table->string('slug');
             $table->date('publish_date');
             $table->dateTime('release_date_time');
-            $table->json('multiple_group_link');
+            $table->json('multiple_group_data');
             $table->json('multiple_author');
             $table->showStatus();
             $table->timestamps();
