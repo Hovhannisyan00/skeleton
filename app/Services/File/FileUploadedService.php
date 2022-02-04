@@ -5,16 +5,16 @@ namespace App\Services\File;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class FileContentService
+ * Class FileUploadedService
  * @package App\Services\File
  */
-class FileContentService extends FileService
+class FileUploadedService extends FileService
 {
     /**
      * Function to store upload file
      *
      * @param Model $model
-     * @param $files
+     * @param string|array $files
      * @param string $configName
      * @return void
      */
@@ -23,7 +23,7 @@ class FileContentService extends FileService
         $config = $model->getFileConfig()[$configName];
         $this->deleteModelFile($model, $config['field_name']);
 
-        $files = is_array($files) ?: [$files];
+        $files = is_array($files) ? $files : [$files];
 
         foreach ($files as $file) {
             $this->create($model, $file, $config);

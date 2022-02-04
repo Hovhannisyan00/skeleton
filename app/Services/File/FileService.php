@@ -43,11 +43,11 @@ abstract class FileService extends BaseService
      * Function to move tmp file from pending dir to upload dir
      *
      * @param string $fileName
-     * @param array $configData
+     * @param array $config
      * @param array $directoryData
      * @return bool
      */
-    protected function movePendingFileToUploadsFolder(string $fileName, array $configData = [], array $directoryData = []): bool
+    protected function movePendingFileToUploadsFolder(string $fileName, array $config = [], array $directoryData = []): bool
     {
         if ($this->pendingDisk->exists($directoryData['pending'])) {
 
@@ -60,8 +60,8 @@ abstract class FileService extends BaseService
             $this->makeDirectory($fullPathUploads);
 
             // save thumb
-            if (isset($configData['thumb'])) {
-                $this->saveThumb($fileName, $fullPathPending, $configData['thumb'], $directoryData);
+            if (isset($config['thumb'])) {
+                $this->saveThumb($fileName, $fullPathPending, $config['thumb'], $directoryData);
             }
 
             return File::move($fullPathPending, $fullPathUploads);
@@ -111,7 +111,7 @@ abstract class FileService extends BaseService
     public function deleteModelFile($model, $fieldName = null): void
     {
         $files = $model->files($fieldName)->get();
-        if (count($files)) {
+        if ($files->count()) {
             foreach ($files as $file) {
                 $this->deleteFilePhysically($file);
             }
@@ -143,10 +143,10 @@ abstract class FileService extends BaseService
 
         if ($this->uploadsDisk->exists($file->dir_prefix . '/' . $file->field_name . '/thumbs/')) {
 
-            $configData = config("files.$file->dir_prefix.$file->field_name");
+            $config = config("files.$file->dir_prefix.$file->field_name");
 
-            if (isset($configData['thumb'])) {
-                foreach ($configData['thumb'] as $thumb) {
+            if (isset($config['thumb'])) {
+                foreach ($config['thumb'] as $thumb) {
 
                     $thumbResizePath = $this->getThumbResizePath($thumb['width'], $thumb['height'] ?? null);
                     $thumbFilePath = $file->dir_prefix . '/' . $file->field_name . '/thumbs/' . $thumbResizePath . '/' . $file->file_name;
