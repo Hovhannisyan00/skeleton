@@ -21,12 +21,13 @@ class FileTempService extends FileService
      */
     public function storeFile(Model $model, array $data): void
     {
-        foreach ($model->getFileConfig() as $fieldName => $configData) {
+        foreach ($model->getFileConfig() as $fieldName => $config) {
+
             $files = $data[$fieldName] ?? [];
-            $files = is_array($files) ?: [$files];
+            $files = is_array($files) ? $files : [$files];
 
             foreach ($files as $fileName) {
-                $this->create($model, $configData, $fileName, true);
+                $this->create($model, $config, $fileName);
             }
         }
     }
@@ -35,26 +36,25 @@ class FileTempService extends FileService
      * Function to create file
      *
      * @param Model $model
-     * @param array $configData
+     * @param array $config
      * @param $fileName
-     * @param bool $isArray
      * @return void
      */
-    private function create(Model $model, array $configData, $fileName, bool $isArray = false): void
+    private function create(Model $model, array $config, $fileName): void
     {
-        $fieldName = $configData['field_name'];
-        $fileType = $configData['file_type'];
+        $fieldName = $config['field_name'];
+        $fileType = $config['file_type'];
 
         $dirPrefix = $model::getClassName();
         $path = $dirPrefix . '/' . $fieldName;
         $fileBaseName = explode('/', $fileName)[1] ?? null;
 
+        // temp file move upload
         if ($fileBaseName) {
-            if (!$isArray) {
-                $this->deleteModelFile($model, $fieldName);
-            }
 
-            $move = $this->movePendingFileToUploadsFolder($fileBaseName, $configData, [
+            $this->deleteModelFile($model, $config['field_name']);
+
+            $move = $this->movePendingFileToUploadsFolder($fileBaseName, $config, [
                 'pending' => $fileName,
                 'uploads' => $path,
             ]);
@@ -119,14 +119,14 @@ class FileTempService extends FileService
      *
      * @param string $fileName
      * @param string $customDirectory
-     * @param array $configData
+     * @param array $config
      * @return string
      */
-    public function moveToUploadsFolder(string $fileName, string $customDirectory = '', array $configData = []): string
+    public function moveToUploadsFolder(string $fileName, string $customDirectory = '', array $config = []): string
     {
         $fileBaseName = explode('/', $fileName)[1] ?? null;
 
-        $this->movePendingFileToUploadsFolder($fileBaseName, $configData, [
+        $this->movePendingFileToUploadsFolder($fileBaseName, $config, [
             'pending' => $fileName,
             'uploads' => $customDirectory
         ]);
