@@ -13,6 +13,6 @@
        @isset($disabled) disabled @endisset
        @isset($multiple) multiple @endisset
        name="{{ $name ?? '' }}"
-       class="form-control standard {{ $class ?? '' }}"
+       class="form-control {{ $class ?? '' }}"
 >
 <x-dashboard.form._error :name="$name"></x-dashboard.form._error>

@@ -17,3 +17,45 @@ const options = {
 */
 
 new FormRequest();
+const infoModal = new Modal('infoModal');
+
+$(function () {
+
+  infoModalEvent();
+
+});
+
+function infoModalEvent() {
+
+  infoModal.beforeShow(function () {
+      // Info Modal Opened!
+  });
+
+  infoModal.beforeHide(function () {
+   // Info Modal Hide!
+  });
+
+  infoModal.save(function (e) {
+    const currentModalContent = infoModal.getModalElement();
+
+    alert("Saved!");
+    infoModal.hide();
+  });
+
+  infoModal.cancel(function (e) {
+    // e.stopPropagation(); // stop close event
+
+    const currentModalContent = infoModal.getModalElement();
+
+    alert("Canceled!");
+
+    // infoModal.hide()
+    // infoModal.show()
+  });
+
+  // if custom btn need to add click
+  infoModal.clickItem('.custom-save-btn',function (){
+    console.log('custom-save-btn');
+  });
+
+}
