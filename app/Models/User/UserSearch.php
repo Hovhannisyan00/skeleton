@@ -14,7 +14,7 @@ class UserSearch extends Search
     /**
      * @var string[]
      */
-    protected $orderables = [
+    protected array $orderables = [
         'id',
         'first_name',
         'last_name',

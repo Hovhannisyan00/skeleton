@@ -54,19 +54,19 @@ class BaseModel extends Model
      * In Create/Update or Delete functions save user_id and user_ip values
      * @var bool
      */
-    public $hasUserInfo = false;
+    public bool $hasUserInfo = false;
 
     /**
      * Create function set default values for create data
      * @var array
      */
-    public $defaultValues = [];
+    public array $defaultValues = [];
 
     /**
      * Default get all rows (show_status=1) ,disable that check
      * @var bool
      */
-    protected static $getOnlyActiveRows = true;
+    protected static bool $getOnlyActiveRows = true;
 
     /**
      * The attributes that should be hidden for arrays.

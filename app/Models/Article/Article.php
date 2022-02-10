@@ -23,7 +23,7 @@ class Article extends BaseModel
      *
      * @var array
      */
-    public $defaultValues = [];
+    public array $defaultValues = [];
 
     /**
      * @var string[]

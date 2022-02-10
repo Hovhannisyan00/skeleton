@@ -2,6 +2,10 @@
 
 namespace App\Files;
 
+/**
+ * Trait HasFileData
+ * @package App\Files
+ */
 trait HasFileData
 {
     abstract public function setFileConfigName(): string;

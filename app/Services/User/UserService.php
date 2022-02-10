@@ -5,7 +5,6 @@ namespace App\Services\User;
 use App\Contracts\Role\IRoleRepository;
 use App\Repositories\User\UserRepository;
 use App\Services\BaseService;
-use App\Services\File\FileService;
 use App\Services\File\FileTempService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
@@ -20,12 +19,7 @@ class UserService extends BaseService
     /**
      * @var IRoleRepository
      */
-    protected $roleRepository;
-
-    /**
-     * @var FileService
-     */
-    protected $fileService;
+    protected IRoleRepository $roleRepository;
 
     /**
      * UserService constructor.
