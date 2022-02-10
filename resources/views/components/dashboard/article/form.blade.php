@@ -12,6 +12,22 @@
 
                 {{-- General Data --}}
                 <x-slot name="generalTabData">
+
+                    <!-- Modal Info -->
+                    <x-dashboard.form.modals._modal id="info" size="lg" headerText="info">
+                        <x-slot name="body">
+                            <p class="mb-0">Hi I'm Core Modal :)</p>
+                        </x-slot>
+                    </x-dashboard.form.modals._modal>
+
+                    <!-- Button trigger info modal -->
+                    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#infoModal">
+                        Launch info modal
+                    </button>
+
+                    <!-- Confirm Modal -->
+                    {{-- <x-dashboard.form.modals._confirm static deleteType></x-dashboard.form.modals._confirm>--}}
+
                     <div class="row">
                         <div class="col-lg-6 form-group required">
                             <x-dashboard.form._input name="slug" :value="$article->slug"/>

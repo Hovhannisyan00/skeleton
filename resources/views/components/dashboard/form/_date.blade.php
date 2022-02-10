@@ -25,5 +25,5 @@
        value="{{ $value ?? '' }}"
        class="form-control {{ $class ?? '' }}"
 >
-<input type="hidden" class="backend-date-value" name="{{ $name ?? '' }}" value="{{ $backendValue }}"></input>
+<input type="hidden" class="backend-date-value" name="{{ $name ?? '' }}" value="{{ $backendValue }}">
 <x-dashboard.form._error :name="$name"></x-dashboard.form._error>

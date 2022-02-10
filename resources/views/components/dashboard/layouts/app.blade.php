@@ -57,6 +57,7 @@
 <script src="{{ asset('/js/dashboard/core/FormRequest.js') }}"></script>
 <script src="{{ asset('/js/dashboard/core/FileUploader.js') }}"></script>
 <script src="{{ asset('/js/dashboard/core/MultipleInputs.js') }}"></script>
+<script src="{{ asset('/js/dashboard/core/Modal.js') }}"></script>
 
 {{-- Index pages add Datatable Js  --}}
 @if(isset($isIndexPage))

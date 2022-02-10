@@ -113,7 +113,10 @@ return array(
 
     'modal' => [
         'are_you_sure' => 'Are you sure?',
-        'confirm_action' => 'Confirm action'
+        'confirm_action' => 'Confirm action',
+        'title' => [
+            'info' => "Modal info title"
+        ]
     ],
 
     'translations' => [
