@@ -14,7 +14,7 @@ class ArticleSearch extends Search
     /**
      * @var string[]
      */
-    protected $orderables = [
+    protected array $orderables = [
         'id',
         'title',
         'publish_date',

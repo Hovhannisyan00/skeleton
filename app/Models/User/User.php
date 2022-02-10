@@ -64,7 +64,7 @@ class User extends Authenticatable
     /**
      * @var array
      */
-    public $defaultValues = [];
+    public array $defaultValues = [];
 
     /**
      * Function to set model files config name

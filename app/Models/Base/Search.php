@@ -14,29 +14,29 @@ abstract class Search
     /**
      * @var int
      */
-    protected $perPage = 25;
+    protected int $perPage = 25;
 
     /**
      * @var int
      */
-    protected $start = 0;
+    protected int $start = 0;
 
     /**
      * @var array
      */
-    protected $filters = [];
+    protected array $filters = [];
 
     /**
      * @var array
      */
-    protected $order = [
+    protected array $order = [
         ['sort_by' => 'id', 'dir' => 'desc']
     ];
 
     /**
      * @var string[]
      */
-    protected $orderables = [
+    protected array $orderables = [
         'id',
     ];
 
@@ -72,7 +72,7 @@ abstract class Search
     /**
      * @param $query
      */
-    protected function setOrdering($query)
+    protected function setOrdering($query): void
     {
         if (in_array($this->order['sort_by'] ?? '', $this->orderables)) {
             $query->orderBy($this->order['sort_by'], $this->order['sort_desc']);
@@ -82,7 +82,7 @@ abstract class Search
     /**
      * @param $query
      */
-    protected function setLimits($query)
+    protected function setLimits($query): void
     {
         $query
             ->skip($this->start)
@@ -92,7 +92,7 @@ abstract class Search
     /**
      * @return array|Collection
      */
-    public function search()
+    public function search(): Collection
     {
         $query = $this->query();
         $this->setOrdering($query);
@@ -104,7 +104,7 @@ abstract class Search
      * @param $query
      * @return array|Collection
      */
-    public function setReturnData($query)
+    public function setReturnData($query): Collection
     {
         return $query->get();
     }

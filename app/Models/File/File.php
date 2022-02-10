@@ -44,6 +44,7 @@ class File extends BaseModel
     protected $appends = [
         'file_path',
         'file_url',
+        'file_original_name',
     ];
 
     /**
@@ -66,6 +67,17 @@ class File extends BaseModel
     {
         return Storage::disk('uploads')
             ->path($this->dir_prefix . '/' . $this->field_name . '/' . $this->file_name);
+    }
+
+    /**
+     * Function to get file original name
+     *
+     * @return string
+     */
+    public function getFileOriginalNameAttribute(): string
+    {
+        $explodedFileName = explode('_', $this->file_name, 2);
+        return $explodedFileName[1] ?? '';
     }
 
 }

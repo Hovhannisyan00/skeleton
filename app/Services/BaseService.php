@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Contracts\IBaseRepository;
 use App\Services\File\FileService;
 use App\Services\File\FileTempService;
 use Illuminate\Database\Eloquent\Model;
@@ -14,14 +15,14 @@ use Illuminate\Support\Facades\DB;
 class BaseService
 {
     /**
-     * @var @any
+     * @var IBaseRepository
      */
-    protected $repository;
+    protected IBaseRepository $repository;
 
     /**
      * @var FileService
      */
-    protected $fileService;
+    protected FileService $fileService;
 
     /**
      * Function to create or update model

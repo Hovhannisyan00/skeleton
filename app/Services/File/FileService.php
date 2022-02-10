@@ -3,8 +3,7 @@
 namespace App\Services\File;
 
 use App\Repositories\File\FileRepository;
-use App\Services\BaseService;
-use Illuminate\Filesystem\Filesystem;
+use Illuminate\Filesystem\FilesystemAdapter;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -14,17 +13,22 @@ use Intervention\Image\Facades\Image;
  * Class FileService
  * @package App\Services\File
  */
-abstract class FileService extends BaseService
+abstract class FileService
 {
     /**
-     * @var Filesystem
+     * @var FileRepository
      */
-    protected $uploadsDisk;
+    protected FileRepository $repository;
 
     /**
-     * @var Filesystem
+     * @var FilesystemAdapter
      */
-    protected $pendingDisk;
+    protected FilesystemAdapter $uploadsDisk;
+
+    /**
+     * @var FilesystemAdapter
+     */
+    protected FilesystemAdapter $pendingDisk;
 
     /**
      * FileService constructor.
@@ -35,8 +39,7 @@ abstract class FileService extends BaseService
     {
         $this->repository = $repository;
 
-        $this->uploadsDisk = Storage::disk('uploads');
-        $this->pendingDisk = Storage::disk('pending');
+        $this->setDisks();
     }
 
     /**
@@ -222,5 +225,16 @@ abstract class FileService extends BaseService
     protected function getFilePathPendingDisk($path): string
     {
         return $this->pendingDisk->getDriver()->getAdapter()->applyPathPrefix($path);
+    }
+
+    /**
+     * Function to set disks
+     *
+     * @return void
+     */
+    private function setDisks(): void
+    {
+        $this->uploadsDisk = Storage::disk('uploads');
+        $this->pendingDisk = Storage::disk('pending');
     }
 }
