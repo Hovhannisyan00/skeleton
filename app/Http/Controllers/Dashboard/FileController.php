@@ -15,16 +15,14 @@ class FileController extends BaseController
 {
     /**
      * FileController constructor.
-     *
      * @param IFileRepository $repository
-     * @param FileTempService $service
+     * @param FileTempService $fileService
      */
     public function __construct(
         IFileRepository $repository,
-        FileTempService $service
+        private FileTempService $fileService
     )
     {
-        $this->service = $service;
         $this->repository = $repository;
     }
 
@@ -36,7 +34,7 @@ class FileController extends BaseController
      */
     public function storeTempFile(FileUploadRequest $request): JsonResponse
     {
-        return response()->json($this->service->storeTempFile($request->validated()));
+        return response()->json($this->fileService->storeTempFile($request->validated()));
     }
 
     /**
@@ -47,7 +45,7 @@ class FileController extends BaseController
      */
     public function delete(int $id): JsonResponse
     {
-        $this->service->deleteFile($id);
+        $this->fileService->deleteFile($id);
         return $this->sendOkDeleted();
     }
 }

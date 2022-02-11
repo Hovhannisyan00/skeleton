@@ -18,7 +18,7 @@ class BaseRepository implements IBaseRepository
     /**
      * @var Model
      */
-    public $model;
+    public Model $model;
 
     /**
      * BaseRepository constructor.

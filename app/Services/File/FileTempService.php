@@ -54,7 +54,7 @@ class FileTempService extends FileService
 
             $this->deleteModelFile($model, $config['field_name']);
 
-            $move = $this->movePendingFileToUploadsFolder($fileBaseName, $config, [
+            $move = $this->movePendingFileToUploadsFolder(fileName: $fileBaseName, config: $config, directoryData: [
                 'pending' => $fileName,
                 'uploads' => $path,
             ]);
@@ -84,7 +84,7 @@ class FileTempService extends FileService
         $filename = $this->getFileName($file);
         $path = now()->format('d-m-Y');
 
-        $this->pendingDisk->putFileAs($path, $file, $filename);
+        $this->pendingDisk->putFileAs(path: $path, file: $file, name: $filename);
 
         return [
             'status' => 'OK',
@@ -126,7 +126,7 @@ class FileTempService extends FileService
     {
         $fileBaseName = explode('/', $fileName)[1] ?? null;
 
-        $this->movePendingFileToUploadsFolder($fileBaseName, $config, [
+        $this->movePendingFileToUploadsFolder(fileName: $fileBaseName, config: $config, directoryData: [
             'pending' => $fileName,
             'uploads' => $customDirectory
         ]);

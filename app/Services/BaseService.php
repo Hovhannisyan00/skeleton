@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
  * Class BaseService
  * @package App\Services
  */
-class BaseService
+abstract class BaseService
 {
     /**
      * @var IBaseRepository
@@ -27,11 +27,11 @@ class BaseService
     /**
      * Function to create or update model
      *
-     * @param $data
+     * @param array $data
      * @param int|null $id
      * @return Model
      */
-    public function createOrUpdate($data, int $id = null): Model
+    public function createOrUpdate(array $data, int $id = null): Model
     {
         return DB::transaction(function () use ($id, $data) {
             $model = $id ? $this->repository->update($id, $data) : $this->repository->create($data);

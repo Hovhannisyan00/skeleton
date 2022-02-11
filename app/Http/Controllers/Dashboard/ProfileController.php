@@ -25,7 +25,7 @@ class ProfileController extends BaseController
      *
      * @return View
      */
-    public function index()
+    public function index(): View
     {
         return $this->dashboardView('profile.index');
     }

@@ -12,8 +12,7 @@ use App\Services\BaseService;
 class ArticleService extends BaseService
 {
     /**
-     * UserService constructor.
-     *
+     * ArticleService constructor.
      * @param IArticleRepository $repository
      */
     public function __construct(
