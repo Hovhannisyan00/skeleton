@@ -16,11 +16,6 @@ use Intervention\Image\Facades\Image;
 abstract class FileService
 {
     /**
-     * @var FileRepository
-     */
-    protected FileRepository $repository;
-
-    /**
      * @var FilesystemAdapter
      */
     protected FilesystemAdapter $uploadsDisk;
@@ -35,10 +30,8 @@ abstract class FileService
      *
      * @param FileRepository $repository
      */
-    public function __construct(FileRepository $repository)
+    public function __construct(private FileRepository $repository)
     {
-        $this->repository = $repository;
-
         $this->setDisks();
     }
 
@@ -64,7 +57,7 @@ abstract class FileService
 
             // save thumb
             if (isset($config['thumb'])) {
-                $this->saveThumb($fileName, $fullPathPending, $config['thumb'], $directoryData);
+                $this->saveThumb(fileName: $fileName, filePath: $fullPathPending, thumbConfig: $config['thumb'], directoryData: $directoryData);
             }
 
             return File::move($fullPathPending, $fullPathUploads);

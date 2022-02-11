@@ -80,7 +80,7 @@ class RoleController extends BaseController
      * @param int $id
      * @return Response
      */
-    public function show($id)
+    public function show(int $id)
     {
         //
     }
@@ -91,7 +91,7 @@ class RoleController extends BaseController
      * @param int $id
      * @return Response
      */
-    public function edit($id)
+    public function edit(int $id)
     {
         //
     }

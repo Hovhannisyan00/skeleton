@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Contracts\IBaseRepository;
 use App\Http\Controllers\Controller;
+use App\Services\BaseService;
 use App\Traits\Helpers\ResponseFunctions;
 use Illuminate\Contracts\View\View;
 
@@ -10,7 +12,7 @@ use Illuminate\Contracts\View\View;
  * Class BaseController
  * @package App\Http\Controllers\Dashboard
  */
-class BaseController extends Controller
+abstract class BaseController extends Controller
 {
     use ResponseFunctions;
 
@@ -20,40 +22,40 @@ class BaseController extends Controller
     protected const DASHBOARD_VIEW_PREFIX = 'components.dashboard';
 
     /**
-     * @var null
+     * @var BaseService
      */
-    protected $service = null;
+    protected BaseService $service;
 
     /**
-     * @var null
+     * @var IBaseRepository
      */
-    protected $repository = null;
+    protected IBaseRepository $repository;
 
     /**
      * Function to show dashboard view
      *
-     * @param string|null $view
-     * @param array|null $vars
+     * @param string $view
+     * @param array $vars
      * @param string $viewMode
      * @return View
      */
-    public function dashboardView(string $view = null, ?array $vars = [], string $viewMode = 'add'): View
+    public function dashboardView(string $view, array $vars = [], string $viewMode = 'add'): View
     {
         $vars['viewMode'] = $viewMode;
 
         $this->generateSubHeaderData($view, $viewMode);
 
-        return view(self::DASHBOARD_VIEW_PREFIX . ($view ? '.' . $view : $view), $vars);
+        return view(self::DASHBOARD_VIEW_PREFIX . '.' . $view, $vars);
     }
 
     /**
      * Function to generate sub header data
      *
-     * @param $view
-     * @param $viewMode
+     * @param string $view
+     * @param string $viewMode
      * @return void
      */
-    private function generateSubHeaderData($view, $viewMode): void
+    private function generateSubHeaderData(string $view, string $viewMode): void
     {
         // Form mode
         view()->composer('*.form', function () use ($view, $viewMode) {

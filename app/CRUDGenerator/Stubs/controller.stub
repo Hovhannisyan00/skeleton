@@ -65,7 +65,7 @@ class {{ CLASS_NAME }}Controller extends BaseController
      */
     public function create(): View
     {
-        return $this->dashboardView('{{ FOLDER_NAME }}.form', $this->service->getViewData());
+        return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: $this->service->getViewData());
     }
 
     /**
@@ -104,8 +104,8 @@ class {{ CLASS_NAME }}Controller extends BaseController
     {
         ${{ CAMEL_CASE_CLASS_NAME }} = $this->repository->find($id);
 
-    //  return $this->dashboardView('{{ FOLDER_NAME }}.form', $this->service->getViewData($id), 'edit'); // For ML, File
-        return $this->dashboardView('{{ FOLDER_NAME }}.form', ['{{ CAMEL_CASE_CLASS_NAME }}' => ${{ CAMEL_CASE_CLASS_NAME }}], 'edit');
+    //  return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: $this->service->getViewData($id), viewMode: 'edit'); // For ML, File
+        return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: ['{{ CAMEL_CASE_CLASS_NAME }}' => ${{ CAMEL_CASE_CLASS_NAME }}], viewMode: 'edit');
     }
 
     /**

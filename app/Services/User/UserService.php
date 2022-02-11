@@ -17,11 +17,6 @@ use Illuminate\Support\Facades\Hash;
 class UserService extends BaseService
 {
     /**
-     * @var IRoleRepository
-     */
-    protected IRoleRepository $roleRepository;
-
-    /**
      * UserService constructor.
      *
      * @param UserRepository $repository
@@ -30,12 +25,11 @@ class UserService extends BaseService
      */
     public function __construct(
         UserRepository $repository,
-        IRoleRepository $roleRepository,
-        FileTempService $fileService
+        FileTempService $fileService,
+        protected IRoleRepository $roleRepository
     )
     {
         $this->repository = $repository;
-        $this->roleRepository = $roleRepository;
         $this->fileService = $fileService;
     }
 

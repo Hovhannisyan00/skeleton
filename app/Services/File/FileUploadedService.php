@@ -21,7 +21,7 @@ class FileUploadedService extends FileService
     public function storeFile(Model $model, $files, string $configName): void
     {
         $config = $model->getFileConfig()[$configName];
-        $this->deleteModelFile($model, $config['field_name']);
+        $this->deleteModelFile(model: $model, fieldName: $config['field_name']);
 
         $files = is_array($files) ? $files : [$files];
 
@@ -44,10 +44,10 @@ class FileUploadedService extends FileService
         $fileType = $config['file_type'];
         $fileName = $this->getFileName($file);
 
-        $savedFile = $this->uploadsDisk->putFileAs($model::getClassName(), $file, $fieldName . '/' . $fileName);
+        $savedFile = $this->uploadsDisk->putFileAs(path: $model::getClassName(), file: $file, name: $fieldName . '/' . $fileName);
 
         if (isset($config['thumb'])) {
-            $this->saveThumb($fileName, $this->getFilePathUploadsDisk($savedFile), $config['thumb'], [
+            $this->saveThumb(filename: $fileName, filePath: $this->getFilePathUploadsDisk($savedFile), thumbConfig: $config['thumb'], directoryData: [
                 'uploads' => $model::getClassName() . '/' . $fieldName
             ]);
         }
