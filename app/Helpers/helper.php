@@ -40,13 +40,31 @@ if (!function_exists("routeIs")) {
     }
 }
 
+if (!function_exists('getAllRoutesName')) {
+
+    function getAllRoutesName(): array
+    {
+        $routeCollection = Route::getRoutes()->get();
+        $routesName = [];
+        foreach ($routeCollection as $value) {
+            if ($value->getName()) {
+                $routesName[$value->getName()] = [
+                    'uri' => str_replace('?', '', $value->uri()),
+                    'parameters' => $value->parameterNames()
+                ];
+            }
+        }
+        return $routesName;
+    }
+}
+
 /* ========================================================================================
                                 Route Helper Functions - End
  ======================================================================================== */
 
 
 /* ========================================================================================
-                                Translation Helper Functions - Start
+                                Language Helper Functions - Start
  ======================================================================================== */
 
 if (!function_exists("currentLanguageCode")) {
@@ -108,10 +126,6 @@ if (!function_exists("getTrans")) {
     }
 }
 
-/* ========================================================================================
-                                Translation Helper Functions - End
- ======================================================================================== */
-
 if (!function_exists('langIconPath')) {
 
     function langIconPath($lang = null): string
@@ -127,24 +141,10 @@ if (!function_exists('langIconPath')) {
     }
 }
 
+/* ========================================================================================
+                                Language Helper Functions - End
+ ======================================================================================== */
 
-if (!function_exists('getAllRoutesName')) {
-
-    function getAllRoutesName(): array
-    {
-        $routeCollection = Route::getRoutes()->get();
-        $routesName = [];
-        foreach ($routeCollection as $value) {
-            if ($value->getName()) {
-                $routesName[$value->getName()] = [
-                    'uri' => $value->uri(),
-                    'parameters' => $value->parameterNames()
-                ];
-            }
-        }
-        return $routesName;
-    }
-}
 
 /* ========================================================================================
                                 Date Helper Functions - Start

@@ -7,6 +7,9 @@ window.route = (name, params = null) => {
     if (Array.isArray(params)) {
       uri = uri.replace(`{${item}}`, params[index]);
     } else {
+      if (index) {
+        params = '';
+      }
       uri = uri.replace(`{${item}}`, params);
     }
   });
