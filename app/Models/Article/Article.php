@@ -52,7 +52,7 @@ class Article extends BaseModel
     /**
      * Function to return photo
      *
-     * @return Model
+     * @return Model|null
      */
     public function getPhotoAttribute(): ?Model
     {

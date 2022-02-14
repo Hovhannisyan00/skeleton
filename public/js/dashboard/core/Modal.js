@@ -1,8 +1,8 @@
 class Modal {
-  constructor(modalId, options) {
+  constructor(id, options) {
     this.options = options;
-    this.modalId = modalId;
-    this.modalEl = $(`#${modalId}`);
+    this.modalId = id;
+    this.modalEl = $(`#${id}`);
     this.modalBody = this.modalEl.find('.modal-body');
   }
 

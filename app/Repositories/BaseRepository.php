@@ -123,7 +123,7 @@ class BaseRepository implements IBaseRepository
      */
     public function get(array $columns = null): Collection
     {
-        return $this->model->get($columns);
+        return $columns ? $this->model->get($columns) : $this->model->get();
     }
 
     /**
