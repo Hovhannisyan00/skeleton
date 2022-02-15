@@ -18,7 +18,7 @@ class CRUDGeneratorDelete
     /**
      * @var string
      */
-    protected $className;
+    protected string $className;
 
     /**
      * CRUDGeneratorAbstract constructor.

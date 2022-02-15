@@ -3,8 +3,6 @@
 namespace App\CRUDGenerator;
 
 use App\CRUDGenerator\Traits\CRUDHelper;
-use Illuminate\Config\Repository;
-use Illuminate\Contracts\Foundation\Application;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
 /**
@@ -18,17 +16,17 @@ abstract class CRUDGeneratorAbstract
     /**
      * @var array
      */
-    protected $arguments;
+    protected array $arguments;
 
     /**
      * @var string
      */
-    protected $className;
+    protected string $className;
 
     /**
      * @var array
      */
-    protected $config;
+    protected array $config;
 
     /**
      * CRUDGeneratorAbstract constructor.
@@ -42,7 +40,7 @@ abstract class CRUDGeneratorAbstract
     }
 
     /**
-     * @return mixed
+     * @return void
      */
     abstract protected function make(): void;
 
@@ -53,19 +51,23 @@ abstract class CRUDGeneratorAbstract
 
     /**
      * Function to show message in terminal
+     *
+     * @return void
      */
-    public function showMessage()
+    public function showMessage(): void
     {
-        (new ConsoleOutput())->writeln("<fg=green>{$this->getMessageText()} created successfully!</>");
+        if ($this->getMessageText()) {
+            (new ConsoleOutput())->writeln("<fg=green>{$this->getMessageText()} created successfully!</>");
+        }
     }
 
     /**
      * Function to get CRUD config by key
      *
      * @param $key
-     * @return Repository|Application|mixed
+     * @return array
      */
-    protected function getConfig($key)
+    protected function getConfig($key): array
     {
         return config("crud.$key");
     }
@@ -92,10 +94,10 @@ abstract class CRUDGeneratorAbstract
     /**
      * Return the stub file path
      *
-     * @param $fileInfo
+     * @param array $fileInfo
      * @return string
      */
-    protected function getStubFilePath($fileInfo): string
+    protected function getStubFilePath(array $fileInfo): string
     {
         $path = $this->getStubDirectoryPath($fileInfo);
         $stub_file_name = $fileInfo['stub_file_name'];
@@ -108,9 +110,9 @@ abstract class CRUDGeneratorAbstract
      *
      * @param $stub
      * @param array $stubVariables
-     * @return array|false|string|string[]
+     * @return string
      */
-    protected function getStubContents($stub, array $stubVariables = [])
+    protected function getStubContents($stub, array $stubVariables = []): string
     {
         $stubVariables['ROOT_NAMESPACE'] = app()->getNamespace();
 
@@ -125,9 +127,10 @@ abstract class CRUDGeneratorAbstract
     /**
      * Get the stub path and the stub variables
      *
-     * @return array|string[]
+     * @param array|null $fileInfo
+     * @return array
      */
-    protected function getSourceFile($fileInfo = null): array
+    protected function getSourceFile(array $fileInfo = null): array
     {
         return [
             'content' => $this->getStubContents($this->getStubFilePath($fileInfo), $this->stubVariables()),

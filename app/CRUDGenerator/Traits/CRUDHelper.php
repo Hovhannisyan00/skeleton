@@ -13,10 +13,10 @@ trait CRUDHelper
     /**
      * Function to create file.
      *
-     * @param $data
+     * @param array $data
      * @return void
      */
-    public function createFolderAndFile($data): void
+    public function createFolderAndFile(array $data): void
     {
         $disk = Storage::disk('base');
         $fileInfo = $data['fileInfo'];
@@ -35,11 +35,11 @@ trait CRUDHelper
     /**
      * Function to replace :attribute to class name
      *
-     * @param $fileName
+     * @param string $fileName
      * @param null $CLASS_NAME
-     * @return array|string|string[]
+     * @return string
      */
-    protected function replaceAttributeByClassName($fileName, $CLASS_NAME = null)
+    protected function replaceAttributeByClassName(string $fileName, $CLASS_NAME = null): string
     {
         return str_replace(':attribute', ($CLASS_NAME ?? $this->className), $fileName);
     }

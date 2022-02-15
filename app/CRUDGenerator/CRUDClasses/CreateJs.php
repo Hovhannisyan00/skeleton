@@ -25,6 +25,9 @@ class CreateJs extends CRUDGeneratorAbstract
         $this->config = $this->getConfig(self::JS);
     }
 
+    /**
+     * @return void
+     */
     public function make(): void
     {
         foreach ($this->config['files'] as $file) {
