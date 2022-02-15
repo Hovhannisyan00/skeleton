@@ -221,7 +221,6 @@ if (!function_exists("getDashboardDates")) {
                                 Roles Helper Functions - Start
  ======================================================================================== */
 
-
 if (!function_exists("getRoles")) {
     function getRoles(): array
     {
@@ -261,17 +260,13 @@ if (!function_exists("getAuthUserRolesName")) {
                                 String Helper Functions - Start
  ======================================================================================== */
 
-
 if (!function_exists("getNameDot")) {
     function getArrayNameDot($name): string
     {
         $name = str_replace(['[', ''], '.', $name);
-        $name = str_replace([']', ''], '', $name);
-
-        return $name;
+        return str_replace([']', ''], '', $name);
     }
 }
-
 
 /* ========================================================================================
                                 String Helper Functions - End

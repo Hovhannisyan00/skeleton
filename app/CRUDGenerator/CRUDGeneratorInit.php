@@ -16,12 +16,12 @@ class CRUDGeneratorInit
     /**
      * @var array
      */
-    protected $arguments;
+    protected array $arguments;
 
     /**
      * @var ConsoleOutput
      */
-    protected $consoleOutput;
+    protected ConsoleOutput $consoleOutput;
 
     /**
      * CRUDGeneratorInit constructor.
@@ -35,9 +35,12 @@ class CRUDGeneratorInit
     }
 
     /**
+     * Function to init crud functionality
+     *
+     * @return void
      * @throws BindingResolutionException
      */
-    public function init()
+    public function init(): void
     {
         foreach (glob("app/CRUDGenerator/CRUDClasses/*.php") as $filename) {
             $class = str_replace('/', '\\', ucfirst(explode(".", $filename)[0]));

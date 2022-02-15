@@ -25,6 +25,9 @@ class CreateBlades extends CRUDGeneratorAbstract
         $this->config = $this->getConfig(self::BLADES);
     }
 
+    /**
+     * @return void
+     */
     public function make(): void
     {
         foreach ($this->config['files'] as $file) {

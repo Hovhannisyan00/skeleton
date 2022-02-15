@@ -28,11 +28,8 @@ class MlTabs extends Base
     /**
      * @var string
      */
-    protected $lngCode;
+    protected string $lngCode;
 
-    /**
-     * @var
-     */
     protected $mlData;
 
     /**
