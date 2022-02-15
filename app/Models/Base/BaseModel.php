@@ -23,20 +23,20 @@ class BaseModel extends Model
     /**
      * @var string
      */
-    const TRUE = 1;
-    const FALSE = 0;
+    final const TRUE = 1;
+    final const FALSE = 0;
 
     /**
      * @var string
      */
-    const SHOW_STATUS_ACTIVE = '1';
-    const SHOW_STATUS_INACTIVE = '2';
-    const SHOW_STATUS_DELETED = '0';
+    final const SHOW_STATUS_ACTIVE = '1';
+    final const SHOW_STATUS_INACTIVE = '2';
+    final const SHOW_STATUS_DELETED = '0';
 
     /**
      * @var array
      */
-    const SHOW_STATUSES = [
+    final const SHOW_STATUSES = [
         self::SHOW_STATUS_ACTIVE,
         self::SHOW_STATUS_INACTIVE,
         self::SHOW_STATUS_DELETED
@@ -200,7 +200,7 @@ class BaseModel extends Model
      * @param array $excludeColumns
      * @return Builder
      */
-    public function scopeExclude($query, $excludeColumns = []): Builder
+    public function scopeExclude($query, array $excludeColumns = []): Builder
     {
         $selectColumns = array_diff($this->fillable, $excludeColumns);
         $selectColumns[] = 'id';

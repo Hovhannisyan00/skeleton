@@ -12,7 +12,7 @@
                     method="post"
                     :indexUrl="route('dashboard.users.index')"
                 >
-                    <x-dashboard.users.form :roles="$roles" :researchAreas="$researchAreas"/>
+
                 </x-dashboard.form._form>
             </div>
         </div>

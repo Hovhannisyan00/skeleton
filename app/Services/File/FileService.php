@@ -206,7 +206,7 @@ abstract class FileService
      */
     protected function getFilePathUploadsDisk($path): string
     {
-        return $this->uploadsDisk->getDriver()->getAdapter()->applyPathPrefix($path);
+        return $this->uploadsDisk->path($path);
     }
 
     /**
@@ -217,7 +217,7 @@ abstract class FileService
      */
     protected function getFilePathPendingDisk($path): string
     {
-        return $this->pendingDisk->getDriver()->getAdapter()->applyPathPrefix($path);
+        return $this->pendingDisk->path($path);
     }
 
     /**

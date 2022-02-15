@@ -23,7 +23,7 @@ class {{ CLASS_NAME }}Controller extends BaseController
      * @param I{{ CLASS_NAME }}Repository $repository
      */
     public function __construct(
-        {{ CLASS_NAME }}Service $service,
+        {{ CLASS_NAME }}Service     $service,
         I{{ CLASS_NAME }}Repository $repository
     )
     {

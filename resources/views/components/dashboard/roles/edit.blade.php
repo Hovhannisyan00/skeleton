@@ -12,7 +12,7 @@
                     method="PUT"
                     :indexUrl="route('dashboard.users.index')"
                 >
-                    @include('components.dashboard.users.form')
+
                 </x-dashboard.form._form>
             </div>
         </div>
