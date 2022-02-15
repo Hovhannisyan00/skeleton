@@ -8,7 +8,7 @@
                     <div class="col-lg-6">
 
                         <div class="form-group">
-                            <x-dashboard.form._input name="name" disabled :value="auth()->user()->name()"/>
+                            <x-dashboard.form._input name="name" disabled :value="auth()->user()->name"/>
                         </div>
 
                         <div class="form-group">

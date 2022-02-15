@@ -10,22 +10,22 @@
             >
 
                {{-- General Data --}}
-               <x-slot name="generalTabData">
+               <x-slot:generalTabData>
                    <div class="row">
                        <div class="col-lg-6 form-group required">
                              <x-dashboard.form._input name="name" :value="${{ VARIABLE_NAME }}->name"/>
                        </div>
                    </div>
-               </x-slot>
+               </x-slot:generalTabData>
 
                {{-- ML Data --}}
-               <x-slot name="mlTabsData">
+               <x-slot:mlTabsData>
                     <div class="row">
                        <div class="col-lg-6 form-group">
                              <x-dashboard.form._input name="title"/>
                        </div>
                     </div>
-               </x-slot>
+               </x-slot:mlTabsData>
 
             </x-dashboard.form._form-ml>
         </div>

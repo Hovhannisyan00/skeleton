@@ -24,7 +24,7 @@ class UserController extends BaseController
      */
     public function __construct(
         IUserRepository $repository,
-        UserService $service
+        UserService     $service
     )
     {
         $this->service = $service;

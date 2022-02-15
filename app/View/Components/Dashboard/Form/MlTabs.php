@@ -94,7 +94,7 @@ class MlTabs extends Base
         if ($tagName === self::TAG_INPUT) {
             $input->setAttribute('value', $columnValue);
         } elseif ($tagName === self::TAG_TEXTAREA) {
-            $input->textContent = $columnValue;
+            $input->textContent = $columnValue ?? '';
         }
     }
 

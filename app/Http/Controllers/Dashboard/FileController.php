@@ -19,7 +19,7 @@ class FileController extends BaseController
      * @param FileTempService $fileService
      */
     public function __construct(
-        IFileRepository $repository,
+        IFileRepository         $repository,
         private FileTempService $fileService
     )
     {

@@ -4,7 +4,6 @@ namespace App\Repositories;
 
 use App\Contracts\IBaseRepository;
 use App\Models\Base\BaseModel;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -45,7 +44,7 @@ class BaseRepository implements IBaseRepository
     public function create(array $data): Model
     {
         if ($this->model->defaultValues) {
-            $data = array_merge($this->model->defaultValues, $data);
+            $data = [...$this->model->defaultValues, ...$data];
         }
 
         return $this->model->create($data);
@@ -64,7 +63,7 @@ class BaseRepository implements IBaseRepository
      * @param int $id
      * @param array $with
      * @param bool $throw
-     * @return Builder|Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
+     * @return Model
      */
     public function find(int $id, array $with = [], bool $throw = true): Model
     {
@@ -186,7 +185,7 @@ class BaseRepository implements IBaseRepository
     {
         $model = $this->find($id);
         if ($model->defaultValues) {
-            $data = array_merge($model->defaultValues, $data);
+            $data = [...$model->defaultValues, ...$data];
         }
 
         $model->update($data);

@@ -4,7 +4,9 @@ namespace App\Models\Article;
 
 use App\Files\HasFileData;
 use App\Models\Base\BaseModel;
+use App\Models\File\File;
 use Carbon\Carbon;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
@@ -54,7 +56,7 @@ class Article extends BaseModel
      *
      * @return Model|null
      */
-    public function getPhotoAttribute(): ?Model
+    public function getPhotoAttribute(): ?File
     {
         return $this->files('photo')->first();
     }
@@ -62,23 +64,25 @@ class Article extends BaseModel
     /**
      * Function to return formatted publish date
      *
-     * @param $value
-     * @return string
+     * @return Attribute
      */
-    public function getPublishDateAttribute($value): string
+    public function publishDate(): Attribute
     {
-        return $value ? Carbon::parse($value)->format(getDateFormatFront()) : '';
+        return new Attribute(
+            get: fn($value) => $value ? Carbon::parse($value)->format(getDateFormatFront()) : '',
+        );
     }
 
     /**
      * Function to return formatted release datetime
      *
-     * @param $value
-     * @return string
+     * @return Attribute
      */
-    public function getReleaseDatetimeAttribute($value): string
+    public function releaseDatetime(): Attribute
     {
-        return $value ? Carbon::parse($value)->format(getDateTimeFormatFront()) : '';
+        return new Attribute(
+            get: fn($value) => $value ? Carbon::parse($value)->format(getDateTimeFormatFront()) : ''
+        );
     }
 
     /**

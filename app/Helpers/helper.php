@@ -130,14 +130,11 @@ if (!function_exists('langIconPath')) {
 
     function langIconPath($lang = null): string
     {
-        switch ($lang) {
-            case  'ru':
-                return '/img/Flag_of_Russia.svg';
-            case  'hy':
-                return '/img/Armenia_-_Rounded_Rectangle.svg';
-            default:
-                return '/img/united-states.svg';
-        }
+        return match ($lang) {
+            'ru' => '/img/Flag_of_Russia.svg',
+            'hy' => '/img/Armenia_-_Rounded_Rectangle.svg',
+            default => '/img/united-states.svg'
+        };
     }
 }
 

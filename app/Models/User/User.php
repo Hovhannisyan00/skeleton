@@ -5,6 +5,7 @@ namespace App\Models\User;
 use App\Files\HasFileData;
 use App\Models\Base\ModelHelperFunctions;
 use App\Models\File\File;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -97,9 +98,9 @@ class User extends Authenticatable
     /**
      * Function to return user signature
      *
-     * @return Model
+     * @return Model|null
      */
-    public function getSignatureAttribute(): ?Model
+    public function getSignatureAttribute(): ?File
     {
         return $this->files('signature')->first();
     }
@@ -107,10 +108,12 @@ class User extends Authenticatable
     /**
      * Function to return user name
      *
-     * @return string
+     * @return Attribute
      */
-    public function name(): string
+    public function name(): Attribute
     {
-        return $this->first_name . ' ' . $this->last_name;
+        return new Attribute(
+            get: fn() => $this->first_name . ' ' . $this->last_name
+        );
     }
 }

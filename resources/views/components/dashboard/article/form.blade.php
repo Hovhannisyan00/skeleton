@@ -11,7 +11,7 @@
             >
 
                 {{-- General Data --}}
-                <x-slot name="generalTabData">
+                <x-slot:generalTabData>
 
                     <!-- Modal Info -->
                     <x-dashboard.form.modals._modal id="info" size="lg" headerText="info">
@@ -71,10 +71,10 @@
                         </div>
 
                     </x-dashboard.form.multiple-group>
-                </x-slot>
+                </x-slot:generalTabData>
 
                 {{-- ML Data --}}
-                <x-slot name="mlTabsData">
+                <x-slot:mlTabsData>
                     <div class="form-group required">
                         <x-dashboard.form._input name="title"/>
                     </div>
@@ -93,7 +93,7 @@
                     <div class="form-group mt-4">
                         <x-dashboard.form._input name="keywords"/>
                     </div>
-                </x-slot>
+                </x-slot:mlTabsData>
 
             </x-dashboard.form._form-ml>
         </div>
