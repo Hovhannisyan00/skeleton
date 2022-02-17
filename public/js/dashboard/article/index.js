@@ -9,6 +9,10 @@ const options = {
     show: false,
   },
 
+  /*relations: {
+    relationName : 'columnName',
+  },*/
+
   // Its a Example for show column render data type (no open comment!!)
   /*columnsRender: {
     show_status: {

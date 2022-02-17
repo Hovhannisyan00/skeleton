@@ -19,7 +19,7 @@ abstract class BaseController extends Controller
     /**
      * @var string
      */
-    protected const DASHBOARD_VIEW_PREFIX = 'components.dashboard';
+    final protected const DASHBOARD_VIEW_PREFIX = 'components.dashboard';
 
     /**
      * @var BaseService

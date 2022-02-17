@@ -66,14 +66,20 @@ class DataTable {
       const relationName = this.options.relations[columnName];
       column.render = (data) => {
         let text = '';
-        if (Object.is(data)) {
-          return data[relationName];
+
+        if (data && !Array.isArray(data)) {
+          return data[relationName] ?? '';
         }
-        // eslint-disable-next-line array-callback-return
-        data.map((item, index) => {
-          text += index ? `, ${item[relationName]}` : item[relationName];
-        });
-        return text;
+
+        if (Array.isArray(data)) {
+          data.map((item, index) => {
+            text += index ? `, ${item[relationName]}` : item[relationName];
+          });
+
+          return text;
+        }
+
+        return '';
       };
     }
     return column;
