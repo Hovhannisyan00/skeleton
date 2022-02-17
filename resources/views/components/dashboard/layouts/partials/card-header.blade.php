@@ -1,6 +1,7 @@
 <div class="card-header">
     <div class="card-title">
-        <h3 class="card-label">{{ isset($subHeaderData['pageName']) ? __('__dashboard.'.$subHeaderData['pageName'].'.title') : __('__dashboard.title')  }}</h3>
+        @isset($title)<h3 class="card-label">{{ $title }}</h3>@endisset
+{{--        <h3 class="card-label">{{ isset($subHeaderData['pageName']) ? __('__dashboard.'.$subHeaderData['pageName'].'.title') : __('__dashboard.title')  }}</h3>--}}
     </div>
 
     @isset($createRoute)

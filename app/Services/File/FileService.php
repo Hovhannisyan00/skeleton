@@ -3,7 +3,7 @@
 namespace App\Services\File;
 
 use App\Repositories\File\FileRepository;
-use Illuminate\Filesystem\FilesystemAdapter;
+use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -16,14 +16,14 @@ use Intervention\Image\Facades\Image;
 abstract class FileService
 {
     /**
-     * @var FilesystemAdapter
+     * @var Filesystem
      */
-    protected FilesystemAdapter $uploadsDisk;
+    protected Filesystem $uploadsDisk;
 
     /**
-     * @var FilesystemAdapter
+     * @var Filesystem
      */
-    protected FilesystemAdapter $pendingDisk;
+    protected Filesystem $pendingDisk;
 
     /**
      * FileService constructor.
