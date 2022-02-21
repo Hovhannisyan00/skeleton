@@ -22,6 +22,16 @@ trait ModelHelperFunctions
     }
 
     /**
+     * Function to get model class name camel case
+     *
+     * @return string
+     */
+    public static function getClassNameCamelCase(): string
+    {
+        return Str::camel(class_basename(static::class));
+    }
+
+    /**
      * Function to check model has files
      *
      * @return bool

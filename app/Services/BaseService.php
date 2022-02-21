@@ -62,13 +62,13 @@ abstract class BaseService
         if ($id === null) {
             $model = $this->repository->getInstance();
             return [
-                $model::getClassName() => $this->repository->getInstance()
+                $model::getClassNameCamelCase() => $this->repository->getInstance()
             ];
         }
 
         // Edit Mode
         $model = $this->repository->find($id);
-        $variableKey = $model::getClassName();
+        $variableKey = $model::getClassNameCamelCase();
 
         $data = [
             $variableKey => $model
