@@ -10,8 +10,16 @@ class Modal {
     this.modalEl.on('show.bs.modal', callback);
   }
 
+  afterShow(callback) {
+    this.modalEl.on('shown.bs.modal', callback);
+  }
+
   beforeHide(callback) {
     this.modalEl.on('hide.bs.modal', callback);
+  }
+
+  afterHide(callback) {
+    this.modalEl.on('hidden.bs.modal', callback);
   }
 
   save(callback) {

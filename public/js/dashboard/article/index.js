@@ -7,6 +7,10 @@ const options = {
 
   actions: {
     show: false,
+
+    // delete(row) {
+    //   return 'Custom Delete'
+    // }
   },
 
   /*relations: {
