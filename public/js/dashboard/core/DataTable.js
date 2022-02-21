@@ -120,7 +120,9 @@ class DataTable {
 
   getAndGenerateColumns() {
     const columns = this.mapTableColumns();
-    columns.push(this.actionsColumn());
+    if (typeof this.options.noActions == "undefined" || !this.options.noActions) {
+      columns.push(this.actionsColumn());
+    }
     return columns;
   }
 
