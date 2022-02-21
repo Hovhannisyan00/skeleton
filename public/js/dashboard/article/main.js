@@ -27,12 +27,12 @@ $(function () {
 
 function infoModalEvent() {
 
-  infoModal.beforeShow(function () {
-      // Info Modal Opened!
+  infoModal.afterShow(function () {
+    // Info Modal Opened!
   });
 
-  infoModal.beforeHide(function () {
-   // Info Modal Hide!
+  infoModal.afterHide(function () {
+    // Info Modal Hide!
   });
 
   infoModal.save(function (e) {
@@ -54,8 +54,8 @@ function infoModalEvent() {
   });
 
   // if custom btn need to add click
-  infoModal.clickItem('.custom-save-btn',function (){
-    console.log('custom-save-btn');
-  });
+  // infoModal.clickItem('.custom-save-btn', function () {
+  //   console.log('custom-save-btn');
+  // });
 
 }
