@@ -109,7 +109,7 @@
                 <span class="flaticon-user ml-2"></span>
             </button>
             <div class="dropdown-menu dropdown-menu-right">
-                <a href="{{dashboardRoute('profile.index')}}" class="dropdown-item" type="button">
+                <a href="{{dashboardRoute('profile.index')}}" class="dropdown-item {{routeIs('dashboard.profile.index') ? 'active' : ''}}"  type="button">
                     <i class="flaticon2-user-1 mr-2"></i>
                     {{__('__dashboard.profile.dropdown')}}
                 </a>
