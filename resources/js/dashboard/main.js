@@ -12,7 +12,7 @@ $(function () {
 
 });
 
-function select2Init() {
+select2Init = function () {
   $('.select2').select2({
     placeholder: $trans('__dashboard.select.option.default'),
     minimumResultsForSearch: 10

@@ -2,15 +2,13 @@
 
 namespace App\Models\Base;
 
-use App\Models\File\File;
+use App\Models\Base\Traits\ModelHelperFunctions;
 use App\Scopes\Base\ActiveScope;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
 
 /**
  * Class BaseModel
@@ -114,43 +112,6 @@ class BaseModel extends Model
                     $model->deleted_user_ip = request()->ip();
                 }
             }
-        });
-    }
-
-    /**
-     * Function to get model files (morph table)
-     *
-     * @param null $fieldName
-     * @param null $fileType
-     * @return MorphMany
-     */
-    public function files($fieldName = null, $fileType = null): MorphMany
-    {
-        return $this->morphMany(File::class, 'fileable')
-            ->when($fieldName, function ($query) use ($fieldName) {
-                $query->where('field_name', $fieldName);
-            })
-            ->when($fileType, function ($query) use ($fileType) {
-                $query->where('file_type', $fileType);
-            });
-    }
-
-    /**
-     * Function to get model current ml data
-     *
-     * @param $query
-     * @return Builder
-     */
-    public function scopeJoinMl($query): Builder
-    {
-        $params = func_get_args();
-        $table = $this->getTable();
-        $tableMl = $params[1]['t_ml'] ?? Str::singular($table) . '_mls';
-
-        return $query->join($tableMl, function ($query) use ($table, $params, $tableMl) {
-            $foreignKey = $params[1]['f_k'] ?? $this->getForeignKey();
-
-            $query->on($tableMl . '.' . $foreignKey, '=', $table . '.id')->where($tableMl . '.lng_code', '=', currentLanguageCode());
         });
     }
 

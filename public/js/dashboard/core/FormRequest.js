@@ -26,13 +26,12 @@ class FormRequest {
       this.options.methods.beforeSendRequest();
     }
 
-    this.cardBody.addClass('loading-content');
+    this.formLoad();
 
     // eslint-disable-next-line no-undef
     await axios.post(url, formData)
       .then(this.successHandler.bind(this))
       .catch(this.errorHandler.bind(this));
-    this.formRequestLoader(false);
   }
 
   // eslint-disable-next-line class-methods-use-this
@@ -40,8 +39,8 @@ class FormRequest {
     resp = resp.data;
 
     if(this.__checkOptionMethodsExist() && this.options.methods.afterSuccess){
-      this.cardBody.removeClass('loading-content');
-
+      this.formLoad(false);
+      this.formRequestLoader(false);
       return this.options.methods.afterSuccess(resp);
     }
 
@@ -49,7 +48,8 @@ class FormRequest {
       localStorage.setItem('_message', resp.message);
       location.href = resp.redirectUrl;
     }else{
-      this.cardBody.removeClass('loading-content');
+      this.formRequestLoader(false);
+      this.formLoad(false);
     }
 
   }
@@ -79,7 +79,8 @@ class FormRequest {
       }
     }
 
-    this.cardBody.removeClass('loading-content');
+    this.formRequestLoader(false);
+    this.formLoad(false);
   }
 
   scrollToFirstError() {
@@ -111,12 +112,22 @@ class FormRequest {
     }
   }
 
+  formLoad(is = true){
+    if(is){
+      this.cardBody.addClass('loading-content');
+    }else{
+      this.cardBody.removeClass('loading-content');
+    }
+  }
+
   clickSubmit() {
     this.formEl.submit(this.formSubmit.bind(this));
   }
 
   init() {
     this.clickSubmit();
+    this.formRequestLoader(false);
+    this.formLoad(false);
   }
 
   __checkOptionMethodsExist(){
