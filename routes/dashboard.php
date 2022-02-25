@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\ArticleController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\FileController;
+use App\Http\Controllers\Dashboard\KatuShunController;
 use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Dashboard\UserController;
 use Illuminate\Support\Facades\Route;
@@ -29,3 +30,5 @@ Route::get('articles/dataTable/get-list', [ArticleController::class, 'getListDat
 // Profile
 Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
 
+Route::resource('katu-shuns', KatuShunController::class);
+Route::get('katu-shuns/dataTable/get-list', [KatuShunController::class, 'getListData'])->name('katu-shuns.getListData');

@@ -1,16 +1,16 @@
-<form action="{{ $action ?? '' }}" method="{{ $method ?? 'post'}}" id="{{ $id ?? '__form__request' }}">
+<form action="{{ $action ?? '' }}" method="{{ $formMethod ?? 'post'}}" id="{{ $id ?? '__form__request' }}">
 
 <div class="card-header">
     <div class="d-flex justify-content-end ml-auto form-bottom-buttons">
         <a href="{{ $indexUrl }}" class="btn btn-secondary ml-2">{{ __('__dashboard.button.cancel') }}</a>
-        <x-dashboard.form._loader_btn
+        <x-dashboard.form._loader_btn disabled
             class="form__request__send__btn ml-2"
             text="{{ $textBtn ?? 'save' }}"
         />
     </div>
 </div>
 
-<div class="card-body">
+<div class="card-body loading-content">
     @method($method ?? 'post')
     @csrf
 
@@ -33,7 +33,7 @@
             {{ $footer }}
         @else
             <a href="{{ $indexUrl }}" class="btn btn-secondary ml-2">{{ __('__dashboard.button.cancel') }}</a>
-            <x-dashboard.form._loader_btn
+            <x-dashboard.form._loader_btn disabled
                 class="form__request__send__btn ml-2"
                 text="{{ $textBtn ?? 'save' }}"
             />

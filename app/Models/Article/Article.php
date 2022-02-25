@@ -2,14 +2,13 @@
 
 namespace App\Models\Article;
 
-use App\Files\HasFileData;
 use App\Models\Base\BaseModel;
+use App\Models\Base\Traits\HasFileData;
+use App\Models\Base\Traits\HasMlData;
 use App\Models\File\File;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * @method static joinMl() check "scopeJoinMl()" method in this Model
@@ -18,7 +17,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  */
 class Article extends BaseModel
 {
-    use HasFileData;
+    use HasFileData, HasMlData;
 
     /**
      * in create/update set default values for model
@@ -50,6 +49,17 @@ class Article extends BaseModel
         'multiple_group_data' => 'array',
         'multiple_author' => 'array',
     ];
+
+//    /**
+//     * If custom Ml model open comment and set you model ml
+//     * Function to set ml class
+//     *
+//     * @return BaseMlModel
+//     */
+//    protected function setMlClass(): BaseMlModel
+//    {
+//        return new ArticleMls();
+//    }
 
     /**
      * Function to return photo
@@ -85,23 +95,4 @@ class Article extends BaseModel
         );
     }
 
-    /**
-     * Function to get ml data
-     *
-     * @return HasMany
-     */
-    public function mls(): HasMany
-    {
-        return $this->hasMany(ArticleMls::class);
-    }
-
-    /**
-     * Function to return current ml
-     *
-     * @return HasOne
-     */
-    public function currentMl(): HasOne
-    {
-        return $this->hasOne(ArticleMls::class)->where('lng_code', currentLanguageCode());
-    }
 }

@@ -2,8 +2,8 @@
 
 namespace App\Models\User;
 
-use App\Files\HasFileData;
-use App\Models\Base\ModelHelperFunctions;
+use App\Models\Base\Traits\HasFileData;
+use App\Models\Base\Traits\ModelHelperFunctions;
 use App\Models\File\File;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;

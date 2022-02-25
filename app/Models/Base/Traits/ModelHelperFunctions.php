@@ -1,13 +1,12 @@
 <?php
 
-namespace App\Models\Base;
+namespace App\Models\Base\Traits;
 
-use App\Files\HasFileData;
 use Illuminate\Support\Str;
 
 /**
  * Trait ModelHelperFunctions
- * @package App\Models\Base
+ * @package App\Models\Base\Traits
  */
 trait ModelHelperFunctions
 {
@@ -29,6 +28,17 @@ trait ModelHelperFunctions
     public static function getClassNameCamelCase(): string
     {
         return Str::camel(class_basename(static::class));
+    }
+
+    /**
+     * Function to get class namespace
+     *
+     * @return string
+     */
+    public function getClassNamespace(): string
+    {
+        $namespace = new \ReflectionClass(static::class);
+        return $namespace->getNamespaceName();
     }
 
     /**

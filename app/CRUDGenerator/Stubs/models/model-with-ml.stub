@@ -3,8 +3,7 @@
 namespace {{ ROOT_NAMESPACE }}Models\{{ CLASS_NAME }};
 
 use {{ ROOT_NAMESPACE }}Models\Base\BaseModel;
-use Illuminate\Database\Eloquent\Relations\HasMany;
-use Illuminate\Database\Eloquent\Relations\HasOne;
+use App\Models\Base\Traits\HasMlData;
 
 /**
  * Class {{ CLASS_NAME }}
@@ -12,30 +11,12 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
  */
 class {{ CLASS_NAME }} extends BaseModel
 {
+    use HasMlData;
+
     /**
      * @var string[]
      */
     protected $fillable = [
         'name'
     ];
-
-    /**
-     * Function to get ml data
-     *
-     * @return HasMany
-     */
-    public function mls(): HasMany
-    {
-        return $this->hasMany({{ CLASS_NAME }}Mls::class);
-    }
-
-    /**
-     * Function to return current ml
-     *
-     * @return HasOne
-     */
-    public function currentMl(): HasOne
-    {
-        return $this->hasOne({{ CLASS_NAME }}Mls::class)->where('lng_code', currentLanguageCode());
-    }
 }
