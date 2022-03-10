@@ -561,14 +561,48 @@ div.dataTables_wrapper div.dataTables_length select {
     }
 
     .file__item__type__image{
-        background: #363636;
+        background: #e5e5e5;
         width: 135px;
-        height: 100px;
+        min-height: 100px;
         padding: 0 6px;
     }
 
     .upload-file-img{
-        max-width: 120px;
+        max-width: 100%;
+    }
+}
+
+.cropper-content{
+    .__delete__file{
+        right: 5px;
+        top: 5px;
+        border: 0;
+        background: #f30;
+        border-radius: 4px;
+        color: #fff;
+        padding: 0 8px;
+        transition: .3s;
+        position: absolute;
+        &:hover{
+            background-color: #ff0000;
+        }
+    }
+
+    .preview-image{
+        max-width: 200px;
+        position: relative;
+        border-radius: 4px;
+        overflow: hidden;
+        border: 1px solid #bdbdbd;
+        display: inline-block;
+    }
+}
+
+.crop-modal{
+    .crop-img-container{
+        margin: 0 auto;
+        width:350px;
+        height: 350px;
     }
 }
 
@@ -747,3 +781,4 @@ table.dataTable > thead > tr th{
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+

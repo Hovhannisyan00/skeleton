@@ -1,3 +1,4 @@
+// Route
 window.route = (name, params = null) => {
   const route = routesData[name];
   let uri = routesData[name].uri.toString();
@@ -18,6 +19,7 @@ window.route = (name, params = null) => {
 
 window.$trans = (key) => _.get(window.trans, key, key);
 
+// Roles Permissions
 const { roles, permissions } = window.$app;
 
 window.$can = function (value) {
@@ -46,6 +48,7 @@ window.$can = function (value) {
   }
   return _return;
 };
+
 window.$is = (value) => {
   // eslint-disable-next-line no-underscore-dangle
   let _return = false;

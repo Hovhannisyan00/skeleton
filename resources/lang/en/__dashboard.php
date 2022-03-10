@@ -68,6 +68,7 @@ return array(
         'save' => 'Save',
         'delete' => 'Delete',
         'add_more' => 'Add more',
+        'crop' => 'Crop',
     ],
 
     'label' => [
@@ -86,6 +87,7 @@ return array(
         'meta_title' => 'Meta Title',
         'keywords' => 'Keywords',
         'uploaded_files' => 'Uploaded files',
+        'uploaded_file' => 'Uploaded file',
         'show_status' => 'Show status',
         'first_name' => 'First Name',
         'last_name' => 'Last Name',
@@ -99,6 +101,10 @@ return array(
         'grouped_link' => 'Link',
         'multiple_author' => 'Author',
         'release_date_time' => 'Release datetime',
+        'avatar' => 'Avatar',
+        'current_password' => 'Current password',
+        'new_password' => 'New password',
+        'new_password_confirmation' => 'Confirm New Password',
     ],
 
     'select' => [

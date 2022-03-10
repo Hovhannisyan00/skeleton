@@ -19,6 +19,14 @@ class ValidatorServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        $this->globalValidators();
+    }
+
+    /**
+     * @return void
+     */
+    private function globalValidators()
+    {
         $maxStringLength = 250;
         $minIntegerLength = 0;
         $maxIntegerLength = 2000000000;
@@ -38,7 +46,7 @@ class ValidatorServiceProvider extends ServiceProvider
 
             return $this->validator($data, $rules);
 
-        }, trans('validation.custom.max.string', ['max' => $maxStringLength]));
+        }, trans('validation.max.string', ['max' => $maxStringLength]));
 
         // Max Text
         Validator::extend('text_with_max', function ($attribute, $value, $parameters) use ($maxTextLength) {
@@ -54,7 +62,7 @@ class ValidatorServiceProvider extends ServiceProvider
 
             return $this->validator($data, $rules);
 
-        }, trans('validation.custom.max.string', ['max' => $maxStringLength]));
+        }, trans('validation.max.string', ['max' => $maxStringLength]));
 
         // Max Integer
         Validator::extend('integer_with_max', function ($attribute, $value, $parameters) use ($minIntegerLength, $maxIntegerLength) {
@@ -70,7 +78,7 @@ class ValidatorServiceProvider extends ServiceProvider
 
             return $this->validator($data, $rules);
 
-        }, trans('validation.custom.between.numeric', ['min' => $minIntegerLength, 'max' => $maxIntegerLength]));
+        }, trans('validation.between.numeric', ['min' => $minIntegerLength, 'max' => $maxIntegerLength]));
 
         // Show status validator
         Validator::extend('show_status_validator', function ($attribute, $value, $parameters) {
@@ -98,7 +106,7 @@ class ValidatorServiceProvider extends ServiceProvider
                 $data[$attribute] = $value;
             }
 
-            $rules = [$attribute => "date_format:".getDateTimeFormat()];
+            $rules = [$attribute => "date_format:" . getDateTimeFormat()];
 
             return $this->validator($data, $rules);
 

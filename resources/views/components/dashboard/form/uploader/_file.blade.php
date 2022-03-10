@@ -1,9 +1,10 @@
 @php
     $randomNum = rand();
     $title = __('__dashboard.label.'.(str_replace('[]', '', $title ?? $name)));
+    $hasCrop = $crop ?? false;
 @endphp
 <label for="{{ $title }}.{{ $randomNum }}" class="control-label">{{ $title }}</label>
-<div class="file__uploader__box">
+<div class="file__uploader__box {{$hasCrop ? 'with-crop' : ''}}">
     <span class="input-group-btn">
     <label for="{{$name}}.{{ $randomNum }}" data-input="{{$name}}_thumbnail" data-preview="{{$name}}_holder"
            class="btn btn-primary text-white">
@@ -13,6 +14,7 @@
            type="file" data-name="{{str_replace('[]', '', $name)}}"
            @isset($configKey) data-config-key="{{ $configKey }}" @endisset
            @isset($multiple) multiple @endisset
+           data-has-crop="{{$hasCrop}}"
     >
 
     <div class="hidden-file-inputs"></div>

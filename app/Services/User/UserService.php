@@ -3,7 +3,7 @@
 namespace App\Services\User;
 
 use App\Contracts\Role\IRoleRepository;
-use App\Repositories\User\UserRepository;
+use App\Contracts\User\IUserRepository;
 use App\Services\BaseService;
 use App\Services\File\FileTempService;
 use Illuminate\Database\Eloquent\Model;
@@ -19,13 +19,13 @@ class UserService extends BaseService
     /**
      * UserService constructor.
      *
-     * @param UserRepository $repository
+     * @param IUserRepository $repository
      * @param IRoleRepository $roleRepository
      * @param FileTempService $fileService
      */
     public function __construct(
-        UserRepository $repository,
-        FileTempService $fileService,
+        IUserRepository           $repository,
+        FileTempService           $fileService,
         protected IRoleRepository $roleRepository
     )
     {
