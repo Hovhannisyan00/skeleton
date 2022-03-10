@@ -10,7 +10,7 @@
            class="btn btn-primary text-white">
         <i class="flaticon2-photo-camera" style="color: #fff"></i> {{__('Choose')}} {{ $title }}</label>
     </span>
-    <input id="{{$name}}.{{ $randomNum }}" class="form-control d-none temp-fie-type"
+    <input id="{{$name}}.{{ $randomNum }}" class="form-control d-none temp-file-type"
            type="file" data-name="{{str_replace('[]', '', $name)}}"
            @isset($configKey) data-config-key="{{ $configKey }}" @endisset
            @isset($multiple) multiple @endisset
