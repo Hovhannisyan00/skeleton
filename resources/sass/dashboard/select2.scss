@@ -682,3 +682,12 @@
 .select2-container--classic.select2-container--open .select2-dropdown {
     border-color: #5897fb
 }
+
+
+.select2 *:focus {
+    outline: none;
+}
+
+select.select2[multiple]{
+    height: 40px;
+}

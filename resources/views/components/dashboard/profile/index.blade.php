@@ -42,7 +42,7 @@
                         <x-dashboard.form._input name="new_password" autocomplete="off" type="password"/>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group mb-0">
                         <x-dashboard.form._input name="new_password_confirmation" autocomplete="off" type="password"/>
                     </div>
                 </div>

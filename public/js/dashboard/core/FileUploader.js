@@ -14,7 +14,7 @@ class FileUploader {
 
   $_functions() {
     $('body').on('click', '.__delete__file__btn', this.deleteFileHandler.bind(this));
-    $('input[type=file].temp-fie-type').change(this.fileChangeHandle.bind(this));
+    $('input[type=file].temp-file-type').change(this.fileChangeHandle.bind(this));
   }
 
   getAttribute(qualifiedDataName) {
