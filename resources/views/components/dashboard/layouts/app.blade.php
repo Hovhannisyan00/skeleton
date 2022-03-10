@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Dashboard Core</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 
     {{-- Styles  --}}
     {{ $head ?? '' }}
@@ -49,15 +50,15 @@
 
 <script src="{{ mix('/js/dashboard/main/dashboard-app.js') }}"></script>
 <script src="{{ asset('/js/dashboard/ckeditor.js') }}"></script>
-<script src="{{ asset('plugins/moment/moment.min.js') }}"></script>
+<script src="{{ asset('/plugins/moment/moment.min.js') }}"></script>
 
 {{-- Core Js  --}}
 <script src="{{ mix('/js/dashboard/main/global-scripts.js') }}"></script>
 <script src="{{ asset('/js/dashboard/core/ConfirmModal.js') }}"></script>
 <script src="{{ asset('/js/dashboard/core/FormRequest.js') }}"></script>
-<script src="{{ asset('/js/dashboard/core/FileUploader.js') }}"></script>
 <script src="{{ asset('/js/dashboard/core/MultipleInputs.js') }}"></script>
 <script src="{{ asset('/js/dashboard/core/Modal.js') }}"></script>
+<script src="{{ asset('/js/dashboard/core/FileUploader.js') }}"></script>
 
 {{-- Index pages add Datatable Js  --}}
 @if(isset($isIndexPage))

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Services\User\UserService;
+use App\Http\Requests\Profile\ProfileRequest;
+use App\Services\Profile\ProfileService;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\JsonResponse;
 
 /**
  * Class ProfileController
@@ -13,11 +15,11 @@ class ProfileController extends BaseController
 {
     /**
      * ProfileController constructor.
-     * @param UserService $userService
+     * @param ProfileService $service
      */
-    public function __construct(UserService $userService)
+    public function __construct(ProfileService $service)
     {
-        $this->service = $userService;
+        $this->service = $service;
     }
 
     /**
@@ -27,6 +29,22 @@ class ProfileController extends BaseController
      */
     public function index(): View
     {
-        return $this->dashboardView('profile.index');
+        return $this->dashboardView(view: 'profile.index', vars: $this->service->getViewData(auth()->id()));
+    }
+
+    /**
+     * Function to update profile data
+     *
+     * @param ProfileRequest $profileRequest
+     * @param int $id
+     * @return JsonResponse
+     */
+    public function update(ProfileRequest $profileRequest, int $id): JsonResponse
+    {
+        $this->service->update($profileRequest->validated(), $id);
+
+        return $this->sendOkUpdated([
+            'redirectUrl' => route('dashboard.profile.index')
+        ]);
     }
 }

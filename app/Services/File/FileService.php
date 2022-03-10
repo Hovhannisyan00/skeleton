@@ -191,7 +191,7 @@ abstract class FileService
      * @param string $path
      * @return void
      */
-    private function makeDirectory(string $path): void
+    protected function makeDirectory(string $path): void
     {
         if (!File::exists(dirname($path))) {
             File::makeDirectory(dirname($path), 0755, true);

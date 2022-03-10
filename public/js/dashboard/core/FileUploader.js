@@ -1,4 +1,7 @@
 // eslint-disable-next-line no-underscore-dangle,no-unused-vars
+// const cropperModal = new Modal('cropImageModal');
+const cropperModal = new Modal('cropImageModal');
+
 class FileUploader {
   constructor() {
     this.init();
@@ -25,8 +28,20 @@ class FileUploader {
     this.$fileHiddenInputsBox = $(this.$el).siblings('.hidden-file-inputs');
     this.resetUploader();
     this.fileData = this.$el.files;
-    this.removeOldUploadedFiles();
-    this.generateFormDataForFiles();
+    this.filename = '';
+
+    if ($(this.$el).data('has-crop')) {
+      if (typeof this.cropContainer == "undefined") {
+        this.initCroppie();
+        this.cropModalActions();
+      }
+
+      this.cropperImageChange();
+    } else {
+      this.removeOldUploadedFiles();
+      this.generateFormDataForFiles();
+    }
+
     this.$el.value = '';
   }
 
@@ -36,6 +51,57 @@ class FileUploader {
     if (!this.is_multiple) {
       $(this.$el).siblings('.__uploaded__files').remove();
     }
+  }
+
+  initCroppie() {
+    this.cropContainer = $('.crop-img-container').croppie({
+      enableExif: true,
+      viewport: {
+        width: 200,
+        height: 200,
+        type: 'circle'
+      },
+      boundary: {
+        width: 300,
+        height: 300
+      }
+    });
+  }
+
+  cropperImageChange() {
+    cropperModal.show();
+
+    let reader = new FileReader();
+    reader.onload =  (e) => {
+      this.cropContainer.croppie('bind', {
+        url: e.target.result
+      });
+    }
+    reader.readAsDataURL(this.fileData[0]);
+    this.filename = this.fileData[0].name;
+  }
+
+  cropModalActions() {
+
+    cropperModal.save(() => {
+      this.cropContainer.croppie('result', {
+        type: 'canvas',
+        size: 'viewport'
+      }).then((resp) => {
+
+        //
+        this.removeOldUploadedFiles();
+
+        const formData = new FormData();
+        formData.append('config_key', `${this.getAttribute('config-key')}.${this.getAttribute('name')}`);
+        formData.append('file', resp);
+        formData.append('name', this.filename);
+        this.sendData(formData, 0);
+        this.inputName = this.getAttribute('name');
+
+        cropperModal.hide();
+      });
+    });
   }
 
   resetUploader() {
@@ -129,7 +195,7 @@ class FileUploader {
   progressBar(progress, fileIndex) {
     $(this.$fileListEl)
       .find(`.file__item[data-index=${fileIndex}] .file__progress .progress-bar`)
-      .css({ width: `${progress}%` })
+      .css({width: `${progress}%`})
       .attr('aria-valuenow', progress)
       .html(`${progress}%`);
   }

@@ -9,6 +9,13 @@ return [
             'file_type' => File::TYPE_IMAGE,
             'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:4096'
         ],
+
+        'avatar' => [
+            'field_name' => 'avatar',
+            'file_type' => File::TYPE_IMAGE,
+            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:4096',
+            'is_cropped' => true,
+        ],
     ],
 
     \App\Models\Article\Article::getClassName() => [

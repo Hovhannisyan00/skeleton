@@ -4,7 +4,9 @@ namespace App\Services\File;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Symfony\Component\HttpFoundation\File\File;
 
 /**
  * Class FileTempService
@@ -81,6 +83,10 @@ class FileTempService extends FileService
         $file = $data['file'];
         $config = config("files.{$data['config_key']}");
 
+        if (isset($config['is_cropped'])) {
+            $file = $this->getCroppedFile($data);
+        }
+
         $filename = $this->getFileName($file);
         $path = now()->format('d-m-Y');
 
@@ -93,6 +99,39 @@ class FileTempService extends FileService
             'original_name' => $file->getClientOriginalName(),
             'file_type' => $config['file_type'],
         ];
+    }
+
+    /**
+     * Function to from base_64 get UploadedFile type
+     *
+     * @param array $data
+     * @return UploadedFile
+     */
+    private function getCroppedFile(array $data): UploadedFile
+    {
+        $file = $data['file'];
+        $fileName = $data['name'];
+
+        $file = str_replace("data:image/png;base64,","", $file);
+
+//        $extension = explode('/', mime_content_type($file))[1];
+
+        $croppedImageFileName = now()->format('d-m-Y') . '/' . $fileName;
+
+        $tmpFilePath = $this->pendingDisk->path($croppedImageFileName);
+        $this->makeDirectory($tmpFilePath);
+
+        file_put_contents($tmpFilePath, base64_decode($file));
+
+        $tmpFile = new File($tmpFilePath);
+
+        return new UploadedFile(
+            $tmpFile->getPathname(),
+            $tmpFile->getFilename(),
+            $tmpFile->getMimeType(),
+            0,
+            true // Mark it as test, since the file isn't from real HTTP POST.
+        );
     }
 
     /**

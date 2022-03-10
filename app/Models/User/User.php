@@ -106,6 +106,16 @@ class User extends Authenticatable
     }
 
     /**
+     * Function to return user avatar
+     *
+     * @return Model|null
+     */
+    public function getAvatarAttribute(): ?File
+    {
+        return $this->files('avatar')->first();
+    }
+
+    /**
      * Function to return user name
      *
      * @return Attribute
