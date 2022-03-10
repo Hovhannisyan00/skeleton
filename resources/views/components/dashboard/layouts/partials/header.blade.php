@@ -105,7 +105,7 @@
         <div class="btn-group">
             <button type="button" class="btn dropdown-toggle d-flex align-items-center" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                <span class="d-none d-md-inline-block">{{auth()->user()->name}}</span>
+                <span class="d-none d-md-inline-block">{{auth()->user()->first_name}}</span>
 
                 @if(auth()->user()->avatar)
                     <img src="{{auth()->user()->avatar->file_url}}" class="ml-2" width="30px">
