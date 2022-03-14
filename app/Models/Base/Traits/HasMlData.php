@@ -27,7 +27,7 @@ trait HasMlData
      */
     protected function initializeHasMlData()
     {
-        $this->getMlClass();
+        $this->initMlClass();
     }
 
     /**
@@ -70,11 +70,11 @@ trait HasMlData
     }
 
     /**
-     * Function to set ml class
+     * Function to init Ml Class
      *
      * @return BaseMlModel
      */
-    protected function getMlClass(): BaseMlModel
+    private function initMlClass(): BaseMlModel
     {
         if (self::$mlClass === null) {
             self::$mlClass = $this->setMlClass();
