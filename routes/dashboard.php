@@ -30,6 +30,3 @@ Route::get('articles/dataTable/get-list', [ArticleController::class, 'getListDat
 // Profile
 Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
 Route::put('profile/{id}', [ProfileController::class, 'update'])->whereNumber('id')->name('profile.update');
-
-Route::resource('katu-shuns', KatuShunController::class);
-Route::get('katu-shuns/dataTable/get-list', [KatuShunController::class, 'getListData'])->name('katu-shuns.getListData');
