@@ -8,6 +8,7 @@
         class="form-control {{ $class ?? '' }}"
         @isset($multiple) multiple @endisset
         @isset($placeholder) placeholder="{{ $placeholder }}" @endisset
+        @isset($allowClear) data-allow-clear="true" @endisset
 >
 
     @if(isset($defaultOption))

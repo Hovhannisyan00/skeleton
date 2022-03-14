@@ -4,8 +4,13 @@
     @endif
     @foreach($menus as $menu)
         @if($menu->subMenu->count())
-            <li class="menu-item">
-                <a class="menu-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+
+            @php
+                $hasActiveSubMenu = $menu->subMenu->contains(fn ($menu) => Str::is('*'.$menu->url.'*', request()->path()));
+            @endphp
+
+            <li class="menu-item {{ $hasActiveSubMenu ? 'active' : '' }}">
+                <a class="menu-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="{{$hasActiveSubMenu ? 'true' : 'false'}}"
                    aria-controls="collapseExample">
                         <span class="svg-icon">
                             <i class="{{ $menu->icon }}"></i>
@@ -13,11 +18,11 @@
                     <span class="menu-text">{{ __('__dashboard.menu.'.$menu->slug) }}</span>
                     <i class="menu-arrow"></i>
                 </a>
-                <div class="collapse" data-parent="#menu-nav" id="collapseExample">
+                <div class="collapse {{$hasActiveSubMenu ? 'show' : ''}}" data-parent="#menu-nav" id="collapseExample">
                     <ul class="menu-nav">
                         @foreach($menu->subMenu as $subMenu)
                             <li class="menu-item">
-                                <a href="{{ urlWithLng($subMenu->url) }}" class="menu-link">
+                                <a href="{{ urlWithLng($subMenu->url) }}" class="menu-link {{(request()->is('*'.$subMenu->url.'*')) ? 'active-submenu' : ''}}">
                                     <i class="menu-bullet-line">
                                         <span></span>
                                     </i>

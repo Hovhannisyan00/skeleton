@@ -54,7 +54,6 @@ class MenuSeeder extends Seeder
                         'title' => 'Sub Article',
                         'slug' => 'sub_articles',
                         'url' => route('dashboard.articles.index', [], false),
-                        'icon' => 'fab fa-autoprefixer',
                         'type' => 'admin',
                         'role' => [Role::ROLE_SUPER_ADMIN]
                     ]
