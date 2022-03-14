@@ -16,16 +16,18 @@ trait HasMlData
     private string $mlClassPrefix = 'Mls';
 
     /**
-     * @var BaseMlModel
+     * @var BaseMlModel|null
      */
-    protected BaseMlModel $mlClass;
+    protected static ?BaseMlModel $mlClass = null;
 
     /**
-     * HasMlData constructor
+     * Function Initialize the trait
+     *
+     * @return void
      */
-    public function __construct()
+    protected function initializeHasMlData()
     {
-        $this->mlClass = $this->setMlClass();
+        $this->getMlClass();
     }
 
     /**
@@ -54,7 +56,7 @@ trait HasMlData
      */
     public function mls(): HasMany
     {
-        return $this->hasMany($this->mlClass);
+        return $this->hasMany(self::$mlClass);
     }
 
     /**
@@ -64,7 +66,21 @@ trait HasMlData
      */
     public function currentMl(): HasOne
     {
-        return $this->hasOne($this->mlClass)->where('lng_code', currentLanguageCode());
+        return $this->hasOne(self::$mlClass)->where('lng_code', currentLanguageCode());
+    }
+
+    /**
+     * Function to set ml class
+     *
+     * @return BaseMlModel
+     */
+    protected function getMlClass(): BaseMlModel
+    {
+        if (self::$mlClass === null) {
+            self::$mlClass = $this->setMlClass();
+        }
+
+        return self::$mlClass;
     }
 
     /**
