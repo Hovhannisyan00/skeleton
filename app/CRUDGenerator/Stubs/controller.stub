@@ -117,7 +117,7 @@ class {{ CLASS_NAME }}Controller extends BaseController
      */
     public function update({{ CLASS_NAME }}Request $request, int $id): JsonResponse
     {
-     // $this->service->createOrUpdate($request->validated(), $id);
+     // $this->service->createOrUpdate($request->validated(), $id);  // For ML, File
         $this->repository->update($id, $request->validated());
 
         return $this->sendOkUpdated([

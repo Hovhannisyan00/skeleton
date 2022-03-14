@@ -29,7 +29,8 @@ class MenuSeeder extends Seeder
                 'url' => route('dashboard.translation.manager', [], false),
                 'icon' => 'fas fa-language',
                 'type' => 'admin',
-                'role' => [Role::ROLE_SUPER_ADMIN]
+                'role' => [Role::ROLE_SUPER_ADMIN],
+                'sort_order' => 1,
             ],
             [
                 'title' => 'Users',
@@ -37,7 +38,8 @@ class MenuSeeder extends Seeder
                 'url' => route('dashboard.users.index', [], false),
                 'icon' => 'flaticon-users-1',
                 'type' => 'admin',
-                'role' => [Role::ROLE_SUPER_ADMIN]
+                'role' => [Role::ROLE_SUPER_ADMIN],
+                'sort_order' => 2,
             ],
             [
                 'title' => 'Articles',
@@ -46,6 +48,7 @@ class MenuSeeder extends Seeder
                 'icon' => 'fab fa-autoprefixer',
                 'type' => 'admin',
                 'role' => [Role::ROLE_SUPER_ADMIN],
+                'sort_order' => 3,
                 /*'sub' =>  [
                     [
                         'title' => 'Sub Article',
@@ -63,9 +66,11 @@ class MenuSeeder extends Seeder
         foreach ($menus as $menu) {
             $createdMenu = Menu::create($menu);
 
-            foreach ($menu['sub'] ?? [] as $subMenu){
+            foreach ($menu['sub'] ?? [] as $subMenu) {
                 $subMenu['parent_id'] = $createdMenu->id;
-                Menu::create($subMenu);
+                $createdSubMenu = Menu::create($subMenu);
+
+                $createdSubMenu->assignRole($subMenu['role']);
             }
 
             $createdMenu->assignRole($menu['role']);

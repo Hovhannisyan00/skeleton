@@ -38,8 +38,9 @@ class Menu extends BaseModel
         'group_name',
         'url',
         'icon',
-        'show_status',
-        'type'
+        'type',
+        'sort_order',
+        'show_status'
     ];
 
     /**
