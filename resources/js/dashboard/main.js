@@ -13,10 +13,16 @@ $(function () {
 });
 
 select2Init = function () {
-  $('.select2').select2({
-    placeholder: $trans('__dashboard.select.option.default'),
-    minimumResultsForSearch: 10
-  });
+  const select2 = $('.select2');
+
+  $.each(select2, function () {
+
+    $(this).select2({
+      placeholder: $trans('__dashboard.select.option.default'),
+      minimumResultsForSearch: 10,
+      allowClear: $(this).data('allow-clear') || false
+    });
+  })
 }
 
 // Not Used For Now

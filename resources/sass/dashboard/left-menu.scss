@@ -186,6 +186,22 @@ $menu-icon-hover-color: #3699FF;
                 }
             }
         }
+
+        &.active{
+            .active-submenu {
+                .svg-icon svg g [fill]{
+                    fill: $menu-icon-hover-color;
+                }
+
+                .menu-bullet-line span {
+                    background-color: #3699FF;
+                }
+
+                .menu-text{
+                    color: #ffffff;
+                }
+            }
+        }
     }
 }
 

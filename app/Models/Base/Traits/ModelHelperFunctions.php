@@ -42,6 +42,16 @@ trait ModelHelperFunctions
     }
 
     /**
+     * Function to get table name
+     *
+     * @return string
+     */
+    public static function getTableName(): string
+    {
+        return (new self())->getTable();
+    }
+
+    /**
      * Function to check model has files
      *
      * @return bool
