@@ -1,5 +1,6 @@
 @php
-    $title = __('__dashboard.label.'.($title ?? $name));
+    $replacedName = replacedFormElementName($name);
+    $title = __('__dashboard.label.'.($title ?? $replacedName));
     $labelId = empty($id) ? $name.'_'.rand() : $id;
 
     if(empty($dateTime)){
@@ -26,4 +27,4 @@
        class="form-control {{ $class ?? '' }}"
 >
 <input type="hidden" class="backend-date-value" name="{{ $name ?? '' }}" value="{{ $backendValue }}">
-<x-dashboard.form._error :name="$name"></x-dashboard.form._error>
+<x-dashboard.form._error :name="$replacedName"></x-dashboard.form._error>

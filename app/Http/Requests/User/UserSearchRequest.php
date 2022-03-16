@@ -19,7 +19,7 @@ class UserSearchRequest extends DatatableSearchRequest
         return parent::rules() + [
                 'f.first_name' => 'nullable|string_with_max',
                 'f.last_name' => 'nullable|string_with_max',
-                'f.email' => 'nullable|email|string_with_max',
+                'f.email' => 'nullable|string_with_max',
             ];
     }
 }

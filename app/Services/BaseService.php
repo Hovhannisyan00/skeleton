@@ -90,13 +90,14 @@ abstract class BaseService
     public function delete(int $id): void
     {
         $model = $this->repository->find($id);
-        if ($model->hasFilesData()) {
-            $this->fileService()->deleteModelFile($model);
-        }
-
         if ($model->hasShowStatus()) {
             $this->repository->softDelete($id);
         } else {
+
+            if ($model->hasFilesData()) {
+                $this->fileService()->deleteModelFile($model);
+            }
+
             $this->repository->destroy($id);
         }
     }

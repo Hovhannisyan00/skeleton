@@ -1,5 +1,6 @@
 @php
-    $title = __('__dashboard.label.'.($title ?? $name));
+    $replacedName = replacedFormElementName($name);
+    $title = __('__dashboard.label.'.($title ?? $replacedName));
     $labelId = empty($id) ? $name.'_'.rand() : $id;
 @endphp
 <div class="custom-radio-block mb-2">
@@ -14,5 +15,5 @@
     >
     <label for="{{ $labelId }}" class="form-check-label">{{ $title }}</label>
 </div>
-<x-dashboard.form._error :name="$name"></x-dashboard.form._error>
+<x-dashboard.form._error :name="$replacedName"></x-dashboard.form._error>
 

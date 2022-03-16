@@ -10,15 +10,15 @@
             @endphp
 
             <li class="menu-item {{ $hasActiveSubMenu ? 'active' : '' }}">
-                <a class="menu-link" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="{{$hasActiveSubMenu ? 'true' : 'false'}}"
-                   aria-controls="collapseExample">
+                <a class="menu-link" data-toggle="collapse" href="#collapseMenu_{{$menu->id}}" role="button" aria-expanded="{{$hasActiveSubMenu ? 'true' : 'false'}}"
+                   aria-controls="collapseMenu_{{$menu->id}}">
                         <span class="svg-icon">
                             <i class="{{ $menu->icon }}"></i>
                         </span>
                     <span class="menu-text">{{ __('__dashboard.menu.'.$menu->slug) }}</span>
                     <i class="menu-arrow"></i>
                 </a>
-                <div class="collapse {{$hasActiveSubMenu ? 'show' : ''}}" data-parent="#menu-nav" id="collapseExample">
+                <div class="collapse {{$hasActiveSubMenu ? 'show' : ''}}" data-parent="#menu-nav" id="collapseMenu_{{$menu->id}}">
                     <ul class="menu-nav">
                         @foreach($menu->subMenu as $subMenu)
                             <li class="menu-item">

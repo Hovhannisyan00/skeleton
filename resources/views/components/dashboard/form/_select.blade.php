@@ -1,5 +1,6 @@
 @php
-    $title = __('__dashboard.label.'.($title ?? str_replace('[]', '',$name)));
+    $replacedName = replacedFormElementName($name);
+    $title = __('__dashboard.label.'.($title ?? $replacedName));
     $labelId = empty($id) ? $name.'_'.rand() : $id;
 @endphp
 <label for="{{$labelId}}" class="control-label">{{ $title }}</label>
@@ -28,5 +29,5 @@
         </option>
     @endforeach
 </select>
-<x-dashboard.form._error :name="$name"></x-dashboard.form._error>
+<x-dashboard.form._error :name="$replacedName"></x-dashboard.form._error>
 

@@ -1,5 +1,6 @@
 @php
-    $title = __('__dashboard.label.'.($title ?? $name));
+    $replacedName = replacedFormElementName($name);
+    $title = __('__dashboard.label.'.($title ?? $replacedName));
     $labelId = empty($id) ? $name.'_'.rand() : $id;
 @endphp
 
@@ -15,4 +16,4 @@
        name="{{ $name ?? '' }}"
        class="form-control {{ $class ?? '' }}"
 >
-<x-dashboard.form._error :name="$name"></x-dashboard.form._error>
+<x-dashboard.form._error :name="$replacedName"></x-dashboard.form._error>
