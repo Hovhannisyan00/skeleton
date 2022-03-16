@@ -13,7 +13,7 @@
                             <x-dashboard.form._input name="last_name"/>
                         </div>
                         <div class="col-md-4 form-group">
-                            <x-dashboard.form._input name="email" type="email"/>
+                            <x-dashboard.form._input name="email"/>
                         </div>
                     </div>
                     <div class="col-md-1 form-group text-right d-flex flex-column justify-content-end ">

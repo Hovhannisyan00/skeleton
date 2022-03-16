@@ -31,87 +31,78 @@ class ValidatorServiceProvider extends ServiceProvider
         $minIntegerLength = 0;
         $maxIntegerLength = 2000000000;
         $maxTextLength = 5000;
+        $minDoubleLength = 0;
+        $maxDoubleLength = 999999.99;
 
         // Max String
         Validator::extend('string_with_max', function ($attribute, $value, $parameters) use ($maxStringLength) {
-            $data = [];
-
-            if (str_contains($attribute, '.')) {
-                $data = $this->dataArray(explode('.', $attribute), $value);
-            } else {
-                $data[$attribute] = $value;
-            }
-
             $rules = [$attribute => "string|max:" . $maxStringLength];
 
-            return $this->validator($data, $rules);
+            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
 
         }, trans('validation.max.string', ['max' => $maxStringLength]));
 
         // Max Text
         Validator::extend('text_with_max', function ($attribute, $value, $parameters) use ($maxTextLength) {
-            $data = [];
-
-            if (str_contains($attribute, '.')) {
-                $data = $this->dataArray(explode('.', $attribute), $value);
-            } else {
-                $data[$attribute] = $value;
-            }
-
             $rules = [$attribute => "string|max:" . $maxTextLength];
 
-            return $this->validator($data, $rules);
+            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
 
         }, trans('validation.max.string', ['max' => $maxStringLength]));
 
         // Max Integer
         Validator::extend('integer_with_max', function ($attribute, $value, $parameters) use ($minIntegerLength, $maxIntegerLength) {
-            $data = [];
-
-            if (str_contains($attribute, '.')) {
-                $data = $this->dataArray(explode('.', $attribute), $value);
-            } else {
-                $data[$attribute] = $value;
-            }
-
             $rules = [$attribute => "integer|between:$minIntegerLength,$maxIntegerLength"];
 
-            return $this->validator($data, $rules);
+            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
 
         }, trans('validation.between.numeric', ['min' => $minIntegerLength, 'max' => $maxIntegerLength]));
 
-        // Show status validator
+        // Max Double
+        Validator::extend('double_with_max', function ($attribute, $value, $parameters) use ($minDoubleLength, $maxDoubleLength) {
+            $rules = [$attribute => "numeric|between:$minDoubleLength,$maxDoubleLength"];
+
+            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
+
+        }, trans('validation.between.numeric', ['min' => $minDoubleLength, 'max' => $maxDoubleLength]));
+
+        // Show status
         Validator::extend('show_status_validator', function ($attribute, $value, $parameters) {
-            $data = [];
-
-            if (str_contains($attribute, '.')) {
-                $data = $this->dataArray(explode('.', $attribute), $value);
-            } else {
-                $data[$attribute] = $value;
-            }
-
             $rules = [$attribute => "in:" . implode(',', BaseModel::SHOW_STATUSES_FOR_SELECT)];
 
-            return $this->validator($data, $rules);
+            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
 
         }, trans('validation.invalid'));
 
-        // Datetime validator
+        // Datetime
         Validator::extend('datetime', function ($attribute, $value, $parameters) {
-            $data = [];
-
-            if (str_contains($attribute, '.')) {
-                $data = $this->dataArray(explode('.', $attribute), $value);
-            } else {
-                $data[$attribute] = $value;
-            }
-
             $rules = [$attribute => "date_format:" . getDateTimeFormat()];
 
-            return $this->validator($data, $rules);
+            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
 
         }, trans('validation.invalid'));
     }
+
+    /**
+     * Function to get attribute value
+     *
+     * @param $attribute
+     * @param $value
+     * @return array
+     */
+    private function getAttributeValue($attribute, $value): array
+    {
+        $data = [];
+
+        if (str_contains($attribute, '.')) {
+            $data = $this->dataArray(explode('.', $attribute), $value);
+        } else {
+            $data[$attribute] = $value;
+        }
+
+        return $data;
+    }
+
 
     /**
      * @param $data

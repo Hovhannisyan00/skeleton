@@ -1,7 +1,6 @@
 @php
-    $dotName = getArrayNameDot($name);
-    $title = __('__dashboard.label.'.($title ?? $dotName));
-
+    $replacedName = replacedFormElementName($name);
+    $title = __('__dashboard.label.'.($title ?? $replacedName));
     $labelId = empty($id) ? $title.'.'.rand() : $id
 @endphp
 
@@ -23,4 +22,4 @@
        value="{{ $value ?? '' }}"
        class="form-control {{ $class ?? '' }}"
 >
-<x-dashboard.form._error :name="$dotName"></x-dashboard.form._error>
+<x-dashboard.form._error :name="$replacedName"></x-dashboard.form._error>

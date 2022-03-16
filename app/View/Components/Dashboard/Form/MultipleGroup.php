@@ -93,11 +93,11 @@ class MultipleGroup extends Base
         foreach ($inputs as $index => $input) {
 
             $name = $input->getAttribute($attribute);
-            $dotName = getArrayNameDot($name);
+            $replacedName = replacedFormElementName($name);
 
             if ($attribute == self::ATTRIBUTE_DATA_NAME) {
 
-                $newval = str_replace('0', $this->index, $dotName);
+                $newval = str_replace('0', $this->index, $replacedName);
 
             } else {
 

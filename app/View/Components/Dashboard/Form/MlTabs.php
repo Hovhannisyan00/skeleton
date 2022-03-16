@@ -69,7 +69,7 @@ class MlTabs extends Base
                 $newval = "ml[$this->lngCode][$name]$multipleName";
             } else {
 
-                $multipleName = getArrayNameDot($multipleName);
+                $multipleName = replacedFormElementName($multipleName);
 
                 $newval = "ml.$this->lngCode.$name$multipleName";
             }
