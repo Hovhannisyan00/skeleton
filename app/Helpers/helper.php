@@ -263,8 +263,16 @@ if (!function_exists("getAuthUserRolesName")) {
 if (!function_exists("replacedFormElementName")) {
     function replacedFormElementName($name): string
     {
-        $name = str_replace(['[', ''], '.', $name);
-        return str_replace([']', ''], '', $name);
+        if (str_contains($name, '[')) {
+            $name = str_replace(['[', ''], '.', $name);
+            $name = str_replace([']', ''], '', $name);
+
+            if ($name[-1] == '.') {
+                $name = rtrim($name,'.');
+            }
+        }
+
+        return $name;
     }
 }
 

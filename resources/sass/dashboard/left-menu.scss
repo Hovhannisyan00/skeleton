@@ -189,6 +189,9 @@ $menu-icon-hover-color: #3699FF;
 
         &.active{
             .active-submenu {
+
+                background-color: #1b1b28;
+
                 .svg-icon svg g [fill]{
                     fill: $menu-icon-hover-color;
                 }
