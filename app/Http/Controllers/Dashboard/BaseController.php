@@ -39,13 +39,25 @@ abstract class BaseController extends Controller
      * @param string $viewMode
      * @return View
      */
-    public function dashboardView(string $view, array $vars = [], string $viewMode = 'add'): View
+    protected function dashboardView(string $view, array $vars = [], string $viewMode = 'add'): View
     {
         $vars['viewMode'] = $viewMode;
 
         $this->generateSubHeaderData($view, $viewMode);
 
         return view(self::DASHBOARD_VIEW_PREFIX . '.' . $view, $vars);
+    }
+
+    /**
+     * Function to render dashboard view
+     *
+     * @param $view
+     * @param array $vars
+     * @return string
+     */
+    protected function renderDashboardView($view, array $vars = []): string
+    {
+        return view(self::DASHBOARD_VIEW_PREFIX . '.' . $view, $vars)->render();
     }
 
     /**

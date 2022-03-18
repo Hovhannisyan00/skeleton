@@ -10,6 +10,7 @@
         @isset($multiple) multiple @endisset
         @isset($placeholder) placeholder="{{ $placeholder }}" @endisset
         @isset($allowClear) data-allow-clear="true" @endisset
+        @if(isset($disabled) && $disabled) disabled @endisset
 >
 
     @if(isset($defaultOption))

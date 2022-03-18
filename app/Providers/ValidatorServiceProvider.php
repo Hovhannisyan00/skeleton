@@ -23,16 +23,24 @@ class ValidatorServiceProvider extends ServiceProvider
     }
 
     /**
+     * Function to set global validators
+     *
      * @return void
      */
-    private function globalValidators()
+    private function globalValidators(): void
     {
         $maxStringLength = 250;
+
         $minIntegerLength = 0;
         $maxIntegerLength = 2000000000;
+
         $maxTextLength = 5000;
+
         $minDoubleLength = 0;
         $maxDoubleLength = 999999.99;
+
+        $minPhoneNumberLength = 8;
+        $maxPhoneNumberLength = 12;
 
         // Max String
         Validator::extend('string_with_max', function ($attribute, $value, $parameters) use ($maxStringLength) {
@@ -65,6 +73,14 @@ class ValidatorServiceProvider extends ServiceProvider
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
 
         }, trans('validation.between.numeric', ['min' => $minDoubleLength, 'max' => $maxDoubleLength]));
+
+        // Phone number
+        Validator::extend('phone_number_validator', function ($attribute, $value, $parameters) use ($minPhoneNumberLength, $maxPhoneNumberLength) {
+            $rules = [$attribute => "regex:/^([0-9\s\-\+\(\)]*)$/|between:$minPhoneNumberLength,$maxPhoneNumberLength"];
+
+            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
+
+        }, trans('validation.invalid', ['min' => $minPhoneNumberLength, 'max' => $maxPhoneNumberLength]));
 
         // Show status
         Validator::extend('show_status_validator', function ($attribute, $value, $parameters) {

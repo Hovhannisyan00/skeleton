@@ -90,7 +90,7 @@ abstract class Search
     }
 
     /**
-     * @return array|Collection
+     * @return Collection
      */
     public function search(): Collection
     {
@@ -102,7 +102,7 @@ abstract class Search
 
     /**
      * @param $query
-     * @return array|Collection
+     * @return Collection
      */
     public function setReturnData($query): Collection
     {
