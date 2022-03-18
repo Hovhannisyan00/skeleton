@@ -9,6 +9,9 @@
                         <div class="col-md-4 form-group">
                             <x-dashboard.form._input name="id" type="number"/>
                         </div>
+                        <div class="col-md-4 form-group">
+                            <x-dashboard.form._input name="name"/>
+                        </div>
                     </div>
                     <div class="col-md-1 form-group text-right d-flex flex-column justify-content-end ">
                         <x-dashboard.form._loader_btn/>

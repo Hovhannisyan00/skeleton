@@ -3,7 +3,7 @@
 namespace App\Models\Base;
 
 use App\Models\Base\Traits\ModelHelperFunctions;
-use App\Scopes\Base\ActiveScope;
+use App\Scopes\Base\DeletedScope;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -61,10 +61,10 @@ class BaseModel extends Model
     public array $defaultValues = [];
 
     /**
-     * Default get all rows (show_status=1) ,disable that check
+     * Default get all rows (show_status != 0)
      * @var bool
      */
-    protected static bool $getOnlyActiveRows = true;
+    protected static bool $getNotDeletedRows = true;
 
     /**
      * The attributes that should be hidden for arrays.
@@ -89,8 +89,8 @@ class BaseModel extends Model
     {
         parent::boot();
 
-        if (static::$getOnlyActiveRows) {
-            static::addGlobalScope(new ActiveScope);
+        if (static::$getNotDeletedRows) {
+            static::addGlobalScope(new DeletedScope);
         }
 
         // Creating
@@ -178,7 +178,7 @@ class BaseModel extends Model
     public function scopeActive($query): Builder
     {
         $table = $this->getTable();
-        return $query->orderBy($table . '.show_status', self::SHOW_STATUS_ACTIVE);
+        return $query->where($table . '.show_status', self::SHOW_STATUS_ACTIVE);
     }
 
     /**

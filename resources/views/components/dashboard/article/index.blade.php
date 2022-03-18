@@ -33,7 +33,7 @@
                             <th data-key="description">{{ __('__dashboard.label.description') }}</th>
                             <th data-key="publish_date">{{ __('__dashboard.label.publish_date') }}</th>
                             <th data-key="created_at">{{ __('__dashboard.label.created_at') }}</th>
-                            <th data-key="show_status">{{ __('__dashboard.label.show_status') }}</th>
+                            <th data-key="show_status" data-orderable="false">{{ __('__dashboard.label.show_status') }}</th>
                             <th class="text-center">{{ __('__dashboard.label.actions') }}</th>
                         </tr>
                         </thead>

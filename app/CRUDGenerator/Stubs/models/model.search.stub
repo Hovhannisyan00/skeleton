@@ -15,7 +15,8 @@ class {{ CLASS_NAME }}Search extends Search
      * @var string[]
      */
     protected array $orderables = [
-        'id','name'
+        'id',
+        'name'
     ];
 
     /**
@@ -31,7 +32,10 @@ class {{ CLASS_NAME }}Search extends Search
         )
             ->when(!empty($filters['id']), function ($query) use ($filters) {
                 $query->where('id', $filters['id']);
-            });
+            })
+            ->when(!empty($filters['name']), function ($query) use ($filters) {
+                $query->like('name', $filters['name']);
+             });
     }
 
     /**

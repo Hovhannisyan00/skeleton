@@ -20,8 +20,8 @@ const options = {
   // Its a Example for show column render data type (no open comment!!)
   /*columnsRender: {
     show_status: {
-      render(showStatus) {
-        return `<span class="show-status-${showStatus}">${$trans('__dashboard.select.option.show_statusa_'+showStatus)}</span>`;
+      render(showStatus,display,row) {
+        return `<span class="show-status-${showStatus}">${$trans('__dashboard.select.option.show_status_'+showStatus)}</span>`;
       }
     }
   }*/
