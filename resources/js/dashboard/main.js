@@ -25,6 +25,28 @@ select2Init = function () {
   })
 }
 
+select2Reset = function (select) {
+  if (select.length) {
+    select.select2("val", "");
+    select.find('option').not(':first-child').remove();
+  }
+}
+
+select2SetValues = function (select, data) {
+  $.each(data, function (key, value) {
+    select.append(new Option(value, key, false, false)).trigger('change.select2');
+  });
+}
+
+disableField = function (field, disable) {
+
+  if (typeof disable === "undefined") {
+    disable = true
+  }
+
+  field.prop('disabled', disable);
+}
+
 // Not Used For Now
 function ckEditorInit() {
   const ckeditorEls = document.querySelectorAll('.ckeditor5');
