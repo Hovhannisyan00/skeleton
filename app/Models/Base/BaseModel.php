@@ -21,20 +21,20 @@ class BaseModel extends Model
     /**
      * @var string
      */
-    final const TRUE = 1;
-    final const FALSE = 0;
+    const TRUE = 1;
+    const FALSE = 0;
 
     /**
      * @var string
      */
-    final const SHOW_STATUS_ACTIVE = '1';
-    final const SHOW_STATUS_INACTIVE = '2';
-    final const SHOW_STATUS_DELETED = '0';
+    const SHOW_STATUS_ACTIVE = '1';
+    const SHOW_STATUS_INACTIVE = '2';
+    const SHOW_STATUS_DELETED = '0';
 
     /**
      * @var array
      */
-    final const SHOW_STATUSES = [
+    const SHOW_STATUSES = [
         self::SHOW_STATUS_ACTIVE,
         self::SHOW_STATUS_INACTIVE,
         self::SHOW_STATUS_DELETED

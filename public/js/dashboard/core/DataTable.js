@@ -30,24 +30,40 @@ class DataTable {
   }
 
   actions() {
+
     const replaceId = (id, type) => this.pathOptions[`${type}Path`].replace(':id', id);
+
+    const self = this;
     const defaultActions = {
       edit(row) {
-        return `<a href="${replaceId(row.id, 'edit')}" class="btn" title="Edit details">
+        return `<a href="${replaceId(row.id, 'edit')}" class="btn" title="Edit">
                     <i class="flaticon-edit"></i>
                 </a>`;
       },
+
       show(row) {
-        return `<a href="${replaceId(row.id, 'show')}" class="btn" title="Show details">
+        return `<a href="${replaceId(row.id, 'show')}" class="btn" title="Show">
                    <i class="flaticon-eye"></i>
                 </a>`;
       },
+
+      clone(row) {
+        if (self.pathOptions['clonePath']) {
+          return `<a href="${replaceId(row.id, 'clone')}" class="btn" title="Duplicate">
+                   <i class="fas fa-copy fa-fw"></i>
+                </a>`;
+        }
+
+        return ''
+      },
+
       delete(row) {
         return `<button type="button" data-url="${replaceId(row.id, 'delete')}" data-event-name="deleteDataTableRow" class="btn __confirm__delete__btn" title="Delete">
                     <i class="flaticon2-trash"></i>
                 </button>`;
       },
     };
+
     this.options.actions = {...defaultActions, ...this.options.actions};
   }
 
