@@ -48,7 +48,7 @@ trait ModelHelperFunctions
      */
     public static function getTableName(): string
     {
-        return (new self())->getTable();
+        return (new static())->getTable();
     }
 
     /**
