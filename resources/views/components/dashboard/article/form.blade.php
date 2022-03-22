@@ -84,15 +84,8 @@
                     <div class="form-group required">
                         <x-dashboard.form._textarea name="description" class="ckeditor5"/>
                     </div>
-                    <div class="form-group">
-                        <x-dashboard.form._textarea name="meta_description"/>
-                    </div>
-                    <div class="form-group mt-4">
-                        <x-dashboard.form._input name="meta_title"/>
-                    </div>
-                    <div class="form-group mt-4">
-                        <x-dashboard.form._input name="keywords"/>
-                    </div>
+
+                    <x-dashboard.form._meta_data></x-dashboard.form._meta_data>
                 </x-slot:mlTabsData>
 
             </x-dashboard.form._form-ml>

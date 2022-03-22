@@ -35,7 +35,11 @@ class ArticleRequest extends FormRequest
             'ml' => 'required|array',
             "ml.*.title" => 'required|string_with_max',
             'ml.*.short_description' => 'required|string_with_max',
-            'ml.*.description' => 'required|string|text_with_max',
+            'ml.*.description' => 'required|text_with_max',
+
+            'ml.*.meta_title' => 'nullable|string_with_max',
+            'ml.*.meta_keywords' => 'nullable|string_with_max',
+            'ml.*.meta_description' => 'nullable|text_with_max',
         ];
     }
 }

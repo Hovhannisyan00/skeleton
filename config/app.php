@@ -14,6 +14,8 @@ return [
     */
 
     'name' => env('APP_NAME', 'Laravel'),
+    'version' => env('DASHBOARD_VERSION'),
+    'last_updated_at' => env('LAST_UPDATED_AT'),
 
     /*
     |--------------------------------------------------------------------------

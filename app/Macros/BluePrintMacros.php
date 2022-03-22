@@ -3,6 +3,7 @@
 namespace App\Macros;
 
 use App\Models\Base\BaseModel;
+use Closure;
 
 /**
  * Class BluePrintMacros
@@ -13,7 +14,7 @@ class BluePrintMacros
     /**
      * Function to set user info
      *
-     * @return \Closure
+     * @return Closure
      */
     public function userInfo()
     {
@@ -32,7 +33,7 @@ class BluePrintMacros
     /**
      * Function to set show status
      *
-     * @return \Closure
+     * @return Closure
      */
     public function showStatus()
     {
@@ -44,12 +45,26 @@ class BluePrintMacros
     /**
      * Function to set sort order
      *
-     * @return \Closure
+     * @return Closure
      */
     public function sortOrder()
     {
         return function () {
             $this->integer('sort_order')->nullable();
+        };
+    }
+
+    /**
+     * Function to set seo data
+     *
+     * @return Closure
+     */
+    public function metaData()
+    {
+        return function () {
+            $this->string('meta_title')->nullable();
+            $this->text('meta_description')->nullable();
+            $this->string('meta_keywords')->nullable();
         };
     }
 }
