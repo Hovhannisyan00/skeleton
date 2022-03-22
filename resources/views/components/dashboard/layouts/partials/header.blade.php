@@ -1,7 +1,7 @@
 <header class="header">
     <div class="d-flex justify-content-between align-items-center">
         <a href="/" class="brand-logo d-xl-none">
-            <img src="/img/logo.svg" width="100" alt="Logo">
+{{--            <img src="/img/logo.svg" width="100" alt="Logo">--}}
         </a>
 
         {{-- Notification Block --}}

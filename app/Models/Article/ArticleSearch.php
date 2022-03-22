@@ -48,9 +48,6 @@ class ArticleSearch extends Search
             })
             ->when(!empty($filters['show_status']), function ($query) use ($filters) {
                 $query->where('show_status', $filters['show_status']);
-            })
-            ->when(!empty($filters['created_at']), function ($query) use ($filters) {
-                $query->orderBy('created_at', $filters['created_at']);
             });
     }
 
