@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Article;
 
-use App\Http\Requests\AdditionalRules\Metadata\MetaDataValidation;
+use App\Http\Requests\AdditionalRules\MetaData\MetaDataValidation;
 use App\Models\Article\Article;
 use Illuminate\Foundation\Http\FormRequest;
 
