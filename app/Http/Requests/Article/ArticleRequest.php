@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Article;
 
+use App\Models\Article\Article;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
@@ -18,7 +19,7 @@ class ArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'slug' => 'required|string_with_max',
+            'slug' => 'required|string_with_max|unique:' . Article::getTableName(),
             'publish_date' => 'required|date',
             'release_date_time' => 'required|datetime',
             'photo' => 'required|string_with_max',
