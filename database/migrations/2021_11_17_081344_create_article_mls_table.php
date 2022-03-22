@@ -18,11 +18,9 @@ class CreateArticleMlsTable extends Migration
             $table->foreignIdFor(Article::class)->constrained()->cascadeOnDelete();
             $table->string('lng_code');
             $table->string('title')->nullable();
-            $table->string('meta_title')->nullable();
-            $table->text('description')->nullable();
             $table->text('short_description')->nullable();
-            $table->text('meta_description')->nullable();
-            $table->text('keywords')->nullable();
+            $table->text('description')->nullable();
+            $table->metaData();
             $table->primary(['article_id','lng_code']);
         });
     }

@@ -85,7 +85,7 @@ return array(
         'description' => 'Description',
         'meta_description' => 'Meta description',
         'meta_title' => 'Meta Title',
-        'keywords' => 'Keywords',
+        'meta_keywords' => 'Meta Keywords',
         'uploaded_files' => 'Uploaded files',
         'uploaded_file' => 'Uploaded file',
         'show_status' => 'Show status',

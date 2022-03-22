@@ -34,10 +34,10 @@ class ArticleMls extends BaseMlModel
     protected $fillable = [
         'lng_code',
         'title',
-        'meta_title',
-        'description',
         'short_description',
+        'description',
+        'meta_title',
         'meta_description',
-        'keywords',
+        'meta_keywords',
     ];
 }

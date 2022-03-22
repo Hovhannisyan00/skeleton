@@ -84,7 +84,18 @@ class DataTable {
         let text = '';
 
         if (data && !Array.isArray(data)) {
-          return data[relationName] ?? '';
+
+          // if relation is object
+          if(typeof relationName != 'string'){
+
+            const relationKey = Object.keys(relationName)[0] || ''
+
+            if(data[relationKey]){
+              return data[relationKey][relationName[relationKey]];
+            }
+          }
+
+          return data[relationName] || '';
         }
 
         if (Array.isArray(data)) {

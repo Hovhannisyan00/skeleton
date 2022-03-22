@@ -9,7 +9,7 @@
             @if(config('app.env') != 'production')
             <br>
             <p class="text-white">
-                {{ env('DASHBOARD_VERSION') }} - {{ env('LAST_UPDATED_AT') }}
+                {{ config('app.version') }} - {{ config('app.last_updated_at') }}
             </p>
             @endif
         </div>
