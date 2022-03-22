@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Requests\AdditionalRules\Metadata;
+namespace App\Http\Requests\AdditionalRules\MetaData;
 
 class MetaDataValidation
 {
