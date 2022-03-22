@@ -100,7 +100,17 @@ class DataTable {
 
         if (Array.isArray(data)) {
           data.map((item, index) => {
-            text += index ? `, ${item[relationName]}` : item[relationName];
+
+            if (typeof relationName != 'string') {
+              const relationKey = Object.keys(relationName)[0] || ''
+              if (item[relationKey]) {
+                const relVal = item[relationKey][relationName[relationKey]];
+                text += index ? `, ${relVal}` : relVal;
+              }
+            } else {
+              text += index ? `, ${item[relationName]}` : item[relationName];
+            }
+
           });
 
           return text;

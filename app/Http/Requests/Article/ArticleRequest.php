@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests\Article;
 
+use App\Http\Requests\AdditionalRules\Metadata\MetaDataValidation;
 use App\Models\Article\Article;
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -19,7 +20,7 @@ class ArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'slug' => 'required|string_with_max|unique:' . Article::getTableName(),
+            'slug' => 'required|string_with_max|unique:' . Article::getTableName() . ',slug,' . $this->article,
             'publish_date' => 'required|date',
             'release_date_time' => 'required|datetime',
             'photo' => 'required|string_with_max',
@@ -37,10 +38,6 @@ class ArticleRequest extends FormRequest
             "ml.*.title" => 'required|string_with_max',
             'ml.*.short_description' => 'required|string_with_max',
             'ml.*.description' => 'required|text_with_max',
-
-            'ml.*.meta_title' => 'nullable|string_with_max',
-            'ml.*.meta_keywords' => 'nullable|string_with_max',
-            'ml.*.meta_description' => 'nullable|text_with_max',
-        ];
+        ] + MetaDataValidation::rules();
     }
 }

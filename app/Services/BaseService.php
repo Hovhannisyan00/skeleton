@@ -33,21 +33,33 @@ abstract class BaseService
      */
     public function createOrUpdate(array $data, int $id = null): Model
     {
-        return DB::transaction(function () use ($id, $data) {
-            $model = $id ? $this->repository->update($id, $data) : $this->repository->create($data);
-
-            // Ml
-            if (isset($data['ml'])) {
-                $this->repository->saveMl($model, $data['ml']);
-            }
-
-            // Files
-            if ($model->hasFilesData()) {
-                $this->fileService()->storeFile($model, $data);
-            }
-
-            return $model;
+        return DB::transaction(function () use ($data, $id) {
+            return $this->createOrUpdateWithoutTransaction($data, $id);
         });
+    }
+
+    /**
+     * Function to create or update model without transaction
+     *
+     * @param array $data
+     * @param int|null $id
+     * @return Model
+     */
+    public function createOrUpdateWithoutTransaction(array $data, int $id = null): Model
+    {
+        $model = $id ? $this->repository->update($id, $data) : $this->repository->create($data);
+
+        // Ml
+        if (isset($data['ml'])) {
+            $this->repository->saveMl($model, $data['ml']);
+        }
+
+        // Files
+        if ($model->hasFilesData()) {
+            $this->fileService()->storeFile($model, $data);
+        }
+
+        return $model;
     }
 
     /**

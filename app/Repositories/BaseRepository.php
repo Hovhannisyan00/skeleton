@@ -153,7 +153,7 @@ class BaseRepository implements IBaseRepository
     }
 
     /**
-     * Function to return get for select
+     * Function to get for select
      *
      * @param string $column
      * @param string $key
@@ -165,7 +165,7 @@ class BaseRepository implements IBaseRepository
     }
 
     /**
-     * Function to return get for select by join Ml
+     * Function to get for select by join Ml
      *
      * @param string $column
      * @param string $key
