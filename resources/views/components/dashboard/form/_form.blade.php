@@ -20,10 +20,12 @@
     @isset($showStatus)
        <div class="row">
           <div class="col-lg-6">
-              <x-dashboard.form._show-status
-                  class="mb-4"
-                  :value="$showStatus ?? ''"
-              />
+              <div class="form-group">
+                  <x-dashboard.form._show-status
+                      class="mb-4"
+                      :value="$showStatus ?? ''"
+                  />
+              </div>
           </div>
        </div>
     @endisset
