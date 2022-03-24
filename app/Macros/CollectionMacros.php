@@ -7,13 +7,13 @@ use Closure;
 class CollectionMacros
 {
     /**
-     * @param string $column
-     * @param string $key
+     * Function to get data for select
+     *
      * @return Closure
      */
-    public function getForSelect(string $column = 'name', string $key = 'id'): Closure
+    public function getForSelect(): Closure
     {
-        return function () use ($column, $key) {
+        return function (string $column = 'name', string $key = 'id') {
             return $this->pluck($column, $key);
         };
     }
