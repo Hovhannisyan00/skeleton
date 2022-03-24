@@ -21,12 +21,11 @@ class CollectionMacros
     /**
      * Function to get relation pluck data
      *
-     * @param string $column
      * @return Closure
      */
-    public function pluckColumn(string $column = 'id'): Closure
+    public function pluckColumn(): Closure
     {
-        return function () use ($column) {
+        return function (string $column = 'id') {
             return $this->pluck($column)->all();
         };
     }
