@@ -19,7 +19,7 @@
                 </form>
 
                 <div class="table-responsive">
-                    <table class="table w-100" id="__data__table">
+                    <table class="table w-100 table-hover" id="__data__table">
                         <thead>
                         <tr>
                             <th data-key="id">{{ __('__dashboard.label.id') }}</th>

@@ -12,8 +12,12 @@ $(function () {
 
 });
 
-select2Init = function () {
-  const select2 = $('.select2');
+select2Init = function (div) {
+
+  let select2 = $('.select2');
+  if (typeof div !== "undefined") {
+    select2 = div.find('.select2');
+  }
 
   $.each(select2, function () {
 
@@ -45,6 +49,15 @@ disableField = function (field, disable) {
   }
 
   field.prop('disabled', disable);
+}
+
+loadContent = function (content, removeLoad) {
+
+  if (typeof removeLoad === "undefined") {
+    content.addClass('loading-content position-relative');
+  } else {
+    content.removeClass('loading-content position-relative');
+  }
 }
 
 // Not Used For Now

@@ -20,6 +20,8 @@ class ValidatorServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->globalValidators();
+
+        $this->existsValidators();
     }
 
     /**
@@ -96,6 +98,24 @@ class ValidatorServiceProvider extends ServiceProvider
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
 
+        }, trans('validation.invalid'));
+    }
+
+    /**
+     * Function to set exists validators
+     *
+     * @return void
+     */
+    private function existsValidators(): void
+    {
+        Validator::extend('exist_validator', function ($attribute, $value, $parameters) {
+
+            $tableName = $parameters[0];
+            $checkField = $parameters[1] ?? 'id';
+
+            $data[$attribute] = $value;
+
+            return $this->validator($data, [$attribute => "integer_with_max|exists:" . $tableName . "," . $checkField]);
         }, trans('validation.invalid'));
     }
 

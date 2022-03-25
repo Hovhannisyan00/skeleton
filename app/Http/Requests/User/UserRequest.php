@@ -22,7 +22,7 @@ class UserRequest extends FormRequest
             'last_name' => 'required|string_with_max',
             'email' => 'required|string|string_with_max|email|unique:users,email,' . request()->user,
             'role_ids' => 'required|array',
-            'role_ids.*' => 'required|integer_with_max|exists:roles,id',
+            'role_ids.*' => 'required|exist_validator:roles,id',
             'signature' => 'required|string_with_max',
         ];
 

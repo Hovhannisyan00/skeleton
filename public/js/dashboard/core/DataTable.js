@@ -231,6 +231,7 @@ class DataTable {
   searchFormSubmit(event) {
     event.preventDefault();
     const el = event.target;
+    this.searchData = {};
 
     this.searchFromLoader(true);
     const searchData = $(el).serializeArray();
