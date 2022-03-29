@@ -19,13 +19,15 @@ interface IBaseRepository
 
     public function find(int $id): Model;
 
-    public function findOrFail(int $id): Model;
+    public function findUpdate(int $id, array $data): bool;
 
-    public function findOrFailUUID(string $id): Model;
+    public function findOrFail(int|string $id): Model;
 
     public function firstOrFailByUUID(string $uuid): Model;
 
     public function firstOrFailByToken(string $token): Model;
+
+    public function firstBySlug(string $slug): ?Model;
 
     public function all(): Collection;
 
@@ -49,7 +51,7 @@ interface IBaseRepository
 
     public function updateWhere(array $whereData, array $data): bool;
 
-    public function destroy(int $id): bool;
+    public function destroy(int|string $id): bool;
 
     public function saveMl(Model $model, array $mlsData): void;
 }

@@ -523,13 +523,13 @@ div.dataTables_wrapper div.dataTables_length select {
     margin-left: 2px;
 }
 
-.file__uploader__box{
-    .file__progress{
+.file__uploader__box {
+    .file__progress {
         width: 90%;
     }
 
-    .file__item{
-        min-width: 135px;
+    .file__item {
+        min-width: 150px;
         margin-right: 10px;
         border-radius: 4px;
         overflow: hidden;
@@ -538,34 +538,36 @@ div.dataTables_wrapper div.dataTables_length select {
         align-items: center;
         border: 1px solid #bdbdbd;
 
-        .progress{
+        .progress {
             margin-top: 30px;
             margin-bottom: 10px;
         }
     }
 
-    .__delete__file{
+    .__delete__file {
         right: 5px;
-        top: 5px;
+        top: 2px;
         border: 0;
-        background: #f30;
+        background: transparent;
         border-radius: 4px;
         color: #fff;
-        padding: 0 8px;
+        padding: 0;
         transition: .3s;
-        &:hover{
-            background-color: #ff0000;
+
+        i{
+            color: #f30;
+            font-size: 17px;
         }
     }
 
-    .file__item__type__image{
+    .file__item__type__image {
         background: #e5e5e5;
-        width: 135px;
-        min-height: 100px;
-        padding: 0 6px;
+        width: 150px;
+        min-height: 50px;
+        padding: 0;
     }
 
-    .upload-file-img{
+    .upload-file-img {
         max-width: 100%;
     }
 }

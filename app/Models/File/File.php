@@ -15,6 +15,11 @@ class File extends BaseModel
     use HasFactory;
 
     /**
+     * @var bool
+     */
+    public $incrementing = false;
+
+    /**
      * @var string
      */
     const TYPE_IMAGE = 'image';
@@ -32,6 +37,7 @@ class File extends BaseModel
      * @var string[]
      */
     protected $fillable = [
+        'id',
         'file_type',
         'field_name',
         'file_name',

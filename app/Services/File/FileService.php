@@ -30,7 +30,7 @@ abstract class FileService
      *
      * @param FileRepository $repository
      */
-    public function __construct(private FileRepository $repository)
+    public function __construct(protected FileRepository $repository)
     {
         $this->setDisks();
     }
@@ -118,11 +118,11 @@ abstract class FileService
     /**
      * Function to delete file
      *
-     * @param int $id
+     * @param string $id
      */
-    public function deleteFile(int $id)
+    public function deleteFile(string $id)
     {
-        $file = $this->repository->find($id);
+        $file = $this->repository->findOrFail($id);
         $this->deleteFilePhysically($file);
         $this->repository->destroy($id);
     }
