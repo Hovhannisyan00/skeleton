@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
+use Ramsey\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\File\File;
 
 /**
@@ -63,6 +64,7 @@ class FileTempService extends FileService
 
             if ($move) {
                 $model->files($fieldName)->create([
+                    'id' => Uuid::uuid4(),
                     'field_name' => $fieldName,
                     'file_name' => $fileBaseName,
                     'file_type' => $fileType,

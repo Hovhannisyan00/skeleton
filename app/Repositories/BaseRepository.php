@@ -74,18 +74,19 @@ class BaseRepository implements IBaseRepository
 
     /**
      * @param int $id
-     * @return Model
+     * @param array $data
+     * @return bool
      */
-    public function findOrFail(int $id): Model
+    public function findUpdate(int $id, array $data): bool
     {
-        return $this->model->findOrFail($id);
+        return $this->find($id)->update($data);
     }
 
     /**
-     * @param string $id
+     * @param int|string $id
      * @return Model
      */
-    public function findOrFailUUID(string $id): Model
+    public function findOrFail(int|string $id): Model
     {
         return $this->model->findOrFail($id);
     }
@@ -106,6 +107,15 @@ class BaseRepository implements IBaseRepository
     public function firstOrFailByToken(string $token): Model
     {
         return $this->model->where(['token' => $token])->firstOrFail();
+    }
+
+    /**
+     * @param string $slug
+     * @return Model|null
+     */
+    public function firstBySlug(string $slug): ?Model
+    {
+        return $this->model->whereSlug($slug)->first();
     }
 
     /**
@@ -223,13 +233,11 @@ class BaseRepository implements IBaseRepository
     }
 
     /**
-     * @param int $id
+     * @param int|string $id
      * @return bool
      */
-    public function destroy(int $id): bool
+    public function destroy(int|string $id): bool
     {
-        $this->model->findOrFail($id);
-
         return $this->model->destroy($id);
     }
 

@@ -163,7 +163,7 @@ class FileUploader {
     const view = ` <button class="position-absolute __delete__file __delete__file__btn"
                     data-index="${fileIndex}"
                     data-event-name="deleteFileItemEvent"
-                    type="button">x</button>
+                    type="button"><i class="fas fa-times"></i></button>
                     `;
     fileItem.append(view);
   }

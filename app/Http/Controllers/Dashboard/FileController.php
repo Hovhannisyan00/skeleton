@@ -40,10 +40,10 @@ class FileController extends BaseController
     /**
      * Function to delete file
      *
-     * @param int $id
+     * @param string $id
      * @return JsonResponse
      */
-    public function delete(int $id): JsonResponse
+    public function delete(string $id): JsonResponse
     {
         $this->fileService->deleteFile($id);
         return $this->sendOkDeleted();

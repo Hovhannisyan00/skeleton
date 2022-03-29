@@ -2,7 +2,7 @@
     <button class="position-absolute __delete__file __confirm__delete__btn"
             data-event-name="deleteFileItemInDbEvent"
             data-url="{{ route('dashboard.files.delete', $item->id) }}"
-            type="button">x</button>
+            type="button"><i class="fas fa-times"></i></button>
 
     @if($item->file_type === \App\Models\File\File::TYPE_IMAGE)
         <img src="{{ $item->file_url }}"  class="upload-file-img" alt="">
