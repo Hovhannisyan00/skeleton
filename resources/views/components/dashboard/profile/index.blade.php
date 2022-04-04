@@ -11,6 +11,7 @@
                 :action="route('dashboard.profile.update', auth()->id())"
                 :indexUrl="route('dashboard.index')"
                 method="put"
+                viewMode="edit"
             >
 
             <div class="row">

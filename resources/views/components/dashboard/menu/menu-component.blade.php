@@ -32,7 +32,7 @@
                         @endforeach
                     </ul>
                 </div>
-        @else
+        @elseif($menu->url)
             <li class="menu-item ">
                 <a href="{{ urlWithLng($menu->url) }}" class="menu-link {{(request()->is('*'.$menu->url.'*')) ? 'active' : ''}}">
                 <span class="svg-icon">

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Requests\Article\ArticleRequest;
 use App\Http\Requests\Article\ArticleSearchRequest;
+use App\Models\Article\Article;
 use App\Models\Article\ArticleSearch;
 use App\Services\Article\ArticleService;
 use Illuminate\Contracts\View\View;
@@ -78,26 +79,37 @@ class ArticleController extends BaseController
     }
 
     /**
-     * Function to return article edit view
+     * Function to show article
      *
-     * @param int $id
+     * @param Article $article
      * @return View
      */
-    public function edit(int $id): View
+    public function show(Article $article)
     {
-        return $this->dashboardView(view: 'article.form', vars: $this->service->getViewData($id), viewMode: 'edit');
+        return $this->dashboardView(view: 'article.form', vars: $this->service->getViewData($article->id), viewMode: 'show');
+    }
+
+    /**
+     * Function to return article edit view
+     *
+     * @param Article $article
+     * @return View
+     */
+    public function edit(Article $article): View
+    {
+        return $this->dashboardView(view: 'article.form', vars: $this->service->getViewData($article->id), viewMode: 'edit');
     }
 
     /**
      * Function to update article
      *
      * @param ArticleRequest $request
-     * @param int $id
+     * @param Article $article
      * @return JsonResponse
      */
-    public function update(ArticleRequest $request, int $id): JsonResponse
+    public function update(ArticleRequest $request, Article $article): JsonResponse
     {
-        $this->service->createOrUpdate($request->validated(), $id);
+        $this->service->createOrUpdate($request->validated(), $article->id);
 
         return $this->sendOkUpdated([
             'redirectUrl' => route('dashboard.articles.index')
@@ -107,12 +119,12 @@ class ArticleController extends BaseController
     /**
      * Function to delete article
      *
-     * @param int $id
+     * @param Article $article
      * @return JsonResponse
      */
-    public function destroy(int $id): JsonResponse
+    public function destroy(Article $article): JsonResponse
     {
-        $this->service->delete($id);
+        $this->service->delete($article->id);
         return $this->sendOkDeleted();
     }
 }

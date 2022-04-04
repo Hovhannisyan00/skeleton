@@ -5,6 +5,7 @@
                 :action="$viewMode === 'add' ? route('dashboard.{{ ROUTE_NAME }}.store') : route('dashboard.{{ ROUTE_NAME }}.update', ${{ VARIABLE_NAME }}->id)"
                 :method="$viewMode === 'add' ? 'post' : 'put'"
                 :indexUrl="route('dashboard.{{ ROUTE_NAME }}.index')"
+                :viewMode="$viewMode"
 
                 :mlData="${{ VARIABLE_NAME }}Ml ?? ''"
             >

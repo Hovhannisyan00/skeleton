@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Contracts\User\IUserRepository;
 use App\Http\Requests\User\UserRequest;
 use App\Http\Requests\User\UserSearchRequest;
+use App\Models\User\User;
 use App\Models\User\UserSearch;
 use App\Services\User\UserService;
 use Illuminate\Contracts\View\View;
@@ -84,26 +85,37 @@ class UserController extends BaseController
     }
 
     /**
-     * Function to return users edit view
+     * Function to show user
      *
-     * @param int $id
+     * @param User $user
      * @return View
      */
-    public function edit(int $id): View
+    public function show(User $user)
     {
-        return $this->dashboardView(view: 'user.form', vars: $this->service->getViewData($id), viewMode: 'edit');
+        return $this->dashboardView(view: 'user.form', vars: $this->service->getViewData($user->id), viewMode: 'show');
+    }
+
+    /**
+     * Function to return users edit view
+     *
+     * @param User $user
+     * @return View
+     */
+    public function edit(User $user): View
+    {
+        return $this->dashboardView(view: 'user.form', vars: $this->service->getViewData($user->id), viewMode: 'edit');
     }
 
     /**
      * Function to update user
      *
      * @param UserRequest $request
-     * @param int $id
+     * @param User $user
      * @return JsonResponse
      */
-    public function update(UserRequest $request, int $id): JsonResponse
+    public function update(UserRequest $request, User $user): JsonResponse
     {
-        $this->service->createOrUpdate($request->validated(), $id);
+        $this->service->createOrUpdate($request->validated(), $user->id);
 
         return $this->sendOkUpdated([
             'redirectUrl' => route('dashboard.users.index')
@@ -113,12 +125,12 @@ class UserController extends BaseController
     /**
      * Function to delete user
      *
-     * @param int $id
+     * @param User $user
      * @return JsonResponse
      */
-    public function destroy(int $id): JsonResponse
+    public function destroy(User $user): JsonResponse
     {
-        $this->service->delete($id);
+        $this->service->delete($user->id);
         return $this->sendOkDeleted();
     }
 }

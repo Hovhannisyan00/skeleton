@@ -76,16 +76,6 @@ return [
                 'stub_file_name' => 'index.blade',
                 'stub_directory_path' => 'blades'
             ],
-            /*[
-                'file_name' => "create.blade.php",
-                'stub_file_name' => 'create.blade',
-                'stub_directory_path' => 'blades'
-            ],
-            [
-                'file_name' => "edit.blade.php",
-                'stub_file_name' => 'edit.blade',
-                'stub_directory_path' => 'blades'
-            ],*/
             [
                 'file_name' => "form.blade.php",
                 'stub_file_name' => 'form.blade',

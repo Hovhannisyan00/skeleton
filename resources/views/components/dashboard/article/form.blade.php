@@ -5,6 +5,7 @@
                 :action="$viewMode === 'add' ? route('dashboard.articles.store') : route('dashboard.articles.update', $article->id)"
                 :indexUrl="route('dashboard.articles.index')"
                 :method="$viewMode === 'add' ? 'post' : 'put'"
+                :viewMode="$viewMode"
 
                 :mlData="$articleMl ?? ''"
                 :showStatus="$article->show_status ?? ''"
