@@ -1,12 +1,15 @@
-<form action="{{ $action ?? '' }}" method="{{ $formMethod ?? 'post'}}" id="{{ $id ?? '__form__request' }}">
+<form action="{{ $action ?? '' }}" method="{{ $formMethod ?? 'post'}}" id="{{ $id ?? '__form__request' }}"  @if($viewMode == 'show') class="show-mode" @endif>
 
 <div class="card-header">
     <div class="d-flex justify-content-end ml-auto form-bottom-buttons">
         <a href="{{ $indexUrl }}" class="btn btn-secondary ml-2">{{ __('__dashboard.button.cancel') }}</a>
+
+        @if($viewMode != 'show')
         <x-dashboard.form._loader_btn disabled
             class="form__request__send__btn ml-2"
             text="{{ $textBtn ?? 'save' }}"
         />
+        @endif
     </div>
 </div>
 
@@ -50,11 +53,15 @@
                 @endisset
             </div>
 
-            @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                <div class="{{ $attributes['tabsClass'] ?? '' }} tab-pane fade" id="{{$tabLocalId}}__{{$localeCode}}" role="tabpanel" aria-labelledby="{{$localeCode}}">
-                    {{  $renderMlHtml($mlTabsData, $localeCode, $attributes['mlData'] ?? '') }}
-                </div>
-            @endforeach
+            @if(isset($customMlRender))
+                {{$customMlRender}}
+            @else
+                @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                    <div class="tab-pane {{ $attributes['tabsClass'] ?? '' }} fade" id="{{$tabLocalId}}__{{$localeCode}}" role="tabpanel" aria-labelledby="{{$localeCode}}">
+                        {{  $renderMlHtml($mlTabsData, $localeCode, $attributes['mlData'] ?? '') }}
+                    </div>
+                @endforeach
+            @endif
         </div>
     </div>
 
@@ -67,10 +74,13 @@
             {{ $footer }}
         @else
             <a href="{{ $indexUrl }}" class="btn btn-secondary ml-2">{{ __('__dashboard.button.cancel') }}</a>
+
+            @if($viewMode != 'show')
             <x-dashboard.form._loader_btn disabled
                 class="form__request__send__btn ml-2"
                 text="{{ $textBtn ?? 'save' }}"
             />
+            @endif
         @endisset
     </div>
 </div>

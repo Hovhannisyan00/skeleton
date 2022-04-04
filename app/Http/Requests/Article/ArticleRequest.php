@@ -20,7 +20,7 @@ class ArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'slug' => 'required|string_with_max|unique:' . Article::getTableName() . ',slug,' . $this->article,
+            'slug' => 'required|string_with_max|unique:' . Article::getTableName() . ',slug,' . $this->article?->id,
             'publish_date' => 'required|date',
             'release_date_time' => 'required|datetime',
             'photo' => 'required|string_with_max',

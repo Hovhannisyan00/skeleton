@@ -5,6 +5,7 @@
                 :action="$viewMode === 'add' ? route('dashboard.users.store') : route('dashboard.users.update', $user->id)"
                 :indexUrl="route('dashboard.users.index')"
                 :method="$viewMode === 'add' ? 'post' : 'put'"
+                :viewMode="$viewMode"
             >
                 <div class="row">
                     <div class="col-lg-6 form-group required">

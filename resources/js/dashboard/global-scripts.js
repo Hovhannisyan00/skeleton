@@ -18,7 +18,13 @@ ckeditorEls.forEach((item) => {
       tokenUrl: 'https://33333.cke-cs.com/token/dev/ijrDsqFix838Gh3wGO3F77FSW94BwcLXprJ4APSp3XQ26xsUHTi0jcb1hoBt',
       uploadUrl: 'https://33333.cke-cs.com/easyimage/upload/',
     },
-  }).catch((error) => {
-    console.error(error);
-  });
+  })
+    .then(editor => {
+      if($(item).attr('disabled')){
+        editor.isReadOnly = true;
+      }
+    } )
+    .catch((error) => {
+      console.error(error);
+    });
 });

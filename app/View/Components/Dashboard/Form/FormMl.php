@@ -32,18 +32,26 @@ class FormMl extends Base
     public $method;
 
     /**
+     * @var string
+     */
+    public $viewMode;
+
+    /**
      * FormMl constructor.
-     * @param null $showStatus
+     *
+     * @param $showStatus
      * @param string $action
      * @param string $indexUrl
      * @param string $method
+     * @param string $viewMode
      */
-    public function __construct($showStatus = null, string $action = '', string $indexUrl = '', string $method = '')
+    public function __construct($showStatus = null, string $action = '', string $indexUrl = '', string $method = '',string $viewMode = 'add')
     {
         $this->showStatus = $showStatus;
         $this->action = $action;
         $this->indexUrl = $indexUrl;
         $this->method = $method;
+        $this->viewMode = $viewMode;
     }
 
     /**

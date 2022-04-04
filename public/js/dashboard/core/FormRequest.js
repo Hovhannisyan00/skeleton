@@ -120,11 +120,19 @@ class FormRequest {
     }
   }
 
+  showMode(){
+    this.formEl.find(':input').prop('disabled',true);
+  }
+
   clickSubmit() {
     this.formEl.submit(this.formSubmit.bind(this));
   }
 
   init() {
+    if(this.formEl.hasClass('show-mode')){
+      this.showMode()
+    }
+
     this.clickSubmit();
     this.formRequestLoader(false);
     this.formLoad(false);

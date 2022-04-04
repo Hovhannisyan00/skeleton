@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Dashboard;
 use App\Http\Requests\{{ CLASS_NAME }}\{{ CLASS_NAME }}Request;
 use App\Http\Requests\{{ CLASS_NAME }}\{{ CLASS_NAME }}SearchRequest;
 use App\Models\{{ CLASS_NAME }}\{{ CLASS_NAME }}Search;
+use App\Models\{{ CLASS_NAME }}\{{ CLASS_NAME }};
 use App\Services\{{ CLASS_NAME }}\{{ CLASS_NAME }}Service;
 use App\Contracts\{{ CLASS_NAME }}\I{{ CLASS_NAME }}Repository;
 use Illuminate\Http\JsonResponse;
@@ -87,24 +88,25 @@ class {{ CLASS_NAME }}Controller extends BaseController
     /**
      * Function to show {{ SINGULAR_CLASS_NAME }}
      *
-     * @param int $id
+     * @param {{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}
+     * @return View
      */
-    public function show(int $id)
+    public function show({{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }})
     {
-        //
+   //  return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: $this->service->getViewData(${{ LOWER_CLASS_NAME }}->id), viewMode: 'show');
     }
 
     /**
      * Function to return {{ SINGULAR_CLASS_NAME }} edit view
      *
-     * @param int $id
+     * @param {{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}
      * @return View
      */
-    public function edit(int $id): View
+    public function edit({{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}): View
     {
-        ${{ CAMEL_CASE_CLASS_NAME }} = $this->repository->find($id);
+        ${{ CAMEL_CASE_CLASS_NAME }} = $this->repository->find(${{ LOWER_CLASS_NAME }}->id);
 
-    //  return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: $this->service->getViewData($id), viewMode: 'edit'); // For ML, File
+    //  return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: $this->service->getViewData(${{ LOWER_CLASS_NAME }}->id), viewMode: 'edit'); // For ML, File
         return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: ['{{ CAMEL_CASE_CLASS_NAME }}' => ${{ CAMEL_CASE_CLASS_NAME }}], viewMode: 'edit');
     }
 
@@ -112,13 +114,13 @@ class {{ CLASS_NAME }}Controller extends BaseController
      * Function to update {{ SINGULAR_CLASS_NAME }}
      *
      * @param {{ CLASS_NAME }}Request $request
-     * @param int $id
+     * @param {{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}
      * @return JsonResponse
      */
-    public function update({{ CLASS_NAME }}Request $request, int $id): JsonResponse
+    public function update({{ CLASS_NAME }}Request $request, {{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}): JsonResponse
     {
-     // $this->service->createOrUpdate($request->validated(), $id);  // For ML, File
-        $this->repository->update($id, $request->validated());
+     // $this->service->createOrUpdate($request->validated(), ${{ LOWER_CLASS_NAME }}->id);  // For ML, File
+        $this->repository->update(${{ LOWER_CLASS_NAME }}->id, $request->validated());
 
         return $this->sendOkUpdated([
             'redirectUrl' => route('dashboard.{{ PLURAL_CLASS_NAME_WITH_DELIMITER }}.index')
@@ -128,13 +130,13 @@ class {{ CLASS_NAME }}Controller extends BaseController
     /**
      * Function to delete {{ SINGULAR_CLASS_NAME }}
      *
-     * @param int $id
+     * @param {{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}
      * @return JsonResponse
      */
-    public function destroy(int $id): JsonResponse
+    public function destroy({{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}): JsonResponse
     {
-     // $this->service->delete($id); // For ML, File
-        $this->repository->destroy($id);
+     // $this->service->delete(${{ LOWER_CLASS_NAME }}->id); // For ML, File
+        $this->repository->destroy(${{ LOWER_CLASS_NAME }}->id);
         return $this->sendOkDeleted();
     }
 }

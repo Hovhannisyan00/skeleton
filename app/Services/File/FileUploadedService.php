@@ -3,6 +3,7 @@
 namespace App\Services\File;
 
 use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
 
 /**
  * Class FileUploadedService
@@ -53,6 +54,7 @@ class FileUploadedService extends FileService
         }
 
         $model->files($fieldName)->create([
+            'id' => Uuid::uuid4(),
             'field_name' => $fieldName,
             'file_name' => $fileName,
             'file_type' => $fileType,

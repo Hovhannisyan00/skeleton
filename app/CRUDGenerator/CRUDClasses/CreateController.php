@@ -57,6 +57,7 @@ class CreateController extends CRUDGeneratorAbstract
 
         return [
             'CLASS_NAME' => $this->className,
+            'LOWER_CLASS_NAME' => Str::camel($this->className),
             'SINGULAR_CLASS_NAME' => $singularClassName,
             'PLURAL_CLASS_NAME' => $pluralClassName,
             'PLURAL_CLASS_NAME_WITH_DELIMITER' => $pluralClassWithDelimiterName,

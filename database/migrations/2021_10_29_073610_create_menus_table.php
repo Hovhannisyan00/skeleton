@@ -20,10 +20,11 @@ class CreateMenusTable extends Migration
             $table->string('slug')->unique();
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->string('group_name')->nullable();
-            $table->string('url');
+            $table->string('url')->nullable();
             $table->string('icon')->nullable();
-            $table->boolean('show_status')->default(1);
             $table->enum('type', [Menu::MENU_TYPE_ADMIN, Menu::MENU_TYPE_PROFILE]);
+            $table->boolean('check_permission')->default(1)->nullable();
+            $table->showStatus();
             $table->sortOrder();
             $table->timestamps();
         });
