@@ -58,7 +58,7 @@ class ValidatorServiceProvider extends ServiceProvider
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
 
-        }, trans('validation.max.string', ['max' => $maxStringLength]));
+        }, trans('validation.max.string', ['max' => $maxTextLength]));
 
         // Max Integer
         Validator::extend('integer_with_max', function ($attribute, $value, $parameters) use ($minIntegerLength, $maxIntegerLength) {
