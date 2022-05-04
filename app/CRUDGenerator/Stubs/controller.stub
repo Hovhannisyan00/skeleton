@@ -91,7 +91,7 @@ class {{ CLASS_NAME }}Controller extends BaseController
      * @param {{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}
      * @return View
      */
-    public function show({{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }})
+    public function show({{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}): View
     {
    //  return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: $this->service->getViewData(${{ LOWER_CLASS_NAME }}->id), viewMode: 'show');
     }
