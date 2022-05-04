@@ -84,7 +84,7 @@ class ArticleController extends BaseController
      * @param Article $article
      * @return View
      */
-    public function show(Article $article)
+    public function show(Article $article): View
     {
         return $this->dashboardView(view: 'article.form', vars: $this->service->getViewData($article->id), viewMode: 'show');
     }
