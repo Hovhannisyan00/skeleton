@@ -8,40 +8,54 @@
                 :viewMode="$viewMode"
             >
                 <div class="row">
-                    <div class="col-lg-6 form-group required">
-                        <x-dashboard.form.uploader._file
-                            name="signature"
-                            :configKey="$user->getFileConfigName()"
-                            :value="$user->signature"
-                        />
+                    <div class="col-lg-6">
+                        <div class="form-group required">
+                            <x-dashboard.form.uploader._file
+                                name="signature"
+                                :configKey="$user->getFileConfigName()"
+                                :value="$user->signature"
+                            />
+                        </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-6 form-group required">
-                        <x-dashboard.form._input name="first_name" value="{{ $user->first_name}}"/>
+                    <div class="col-lg-6">
+                        <div class="form-group required">
+                            <x-dashboard.form._input name="first_name" value="{{ $user->first_name}}"/>
+                        </div>
                     </div>
-                    <div class="col-lg-6 form-group required">
-                        <x-dashboard.form._input name="last_name" value="{{ $user->last_name}}"/>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6 form-group required">
-                        <x-dashboard.form._input name="email" type="email" value="{{ $user->email}}"/>
-                    </div>
-                    <div class="col-lg-6 form-group required">
-                        <x-dashboard.form._select name="role_ids[]" :data="$roles" :value="$userRoleIds ?? ''"
-                                                  multiple class="select2"/>
+                    <div class="col-lg-6">
+                        <div class="form-group required">
+                            <x-dashboard.form._input name="last_name" value="{{ $user->last_name}}"/>
+                        </div>
                     </div>
                 </div>
 
                 <div class="row">
-                    <div class="col-lg-6 form-group required">
-                        <x-dashboard.form._input name="password" type="password"/>
+                    <div class="col-lg-6">
+                        <div class="form-group required">
+                            <x-dashboard.form._input name="email" type="email" value="{{ $user->email}}"/>
+                        </div>
                     </div>
-                    <div class="col-lg-6 form-group">
-                        <x-dashboard.form._input name="password_confirmation" type="password"/>
+                    <div class="col-lg-6">
+                        <div class="form-group required">
+                            <x-dashboard.form._select name="role_ids[]" :data="$roles" :value="$userRoleIds ?? ''"
+                                                      multiple class="select2"/>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-group required">
+                            <x-dashboard.form._input name="password" type="password"/>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="form-group required">
+                            <x-dashboard.form._input name="password_confirmation" type="password"/>
+                        </div>
                     </div>
                 </div>
             </x-dashboard.form._form>

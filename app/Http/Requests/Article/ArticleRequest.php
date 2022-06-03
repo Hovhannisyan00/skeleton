@@ -21,7 +21,7 @@ class ArticleRequest extends FormRequest
     {
         return [
             'slug' => 'required|string_with_max|unique:' . Article::getTableName() . ',slug,' . $this->article?->id,
-            'publish_date' => 'required|date',
+            'publish_date' => 'required|after_or_equal_today',
             'release_date_time' => 'required|datetime',
             'photo' => 'required|string_with_max',
 

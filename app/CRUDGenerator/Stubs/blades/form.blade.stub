@@ -8,8 +8,10 @@
                 :viewMode="$viewMode"
             >
                 <div class="row">
-                    <div class="col-lg-6 form-group required">
-                        <x-dashboard.form._input name="name" :value="${{ VARIABLE_NAME }}->name"/>
+                    <div class="col-lg-6">
+                        <div class="form-group required">
+                            <x-dashboard.form._input name="name" :value="${{ VARIABLE_NAME }}->name"/>
+                        </div>
                     </div>
                 </div>
             </x-dashboard.form._form>

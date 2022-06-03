@@ -141,6 +141,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+
+        'after_or_equal' => 'The field must be a date after or equal to :date.',
+
     ],
 
     /*

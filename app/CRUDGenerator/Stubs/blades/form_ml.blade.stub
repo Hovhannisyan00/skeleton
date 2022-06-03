@@ -13,8 +13,10 @@
                {{-- General Data --}}
                <x-slot:generalTabData>
                    <div class="row">
-                       <div class="col-lg-6 form-group required">
-                             <x-dashboard.form._input name="name" :value="${{ VARIABLE_NAME }}->name"/>
+                       <div class="col-lg-6">
+                            <div class="form-group required">
+                                 <x-dashboard.form._input name="name" :value="${{ VARIABLE_NAME }}->name"/>
+                            </div>
                        </div>
                    </div>
                </x-slot:generalTabData>
@@ -22,8 +24,10 @@
                {{-- ML Data --}}
                <x-slot:mlTabsData>
                     <div class="row">
-                       <div class="col-lg-6 form-group">
-                             <x-dashboard.form._input name="title"/>
+                       <div class="col-lg-6">
+                            <div class="form-group">
+                               <x-dashboard.form._input name="title"/>
+                            </div>
                        </div>
                     </div>
                </x-slot:mlTabsData>
