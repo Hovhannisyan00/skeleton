@@ -30,31 +30,39 @@
                     {{-- <x-dashboard.form.modals._confirm static deleteType></x-dashboard.form.modals._confirm>--}}
 
                     <div class="row">
-                        <div class="col-lg-6 form-group required">
-                            <x-dashboard.form._input name="slug" :value="$article->slug"/>
+                        <div class="col-lg-6">
+                            <div class="form-group required">
+                                <x-dashboard.form._input name="slug" :value="$article->slug"/>
+                            </div>
                         </div>
 
-                        <div class="col-lg-6 form-group required">
-                            <x-dashboard.form._date name="publish_date" class="datepicker" :value="$article->publish_date"/>
+                        <div class="col-lg-6">
+                            <div class="form-group required">
+                                <x-dashboard.form._date name="publish_date" class="datepicker" :value="$article->publish_date"/>
+                            </div>
                         </div>
 
-                        <div class="col-lg-6 form-group required">
-                            <x-dashboard.form.uploader._file
-                                name="photo"
-                                :configKey="$article->getFileConfigName()"
-                                :value="$article->photo"
-                            />
+                        <div class="col-lg-6">
+                            <div class="form-group required">
+                                <x-dashboard.form.uploader._file
+                                    name="photo"
+                                    :configKey="$article->getFileConfigName()"
+                                    :value="$article->photo"
+                                />
+                            </div>
                         </div>
 
-                        <div class="col-lg-6 form-group required">
-                            <x-dashboard.form._date dateTime name="release_date_time" class="datetimepicker" :value="$article->release_date_time"/>
+                        <div class="col-lg-6">
+                            <div class="form-group required">
+                                <x-dashboard.form._date dateTime name="release_date_time" class="datetimepicker" :value="$article->release_date_time"/>
+                            </div>
                         </div>
                     </div>
 
                     {{-- Multiple Group --}}
                     <x-dashboard.form.multiple-group class="grouped" :multipleData="$article->multiple_group_data ?? []">
 
-                        <div class="form-group col-lg-12">
+                        <div class="col-lg-12">
                             <x-dashboard.form._input_multiple title="grouped_title" noLabel dataName="title" name="multiple_group_data[0][title]"/>
                         </div>
 

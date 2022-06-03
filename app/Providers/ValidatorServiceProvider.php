@@ -99,6 +99,22 @@ class ValidatorServiceProvider extends ServiceProvider
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
 
         }, trans('validation.invalid'));
+
+        // Date
+        Validator::extend('date_validator', function ($attribute, $value, $parameters) {
+            $rules = [$attribute => "date_format:" . getDateFormat()];
+
+            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
+
+        }, trans('validation.invalid'));
+
+        // After or equal today
+        Validator::extend('after_or_equal_today', function ($attribute, $value, $parameters) {
+            $rules = [$attribute => "date_validator|after_or_equal:" . today()];
+
+            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
+
+        }, trans('validation.custom.after_or_equal', ['date' => now()->format(getDateFormatFront())]));
     }
 
     /**

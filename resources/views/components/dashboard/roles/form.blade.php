@@ -1,29 +1,19 @@
-<div class="row">
-    <div class="col-lg-6 form-group">
-        <x-dashboard.form._input name="first_name" value="{{ $user->first_name ?? '' }}"/>
+<x-dashboard.layouts.app>
+    <div class="container-fluid">
+        <div class="card">
+            <x-dashboard.form._form
+                :action="$viewMode === 'add' ? route('dashboard.roles.store') : route('dashboard.roles.update', $role->id)"
+                :indexUrl="route('dashboard.roles.index')"
+                :method="$viewMode === 'add' ? 'post' : 'put'"
+                :viewMode="$viewMode"
+            >
+
+
+            </x-dashboard.form._form>
+        </div>
     </div>
-    <div class="col-lg-6 form-group">
-        <x-dashboard.form._input name="last_name" value="{{ $user->last_name ?? '' }}"/>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-6 form-group">
-        <x-dashboard.form._input name="email" type="email" value="{{ $user->email ?? '' }}"/>
-    </div>
-    <div class="col-lg-6 form-group">
-        <x-dashboard.form._select name="role_ids[]" :data="$roles" :value="$userRoleIds ?? ''" multiple class="select2"/>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-6 form-group">
-        <x-dashboard.form._file name="signature" :value="$user->signature ?? ''"/>
-    </div>
-</div>
-<div class="row">
-    <div class="col-lg-6 form-group">
-        <x-dashboard.form._input name="password" type="password"/>
-    </div>
-    <div class="col-lg-6 form-group">
-        <x-dashboard.form._input name="password_confirmation" type="password"/>
-    </div>
-</div>
+
+    <x-slot name="scripts">
+        <script src="{{ asset('/js/dashboard/role/main.js') }}"></script>
+    </x-slot>
+</x-dashboard.layouts.app>
