@@ -19,23 +19,23 @@ use Illuminate\Support\ServiceProvider;
 class RepositoryServiceProvider extends ServiceProvider
 {
     /**
+     * @var array|string[]
+     */
+    public array $singletons = [
+        IUserRepository::class => UserRepository::class,
+        IRoleRepository::class => RoleRepository::class,
+        IFileRepository::class => FileRepository::class,
+        IArticleRepository::class => ArticleRepository::class,
+    ];
+
+    /**
      * Register services.
      *
      * @return void
      */
     public function register()
     {
-        // UserRepository registration
-        $this->app->singleton(IUserRepository::class, UserRepository::class);
 
-        // RoleRepository registration
-        $this->app->singleton(IRoleRepository::class, RoleRepository::class);
-
-        // FileRepository registration
-        $this->app->singleton(IFileRepository::class, FileRepository::class);
-
-        // ArticleRepository registration
-        $this->app->singleton(IArticleRepository::class, ArticleRepository::class);
     }
 
     /**
