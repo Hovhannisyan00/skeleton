@@ -95,7 +95,7 @@ class CRUDGeneratorInit
 <fg=yellow>Please don't forget put this codes</>
 <fg=blue>1) </>
 <fg=green>// {$this->arguments['className']}Repository registration
-\$this->app->singleton(I{$this->arguments['className']}Repository::class, {$this->arguments['className']}Repository::class);</> <fg=yellow>in RepositoryServiceProvider.</>
+I{$this->arguments['className']}Repository::class => {$this->arguments['className']}Repository::class,</> <fg=yellow>in RepositoryServiceProvider \$singletons array.</>
 <fg=blue>2) </>
 <fg=green>// $plural
 Route::resource('$routeName', {$this->arguments['className']}Controller::class);

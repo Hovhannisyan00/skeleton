@@ -17,8 +17,10 @@ Route::group(['prefix' => 'files', 'as' => 'files.'], function () {
 });
 
 // Translations
-Route::get('/translations', [Barryvdh\TranslationManager\Controller::class, 'getIndex'])->name('translation.manager');
-Route::get('/translations/view/{group?}', [Barryvdh\TranslationManager\Controller::class, 'getView'])->name('translation.group');
+Route::controller(Barryvdh\TranslationManager\Controller::class)->as('translation.')->group(function () {
+    Route::get('/translations', 'getIndex')->name('manager');
+    Route::get('/translations/view/{group?}', 'getView')->name('group');
+});
 
 // Users
 Route::resource('users', UserController::class);
@@ -29,5 +31,7 @@ Route::resource('articles', ArticleController::class);
 Route::get('articles/dataTable/get-list', [ArticleController::class, 'getListData'])->name('articles.getListData');
 
 // Profile
-Route::get('profile', [ProfileController::class, 'index'])->name('profile.index');
-Route::put('profile/{id}', [ProfileController::class, 'update'])->whereNumber('id')->name('profile.update');
+Route::controller(ProfileController::class)->as('profile.')->group(function () {
+    Route::get('profile', 'index')->name('index');
+    Route::put('profile/{id}', 'update')->whereNumber('id')->name('update');
+});
