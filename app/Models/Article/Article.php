@@ -8,7 +8,7 @@ use App\Models\Base\Traits\HasMlData;
 use App\Models\File\File;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 /**
  * @method static joinMl() check "scopeJoinMl()" method in this Model
@@ -64,11 +64,11 @@ class Article extends BaseModel
     /**
      * Function to return photo
      *
-     * @return Model|null
+     * @return MorphOne
      */
-    public function getPhotoAttribute(): ?File
+    public function photo(): MorphOne
     {
-        return $this->files('photo')->first();
+        return $this->morphOne(File::class, 'fileable')->where('field_name', 'photo');
     }
 
     /**

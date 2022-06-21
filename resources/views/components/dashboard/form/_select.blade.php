@@ -14,7 +14,7 @@
 >
 
     @if(isset($defaultOption))
-        <option value=""> {{ __('__dashboard.select.option.default') }}</option>
+        <option value="">{{ __('__dashboard.select.option.default') }}</option>
     @endif
     @foreach($data as $key => $item)
         <option value="{{ $key }}"
