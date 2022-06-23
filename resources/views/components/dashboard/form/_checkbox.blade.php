@@ -6,8 +6,8 @@
 <div class="custom-checkbox mb-2">
     <input type="checkbox"
            id="{{$labelId}}"
-           @isset($readonly) readonly @endisset
-           @isset($disabled) disabled @endisset
+           @if(!empty($readonly)) readonly @endif
+           @if(!empty($disabled)) disabled @endif
            @if(isset($checked) && $checked) checked @endif
            name="{{ $name ?? '' }}"
            value="{{ $value ?? '1' }}"
