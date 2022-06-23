@@ -13,8 +13,8 @@
     <div class="custom-radio-block">
         <input type="radio"
                id="{{$labelId.'_yes'}}"
-               @isset($readonly) readonly @endisset
-               @isset($disabled) disabled @endisset
+               @if(!empty($readonly)) readonly @endif
+               @if(!empty($disabled)) disabled @endif
                @if(isset($checked) && $checked == $yesValue) checked @endif
                name="{{ $name ?? '' }}"
                value="{{$yesValue}}"
@@ -27,8 +27,8 @@
     <div class="custom-radio-block">
         <input type="radio"
                id="{{$labelId.'_no'}}"
-               @isset($readonly) readonly @endisset
-               @isset($disabled) disabled @endisset
+               @if(!empty($readonly)) readonly @endif
+               @if(!empty($disabled)) disabled @endif
                @if(isset($defaultNo) && !$checked) checked @endif
                @if(isset($checked) && $checked == $noValue) checked @endif
                name="{{ $name ?? '' }}"

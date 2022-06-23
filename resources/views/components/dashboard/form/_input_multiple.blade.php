@@ -10,8 +10,8 @@
 <input type="{{ $type ?? 'text' }}"
        id="{{$labelId}}"
        @isset($autocomplete) autocomplete="off" @endisset
-       @isset($readonly) readonly @endisset
-       @isset($disabled) disabled @endisset
+       @if(!empty($readonly)) readonly @endif
+       @if(!empty($disabled)) disabled @endif
        @if(!isset($noPlaceholder))
        placeholder="{{ $title }}"
        @endif

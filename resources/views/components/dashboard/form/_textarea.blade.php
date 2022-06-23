@@ -7,7 +7,8 @@
 <textarea
        id="{{$labelId}}"
        @isset($autocomplete) autocomplete="off" @endisset
-       @isset($readonly) readonly @endisset
+       @if(!empty($readonly)) readonly @endif
+       @if(!empty($disabled)) disabled @endif
        placeholder="{{ $title }}"
        name="{{ $name ?? '' }}"
        class="form-control {{ $class ?? '' }}"

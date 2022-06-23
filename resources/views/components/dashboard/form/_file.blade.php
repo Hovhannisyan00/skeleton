@@ -10,8 +10,8 @@
 
 <input type="file"
        id="{{$labelId}}"
-       @isset($readonly) readonly @endisset
-       @isset($disabled) disabled @endisset
+       @if(!empty($readonly)) readonly @endif
+       @if(!empty($disabled)) disabled @endif
        @isset($multiple) multiple @endisset
        name="{{ $name ?? '' }}"
        class="form-control {{ $class ?? '' }}"
