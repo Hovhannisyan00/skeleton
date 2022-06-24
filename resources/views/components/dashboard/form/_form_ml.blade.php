@@ -44,7 +44,7 @@
                     <div class="row">
                         <div class="col-lg-6">
                             <div class="form-group">
-                                <x-dashboard.form._show-status
+                                <x-dashboard.form._show_status
                                     :value="$showStatus ?? ''"
                                 />
                             </div>

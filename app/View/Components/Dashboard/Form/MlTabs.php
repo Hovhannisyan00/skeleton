@@ -122,6 +122,6 @@ class MlTabs extends Base
      */
     public function render(): View
     {
-        return $this->dashboardComponent('form._ml-tabs');
+        return $this->dashboardComponent('form._ml_tabs');
     }
 }
