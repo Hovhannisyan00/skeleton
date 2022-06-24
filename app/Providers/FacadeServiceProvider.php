@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Facades\MetaData;
+use App\MetaData\MetaData;
 use Illuminate\Support\ServiceProvider;
 
-class ViewServiceProvider extends ServiceProvider
+class FacadeServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -24,7 +24,9 @@ class ViewServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // MetaData
-        view()->share('meta', MetaData::getDefaultData());
+        //
+        $this->app->singleton('metadata', function () {
+            return new MetaData();
+        });
     }
 }

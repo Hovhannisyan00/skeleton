@@ -138,6 +138,15 @@ if (!function_exists('langIconPath')) {
     }
 }
 
+if (!function_exists('getCurrentAlternateHref')) {
+    function getCurrentAlternateHref($locale)
+    {
+        $path = strstr(request()->path(), '/', false);
+
+        return config('app.url') . '/' . $locale . $path;
+    }
+}
+
 /* ========================================================================================
                                 Language Helper Functions - End
  ======================================================================================== */
@@ -268,7 +277,7 @@ if (!function_exists("replacedFormElementName")) {
             $name = str_replace([']', ''], '', $name);
 
             if ($name[-1] == '.') {
-                $name = rtrim($name,'.');
+                $name = rtrim($name, '.');
             }
         }
 
