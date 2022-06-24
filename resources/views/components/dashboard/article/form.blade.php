@@ -1,7 +1,7 @@
 <x-dashboard.layouts.app>
     <div class="container-fluid">
         <div class="card mb-4">
-            <x-dashboard.form._form-ml
+            <x-dashboard.form._form_ml
                 :action="$viewMode === 'add' ? route('dashboard.articles.store') : route('dashboard.articles.update', $article->id)"
                 :indexUrl="route('dashboard.articles.index')"
                 :method="$viewMode === 'add' ? 'post' : 'put'"
@@ -97,7 +97,7 @@
                     <x-dashboard.form._meta_data></x-dashboard.form._meta_data>
                 </x-slot:mlTabsData>
 
-            </x-dashboard.form._form-ml>
+            </x-dashboard.form._form_ml>
         </div>
     </div>
 

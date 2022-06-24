@@ -73,6 +73,6 @@ class FormMl extends Base
      */
     public function render(): View
     {
-        return $this->dashboardComponent('form._form-ml');
+        return $this->dashboardComponent('form._form_ml');
     }
 }

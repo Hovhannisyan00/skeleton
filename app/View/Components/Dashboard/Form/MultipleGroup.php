@@ -145,6 +145,6 @@ class MultipleGroup extends Base
      */
     public function render(): View
     {
-        return $this->dashboardComponent('form._multiple-group');
+        return $this->dashboardComponent('form._multiple_group');
     }
 }
