@@ -177,13 +177,20 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+
+        // Repository
         App\Providers\RepositoryServiceProvider::class,
+
+        // Facade
+        App\Providers\FacadeServiceProvider::class,
+
+        // View
         App\Providers\ViewServiceProvider::class,
 
-        //Macros
+        // Macros
         App\Providers\MacroServiceProvider::class,
 
-        //Validator
+        // Validator
         App\Providers\ValidatorServiceProvider::class,
 
         // Image Resize

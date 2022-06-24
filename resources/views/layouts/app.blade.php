@@ -7,7 +7,21 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ $meta->getTitle() }}</title>
+
+    <!-- Meta Data -->
+    <meta name="description" content="{{$meta->getDescription()}}">
+    <meta name="keywords" content="{{$meta->getKeywords()}}">
+
+    <meta property="og:title" content="{{$meta->getTitle()}}"/>
+    <meta property="og:description" content="{{$meta->getDescription()}}"/>
+    <meta property="og:image" content="{{$meta->getOgImage()}}"/>
+    <meta property="og:url" content="{{$meta->getOgUrl()}}"/>
+    <meta property="og:type" content="{{$meta->getOgType()}}"/>
+
+    @foreach(getSupportedLocales() as $locale)
+        <link rel="alternate" hreflang="{{$locale}}" href="{{getCurrentAlternateHref($locale)}}"/>
+    @endforeach
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
