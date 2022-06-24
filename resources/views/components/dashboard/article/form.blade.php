@@ -62,7 +62,7 @@
                     {{-- Multiple Group --}}
                     <x-dashboard.form.multiple-group class="grouped" :multipleData="$article->multiple_group_data ?? []">
 
-                        <div class="col-lg-12">
+                        <div class="form-group col-lg-12">
                             <x-dashboard.form._input_multiple title="grouped_title" noLabel dataName="title" name="multiple_group_data[0][title]"/>
                         </div>
 
