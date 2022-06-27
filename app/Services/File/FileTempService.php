@@ -55,7 +55,9 @@ class FileTempService extends FileService
         // temp file move upload
         if ($fileBaseName) {
 
-            $this->deleteModelFile($model, $config['field_name']);
+            if (!isset($config['multiple'])) {
+                $this->deleteModelFile($model, $config['field_name']);
+            }
 
             $move = $this->movePendingFileToUploadsFolder(fileName: $fileBaseName, config: $config, directoryData: [
                 'pending' => $fileName,
@@ -114,7 +116,7 @@ class FileTempService extends FileService
         $file = $data['file'];
         $fileName = $data['name'];
 
-        $file = str_replace("data:image/png;base64,","", $file);
+        $file = str_replace("data:image/png;base64,", "", $file);
 
 //        $extension = explode('/', mime_content_type($file))[1];
 

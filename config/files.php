@@ -7,7 +7,8 @@ return [
         'signature' => [
             'field_name' => 'signature',
             'file_type' => File::TYPE_IMAGE,
-            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:4096'
+            'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:4096',
+//            'multiple' => true
         ],
 
         'avatar' => [
