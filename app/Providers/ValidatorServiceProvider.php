@@ -129,9 +129,10 @@ class ValidatorServiceProvider extends ServiceProvider
             $tableName = $parameters[0];
             $checkField = $parameters[1] ?? 'id';
 
-            $data[$attribute] = $value;
+            $rules = ["integer_with_max|exists:" . $tableName . "," . $checkField];
 
-            return $this->validator($data, [$attribute => "integer_with_max|exists:" . $tableName . "," . $checkField]);
+            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
+
         }, trans('validation.invalid'));
     }
 
@@ -151,6 +152,7 @@ class ValidatorServiceProvider extends ServiceProvider
         } else {
             $data[$attribute] = $value;
         }
+
 
         return $data;
     }
