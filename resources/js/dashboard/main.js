@@ -88,6 +88,8 @@ function datepickerInit() {
       self.datetimepicker({
         timepicker: false,
         format: 'd.m.Y',
+        scrollMonth : false,
+        scrollInput : false,
         onChangeDateTime: function (dp, $input) {
           let backendVal = '';
           if ($input.val()) {
