@@ -41,11 +41,12 @@ trait HasMlData
         $params = func_get_args();
         $table = $this->getTable();
         $tableMl = $params[1]['t_ml'] ?? Str::singular($table) . '_mls';
+        $locale = $params[1]['locale'] ?? currentLanguageCode();
 
-        return $query->join($tableMl, function ($query) use ($table, $params, $tableMl) {
+        return $query->join($tableMl, function ($query) use ($table, $params, $tableMl, $locale) {
             $foreignKey = $params[1]['f_k'] ?? $this->getForeignKey();
 
-            $query->on($tableMl . '.' . $foreignKey, '=', $table . '.id')->where($tableMl . '.lng_code', '=', currentLanguageCode());
+            $query->on($tableMl . '.' . $foreignKey, '=', $table . '.id')->where($tableMl . '.lng_code', '=', $locale);
         });
     }
 
