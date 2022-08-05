@@ -27,7 +27,7 @@
 .select2-container .select2-selection--single .select2-selection__clear {
     background-color: transparent;
     border: none;
-    font-size: 1em
+    font-size: 17px;
 }
 
 .select2-container[dir="rtl"] .select2-selection--single .select2-selection__rendered {
@@ -188,9 +188,9 @@
     cursor: pointer;
     float: right;
     font-weight: bold;
-    height: 26px;
-    margin-right: 20px;
-    padding-right: 0px
+    height: 38px;
+    margin-right: 25px;
+    padding-right: 0;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__placeholder {

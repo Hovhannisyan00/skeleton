@@ -46,7 +46,7 @@ class UserService extends BaseService
 
         return DB::transaction(function () use ($id, $data) {
             $user = $id ? $this->repository->update($id, $data) : $this->repository->create($data);
-            $user->assignRole($data['role_ids']);
+            $user->syncRoles($data['role_ids']);
 
             $this->fileService->storeFile($user, $data);
 
