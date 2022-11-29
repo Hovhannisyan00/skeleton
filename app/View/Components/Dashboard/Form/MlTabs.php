@@ -30,7 +30,10 @@ class MlTabs extends Base
      */
     protected string $lngCode;
 
-    protected $mlData;
+    /**
+     * @var mixed
+     */
+    protected mixed $mlData;
 
     /**
      * Function to find by selector and change html tag
@@ -60,21 +63,21 @@ class MlTabs extends Base
             }
 
             $multipleName = '';
-            if (($pos = strpos($name, "[")) !== FALSE) {
+            if (($pos = strpos($name, "[")) !== false) {
                 $multipleName = substr($name, $pos);
                 $name = explode('[', $name, 2)[0];
             }
 
             if ($attribute == self::ATTRIBUTE_NAME) {
-                $newval = "ml[$this->lngCode][$name]$multipleName";
+                $newValue = "ml[$this->lngCode][$name]$multipleName";
             } else {
 
-                $multipleName = replacedFormElementName($multipleName);
+                $multipleName = replaceNameWithDots($multipleName);
 
-                $newval = "ml.$this->lngCode.$name$multipleName";
+                $newValue = "ml.$this->lngCode.$name$multipleName";
             }
 
-            $input->setAttribute($attribute, $newval);
+            $input->setAttribute($attribute, $newValue);
         }
     }
 
@@ -96,13 +99,14 @@ class MlTabs extends Base
     }
 
     /**
-     * Function to render html
+     *  Function to render html
      *
      * @param string $html
      * @param string $lngCode
-     * @param null $mlData
+     * @param array $mlData
+     * @return void
      */
-    public function renderHtml(string $html, string $lngCode, $mlData = null)
+    public function renderHtml(string $html, string $lngCode, mixed $mlData = null)
     {
         $this->lngCode = $lngCode;
         $this->mlData = $mlData;

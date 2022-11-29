@@ -7,7 +7,7 @@
                 :indexUrl="route('dashboard.{{ ROUTE_NAME }}.index')"
                 :viewMode="$viewMode"
 
-                :mlData="${{ VARIABLE_NAME }}Ml ?? ''"
+                :mlData="${{ VARIABLE_NAME }}Ml ?? []"
             >
 
                {{-- General Data --}}

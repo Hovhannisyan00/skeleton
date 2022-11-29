@@ -27,7 +27,7 @@
         </div>
     </div>
 
-    <x-dashboard.form._error :name="$name"></x-dashboard.form._error>
+    <x-dashboard.form._error :name="replaceNameWithDots($name)"></x-dashboard.form._error>
 
     <div class="d-flex justify-content-start flex-wrap __file__list"></div>
 

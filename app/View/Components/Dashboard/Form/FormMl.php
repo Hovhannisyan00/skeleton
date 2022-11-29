@@ -14,38 +14,44 @@ class FormMl extends Base
     /**
      * @var null
      */
-    public $showStatus;
+    public mixed $showStatus;
 
     /**
      * @var string
      */
-    public $action;
+    public string $action;
 
     /**
      * @var string
      */
-    public $indexUrl;
+    public string $indexUrl;
 
     /**
      * @var string
      */
-    public $method;
+    public string $method;
 
     /**
      * @var string
      */
-    public $viewMode;
+    public string $viewMode;
 
     /**
      * FormMl constructor.
      *
-     * @param $showStatus
+     * @param mixed $showStatus
      * @param string $action
      * @param string $indexUrl
      * @param string $method
      * @param string $viewMode
      */
-    public function __construct($showStatus = null, string $action = '', string $indexUrl = '', string $method = '',string $viewMode = 'add')
+    public function __construct(
+        mixed  $showStatus = null,
+        string $action = '',
+        string $indexUrl = '',
+        string $method = '',
+        string $viewMode = 'add'
+    )
     {
         $this->showStatus = $showStatus;
         $this->action = $action;
@@ -55,11 +61,12 @@ class FormMl extends Base
     }
 
     /**
-     * @param $slot
-     * @param $lngCode
-     * @param string $mlData
+     * @param string $slot
+     * @param string $lngCode
+     * @param array $mlData
+     * @return void
      */
-    public function renderMlHtml($slot, $lngCode, $mlData = '')
+    public function renderMlHtml(string $slot, string $lngCode, mixed $mlData = null)
     {
         $mlForm = new MlTabs();
 
