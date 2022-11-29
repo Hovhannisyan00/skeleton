@@ -1,5 +1,5 @@
 @php
-    $replacedName = replacedFormElementName($name);
+    $replacedName = replaceNameWithDots($name);
     $title = __('__dashboard.label.'.($title ?? $replacedName));
     $labelId = empty($id) ? $name.'_'.rand() : $id;
 @endphp

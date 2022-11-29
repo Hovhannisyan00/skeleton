@@ -7,7 +7,7 @@
                 :method="$viewMode === 'add' ? 'post' : 'put'"
                 :viewMode="$viewMode"
 
-                :mlData="$articleMl ?? ''"
+                :mlData="$articleMl ?? []"
                 :showStatus="$article->show_status ?? ''"
             >
 
@@ -80,6 +80,7 @@
                         </div>
 
                     </x-dashboard.form.multiple-group>
+
                 </x-slot:generalTabData>
 
                 {{-- ML Data --}}
@@ -87,9 +88,11 @@
                     <div class="form-group required">
                         <x-dashboard.form._input name="title"/>
                     </div>
+
                     <div class="form-group required">
                         <x-dashboard.form._input name="short_description"/>
                     </div>
+
                     <div class="form-group required">
                         <x-dashboard.form._textarea name="description" class="ckeditor5"/>
                     </div>

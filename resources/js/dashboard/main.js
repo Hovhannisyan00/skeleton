@@ -10,13 +10,14 @@ $(function () {
 
   openMenu();
 
+  copyMlInfo();
+
 });
 
-select2Init = function (div) {
-
-  let select2 = $('.select2');
+select2Init = function (div, className = 'select2') {
+  let select2 = $('select.' + className);
   if (typeof div !== "undefined") {
-    select2 = div.find('.select2');
+    select2 = div.find('select.' + className);
   }
 
   $.each(select2, function () {
@@ -26,7 +27,7 @@ select2Init = function (div) {
       minimumResultsForSearch: 10,
       allowClear: $(this).data('allow-clear') || false
     });
-  })
+  });
 }
 
 select2Reset = function (select) {
@@ -88,8 +89,8 @@ function datepickerInit() {
       self.datetimepicker({
         timepicker: false,
         format: 'd.m.Y',
-        scrollMonth : false,
-        scrollInput : false,
+        scrollMonth: false,
+        scrollInput: false,
         onChangeDateTime: function (dp, $input) {
           let backendVal = '';
           if ($input.val()) {
@@ -134,4 +135,45 @@ function openMenu() {
     $('.page').toggleClass('left-menu-opened');
     $('.open-menu').toggleClass('open-menu-opened');
   });
+}
+
+function copyMlInfo() {
+
+  const copyMlButton = $(".copy-ml-info-btn");
+
+  if (copyMlButton.length) {
+
+    copyMlButton.click(function () {
+
+      const self = $(this);
+      const currentTabData = self.closest('.tab-pane').find(':input');
+      const toTabData = $('#__mls__tab__' + self.data('to-lang-code'));
+
+      self.prop('disabled', true);
+
+      $.each(currentTabData, function () {
+        const inputName = $(this).attr('name');
+
+        if (inputName) {
+          const toInputName = inputName.replace(self.data('current-lang-code'), self.data('to-lang-code'));
+          const toInput = toTabData.find('*[name="' + toInputName + '"]');
+
+          if (toInput.length) {
+
+            // @todo ckeditor set val
+            if (toInput.hasClass('ckeditor5')) {
+              // toInput.ckeditor5().setData($(this).val());
+            } else {
+              toInput.val($(this).val());
+            }
+          }
+
+          setTimeout(() => {
+            self.prop('disabled', false);
+          }, 120)
+        }
+      });
+    });
+  }
+
 }

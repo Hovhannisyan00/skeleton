@@ -269,8 +269,8 @@ if (!function_exists("getAuthUserRolesName")) {
                                 String Helper Functions - Start
  ======================================================================================== */
 
-if (!function_exists("replacedFormElementName")) {
-    function replacedFormElementName($name): string
+if (!function_exists("replaceNameWithDots")) {
+    function replaceNameWithDots($name): string
     {
         if (str_contains($name, '[')) {
             $name = str_replace(['[', ''], '.', $name);

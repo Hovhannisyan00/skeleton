@@ -12,28 +12,35 @@ class MultipleGroup extends Base
     /**
      * @var string
      */
-    public $class;
+    public string $class;
 
     /**
      * @var string
      */
-    public $index;
+    public string $index;
 
     /**
-     * @var []
+     * @var array
      */
-    public $multipleData;
+    public mixed $multipleData;
 
     /**
-     * @var []
+     * @var array
      */
-    public $groupData;
+    public array $groupData;
 
+    /**
+     * @var string
+     */
     const ATTRIBUTE_NAME = 'name';
     const ATTRIBUTE_DATA_NAME = 'data-name';
 
+    /**
+     * @var string
+     */
     const TAG_INPUT = 'input';
     const TAG_TEXTAREA = 'textarea';
+    const TAG_SELECT = 'select';
 
     /**
      * MultipleGroup constructor.
@@ -41,7 +48,11 @@ class MultipleGroup extends Base
      * @param string $index
      * @param array $multipleData
      */
-    public function __construct(string $class = '', string $index = '0', $multipleData = [])
+    public function __construct(
+        string $class = '',
+        string $index = '0',
+        mixed  $multipleData = []
+    )
     {
         $this->class = $class;
         $this->index = $index;
@@ -54,8 +65,9 @@ class MultipleGroup extends Base
      *
      * @param string $html
      * @param array $multipleData
+     * @param string $index
      */
-    public function renderHtml(string $html, $multipleData, string $index)
+    public function renderHtml(string $html, mixed $multipleData, string $index)
     {
         $this->multipleData = $multipleData;
         $this->index = $index;
@@ -65,6 +77,7 @@ class MultipleGroup extends Base
         $this->find($xpath, '//span[@data-name]', self::ATTRIBUTE_DATA_NAME);
         $this->find($xpath, '//input[@name]');
         $this->find($xpath, '//textarea[@name]');
+        $this->find($xpath, '//select[@name]');
 
         echo $dom->saveHTML();
     }
@@ -90,14 +103,14 @@ class MultipleGroup extends Base
      */
     private function changeNameAndSetValue($inputs, $attribute)
     {
-        foreach ($inputs as $index => $input) {
+        foreach ($inputs as $input) {
 
             $name = $input->getAttribute($attribute);
-            $replacedName = replacedFormElementName($name);
+            $replacedName = replaceNameWithDots($name);
 
             if ($attribute == self::ATTRIBUTE_DATA_NAME) {
 
-                $newval = str_replace('0', $this->index, $replacedName);
+                $newValue = str_replace('0', $this->index, $replacedName);
 
             } else {
 
@@ -106,13 +119,10 @@ class MultipleGroup extends Base
                     $this->setValue($input, $input->getAttribute('data-name'));
                 }
 
-                $newval = str_replace('0', $this->index, $name);
+                $newValue = str_replace('0', $this->index, $name);
             }
 
-
-            $input->setAttribute($attribute, $newval);
-
-
+            $input->setAttribute($attribute, $newValue);
         }
     }
 
@@ -124,9 +134,9 @@ class MultipleGroup extends Base
      */
     private function setValue($input, $name)
     {
-        if($name){
+        if ($name) {
             $columnValue = $this->multipleData[$name];
-        }else{
+        } else {
             $columnValue = $this->multipleData;
         }
 
@@ -135,6 +145,14 @@ class MultipleGroup extends Base
             $input->setAttribute('value', $columnValue);
         } elseif ($tagName === self::TAG_TEXTAREA) {
             $input->textContent = $columnValue;
+        }elseif ($tagName === self::TAG_SELECT){
+            $input->setAttribute('id', $input->getAttribute('id').'_'. rand());
+            $optionTags = $input->getElementsByTagName('option');
+            foreach ($optionTags as $tag){
+                if ($tag->getAttribute('value') == $columnValue){
+                    $tag->setAttribute('selected', 'selected');
+                }
+            }
         }
     }
 
