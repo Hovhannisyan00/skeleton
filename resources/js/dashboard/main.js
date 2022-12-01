@@ -6,11 +6,13 @@ $(function () {
 
   datetimePickerInit();
 
-  // ckEditorInit();
+  ckEditorInit();
 
   openMenu();
 
   copyMlInfo();
+
+  responseMessage();
 
 });
 
@@ -61,18 +63,25 @@ loadContent = function (content, removeLoad) {
   }
 }
 
-// Not Used For Now
-function ckEditorInit() {
+// ClassicEditor
+function ckEditorInit(){
   const ckeditorEls = document.querySelectorAll('.ckeditor5');
+
   ckeditorEls.forEach((item) => {
     ClassicEditor.create(item, {
-      // cloudServices: {
-      //   tokenUrl: 'https://33333.cke-cs.com/token/dev/ijrDsqFix838Gh3wGO3F77FSW94BwcLXprJ4APSp3XQ26xsUHTi0jcb1hoBt',
-      //   uploadUrl: 'https://33333.cke-cs.com/easyimage/upload/',
-      // },
-    }).catch((error) => {
-      console.error(error);
-    });
+      cloudServices: {
+        tokenUrl: 'https://33333.cke-cs.com/token/dev/ijrDsqFix838Gh3wGO3F77FSW94BwcLXprJ4APSp3XQ26xsUHTi0jcb1hoBt',
+        uploadUrl: 'https://33333.cke-cs.com/easyimage/upload/',
+      },
+    })
+      .then(editor => {
+        if($(item).attr('disabled')){
+          editor.isReadOnly = true;
+        }
+      } )
+      .catch((error) => {
+        console.error(error);
+      });
   });
 }
 
@@ -176,4 +185,13 @@ function copyMlInfo() {
     });
   }
 
+}
+
+function responseMessage(){
+  const responseMessage = localStorage.getItem('_message');
+  if (responseMessage) {
+    // eslint-disable-next-line no-undef
+    El.Message.success(responseMessage);
+  }
+  localStorage.removeItem('_message');
 }
