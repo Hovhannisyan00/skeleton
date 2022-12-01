@@ -8,7 +8,9 @@
             @endforeach
         </div>
     @elseif(!$multiple)
-        <input type="hidden" name="{{ $value->field_name }}" value="{{ $value->file_name }}">
+
+        <input type="hidden" name="{{ $hiddenName ?? $value->field_name }}" value="{{ $value->file_name }}">
+
         <h5>{{ __('__dashboard.label.uploaded_file') }}</h5>
         <div class="d-flex justify-content-start flex-wrap ">
             <x-dashboard.form.uploader._file_item :item="$value"/>

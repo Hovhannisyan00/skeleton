@@ -12,9 +12,9 @@ use Illuminate\Contracts\View\View;
 class FormMl extends Base
 {
     /**
-     * @var null
+     * @var string|null
      */
-    public mixed $showStatus;
+    public ?string $showStatus;
 
     /**
      * @var string
@@ -46,7 +46,7 @@ class FormMl extends Base
      * @param string $viewMode
      */
     public function __construct(
-        mixed  $showStatus = null,
+        string $showStatus = null,
         string $action = '',
         string $indexUrl = '',
         string $method = '',

@@ -14,8 +14,7 @@
            type="file" data-name="{{str_replace('[]', '', $name)}}"
            @isset($configKey) data-config-key="{{ $configKey }}" @endisset
            @isset($multiple) multiple @endisset
-           data-has-crop="{{$hasCrop}}"
-    >
+           data-has-crop="{{$hasCrop}}">
 
     <div class="hidden-file-inputs"></div>
 
@@ -33,8 +32,9 @@
 
     @if(isset($value) && $value)
         <x-dashboard.form.uploader._files_show :value="$value ?? ''"
-                                      :multiple="$multiple ?? null"
-                                      fieldName="str_replace('[]', '', str_replace('_', ' ', $name))"
+                                               :multiple="$multiple ?? null"
+                                               :hidden-name="$hiddenName ?? null"
+                                               fieldName="str_replace('[]', '', str_replace('_', ' ', $name))"
         />
     @endif
 </div>

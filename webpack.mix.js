@@ -11,9 +11,20 @@ const mix = require('laravel-mix');
  |
  */
 
+mix.combine([
+  'resources/js/dashboard/plugins/ckeditor.js',
+  'resources/js/dashboard/plugins/moment.min.js',
+  'resources/js/core/ConfirmModal.js',
+  'resources/js/core/DataTable.js',
+  'resources/js/core/FormRequest.js',
+  'resources/js/core/Modal.js',
+  'resources/js/core/MultipleInputs.js',
+  'resources/js/core/FileUploader.js',
+  'resources/js/dashboard/main.js',
+], 'public/js/dashboard/bundle.js').minify('public/js/dashboard/bundle.js');
+
 mix.js('resources/js/app.js', 'public/js')
-  .js('resources/js/dashboard/dashboard-app.js', 'public/js/dashboard/main').vue()
-  .js('resources/js/dashboard/global-scripts.js', 'public/js/dashboard/main')
+  .js('resources/js/dashboard/dashboard-app.js', 'public/js/dashboard').vue()
   .sass('resources/sass/dashboard/dashboard-app.scss', 'public/css/dashboard', [])
   .sass('resources/sass/app.scss', 'public/css')
   .version();
