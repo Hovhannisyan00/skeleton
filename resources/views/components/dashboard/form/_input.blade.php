@@ -12,7 +12,7 @@
        id="{{$labelId}}"
        @isset($autocomplete) autocomplete="off" @endisset
        @if(!empty($readonly)) readonly @endif
-       @if(!empty($disabled)) disabled @endif
+       @if(isset($disabled) && $disabled) disabled @endif
        @if(!isset($noPlaceholder))
        placeholder="{{ $title }}"
        @endif

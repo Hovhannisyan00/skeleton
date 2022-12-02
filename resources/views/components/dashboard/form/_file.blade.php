@@ -11,7 +11,7 @@
 <input type="file"
        id="{{$labelId}}"
        @if(!empty($readonly)) readonly @endif
-       @if(!empty($disabled)) disabled @endif
+       @if(isset($disabled) && $disabled) disabled @endif
        @isset($multiple) multiple @endisset
        name="{{ $name ?? '' }}"
        class="form-control {{ $class ?? '' }}"

@@ -7,7 +7,7 @@
     <input type="radio"
            id="{{$labelId}}"
            @if(!empty($readonly)) readonly @endif
-           @if(!empty($disabled)) disabled @endif
+           @if(isset($disabled) && $disabled) disabled @endif
            @if(isset($checked) && $checked) checked @endif
            name="{{ $name ?? '' }}"
            value="{{ $value ?? '' }}"
