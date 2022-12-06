@@ -14,7 +14,7 @@
         <input type="radio"
                id="{{$labelId.'_yes'}}"
                @if(!empty($readonly)) readonly @endif
-               @if(isset($disabled) && $disabled) disabled @endif
+               @if(!empty($disabled)) disabled @endif
                @if(isset($checked) && $checked == $yesValue) checked @endif
                name="{{ $name ?? '' }}"
                value="{{$yesValue}}"
@@ -28,7 +28,7 @@
         <input type="radio"
                id="{{$labelId.'_no'}}"
                @if(!empty($readonly)) readonly @endif
-               @if(isset($disabled) && $disabled) disabled @endif
+               @if(!empty($disabled)) disabled @endif
                @if(isset($defaultNo) && !$checked) checked @endif
                @if(isset($checked) && $checked == $noValue) checked @endif
                name="{{ $name ?? '' }}"

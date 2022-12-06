@@ -12,12 +12,11 @@
        id="{{$labelId}}"
        @isset($autocomplete) autocomplete="off" @endisset
        @if(!empty($readonly)) readonly @endif
-       @if(isset($disabled) && $disabled) disabled @endif
+       @if(!empty($disabled)) disabled @endif
        @if(!isset($noPlaceholder))
        placeholder="{{ $title }}"
        @endif
        name="{{ $name ?? '' }}"
        value="{{ $value ?? '' }}"
-       class="form-control {{ $class ?? '' }}"
->
+       class="form-control {{ $class ?? '' }}">
 <x-dashboard.form._error :name="$replacedName"></x-dashboard.form._error>
