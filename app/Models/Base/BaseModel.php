@@ -3,7 +3,7 @@
 namespace App\Models\Base;
 
 use App\Models\Base\Traits\ModelHelperFunctions;
-use App\Scopes\Base\DeletedScope;
+use App\Models\Scopes\Base\DeletedScope;
 use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
