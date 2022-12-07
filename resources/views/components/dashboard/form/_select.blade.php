@@ -10,20 +10,19 @@
         @isset($multiple) multiple @endisset
         @isset($placeholder) placeholder="{{ $placeholder }}" @endisset
         @isset($allowClear) data-allow-clear="true" @endisset
-        @if(isset($disabled) && $disabled) disabled @endif
+        @if(!empty($disabled)) disabled @endif
 >
-
     @if(isset($defaultOption))
         <option value="">{{ __('__dashboard.select.option.default') }}</option>
     @endif
     @foreach($data as $key => $item)
         <option value="{{ $key }}"
-                @isset($value)
+            @isset($value)
                 @if(is_array($value) && in_array($key, $value))
-                selected
+                    selected
                 @else
-                @if($key == $value) selected @endif
-            @endif
+                    @if($key == $value) selected @endif
+                @endif
             @endisset
         >
             {{ $item }}

@@ -18,13 +18,11 @@
        id="{{$labelId}}"
        autocomplete="off"
        @if(!empty($readonly)) readonly @endif
-       @if(isset($disabled) && $disabled) disabled @endif
+       @if(!empty($disabled)) disabled @endif
        @if(!isset($noPlaceholder))
        placeholder="{{ $title }}"
        @endif
-
        value="{{ $value ?? '' }}"
-       class="form-control {{ $class ?? '' }}"
->
+       class="form-control {{ $class ?? '' }}">
 <input type="hidden" class="backend-date-value" name="{{ $name ?? '' }}" value="{{ $backendValue }}">
 <x-dashboard.form._error :name="$replacedName"></x-dashboard.form._error>
