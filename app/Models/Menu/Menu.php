@@ -9,10 +9,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Permission\Traits\HasRoles;
 
-/**
- * Class Menu
- * @package App\Models\Menu
- */
 class Menu extends BaseModel
 {
     use HasFactory;

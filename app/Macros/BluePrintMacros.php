@@ -5,10 +5,6 @@ namespace App\Macros;
 use App\Models\Base\BaseModel;
 use Closure;
 
-/**
- * Class BluePrintMacros
- * @package App\Macros
- */
 class BluePrintMacros
 {
     /**

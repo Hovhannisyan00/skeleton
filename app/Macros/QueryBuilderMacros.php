@@ -4,10 +4,6 @@ namespace App\Macros;
 
 use Closure;
 
-/**
- * Class QueryBuilderMacros
- * @package App\Macros
- */
 class QueryBuilderMacros
 {
     /**

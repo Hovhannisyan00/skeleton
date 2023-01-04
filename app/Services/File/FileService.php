@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
 
-/**
- * Class FileService
- * @package App\Services\File
- */
 abstract class FileService
 {
     /**
@@ -26,8 +22,6 @@ abstract class FileService
     protected Filesystem $pendingDisk;
 
     /**
-     * FileService constructor.
-     *
      * @param FileRepository $repository
      */
     public function __construct(protected FileRepository $repository)

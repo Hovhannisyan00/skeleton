@@ -5,17 +5,11 @@ namespace App\CRUDGenerator\CRUDClasses;
 use App\CRUDGenerator\CRUDGeneratorAbstract;
 use Illuminate\Support\Str;
 
-/**
- * Class CreateRequest
- * @package App\CRUDGenerator\CRUDClasses
- */
 class CreateRequest extends CRUDGeneratorAbstract
 {
     public const REQUEST = 'request';
 
     /**
-     * CreateRequest constructor.
-     *
      * @param $arguments
      */
     public function __construct($arguments)

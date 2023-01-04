@@ -8,16 +8,9 @@ use App\Models\RoleAndPermission\RoleSearch;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
-/**
- * Class RoleController
- * @package App\Http\Controllers\Dashboard
- * @todo
- */
 class RoleController extends BaseController
 {
     /**
-     * RoleController constructor.
-     *
      * @param IRoleRepository $repository
      */
     public function __construct(IRoleRepository $repository)

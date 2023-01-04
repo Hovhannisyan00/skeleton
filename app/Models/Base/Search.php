@@ -5,10 +5,6 @@ namespace App\Models\Base;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Collection;
 
-/**
- * Class Search
- * @package App\Models\Base
- */
 abstract class Search
 {
     /**
@@ -41,8 +37,6 @@ abstract class Search
     ];
 
     /**
-     * Search constructor.
-     *
      * @param $data
      */
     public function __construct($data)

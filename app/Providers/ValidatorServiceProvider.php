@@ -6,10 +6,6 @@ use App\Models\Base\BaseModel;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
-/**
- * Class ValidatorServiceProvider
- * @package App\Providers
- */
 class ValidatorServiceProvider extends ServiceProvider
 {
     /**

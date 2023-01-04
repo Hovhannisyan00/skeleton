@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\File\File;
 
-/**
- * Class FileTempService
- * @package App\Services\File
- */
 class FileTempService extends FileService
 {
     /**

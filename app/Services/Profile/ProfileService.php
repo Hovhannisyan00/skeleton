@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Hash;
 class ProfileService extends BaseService
 {
     /**
-     * ProfileService constructor.
-     *
      * @param UserRepository $repository
      */
     public function __construct(

@@ -12,10 +12,6 @@ use App\Repositories\Role\RoleRepository;
 use App\Repositories\User\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
-/**
- * Class RepositoryServiceProvider
- * @package App\Providers
- */
 class RepositoryServiceProvider extends ServiceProvider
 {
     /**

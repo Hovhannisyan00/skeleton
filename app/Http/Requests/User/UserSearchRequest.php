@@ -3,10 +3,6 @@ namespace App\Http\Requests\User;
 
 use App\Http\Requests\Core\DatatableSearchRequest;
 
-/**
- * Class UserSearchRequest
- * @package App\Http\Requests\User
- */
 class UserSearchRequest extends DatatableSearchRequest
 {
     /**

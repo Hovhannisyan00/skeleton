@@ -6,10 +6,6 @@ use Exception;
 use Illuminate\Support\Str;
 use ReflectionClass;
 
-/**
- * Trait ModelHelperFunctions
- * @package App\Models\Base\Traits
- */
 trait ModelHelperFunctions
 {
     /**

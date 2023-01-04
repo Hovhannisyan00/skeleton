@@ -6,10 +6,6 @@ use App\Models\Menu\Menu;
 use App\Models\RoleAndPermission\Role;
 use Illuminate\Database\Seeder;
 
-/**
- * Class MenuSeeder
- * @package Database\Seeders
- */
 class MenuSeeder extends Seeder
 {
     /**

@@ -5,10 +5,6 @@ namespace App\Models\User;
 use App\Models\Base\Search;
 use Illuminate\Database\Eloquent\Builder;
 
-/**
- * Class UserSearch
- * @package App\Models\User
- */
 class UserSearch extends Search
 {
     /**

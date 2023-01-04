@@ -5,17 +5,11 @@ namespace App\CRUDGenerator\CRUDClasses;
 use App\CRUDGenerator\CRUDGeneratorAbstract;
 use Illuminate\Support\Str;
 
-/**
- * Class CreateBlades
- * @package App\CRUDGenerator\CRUDClasses
- */
 class CreateBlades extends CRUDGeneratorAbstract
 {
     public const BLADES = 'blades';
 
     /**
-     * CreateBlades constructor.
-     *
      * @param $arguments
      */
     public function __construct($arguments)

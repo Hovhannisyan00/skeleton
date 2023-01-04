@@ -5,10 +5,6 @@ namespace App\Models\RoleAndPermission;
 use App\Models\Base\Search;
 use Illuminate\Database\Eloquent\Builder;
 
-/**
- * Class RoleSearch
- * @package App\Models\RoleAndPermission
- */
 class RoleSearch extends Search
 {
     /**

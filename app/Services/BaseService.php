@@ -8,10 +8,6 @@ use App\Services\File\FileTempService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-/**
- * Class BaseService
- * @package App\Services
- */
 abstract class BaseService
 {
     /**

@@ -4,12 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\RoleAndPermission\Role;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
-/**
- * Class RoleAndPermissionSeeder
- * @package Database\Seeders
- */
 class RoleAndPermissionSeeder extends Seeder
 {
     /**

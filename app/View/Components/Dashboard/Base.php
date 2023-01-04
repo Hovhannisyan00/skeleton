@@ -5,10 +5,6 @@ namespace App\View\Components\Dashboard;
 use Illuminate\View\Component;
 use Illuminate\View\View;
 
-/**
- * class Base
- * @package App\View\Components\Dashboard
- */
 class Base extends Component
 {
     public const DASHBOARD_COMPONENTS_PREFIX = 'components.dashboard';

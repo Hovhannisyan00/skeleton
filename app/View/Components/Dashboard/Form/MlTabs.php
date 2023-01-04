@@ -7,10 +7,6 @@ use DOMDocument;
 use DOMXPath;
 use Illuminate\Contracts\View\View;
 
-/**
- * Class MlTabs
- * @package App\View\Components\Dashboard\Form
- */
 class MlTabs extends Base
 {
     /**

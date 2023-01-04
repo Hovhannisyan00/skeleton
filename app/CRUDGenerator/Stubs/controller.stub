@@ -11,23 +11,16 @@ use App\Contracts\{{ CLASS_NAME }}\I{{ CLASS_NAME }}Repository;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Contracts\View\View;
 
-/**
- * Class {{ CLASS_NAME }}Controller
- * @package App\Http\Controllers\Dashboard
- */
 class {{ CLASS_NAME }}Controller extends BaseController
 {
     /**
-     * {{ CLASS_NAME }}Controller constructor.
-     *
      * @param {{ CLASS_NAME }}Service $service
      * @param I{{ CLASS_NAME }}Repository $repository
      */
     public function __construct(
         {{ CLASS_NAME }}Service     $service,
         I{{ CLASS_NAME }}Repository $repository
-    )
-    {
+    ){
         $this->service = $service;
         $this->repository = $repository;
     }

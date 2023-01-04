@@ -5,10 +5,6 @@ namespace App\Contracts;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-/**
- * Interface IBaseRepository
- * @package App\Contracts
- */
 interface IBaseRepository
 {
     public function getInstance(): Model;

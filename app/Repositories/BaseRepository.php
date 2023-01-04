@@ -8,10 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
 
-/**
- * Interface BaseRepository
- * @package App\Repositories
- */
 class BaseRepository implements IBaseRepository
 {
     /**
@@ -20,8 +16,6 @@ class BaseRepository implements IBaseRepository
     public Model $model;
 
     /**
-     * BaseRepository constructor.
-     *
      * @param Model $model
      */
     public function __construct(Model $model)

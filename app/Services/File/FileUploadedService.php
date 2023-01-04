@@ -5,10 +5,6 @@ namespace App\Services\File;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 
-/**
- * Class FileUploadedService
- * @package App\Services\File
- */
 class FileUploadedService extends FileService
 {
     /**

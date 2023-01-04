@@ -5,10 +5,6 @@ namespace {{ ROOT_NAMESPACE }}Models\{{ CLASS_NAME }};
 use {{ ROOT_NAMESPACE }}Models\Base\BaseModel;
 use App\Models\Base\Traits\HasMlData;
 
-/**
- * Class {{ CLASS_NAME }}
- * @package {{ ROOT_NAMESPACE }}Models\{{ CLASS_NAME }}
- */
 class {{ CLASS_NAME }} extends BaseModel
 {
     use HasMlData;

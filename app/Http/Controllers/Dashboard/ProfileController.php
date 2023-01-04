@@ -7,18 +7,14 @@ use App\Services\Profile\ProfileService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 
-/**
- * Class ProfileController
- * @package App\Http\Controllers\Dashboard
- */
 class ProfileController extends BaseController
 {
     /**
-     * ProfileController constructor.
      * @param ProfileService $service
      */
-    public function __construct(ProfileService $service)
-    {
+    public function __construct(
+        ProfileService $service
+    ) {
         $this->service = $service;
     }
 

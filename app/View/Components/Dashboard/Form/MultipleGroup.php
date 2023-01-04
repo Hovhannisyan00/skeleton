@@ -43,7 +43,6 @@ class MultipleGroup extends Base
     public const TAG_SELECT = 'select';
 
     /**
-     * MultipleGroup constructor.
      * @param string $class
      * @param string $index
      * @param array $multipleData

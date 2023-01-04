@@ -7,10 +7,6 @@ use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
-/**
- * Class CRUDGeneratorDelete
- * @package App\CRUDGenerator
- */
 class CRUDGeneratorDelete
 {
     use CRUDHelper;
@@ -21,8 +17,6 @@ class CRUDGeneratorDelete
     protected string $className;
 
     /**
-     * CRUDGeneratorAbstract constructor.
-     *
      * @param $arguments
      */
     public function __construct($arguments)

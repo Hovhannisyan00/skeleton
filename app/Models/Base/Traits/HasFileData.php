@@ -6,10 +6,6 @@ use App\Models\File\File;
 use Exception;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
-/**
- * Trait HasFileData
- * @package App\Models\Base\Traits
- */
 trait HasFileData
 {
     abstract public function setFileConfigName(): string;

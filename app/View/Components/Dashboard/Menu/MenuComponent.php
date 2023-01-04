@@ -6,10 +6,6 @@ use App\Models\Menu\Menu;
 use App\View\Components\Dashboard\Base;
 use Illuminate\Contracts\View\View;
 
-/**
- * class MenuComponent
- * @package App\View\Components\Dashboard\Menu
- */
 class MenuComponent extends Base
 {
     /**

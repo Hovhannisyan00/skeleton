@@ -5,10 +5,6 @@ namespace {{ ROOT_NAMESPACE }}Models\{{ CLASS_NAME }};
 use {{ ROOT_NAMESPACE }}Models\Base\BaseMlModel;
 use {{ ROOT_NAMESPACE }}Traits\Models\HasCompositePrimaryKey;
 
-/**
- * Class {{ CLASS_NAME }}Mls
- * @package {{ ROOT_NAMESPACE }}Models\{{ CLASS_NAME }}
- */
 class {{ CLASS_NAME }}Mls extends BaseMlModel
 {
     use HasCompositePrimaryKey;
