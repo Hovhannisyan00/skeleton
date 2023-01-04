@@ -1,9 +1,11 @@
 <?php
 
+use App\Models\Article\Article;
 use App\Models\File\File;
+use App\Models\User\User;
 
 return [
-    \App\Models\User\User::getClassName() => [
+    User::getClassName() => [
         'signature' => [
             'field_name' => 'signature',
             'file_type' => File::TYPE_IMAGE,
@@ -19,7 +21,7 @@ return [
         ],
     ],
 
-    \App\Models\Article\Article::getClassName() => [
+    Article::getClassName() => [
         'photo' => [
             'field_name' => 'photo',
             'file_type' => File::TYPE_IMAGE,

@@ -16,7 +16,7 @@ class BluePrintMacros
      *
      * @return Closure
      */
-    public function userInfo()
+    public function userInfo(): Closure
     {
         return function () {
             $this->unsignedBigInteger('created_user_id')->nullable();
@@ -35,7 +35,7 @@ class BluePrintMacros
      *
      * @return Closure
      */
-    public function showStatus()
+    public function showStatus(): Closure
     {
         return function () {
             $this->enum('show_status', BaseModel::SHOW_STATUSES)->default(BaseModel::SHOW_STATUS_ACTIVE);
@@ -47,7 +47,7 @@ class BluePrintMacros
      *
      * @return Closure
      */
-    public function sortOrder()
+    public function sortOrder(): Closure
     {
         return function () {
             $this->integer('sort_order')->nullable();
@@ -59,7 +59,7 @@ class BluePrintMacros
      *
      * @return Closure
      */
-    public function metaData()
+    public function metaData(): Closure
     {
         return function () {
             $this->string('meta_title')->nullable();

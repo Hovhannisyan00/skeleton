@@ -16,14 +16,14 @@ class MlTabs extends Base
     /**
      * @var string
      */
-    const ATTRIBUTE_NAME = 'name';
-    const ATTRIBUTE_DATA_NAME = 'data-name';
+    public const ATTRIBUTE_NAME = 'name';
+    public const ATTRIBUTE_DATA_NAME = 'data-name';
 
     /**
      * @var string
      */
-    const TAG_INPUT = 'input';
-    const TAG_TEXTAREA = 'textarea';
+    public const TAG_INPUT = 'input';
+    public const TAG_TEXTAREA = 'textarea';
 
     /**
      * @var string
@@ -104,7 +104,6 @@ class MlTabs extends Base
      * @param string $html
      * @param string $lngCode
      * @param array $mlData
-     * @return void
      */
     public function renderHtml(string $html, string $lngCode, mixed $mlData = null)
     {

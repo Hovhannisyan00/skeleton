@@ -3,7 +3,6 @@
 namespace App\Http\Requests\Role;
 
 use App\Http\Requests\Core\DatatableSearchRequest;
-use Illuminate\Foundation\Http\FormRequest;
 
 class RoleSearchRequest extends DatatableSearchRequest
 {

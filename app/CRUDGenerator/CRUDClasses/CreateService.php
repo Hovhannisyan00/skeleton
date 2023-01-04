@@ -10,7 +10,7 @@ use App\CRUDGenerator\CRUDGeneratorAbstract;
  */
 class CreateService extends CRUDGeneratorAbstract
 {
-    const SERVICE = 'service';
+    public const SERVICE = 'service';
 
     /**
      * CreateService constructor.

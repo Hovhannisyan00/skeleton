@@ -108,7 +108,7 @@
                 <span class="d-none d-md-inline-block">{{auth()->user()->first_name}}</span>
 
                 @if(auth()->user()->avatar)
-                    <img src="{{auth()->user()->avatar->file_url}}" class="ml-2" width="30px">
+                    <img src="{{auth()->user()->avatar->file_url}}" class="ml-2" width="30px" alt="">
                 @else
                     <span class="flaticon-user ml-2"></span>
                 @endif

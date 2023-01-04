@@ -19,7 +19,7 @@ class FileUploadedService extends FileService
      * @param string $configName
      * @return void
      */
-    public function storeFile(Model $model, $files, string $configName): void
+    public function storeFile(Model $model, mixed $files, string $configName): void
     {
         $config = $model->getFileConfig()[$configName];
         $this->deleteModelFile(model: $model, fieldName: $config['field_name']);
@@ -45,12 +45,21 @@ class FileUploadedService extends FileService
         $fileType = $config['file_type'];
         $fileName = $this->getFileName($file);
 
-        $savedFile = $this->uploadsDisk->putFileAs(path: $model::getClassName(), file: $file, name: $fieldName . '/' . $fileName);
+        $savedFile = $this->uploadsDisk->putFileAs(
+            path: $model::getClassName(),
+            file: $file,
+            name: $fieldName . '/' . $fileName
+        );
 
         if (isset($config['thumb'])) {
-            $this->saveThumb(filename: $fileName, filePath: $this->getFilePathUploadsDisk($savedFile), thumbConfig: $config['thumb'], directoryData: [
+            $this->saveThumb(
+                filename: $fileName,
+                filePath: $this->getFilePathUploadsDisk($savedFile),
+                thumbConfig: $config['thumb'],
+                directoryData: [
                 'uploads' => $model::getClassName() . '/' . $fieldName
-            ]);
+            ]
+            );
         }
 
         $model->files($fieldName)->create([

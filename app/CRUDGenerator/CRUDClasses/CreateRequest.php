@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
  */
 class CreateRequest extends CRUDGeneratorAbstract
 {
-    const REQUEST = 'request';
+    public const REQUEST = 'request';
 
     /**
      * CreateRequest constructor.

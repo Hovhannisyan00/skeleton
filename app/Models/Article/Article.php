@@ -17,7 +17,8 @@ use Illuminate\Database\Eloquent\Relations\MorphOne;
  */
 class Article extends BaseModel
 {
-    use HasFileData, HasMlData;
+    use HasFileData;
+    use HasMlData;
 
     /**
      * in create/update set default values for model

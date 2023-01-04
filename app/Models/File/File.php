@@ -22,13 +22,13 @@ class File extends BaseModel
     /**
      * @var string
      */
-    const TYPE_IMAGE = 'image';
-    const TYPE_FILE = 'file';
+    public const TYPE_IMAGE = 'image';
+    public const TYPE_FILE = 'file';
 
     /**
      * @var array
      */
-    const TYPES = [
+    public const TYPES = [
         self::TYPE_IMAGE,
         self::TYPE_FILE,
     ];

@@ -21,7 +21,7 @@ class ProfileRequest extends FormRequest
             'last_name' => 'required|string_with_max',
             'avatar' => 'nullable|string_with_max',
 
-            'current_password' => ['nullable', 'string_with_max', 'required_with:new_password', new MatchOldPassword],
+            'current_password' => ['nullable', 'string_with_max', 'required_with:new_password', new MatchOldPassword()],
             'new_password' => [
                 'nullable',
                 'required_with:current_password',

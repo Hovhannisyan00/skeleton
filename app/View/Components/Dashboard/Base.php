@@ -11,7 +11,7 @@ use Illuminate\View\View;
  */
 class Base extends Component
 {
-    const DASHBOARD_COMPONENTS_PREFIX = 'components.dashboard';
+    public const DASHBOARD_COMPONENTS_PREFIX = 'components.dashboard';
 
     public function render()
     {

@@ -33,10 +33,10 @@ class CRUDGenerator extends Command
         7) Service
         8) SearchRequest
         9) ModelSearch
-        10) blade creating
-        11) js creating
-        12) migration by class name
-        13) migration ml by class name
+        10) Blade creating
+        11) Js creating
+        12) Migration by class name
+        13) Migration ml by class name
     ';
 
     /**

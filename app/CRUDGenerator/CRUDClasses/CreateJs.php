@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
  */
 class CreateJs extends CRUDGeneratorAbstract
 {
-    const JS = 'js';
+    public const JS = 'js';
 
     /**
      * CreateJs constructor.

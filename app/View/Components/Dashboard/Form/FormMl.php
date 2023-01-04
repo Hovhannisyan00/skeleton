@@ -51,8 +51,7 @@ class FormMl extends Base
         string $indexUrl = '',
         string $method = '',
         string $viewMode = 'add'
-    )
-    {
+    ) {
         $this->showStatus = $showStatus;
         $this->action = $action;
         $this->indexUrl = $indexUrl;
@@ -64,13 +63,12 @@ class FormMl extends Base
      * @param string $slot
      * @param string $lngCode
      * @param array $mlData
-     * @return void
      */
     public function renderMlHtml(string $slot, string $lngCode, mixed $mlData = null)
     {
         $mlForm = new MlTabs();
 
-        return $mlForm->renderHtml($slot, $lngCode, $mlData);
+        $mlForm->renderHtml($slot, $lngCode, $mlData);
     }
 
     /**

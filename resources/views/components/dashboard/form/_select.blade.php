@@ -8,7 +8,6 @@
         id="{{$labelId}}"
         class="form-control {{ $class ?? '' }}"
         @isset($multiple) multiple @endisset
-        @isset($placeholder) placeholder="{{ $placeholder }}" @endisset
         @isset($allowClear) data-allow-clear="true" @endisset
         @if(!empty($disabled)) disabled @endif
 >
