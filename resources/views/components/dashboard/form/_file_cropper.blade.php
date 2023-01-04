@@ -10,7 +10,7 @@
     </span>
 
     <div class="preview-image d-none file__item__type__image position-relative">
-        <img src="" class="cropped-img upload-file-img">
+        <img src="" class="cropped-img upload-file-img" alt="">
         <button class="__delete__file position-absolute" type="button">x</button>
     </div>
 

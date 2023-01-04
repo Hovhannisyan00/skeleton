@@ -45,75 +45,78 @@ class ValidatorServiceProvider extends ServiceProvider
         $maxPhoneNumberLength = 12;
 
         // Max String
-        Validator::extend('string_with_max', function ($attribute, $value, $parameters) use ($maxStringLength) {
+        Validator::extend('string_with_max', function ($attribute, $value) use ($maxStringLength) {
             $rules = [$attribute => "string|max:" . $maxStringLength];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
-
         }, trans('validation.max.string', ['max' => $maxStringLength]));
 
         // Max Text
-        Validator::extend('text_with_max', function ($attribute, $value, $parameters) use ($maxTextLength) {
+        Validator::extend('text_with_max', function ($attribute, $value) use ($maxTextLength) {
             $rules = [$attribute => "string|max:" . $maxTextLength];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
-
         }, trans('validation.max.string', ['max' => $maxTextLength]));
 
         // Max Integer
-        Validator::extend('integer_with_max', function ($attribute, $value, $parameters) use ($minIntegerLength, $maxIntegerLength) {
-            $rules = [$attribute => "integer|between:$minIntegerLength,$maxIntegerLength"];
+        Validator::extend(
+            'integer_with_max',
+            function ($attribute, $value) use ($minIntegerLength, $maxIntegerLength) {
+                $rules = [$attribute => "integer|between:$minIntegerLength,$maxIntegerLength"];
 
-            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
-
-        }, trans('validation.between.numeric', ['min' => $minIntegerLength, 'max' => $maxIntegerLength]));
+                return $this->validator($this->getAttributeValue($attribute, $value), $rules);
+            },
+            trans('validation.between.numeric', ['min' => $minIntegerLength, 'max' => $maxIntegerLength])
+        );
 
         // Max Double
-        Validator::extend('double_with_max', function ($attribute, $value, $parameters) use ($minDoubleLength, $maxDoubleLength) {
-            $rules = [$attribute => "numeric|between:$minDoubleLength,$maxDoubleLength"];
+        Validator::extend(
+            'double_with_max',
+            function ($attribute, $value) use ($minDoubleLength, $maxDoubleLength) {
+                $rules = [$attribute => "numeric|between:$minDoubleLength,$maxDoubleLength"];
 
-            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
-
-        }, trans('validation.between.numeric', ['min' => $minDoubleLength, 'max' => $maxDoubleLength]));
+                return $this->validator($this->getAttributeValue($attribute, $value), $rules);
+            },
+            trans('validation.between.numeric', ['min' => $minDoubleLength, 'max' => $maxDoubleLength])
+        );
 
         // Phone number
-        Validator::extend('phone_number_validator', function ($attribute, $value, $parameters) use ($minPhoneNumberLength, $maxPhoneNumberLength) {
-            $rules = [$attribute => "between:$minPhoneNumberLength,$maxPhoneNumberLength|regex:/^([0-9\s\-\+\(\)]*)$/"];
+        Validator::extend(
+            'phone_number_validator',
+            function ($attribute, $value) use ($minPhoneNumberLength, $maxPhoneNumberLength) {
+                $rules = [$attribute => "between:$minPhoneNumberLength,$maxPhoneNumberLength|regex:/^([0-9\s\-\+\(\)]*)$/"];
 
-            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
-
-        }, trans('validation.invalid', ['min' => $minPhoneNumberLength, 'max' => $maxPhoneNumberLength]));
+                return $this->validator($this->getAttributeValue($attribute, $value), $rules);
+            },
+            trans('validation.invalid', ['min' => $minPhoneNumberLength, 'max' => $maxPhoneNumberLength])
+        );
 
         // Show status
-        Validator::extend('show_status_validator', function ($attribute, $value, $parameters) {
+        Validator::extend('show_status_validator', function ($attribute, $value) {
             $rules = [$attribute => "in:" . implode(',', BaseModel::SHOW_STATUSES_FOR_SELECT)];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
-
         }, trans('validation.invalid'));
 
         // Datetime
-        Validator::extend('datetime', function ($attribute, $value, $parameters) {
+        Validator::extend('datetime', function ($attribute, $value) {
             $rules = [$attribute => "date_format:" . getDateTimeFormat()];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
-
         }, trans('validation.invalid'));
 
         // Date
-        Validator::extend('date_validator', function ($attribute, $value, $parameters) {
+        Validator::extend('date_validator', function ($attribute, $value) {
             $rules = [$attribute => "date_format:" . getDateFormat()];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
-
         }, trans('validation.invalid'));
 
         // After or equal today
-        Validator::extend('after_or_equal_today', function ($attribute, $value, $parameters) {
+        Validator::extend('after_or_equal_today', function ($attribute, $value) {
             $rules = [$attribute => "date_validator|after_or_equal:" . today()];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
-
         }, trans('validation.custom.after_or_equal', ['date' => now()->format(getDateFormatFront())]));
     }
 
@@ -125,14 +128,12 @@ class ValidatorServiceProvider extends ServiceProvider
     private function existsValidators(): void
     {
         Validator::extend('exist_validator', function ($attribute, $value, $parameters) {
-
             $tableName = $parameters[0];
             $checkField = $parameters[1] ?? 'id';
 
             $rules = ["integer_with_max|exists:" . $tableName . "," . $checkField];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
-
         }, trans('validation.invalid'));
     }
 

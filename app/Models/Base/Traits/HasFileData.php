@@ -3,6 +3,7 @@
 namespace App\Models\Base\Traits;
 
 use App\Models\File\File;
+use Exception;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
 /**
@@ -22,7 +23,7 @@ trait HasFileData
     {
         $configKey = "files.{$this->setFileConfigName()}";
         if (!config()->has($configKey)) {
-            throw new \Exception("Config: $configKey Not found");
+            throw new Exception("Config: $configKey Not found");
         }
 
         return $this->setFileConfigName();

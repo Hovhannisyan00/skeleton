@@ -3,7 +3,6 @@
 namespace App\CRUDGenerator\CRUDClasses;
 
 use App\CRUDGenerator\CRUDGeneratorAbstract;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 /**
@@ -12,7 +11,7 @@ use Illuminate\Support\Str;
  */
 class CreateController extends CRUDGeneratorAbstract
 {
-    const CONTROLLER = 'controller';
+    public const CONTROLLER = 'controller';
 
     /**
      * CreateController constructor.

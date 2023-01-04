@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
  */
 class CreateSearchRequest extends CRUDGeneratorAbstract
 {
-    const REQUEST_REQUEST = 'search_request';
+    public const REQUEST_REQUEST = 'search_request';
 
     /**
      * CreateController constructor.

@@ -90,7 +90,7 @@ class UserController extends BaseController
      * @param User $user
      * @return View
      */
-    public function show(User $user)
+    public function show(User $user): View
     {
         return $this->dashboardView(view: 'user.form', vars: $this->service->getViewData($user->id), viewMode: 'show');
     }

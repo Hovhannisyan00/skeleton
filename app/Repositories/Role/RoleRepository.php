@@ -5,7 +5,6 @@ namespace App\Repositories\Role;
 use App\Contracts\Role\IRoleRepository;
 use App\Models\RoleAndPermission\Role;
 use App\Repositories\BaseRepository;
-use Illuminate\Support\Collection;
 
 /**
  * Class RoleRepository

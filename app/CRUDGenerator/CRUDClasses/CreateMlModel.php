@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
  */
 class CreateMlModel extends CRUDGeneratorAbstract
 {
-    const ML_MODEL = 'ml_model';
+    public const ML_MODEL = 'ml_model';
 
     /**
      * CreateModel constructor.
@@ -50,7 +50,7 @@ class CreateMlModel extends CRUDGeneratorAbstract
      */
     protected function stubVariables(): array
     {
-        $variableName = Str::snake($this->className, '_');
+        $variableName = Str::snake($this->className);
 
         return [
             'CLASS_NAME' => $this->className,

@@ -15,18 +15,19 @@ use Spatie\Permission\Traits\HasRoles;
  */
 class Menu extends BaseModel
 {
-    use HasFactory, HasRoles;
+    use HasFactory;
+    use HasRoles;
 
     /**
      * @var string
      */
-    protected $guard_name = 'web';
+    protected string $guard_name = 'web';
 
     /**
      * @var string
      */
-    const MENU_TYPE_ADMIN = 'admin';
-    const MENU_TYPE_PROFILE = 'profile';
+    public const MENU_TYPE_ADMIN = 'admin';
+    public const MENU_TYPE_PROFILE = 'profile';
 
     /**
      * @var string[]

@@ -16,13 +16,13 @@ class Role extends SpatieRole
     /**
      * @var string
      */
-    const ROLE_SUPER_ADMIN = 'super-admin';
-    const ROLE_USER = 'user';
+    public const ROLE_SUPER_ADMIN = 'super-admin';
+    public const ROLE_USER = 'user';
 
     /**
      * @var array
      */
-    const ROLES = [
+    public const ROLES = [
         self::ROLE_SUPER_ADMIN,
         self::ROLE_USER,
     ];

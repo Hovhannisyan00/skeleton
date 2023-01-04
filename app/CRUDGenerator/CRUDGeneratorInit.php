@@ -61,7 +61,7 @@ class CRUDGeneratorInit
      */
     private function makeMigration(): void
     {
-        $tableName = Str::plural(Str::snake($this->arguments['className'], '_'));
+        $tableName = Str::plural(Str::snake($this->arguments['className']));
         Artisan::call("make:migration create_{$tableName}_table");
         $this->consoleOutput->writeln("<fg=green>Migration created successfully</>");
     }
@@ -74,7 +74,7 @@ class CRUDGeneratorInit
     private function makeMigrationMl(): void
     {
         if ($this->arguments['migrationMl']) {
-            $tableName = Str::snake($this->arguments['className'], '_');
+            $tableName = Str::snake($this->arguments['className']);
             Artisan::call("make:migration create_{$tableName}_mls_table");
             $this->consoleOutput->writeln("<fg=green>Migration ml created successfully</>");
         }
@@ -88,7 +88,7 @@ class CRUDGeneratorInit
     private function successMessage(): void
     {
         $routeName = Str::snake(Str::plural($this->arguments['className']), '-');
-        $name = Str::snake(Str::plural($this->arguments['className']), '.');
+//        $name = Str::snake(Str::plural($this->arguments['className']), '.');
         $plural = Str::plural($this->arguments['className']);
 
         $textMessage = "

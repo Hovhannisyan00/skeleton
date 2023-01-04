@@ -119,7 +119,7 @@ abstract class BaseService
      *
      * @return FileTempService
      */
-    private function fileService()
+    private function fileService(): FileTempService
     {
         return app()->make(FileTempService::class);
     }

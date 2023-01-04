@@ -10,7 +10,7 @@ use App\CRUDGenerator\CRUDGeneratorAbstract;
  */
 class CreateInterface extends CRUDGeneratorAbstract
 {
-    const INTERFACE = 'interface';
+    public const INTERFACE = 'interface';
 
     /**
      * CreateInterface constructor.

@@ -10,7 +10,7 @@ use App\CRUDGenerator\CRUDGeneratorAbstract;
  */
 class CreateModelSearch extends CRUDGeneratorAbstract
 {
-    const MODEL_SEARCH = 'model_search';
+    public const MODEL_SEARCH = 'model_search';
 
     /**
      * CreateModel constructor.

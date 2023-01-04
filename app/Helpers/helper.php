@@ -13,28 +13,28 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
  ======================================================================================== */
 
 if (!function_exists("urlWithLng")) {
-    function urlWithLng($url)
+    function urlWithLng($url): string
     {
         return url(currentLanguageCode() . '/' . ltrim($url, '/'));
     }
 }
 
 if (!function_exists('routeWithLng')) {
-    function routeWithLng($name, $parameters = [], $absolute = true)
+    function routeWithLng($name, $parameters = [], $absolute = true): string
     {
         return app('url')->route($name, $parameters, $absolute);
     }
 }
 
 if (!function_exists("dashboardRoute")) {
-    function dashboardRoute($name)
+    function dashboardRoute($name): string
     {
         return route('dashboard.' . $name);
     }
 }
 
 if (!function_exists("routeIs")) {
-    function routeIs($name)
+    function routeIs($name): bool
     {
         return Route::is($name);
     }
@@ -139,9 +139,9 @@ if (!function_exists('langIconPath')) {
 }
 
 if (!function_exists('getCurrentAlternateHref')) {
-    function getCurrentAlternateHref($locale)
+    function getCurrentAlternateHref($locale): string
     {
-        $path = strstr(request()->path(), '/', false);
+        $path = strstr(request()->path(), '/');
 
         return config('app.url') . '/' . $locale . $path;
     }

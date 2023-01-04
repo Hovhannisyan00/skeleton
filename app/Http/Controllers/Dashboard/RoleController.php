@@ -7,7 +7,6 @@ use App\Http\Requests\Role\RoleSearchRequest;
 use App\Models\RoleAndPermission\RoleSearch;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 
 /**
  * Class RoleController
@@ -55,8 +54,6 @@ class RoleController extends BaseController
 
     /**
      * Show the form for creating a new resource.
-     *
-     * @return Response
      */
     public function create()
     {
@@ -67,7 +64,6 @@ class RoleController extends BaseController
      * Store a newly created resource in storage.
      *
      * @param Request $request
-     * @return Response
      */
     public function store(Request $request)
     {
@@ -78,7 +74,6 @@ class RoleController extends BaseController
      * Display the specified resource.
      *
      * @param int $id
-     * @return Response
      */
     public function show(int $id)
     {
@@ -89,7 +84,6 @@ class RoleController extends BaseController
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return Response
      */
     public function edit(int $id)
     {
@@ -101,9 +95,8 @@ class RoleController extends BaseController
      *
      * @param Request $request
      * @param int $id
-     * @return Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, int $id)
     {
         //
     }
@@ -112,9 +105,8 @@ class RoleController extends BaseController
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return Response
      */
-    public function destroy($id)
+    public function destroy(int $id)
     {
         //
     }

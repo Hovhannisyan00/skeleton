@@ -11,7 +11,7 @@ use Illuminate\Support\Str;
  */
 class CreateBlades extends CRUDGeneratorAbstract
 {
-    const BLADES = 'blades';
+    public const BLADES = 'blades';
 
     /**
      * CreateBlades constructor.

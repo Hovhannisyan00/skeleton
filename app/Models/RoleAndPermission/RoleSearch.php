@@ -14,7 +14,7 @@ class RoleSearch extends Search
     /**
      * @var string[]
      */
-    protected $orderables = [
+    protected array $orderables = [
         'id',
         'name',
     ];

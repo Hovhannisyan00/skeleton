@@ -56,7 +56,7 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
-    'asset_url' => env('ASSET_URL', null),
+    'asset_url' => env('ASSET_URL'),
 
     /*
     |--------------------------------------------------------------------------
@@ -192,6 +192,9 @@ return [
 
         // Validator
         App\Providers\ValidatorServiceProvider::class,
+
+        // Blade
+        App\Providers\BladeServiceProvider::class
 
         // Image Resize
 //        Intervention\Image\ImageServiceProvider::class

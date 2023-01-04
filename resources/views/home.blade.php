@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -1089,7 +1088,7 @@
 
     // custom file
     $('.custom-file-input').on('change',function(){
-        var fileName = $(this).val();
+        const fileName = $(this).val();
         $(this).next('.custom-file-label').html(fileName);
     });
 

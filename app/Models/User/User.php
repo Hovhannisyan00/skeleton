@@ -20,12 +20,12 @@ use Spatie\Permission\Traits\HasRoles;
  */
 class User extends Authenticatable
 {
-    use HasApiTokens,
-        HasFactory,
-        Notifiable,
-        HasRoles,
-        ModelHelperFunctions,
-        HasFileData;
+    use HasApiTokens;
+    use HasFactory;
+    use HasFileData;
+    use HasRoles;
+    use ModelHelperFunctions;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -116,7 +116,7 @@ class User extends Authenticatable
     }
 
     /**
-     * Function to return user name
+     * Function to return username
      *
      * @return Attribute
      */

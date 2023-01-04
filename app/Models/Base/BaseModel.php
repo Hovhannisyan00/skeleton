@@ -16,25 +16,26 @@ use Illuminate\Support\Facades\Auth;
  */
 class BaseModel extends Model
 {
-    use HasFactory, ModelHelperFunctions;
+    use HasFactory;
+    use ModelHelperFunctions;
 
     /**
      * @var string
      */
-    const TRUE = 1;
-    const FALSE = 0;
+    public const TRUE = 1;
+    public const FALSE = 0;
 
     /**
      * @var string
      */
-    const SHOW_STATUS_ACTIVE = '1';
-    const SHOW_STATUS_INACTIVE = '2';
-    const SHOW_STATUS_DELETED = '0';
+    public const SHOW_STATUS_ACTIVE = '1';
+    public const SHOW_STATUS_INACTIVE = '2';
+    public const SHOW_STATUS_DELETED = '0';
 
     /**
      * @var array
      */
-    const SHOW_STATUSES = [
+    public const SHOW_STATUSES = [
         self::SHOW_STATUS_ACTIVE,
         self::SHOW_STATUS_INACTIVE,
         self::SHOW_STATUS_DELETED
@@ -43,7 +44,7 @@ class BaseModel extends Model
     /**
      * @var array
      */
-    const SHOW_STATUSES_FOR_SELECT = [
+    public const SHOW_STATUSES_FOR_SELECT = [
         self::SHOW_STATUS_ACTIVE,
         self::SHOW_STATUS_INACTIVE
     ];
@@ -90,7 +91,7 @@ class BaseModel extends Model
         parent::boot();
 
         if (static::$getNotDeletedRows) {
-            static::addGlobalScope(new DeletedScope);
+            static::addGlobalScope(new DeletedScope());
         }
 
         // Creating

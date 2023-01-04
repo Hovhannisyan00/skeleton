@@ -3,7 +3,6 @@
 namespace App\CRUDGenerator\CRUDClasses;
 
 use App\CRUDGenerator\CRUDGeneratorAbstract;
-use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class CreateRepository
@@ -11,7 +10,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class CreateRepository extends CRUDGeneratorAbstract
 {
-    const REPOSITORY = 'repository';
+    public const REPOSITORY = 'repository';
 
     /**
      * CreateRepository constructor.

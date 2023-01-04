@@ -29,10 +29,10 @@ trait HasCompositePrimaryKey
     /**
      * Get the primary key value for a save query.
      *
-     * @param mixed $keyName
+     * @param mixed|null $keyName
      * @return mixed
      */
-    protected function getKeyForSaveQuery($keyName = null)
+    protected function getKeyForSaveQuery(mixed $keyName = null): mixed
     {
         if (is_null($keyName)) {
             $keyName = $this->getKeyName();
