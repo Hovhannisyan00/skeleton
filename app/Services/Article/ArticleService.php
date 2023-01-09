@@ -12,8 +12,7 @@ class ArticleService extends BaseService
      */
     public function __construct(
         IArticleRepository $repository
-    )
-    {
+    ) {
         $this->repository = $repository;
     }
 }

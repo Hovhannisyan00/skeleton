@@ -146,6 +146,4 @@ abstract class CRUDGeneratorAbstract
 
         return false;
     }
-
-
 }

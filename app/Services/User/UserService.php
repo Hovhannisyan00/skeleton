@@ -21,8 +21,7 @@ class UserService extends BaseService
         IUserRepository           $repository,
         FileTempService           $fileService,
         protected IRoleRepository $roleRepository
-    )
-    {
+    ) {
         $this->repository = $repository;
         $this->fileService = $fileService;
     }

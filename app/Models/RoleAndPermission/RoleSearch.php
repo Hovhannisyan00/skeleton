@@ -45,5 +45,4 @@ class RoleSearch extends Search
     {
         return Role::count();
     }
-
 }

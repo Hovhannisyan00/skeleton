@@ -274,5 +274,4 @@ class BaseRepository implements IBaseRepository
             );
         }
     }
-
 }

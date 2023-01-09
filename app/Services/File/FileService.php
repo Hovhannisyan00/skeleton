@@ -7,7 +7,8 @@ use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-use Intervention\Image\Facades\Image;
+
+//use Intervention\Image\Facades\Image;
 
 abstract class FileService
 {
@@ -37,10 +38,8 @@ abstract class FileService
      * @param array $directoryData
      * @return bool
      */
-    protected function movePendingFileToUploadsFolder(string $fileName, array $config = [], array $directoryData = []): bool
-    {
+    protected function movePendingFileToUploadsFolder(string $fileName, array  $config = [], array  $directoryData = []): bool {
         if ($this->pendingDisk->exists($directoryData['pending'])) {
-
             // convert to full paths
             $fullPathPending = $this->getFilePathPendingDisk($directoryData['pending']);
             $filePath = isset($directoryData['uploads']) ? '/' . $directoryData['uploads'] . '/' . $fileName : $fileName;
@@ -51,7 +50,12 @@ abstract class FileService
 
             // save thumb
             if (isset($config['thumb'])) {
-                $this->saveThumb(fileName: $fileName, filePath: $fullPathPending, thumbConfig: $config['thumb'], directoryData: $directoryData);
+                $this->saveThumb(
+                    fileName: $fileName,
+                    filePath: $fullPathPending,
+                    thumbConfig: $config['thumb'],
+                    directoryData: $directoryData
+                );
             }
 
             return File::move($fullPathPending, $fullPathUploads);
@@ -72,7 +76,6 @@ abstract class FileService
     protected function saveThumb(string $fileName, string $filePath, array $thumbConfig, array $directoryData = []): void
     {
         foreach ($thumbConfig as $thumb) {
-
             $thumbWidth = $thumb['width'];
             $thumbHeight = $thumb['height'] ?? null;
 
@@ -132,12 +135,10 @@ abstract class FileService
         $this->uploadsDisk->delete($file->dir_prefix . '/' . $file->field_name . '/' . $file->file_name);
 
         if ($this->uploadsDisk->exists($file->dir_prefix . '/' . $file->field_name . '/thumbs/')) {
-
             $config = config("files.$file->dir_prefix.$file->field_name");
 
             if (isset($config['thumb'])) {
                 foreach ($config['thumb'] as $thumb) {
-
                     $thumbResizePath = $this->getThumbResizePath($thumb['width'], $thumb['height'] ?? null);
                     $thumbFilePath = $file->dir_prefix . '/' . $file->field_name . '/thumbs/' . $thumbResizePath . '/' . $file->file_name;
 

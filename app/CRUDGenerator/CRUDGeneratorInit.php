@@ -96,5 +96,4 @@ Route::resource('$routeName', {$this->arguments['className']}Controller::class);
 Route::get('$routeName/dataTable/get-list', [{$this->arguments['className']}Controller::class, 'getListData'])->name('$routeName.getListData');</> <fg=yellow>in dashboard.php</>";
         $this->consoleOutput->writeln($textMessage);
     }
-
 }

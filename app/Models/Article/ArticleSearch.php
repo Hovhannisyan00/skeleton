@@ -54,5 +54,4 @@ class ArticleSearch extends Search
     {
         return Article::count();
     }
-
 }

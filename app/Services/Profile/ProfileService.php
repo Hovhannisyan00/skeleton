@@ -18,8 +18,7 @@ class ProfileService extends BaseService
     public function __construct(
         IUserRepository $repository,
         FileTempService $fileService,
-    )
-    {
+    ) {
         $this->repository = $repository;
         $this->fileService = $fileService;
     }
@@ -34,11 +33,10 @@ class ProfileService extends BaseService
     public function update($data, int $id = null): Model
     {
         return DB::transaction(function () use ($id, $data) {
-
             $user = $this->repository->update($id, $data);
             $this->fileService->storeFile($user, $data);
 
-            if(isset($data['new_password'])){
+            if (isset($data['new_password'])) {
                 $user->fill([
                     'password' => Hash::make($data['new_password'])
                 ])->save();
@@ -47,5 +45,4 @@ class ProfileService extends BaseService
             return $user;
         });
     }
-
 }

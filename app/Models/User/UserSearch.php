@@ -56,5 +56,4 @@ class UserSearch extends Search
     {
         return User::count();
     }
-
 }

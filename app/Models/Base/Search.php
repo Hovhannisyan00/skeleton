@@ -118,5 +118,4 @@ abstract class Search
     {
         return $this->query()->count();
     }
-
 }

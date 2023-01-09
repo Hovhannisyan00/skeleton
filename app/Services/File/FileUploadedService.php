@@ -53,8 +53,8 @@ class FileUploadedService extends FileService
                 filePath: $this->getFilePathUploadsDisk($savedFile),
                 thumbConfig: $config['thumb'],
                 directoryData: [
-                'uploads' => $model::getClassName() . '/' . $fieldName
-            ]
+                    'uploads' => $model::getClassName() . '/' . $fieldName
+                ]
             );
         }
 

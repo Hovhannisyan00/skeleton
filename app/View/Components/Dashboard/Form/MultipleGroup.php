@@ -51,8 +51,7 @@ class MultipleGroup extends Base
         string $class = '',
         string $index = '0',
         mixed  $multipleData = []
-    )
-    {
+    ) {
         $this->class = $class;
         $this->index = $index;
         $this->multipleData = $multipleData;
@@ -103,16 +102,12 @@ class MultipleGroup extends Base
     private function changeNameAndSetValue($inputs, $attribute)
     {
         foreach ($inputs as $input) {
-
             $name = $input->getAttribute($attribute);
             $replacedName = replaceNameWithDots($name);
 
             if ($attribute == self::ATTRIBUTE_DATA_NAME) {
-
                 $newValue = str_replace('0', $this->index, $replacedName);
-
             } else {
-
                 $name = $input->getAttribute($attribute);
                 if (!empty($this->multipleData)) {
                     $this->setValue($input, $input->getAttribute('data-name'));
@@ -144,11 +139,11 @@ class MultipleGroup extends Base
             $input->setAttribute('value', $columnValue);
         } elseif ($tagName === self::TAG_TEXTAREA) {
             $input->textContent = $columnValue;
-        }elseif ($tagName === self::TAG_SELECT){
-            $input->setAttribute('id', $input->getAttribute('id').'_'. rand());
+        } elseif ($tagName === self::TAG_SELECT) {
+            $input->setAttribute('id', $input->getAttribute('id') . '_' . rand());
             $optionTags = $input->getElementsByTagName('option');
-            foreach ($optionTags as $tag){
-                if ($tag->getAttribute('value') == $columnValue){
+            foreach ($optionTags as $tag) {
+                if ($tag->getAttribute('value') == $columnValue) {
                     $tag->setAttribute('selected', 'selected');
                 }
             }

@@ -101,7 +101,6 @@ abstract class BaseService
         if ($model->hasShowStatus()) {
             $this->repository->softDelete($id);
         } else {
-
             if ($model->hasFilesData()) {
                 $this->fileService()->deleteModelFile($model);
             }

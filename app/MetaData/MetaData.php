@@ -161,5 +161,4 @@ class MetaData
 
         return $this;
     }
-
 }

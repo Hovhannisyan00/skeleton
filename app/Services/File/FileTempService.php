@@ -21,7 +21,6 @@ class FileTempService extends FileService
     public function storeFile(Model $model, array $data): void
     {
         foreach ($model->getFileConfig() as $fieldName => $config) {
-
             $files = $data[$fieldName] ?? [];
             $files = is_array($files) ? $files : [$files];
 
@@ -50,7 +49,6 @@ class FileTempService extends FileService
 
         // temp file move upload
         if ($fileBaseName) {
-
             if (!isset($config['multiple'])) {
                 $this->deleteModelFile($model, $config['field_name']);
             }

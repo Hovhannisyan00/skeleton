@@ -81,5 +81,4 @@ class File extends BaseModel
         $explodedFileName = explode('_', $this->file_name, 2);
         return $explodedFileName[1] ?? '';
     }
-
 }

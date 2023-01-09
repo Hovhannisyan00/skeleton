@@ -90,5 +90,4 @@ class Article extends BaseModel
             get: fn($value) => $value ? Carbon::parse($value)->format(getDateTimeFormatFront()) : ''
         );
     }
-
 }

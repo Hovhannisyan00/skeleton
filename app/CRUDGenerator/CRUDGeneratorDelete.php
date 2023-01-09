@@ -36,13 +36,11 @@ class CRUDGeneratorDelete
         $escapeModules = ['model_with_ml', 'ml_model', 'model_search', 'search_request'];
 
         foreach ($crudConfig as $moduleName => $module) {
-
             if (in_array($moduleName, $escapeModules)) {
                 continue;
             }
 
             if ($moduleName != 'controller') {
-
                 $className = $this->className;
                 if (in_array($moduleName, ['blades', 'js'])) {
                     $className = Str::snake($className, '-');
@@ -55,9 +53,7 @@ class CRUDGeneratorDelete
                 } else {
                     (new ConsoleOutput())->writeln("<fg=red>$absolutePath :Not Found!!</>");
                 }
-
             } else {
-
                 $absolutePath = $module['path'] . '\\' . $this->replaceAttributeByClassName($module['file_name']);
 
                 if ($disk->exists($absolutePath)) {
