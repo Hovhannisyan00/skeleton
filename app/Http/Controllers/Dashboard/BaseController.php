@@ -8,10 +8,6 @@ use App\Services\BaseService;
 use App\Traits\Helpers\ResponseFunctions;
 use Illuminate\Contracts\View\View;
 
-/**
- * Class BaseController
- * @package App\Http\Controllers\Dashboard
- */
 abstract class BaseController extends Controller
 {
     use ResponseFunctions;

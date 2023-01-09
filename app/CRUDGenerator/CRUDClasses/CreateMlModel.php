@@ -5,17 +5,11 @@ namespace App\CRUDGenerator\CRUDClasses;
 use App\CRUDGenerator\CRUDGeneratorAbstract;
 use Illuminate\Support\Str;
 
-/**
- * Class CreateModel
- * @package App\CRUDGenerator\CRUDClasses
- */
 class CreateMlModel extends CRUDGeneratorAbstract
 {
     public const ML_MODEL = 'ml_model';
 
     /**
-     * CreateModel constructor.
-     *
      * @param $arguments
      */
     public function __construct($arguments)

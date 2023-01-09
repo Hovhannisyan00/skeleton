@@ -5,17 +5,11 @@ namespace App\CRUDGenerator\CRUDClasses;
 use App\CRUDGenerator\CRUDGeneratorAbstract;
 use Illuminate\Support\Str;
 
-/**
- * Class CreateSearchRequest
- * @package App\CRUDGenerator\CRUDClasses
- */
 class CreateSearchRequest extends CRUDGeneratorAbstract
 {
     public const REQUEST_REQUEST = 'search_request';
 
     /**
-     * CreateController constructor.
-     *
      * @param $arguments
      */
     public function __construct($arguments)

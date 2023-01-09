@@ -5,17 +5,11 @@ namespace App\CRUDGenerator\CRUDClasses;
 use App\CRUDGenerator\CRUDGeneratorAbstract;
 use Illuminate\Support\Str;
 
-/**
- * Class CreateController
- * @package App\CRUDGenerator\CRUDClasses
- */
 class CreateController extends CRUDGeneratorAbstract
 {
     public const CONTROLLER = 'controller';
 
     /**
-     * CreateController constructor.
-     *
      * @param $arguments
      */
     public function __construct($arguments)

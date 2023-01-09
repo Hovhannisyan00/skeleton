@@ -11,23 +11,16 @@ use App\Services\User\UserService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 
-/**
- * Class UserController
- * @package App\Http\Controllers\Dashboard
- */
 class UserController extends BaseController
 {
     /**
-     * UserController constructor.
-     *
      * @param IUserRepository $repository
      * @param UserService $service
      */
     public function __construct(
         IUserRepository $repository,
         UserService     $service
-    )
-    {
+    ) {
         $this->service = $service;
         $this->repository = $repository;
     }

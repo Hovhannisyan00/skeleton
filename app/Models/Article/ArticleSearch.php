@@ -5,10 +5,6 @@ namespace App\Models\Article;
 use App\Models\Base\Search;
 use Illuminate\Database\Eloquent\Builder;
 
-/**
- * Class ArticleSearch
- * @package App\Models\Article
- */
 class ArticleSearch extends Search
 {
     /**
@@ -58,5 +54,4 @@ class ArticleSearch extends Search
     {
         return Article::count();
     }
-
 }

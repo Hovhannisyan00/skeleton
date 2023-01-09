@@ -10,11 +10,6 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
-/**
- * @method static joinMl() check "scopeJoinMl()" method in this Model
- * Class Article
- * @package App\Models\Article
- */
 class Article extends BaseModel
 {
     use HasFileData;
@@ -95,5 +90,4 @@ class Article extends BaseModel
             get: fn($value) => $value ? Carbon::parse($value)->format(getDateTimeFormatFront()) : ''
         );
     }
-
 }

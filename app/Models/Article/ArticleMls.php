@@ -5,10 +5,6 @@ namespace App\Models\Article;
 use App\Models\Base\BaseMlModel;
 use App\Traits\Models\HasCompositePrimaryKey;
 
-/**
- * Class ArticleMls
- * @package App\Models\Article
- */
 class ArticleMls extends BaseMlModel
 {
     use HasCompositePrimaryKey;

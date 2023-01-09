@@ -6,10 +6,6 @@ use App\Models\RoleAndPermission\Role;
 use App\Models\User\User;
 use Illuminate\Database\Seeder;
 
-/**
- * Class UserSeeder
- * @package Database\Seeders
- */
 class UserSeeder extends Seeder
 {
     /**

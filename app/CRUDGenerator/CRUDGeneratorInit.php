@@ -7,10 +7,6 @@ use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Str;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
-/**
- * Class CRUDGeneratorInit
- * @package App\CRUDGenerator
- */
 class CRUDGeneratorInit
 {
     /**
@@ -24,8 +20,6 @@ class CRUDGeneratorInit
     protected ConsoleOutput $consoleOutput;
 
     /**
-     * CRUDGeneratorInit constructor.
-     *
      * @param $arguments
      */
     public function __construct($arguments)
@@ -102,5 +96,4 @@ Route::resource('$routeName', {$this->arguments['className']}Controller::class);
 Route::get('$routeName/dataTable/get-list', [{$this->arguments['className']}Controller::class, 'getListData'])->name('$routeName.getListData');</> <fg=yellow>in dashboard.php</>";
         $this->consoleOutput->writeln($textMessage);
     }
-
 }

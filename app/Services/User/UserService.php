@@ -10,15 +10,9 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-/**
- * Class UserService
- * @package App\Services\User
- */
 class UserService extends BaseService
 {
     /**
-     * UserService constructor.
-     *
      * @param IUserRepository $repository
      * @param IRoleRepository $roleRepository
      * @param FileTempService $fileService
@@ -27,8 +21,7 @@ class UserService extends BaseService
         IUserRepository           $repository,
         FileTempService           $fileService,
         protected IRoleRepository $roleRepository
-    )
-    {
+    ) {
         $this->repository = $repository;
         $this->fileService = $fileService;
     }

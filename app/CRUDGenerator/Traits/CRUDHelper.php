@@ -4,10 +4,6 @@ namespace App\CRUDGenerator\Traits;
 
 use Illuminate\Support\Facades\Storage;
 
-/**
- * Trait CRUDHelper
- * @package App\CRUDGenerator\Traits
- */
 trait CRUDHelper
 {
     /**

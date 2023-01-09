@@ -10,10 +10,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
-/**
- * Class BaseModel
- * @package App\Models
- */
 class BaseModel extends Model
 {
     use HasFactory;

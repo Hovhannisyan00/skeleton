@@ -5,10 +5,6 @@ namespace App\Services\File;
 use Illuminate\Database\Eloquent\Model;
 use Ramsey\Uuid\Uuid;
 
-/**
- * Class FileUploadedService
- * @package App\Services\File
- */
 class FileUploadedService extends FileService
 {
     /**
@@ -57,8 +53,8 @@ class FileUploadedService extends FileService
                 filePath: $this->getFilePathUploadsDisk($savedFile),
                 thumbConfig: $config['thumb'],
                 directoryData: [
-                'uploads' => $model::getClassName() . '/' . $fieldName
-            ]
+                    'uploads' => $model::getClassName() . '/' . $fieldName
+                ]
             );
         }
 

@@ -4,10 +4,6 @@ namespace App\Http\Requests\Article;
 
 use App\Http\Requests\Core\DatatableSearchRequest;
 
-/**
- * Class ArticleSearchRequest
- * @package App\Http\Requests\Article
- */
 class ArticleSearchRequest extends DatatableSearchRequest
 {
     /**

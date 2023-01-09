@@ -4,10 +4,6 @@ namespace App\Traits\Helpers;
 
 use Illuminate\Http\JsonResponse;
 
-/**
- * Trait ResponseFunctions
- * @package App\Traits\Helpers
- */
 trait ResponseFunctions
 {
     /**

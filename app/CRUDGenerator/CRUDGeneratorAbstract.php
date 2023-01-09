@@ -5,10 +5,6 @@ namespace App\CRUDGenerator;
 use App\CRUDGenerator\Traits\CRUDHelper;
 use Symfony\Component\Console\Output\ConsoleOutput;
 
-/**
- * Class CRUDGeneratorAbstract
- * @package App\CRUDGenerator
- */
 abstract class CRUDGeneratorAbstract
 {
     use CRUDHelper;
@@ -29,8 +25,6 @@ abstract class CRUDGeneratorAbstract
     protected array $config;
 
     /**
-     * CRUDGeneratorAbstract constructor.
-     *
      * @param $arguments
      */
     public function __construct($arguments)
@@ -152,6 +146,4 @@ abstract class CRUDGeneratorAbstract
 
         return false;
     }
-
-
 }

@@ -28,20 +28,16 @@ class FileUploadRequest extends FormRequest
         $isCropped = $config['is_cropped'] ?? false;
 
         if ($isCropped) {
-
             return [
                 'file' => 'required|string|max:200000',
                 'name' => 'required|string_with_max',
                 'config_key' => 'required|string_with_max'
             ];
-
         } else {
-
             return [
                 'file' => $config['validation'],
                 'config_key' => 'required|string_with_max'
             ];
-
         }
     }
 }

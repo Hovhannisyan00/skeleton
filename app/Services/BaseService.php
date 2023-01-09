@@ -8,10 +8,6 @@ use App\Services\File\FileTempService;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
-/**
- * Class BaseService
- * @package App\Services
- */
 abstract class BaseService
 {
     /**
@@ -105,7 +101,6 @@ abstract class BaseService
         if ($model->hasShowStatus()) {
             $this->repository->softDelete($id);
         } else {
-
             if ($model->hasFilesData()) {
                 $this->fileService()->deleteModelFile($model);
             }

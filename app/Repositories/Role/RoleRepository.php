@@ -6,15 +6,9 @@ use App\Contracts\Role\IRoleRepository;
 use App\Models\RoleAndPermission\Role;
 use App\Repositories\BaseRepository;
 
-/**
- * Class RoleRepository
- * @package App\Repositories\Role
- */
 class RoleRepository extends BaseRepository implements IRoleRepository
 {
     /**
-     * RoleRepository constructor.
-     *
      * @param Role $model
      */
     public function __construct(Role $model)

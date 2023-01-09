@@ -5,17 +5,11 @@ namespace App\CRUDGenerator\CRUDClasses;
 use App\CRUDGenerator\CRUDGeneratorAbstract;
 use Illuminate\Support\Str;
 
-/**
- * Class CreateJs
- * @package App\CRUDGenerator\CRUDClasses
- */
 class CreateJs extends CRUDGeneratorAbstract
 {
     public const JS = 'js';
 
     /**
-     * CreateJs constructor.
-     *
      * @param $arguments
      */
     public function __construct($arguments)

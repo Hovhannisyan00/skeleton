@@ -6,10 +6,6 @@ use App\CRUDGenerator\CRUDGeneratorDelete;
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
 
-/**
- * Class CRUDGeneratorRemove
- * @package App\Console\Commands
- */
 class CRUDGeneratorRemove extends Command
 {
     /**

@@ -5,10 +5,6 @@ namespace App\View\Components\Dashboard\Form;
 use App\View\Components\Dashboard\Base;
 use Illuminate\Contracts\View\View;
 
-/**
- * Class FormMl
- * @package App\View\Components\Dashboard\Form
- */
 class FormMl extends Base
 {
     /**
@@ -37,8 +33,6 @@ class FormMl extends Base
     public string $viewMode;
 
     /**
-     * FormMl constructor.
-     *
      * @param mixed $showStatus
      * @param string $action
      * @param string $indexUrl

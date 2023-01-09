@@ -4,17 +4,11 @@ namespace App\CRUDGenerator\CRUDClasses;
 
 use App\CRUDGenerator\CRUDGeneratorAbstract;
 
-/**
- * Class CreateRepository
- * @package App\CRUDGenerator\CRUDClasses
- */
 class CreateRepository extends CRUDGeneratorAbstract
 {
     public const REPOSITORY = 'repository';
 
     /**
-     * CreateRepository constructor.
-     *
      * @param $arguments
      */
     public function __construct($arguments)

@@ -6,10 +6,6 @@ use App\Http\Requests\AdditionalRules\MetaData\MetaDataValidation;
 use App\Models\Article\Article;
 use Illuminate\Foundation\Http\FormRequest;
 
-/**
- * Class ArticleRequest
- * @package App\Http\Requests\Article
- */
 class ArticleRequest extends FormRequest
 {
     /**

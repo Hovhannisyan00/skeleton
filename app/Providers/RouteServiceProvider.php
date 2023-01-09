@@ -10,10 +10,6 @@ use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-/**
- * Class RouteServiceProvider
- * @package App\Providers
- */
 class RouteServiceProvider extends ServiceProvider
 {
     /**

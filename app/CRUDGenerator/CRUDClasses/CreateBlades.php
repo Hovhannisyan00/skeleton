@@ -5,17 +5,11 @@ namespace App\CRUDGenerator\CRUDClasses;
 use App\CRUDGenerator\CRUDGeneratorAbstract;
 use Illuminate\Support\Str;
 
-/**
- * Class CreateBlades
- * @package App\CRUDGenerator\CRUDClasses
- */
 class CreateBlades extends CRUDGeneratorAbstract
 {
     public const BLADES = 'blades';
 
     /**
-     * CreateBlades constructor.
-     *
      * @param $arguments
      */
     public function __construct($arguments)
@@ -31,7 +25,7 @@ class CreateBlades extends CRUDGeneratorAbstract
     public function make(): void
     {
         foreach ($this->config['files'] as $file) {
-            if($this->hasMl() && $file['stub_file_name'] == 'form.blade'){
+            if ($this->hasMl() && $file['stub_file_name'] === 'form.blade') {
                 $file['stub_file_name'] = 'form_ml.blade';
             }
 

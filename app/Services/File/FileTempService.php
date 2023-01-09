@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\Storage;
 use Ramsey\Uuid\Uuid;
 use Symfony\Component\HttpFoundation\File\File;
 
-/**
- * Class FileTempService
- * @package App\Services\File
- */
 class FileTempService extends FileService
 {
     /**
@@ -25,7 +21,6 @@ class FileTempService extends FileService
     public function storeFile(Model $model, array $data): void
     {
         foreach ($model->getFileConfig() as $fieldName => $config) {
-
             $files = $data[$fieldName] ?? [];
             $files = is_array($files) ? $files : [$files];
 
@@ -54,7 +49,6 @@ class FileTempService extends FileService
 
         // temp file move upload
         if ($fileBaseName) {
-
             if (!isset($config['multiple'])) {
                 $this->deleteModelFile($model, $config['field_name']);
             }

@@ -4,17 +4,11 @@ namespace App\CRUDGenerator\CRUDClasses;
 
 use App\CRUDGenerator\CRUDGeneratorAbstract;
 
-/**
- * Class CreateInterface
- * @package App\CRUDGenerator\CRUDClasses
- */
 class CreateInterface extends CRUDGeneratorAbstract
 {
     public const INTERFACE = 'interface';
 
     /**
-     * CreateInterface constructor.
-     *
      * @param $arguments
      */
     public function __construct($arguments)

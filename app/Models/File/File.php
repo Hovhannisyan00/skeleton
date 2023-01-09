@@ -6,10 +6,6 @@ use App\Models\Base\BaseModel;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Support\Facades\Storage;
 
-/**
- * Class File
- * @package App\Models\File
- */
 class File extends BaseModel
 {
     use HasFactory;
@@ -85,5 +81,4 @@ class File extends BaseModel
         $explodedFileName = explode('_', $this->file_name, 2);
         return $explodedFileName[1] ?? '';
     }
-
 }

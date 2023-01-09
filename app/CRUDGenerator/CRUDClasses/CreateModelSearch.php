@@ -4,17 +4,11 @@ namespace App\CRUDGenerator\CRUDClasses;
 
 use App\CRUDGenerator\CRUDGeneratorAbstract;
 
-/**
- * Class CreateModel
- * @package App\CRUDGenerator\CRUDClasses
- */
 class CreateModelSearch extends CRUDGeneratorAbstract
 {
     public const MODEL_SEARCH = 'model_search';
 
     /**
-     * CreateModel constructor.
-     *
      * @param $arguments
      */
     public function __construct($arguments)

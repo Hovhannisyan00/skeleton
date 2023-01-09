@@ -10,19 +10,14 @@ use App\Services\Article\ArticleService;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\JsonResponse;
 
-/**
- * Class ArticleController
- * @package App\Http\Controllers\Dashboard
- */
 class ArticleController extends BaseController
 {
     /**
-     * ArticleController constructor.
-     *
      * @param ArticleService $service
      */
-    public function __construct(ArticleService $service)
-    {
+    public function __construct(
+        ArticleService $service
+    ) {
         $this->service = $service;
     }
 
@@ -86,7 +81,11 @@ class ArticleController extends BaseController
      */
     public function show(Article $article): View
     {
-        return $this->dashboardView(view: 'article.form', vars: $this->service->getViewData($article->id), viewMode: 'show');
+        return $this->dashboardView(
+            view: 'article.form',
+            vars: $this->service->getViewData($article->id),
+            viewMode: 'show'
+        );
     }
 
     /**
@@ -97,7 +96,11 @@ class ArticleController extends BaseController
      */
     public function edit(Article $article): View
     {
-        return $this->dashboardView(view: 'article.form', vars: $this->service->getViewData($article->id), viewMode: 'edit');
+        return $this->dashboardView(
+            view: 'article.form',
+            vars: $this->service->getViewData($article->id),
+            viewMode: 'edit'
+        );
     }
 
     /**
