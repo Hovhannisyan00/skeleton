@@ -87,5 +87,4 @@ trait ModelHelperFunctions
 
         return config('files.' . $this->getFileConfigName());
     }
-
 }

@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Str;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-
 /* ========================================================================================
                                 Route Helper Functions - Start
  ======================================================================================== */
