@@ -67,7 +67,6 @@ class MlTabs extends Base
             if ($attribute == self::ATTRIBUTE_NAME) {
                 $newValue = "ml[$this->lngCode][$name]$multipleName";
             } else {
-
                 $multipleName = replaceNameWithDots($multipleName);
 
                 $newValue = "ml.$this->lngCode.$name$multipleName";

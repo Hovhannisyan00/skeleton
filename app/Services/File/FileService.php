@@ -38,7 +38,8 @@ abstract class FileService
      * @param array $directoryData
      * @return bool
      */
-    protected function movePendingFileToUploadsFolder(string $fileName, array  $config = [], array  $directoryData = []): bool {
+    protected function movePendingFileToUploadsFolder(string $fileName, array $config = [], array $directoryData = []): bool
+    {
         if ($this->pendingDisk->exists($directoryData['pending'])) {
             // convert to full paths
             $fullPathPending = $this->getFilePathPendingDisk($directoryData['pending']);
