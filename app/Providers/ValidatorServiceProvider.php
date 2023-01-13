@@ -13,7 +13,7 @@ class ValidatorServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         $this->globalValidators();
 
@@ -80,7 +80,9 @@ class ValidatorServiceProvider extends ServiceProvider
         Validator::extend(
             'phone_number_validator',
             function ($attribute, $value) use ($minPhoneNumberLength, $maxPhoneNumberLength) {
-                $rules = [$attribute => "between:$minPhoneNumberLength,$maxPhoneNumberLength|regex:/^([0-9\s\-\+\(\)]*)$/"];
+                $rules = [
+                    $attribute => "between:$minPhoneNumberLength,$maxPhoneNumberLength|regex:/^([0-9\s\-\+\(\)]*)$/"
+                ];
 
                 return $this->validator($this->getAttributeValue($attribute, $value), $rules);
             },
@@ -186,5 +188,3 @@ class ValidatorServiceProvider extends ServiceProvider
         return $resultArray;
     }
 }
-
-

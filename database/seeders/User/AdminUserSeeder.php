@@ -4,6 +4,7 @@ namespace Database\Seeders\User;
 
 use App\Models\RoleAndPermission\Role;
 use App\Models\User\User;
+use Hash;
 use Illuminate\Database\Seeder;
 
 /**
@@ -24,7 +25,7 @@ class AdminUserSeeder extends Seeder
             'first_name' => 'Admin',
             'last_name' => 'Admin',
             'email' => 'admin@admin.com',
-            'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'password' => Hash::make('password'),
         ]);
 
         $user->assignRole(Role::ROLE_SUPER_ADMIN);

@@ -28,11 +28,11 @@ trait HasFileData
     /**
      * Function to get model files (morph table)
      *
-     * @param null $fieldName
-     * @param null $fileType
+     * @param string|null $fieldName
+     * @param string|null $fileType
      * @return MorphMany
      */
-    public function files($fieldName = null, $fileType = null): MorphMany
+    public function files(string $fieldName = null, string $fileType = null): MorphMany
     {
         return $this->morphMany(File::class, 'fileable')
             ->when($fieldName, function ($query) use ($fieldName) {

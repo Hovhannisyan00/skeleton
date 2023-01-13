@@ -16,7 +16,7 @@ class UserMenuScope implements Scope
      * @param Model $model
      * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
         $builder->whereHas('roles', function ($q) {
             $q->whereIn('id', Auth::user()->roles->pluck('id')->all());

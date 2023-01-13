@@ -25,7 +25,7 @@ trait HasMlData
      *
      * @return void
      */
-    protected function initializeHasMlData()
+    protected function initializeHasMlData(): void
     {
         $this->initMlClass();
     }

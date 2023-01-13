@@ -98,7 +98,7 @@ abstract class Search
      * @param $query
      * @return Collection
      */
-    public function setReturnData($query): Collection
+    public function setReturnData($query): mixed
     {
         return $query->get();
     }

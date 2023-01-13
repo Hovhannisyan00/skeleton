@@ -16,7 +16,7 @@ class DeletedScope implements Scope
      * @param Model $model
      * @return void
      */
-    public function apply(Builder $builder, Model $model)
+    public function apply(Builder $builder, Model $model): void
     {
         if ($model->hasShowStatus()) {
             $builder->where('show_status', '!=', BaseModel::SHOW_STATUS_DELETED);
