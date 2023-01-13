@@ -200,7 +200,8 @@ if (!function_exists("formatDateForBackend")) {
 if (!function_exists("formatDateTimeForBackend")) {
     function formatDateTimeForBackend($dateTime): string
     {
-        return $dateTime ? Carbon::createFromFormat(getDateTimeFormatFront(), $dateTime)->format(getDateTimeFormat()) : '';
+        return $dateTime ? Carbon::createFromFormat(getDateTimeFormatFront(), $dateTime)
+            ->format(getDateTimeFormat()) : '';
     }
 }
 

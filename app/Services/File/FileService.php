@@ -38,12 +38,17 @@ abstract class FileService
      * @param array $directoryData
      * @return bool
      */
-    protected function movePendingFileToUploadsFolder(string $fileName, array $config = [], array $directoryData = []): bool
-    {
+    protected function movePendingFileToUploadsFolder(
+        string $fileName,
+        array  $config = [],
+        array  $directoryData = []
+    ): bool {
         if ($this->pendingDisk->exists($directoryData['pending'])) {
             // convert to full paths
             $fullPathPending = $this->getFilePathPendingDisk($directoryData['pending']);
-            $filePath = isset($directoryData['uploads']) ? '/' . $directoryData['uploads'] . '/' . $fileName : $fileName;
+            $filePath = isset($directoryData['uploads'])
+                ? '/' . $directoryData['uploads'] . '/' . $fileName
+                : $fileName;
             $fullPathUploads = $this->getFilePathUploadsDisk($filePath);
 
             // make destination folder
@@ -74,15 +79,22 @@ abstract class FileService
      * @param array $thumbConfig
      * @return void
      */
-    protected function saveThumb(string $fileName, string $filePath, array $thumbConfig, array $directoryData = []): void
-    {
+    protected function saveThumb(
+        string $fileName,
+        string $filePath,
+        array  $thumbConfig,
+        array  $directoryData = []
+    ): void {
         foreach ($thumbConfig as $thumb) {
             $thumbWidth = $thumb['width'];
             $thumbHeight = $thumb['height'] ?? null;
 
             $thumbResizePath = $this->getThumbResizePath($thumbWidth, $thumbHeight);
 
-            $fileThumbPath = isset($directoryData['uploads']) ? '/' . $directoryData['uploads'] . '/thumbs/' . "$thumbResizePath/" . $fileName : '/thumbs/' . $fileName;
+            $fileThumbPath = isset($directoryData['uploads'])
+                ? '/' . $directoryData['uploads'] . '/thumbs/' . "$thumbResizePath/" . $fileName
+                : '/thumbs/' . $fileName;
+
             $fullThumbPathUploads = $this->getFilePathUploadsDisk($fileThumbPath);
 
             $this->makeDirectory($fullThumbPathUploads);
@@ -117,8 +129,9 @@ abstract class FileService
      * Function to delete file
      *
      * @param string $id
+     * @return void
      */
-    public function deleteFile(string $id)
+    public function deleteFile(string $id): void
     {
         $file = $this->repository->findOrFail($id);
         $this->deleteFilePhysically($file);
@@ -141,7 +154,8 @@ abstract class FileService
             if (isset($config['thumb'])) {
                 foreach ($config['thumb'] as $thumb) {
                     $thumbResizePath = $this->getThumbResizePath($thumb['width'], $thumb['height'] ?? null);
-                    $thumbFilePath = $file->dir_prefix . '/' . $file->field_name . '/thumbs/' . $thumbResizePath . '/' . $file->file_name;
+                    $thumbFilePath = $file->dir_prefix . '/' . $file->field_name . '/thumbs/' . $thumbResizePath;
+                    $thumbFilePath .= '/' . $file->file_name;
 
                     if ($this->uploadsDisk->exists($thumbFilePath)) {
                         $this->uploadsDisk->delete($thumbFilePath);
@@ -178,7 +192,9 @@ abstract class FileService
     {
         $originalName = $file->getClientOriginalName();
         $filename = basename($originalName, '.' . pathinfo($originalName, PATHINFO_EXTENSION));
-        return uniqid() . '_' . mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $filename) . '.' . $file->getClientOriginalExtension();
+        $uniqueID = uniqid() . '_' . mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $filename);
+
+        return $uniqueID . '.' . $file->getClientOriginalExtension();
     }
 
     /**
