@@ -11,7 +11,8 @@
 
     {{-- Styles  --}}
     <link href="{{ asset('/css/dashboard/datatable.css') }}" rel="stylesheet">
-    <link href="{{mix('/css/dashboard/dashboard-app.css')}}" rel="stylesheet">
+    @vite(['resources/sass/dashboard/dashboard-app.scss'])
+
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
     {{ $head ?? '' }}
@@ -35,10 +36,11 @@
 
 <x-dashboard.partials.modals></x-dashboard.partials.modals>
 
-<script src="{{ mix('/js/dashboard/dashboard-app.js') }}"></script>
-
 {{-- Core Js  --}}
-<script src="{{ mix('/js/dashboard/bundle.js') }}"></script>
+@vite(['resources/js/dashboard/bundle.js', 'resources/js/dashboard/dashboard-app.js'])
+<!--<script src="{{ mix('/js/dashboard/dashboard-app.js') }}"></script>
+
+<script src="{{ mix('/js/dashboard/bundle.js') }}"></script>-->
 
 {{ $scripts ?? '' }}
 
