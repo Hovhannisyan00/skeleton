@@ -36,9 +36,6 @@ abstract class Search
         'id',
     ];
 
-    /**
-     * @param $data
-     */
     public function __construct($data)
     {
         if (!empty($data['f'])) {

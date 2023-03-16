@@ -22,9 +22,6 @@ abstract class FileService
      */
     protected Filesystem $pendingDisk;
 
-    /**
-     * @param FileRepository $repository
-     */
     public function __construct(protected FileRepository $repository)
     {
         $this->setDisks();

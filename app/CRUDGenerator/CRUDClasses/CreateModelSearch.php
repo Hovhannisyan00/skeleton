@@ -8,9 +8,6 @@ class CreateModelSearch extends CRUDGeneratorAbstract
 {
     public const MODEL_SEARCH = 'model_search';
 
-    /**
-     * @param $arguments
-     */
     public function __construct($arguments)
     {
         parent::__construct($arguments);
@@ -19,7 +16,7 @@ class CreateModelSearch extends CRUDGeneratorAbstract
     }
 
     /**
-     * @return void
+     *
      */
     public function make(): void
     {
@@ -27,7 +24,7 @@ class CreateModelSearch extends CRUDGeneratorAbstract
     }
 
     /**
-     * @return string
+     *
      */
     public function getMessageText(): string
     {
@@ -36,8 +33,6 @@ class CreateModelSearch extends CRUDGeneratorAbstract
 
     /**
      * Function to return stub variables
-     *
-     * @return array
      */
     protected function stubVariables(): array
     {

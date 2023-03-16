@@ -8,12 +8,8 @@ use Illuminate\Validation\Rules\Password;
 
 class ProfileRequest extends FormRequest
 {
-    /**
-     * Get the validation rules that apply to the request.
-     */
     public function rules(): array
     {
-
         return [
             'first_name' => 'required|string_with_max',
             'last_name' => 'required|string_with_max',

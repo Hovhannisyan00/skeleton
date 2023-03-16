@@ -22,11 +22,6 @@ class CRUDGeneratorRemove extends Command
      */
     protected $description = 'Command for delete created crud';
 
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         parent::__construct();
@@ -34,8 +29,6 @@ class CRUDGeneratorRemove extends Command
 
     /**
      * Function to remove crud generated data
-     *
-     * @return void
      */
     public function handle(): void
     {

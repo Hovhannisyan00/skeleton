@@ -15,23 +15,17 @@ class UserController extends BaseController
 {
     public function __construct(
         IUserRepository $repository,
-        UserService     $service
+        UserService $service
     ) {
         $this->service = $service;
         $this->repository = $repository;
     }
 
-    /**
-     * Function to return users index view
-     */
     public function index(): View
     {
         return $this->dashboardView('user.index');
     }
 
-    /**
-     * Function to return users list
-     */
     public function getListData(UserSearchRequest $request): array
     {
         $searcher = new UserSearch($request->validated());
@@ -43,17 +37,14 @@ class UserController extends BaseController
         ];
     }
 
-    /**
-     * Function to return users create view
-     */
     public function create(): View
     {
-        return $this->dashboardView(view: 'user.form', vars: $this->service->getViewData());
+        return $this->dashboardView(
+            view: 'user.form',
+            vars: $this->service->getViewData()
+        );
     }
 
-    /**
-     * Function to create user
-     */
     public function store(UserRequest $request): JsonResponse
     {
         $this->service->createOrUpdate($request->validated());
@@ -63,25 +54,24 @@ class UserController extends BaseController
         ]);
     }
 
-    /**
-     * Function to show user
-     */
     public function show(User $user): View
     {
-        return $this->dashboardView(view: 'user.form', vars: $this->service->getViewData($user->id), viewMode: 'show');
+        return $this->dashboardView(
+            view: 'user.form',
+            vars: $this->service->getViewData($user->id),
+            viewMode: 'show'
+        );
     }
 
-    /**
-     * Function to return users edit view
-     */
     public function edit(User $user): View
     {
-        return $this->dashboardView(view: 'user.form', vars: $this->service->getViewData($user->id), viewMode: 'edit');
+        return $this->dashboardView(
+            view: 'user.form',
+            vars: $this->service->getViewData($user->id),
+            viewMode: 'edit'
+        );
     }
 
-    /**
-     * Function to update user
-     */
     public function update(UserRequest $request, User $user): JsonResponse
     {
         $this->service->createOrUpdate($request->validated(), $user->id);
@@ -91,9 +81,6 @@ class UserController extends BaseController
         ]);
     }
 
-    /**
-     * Function to delete user
-     */
     public function destroy(User $user): JsonResponse
     {
         $this->service->delete($user->id);

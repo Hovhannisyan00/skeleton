@@ -13,10 +13,6 @@ use Illuminate\Contracts\View\View;
 
 class {{ CLASS_NAME }}Controller extends BaseController
 {
-    /**
-     * @param {{ CLASS_NAME }}Service $service
-     * @param I{{ CLASS_NAME }}Repository $repository
-     */
     public function __construct(
         {{ CLASS_NAME }}Service     $service,
         I{{ CLASS_NAME }}Repository $repository
@@ -25,22 +21,11 @@ class {{ CLASS_NAME }}Controller extends BaseController
         $this->repository = $repository;
     }
 
-    /**
-     * Function to return {{ SINGULAR_CLASS_NAME }} index view
-     *
-     * @return View
-     */
     public function index(): View
     {
         return $this->dashboardView('{{ FOLDER_NAME }}.index');
     }
 
-    /**
-     * Function to return {{ PLURAL_CLASS_NAME }} list
-     *
-     * @param {{ CLASS_NAME }}SearchRequest $request
-     * @return array
-     */
     public function getListData({{ CLASS_NAME }}SearchRequest $request): array
     {
         $searcher = new {{ CLASS_NAME }}Search($request->validated());
@@ -52,22 +37,11 @@ class {{ CLASS_NAME }}Controller extends BaseController
         ];
     }
 
-    /**
-     * Function to return {{ SINGULAR_CLASS_NAME }} create view
-     *
-     * @return View
-     */
     public function create(): View
     {
         return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: $this->service->getViewData());
     }
 
-    /**
-     * Function to store {{ SINGULAR_CLASS_NAME }}
-     *
-     * @param {{ CLASS_NAME }}Request $request
-     * @return JsonResponse
-     */
     public function store({{ CLASS_NAME }}Request $request): JsonResponse
     {
      // $this->service->createOrUpdate($request->validated()); // For ML, File
@@ -78,23 +52,11 @@ class {{ CLASS_NAME }}Controller extends BaseController
         ]);
     }
 
-    /**
-     * Function to show {{ SINGULAR_CLASS_NAME }}
-     *
-     * @param {{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}
-     * @return View
-     */
     public function show({{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}): View
     {
    //  return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: $this->service->getViewData(${{ LOWER_CLASS_NAME }}->id), viewMode: 'show');
     }
 
-    /**
-     * Function to return {{ SINGULAR_CLASS_NAME }} edit view
-     *
-     * @param {{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}
-     * @return View
-     */
     public function edit({{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}): View
     {
         ${{ CAMEL_CASE_CLASS_NAME }} = $this->repository->find(${{ LOWER_CLASS_NAME }}->id);
@@ -103,13 +65,6 @@ class {{ CLASS_NAME }}Controller extends BaseController
         return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: ['{{ CAMEL_CASE_CLASS_NAME }}' => ${{ CAMEL_CASE_CLASS_NAME }}], viewMode: 'edit');
     }
 
-    /**
-     * Function to update {{ SINGULAR_CLASS_NAME }}
-     *
-     * @param {{ CLASS_NAME }}Request $request
-     * @param {{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}
-     * @return JsonResponse
-     */
     public function update({{ CLASS_NAME }}Request $request, {{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}): JsonResponse
     {
      // $this->service->createOrUpdate($request->validated(), ${{ LOWER_CLASS_NAME }}->id);  // For ML, File
@@ -120,12 +75,6 @@ class {{ CLASS_NAME }}Controller extends BaseController
         ]);
     }
 
-    /**
-     * Function to delete {{ SINGULAR_CLASS_NAME }}
-     *
-     * @param {{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}
-     * @return JsonResponse
-     */
     public function destroy({{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}): JsonResponse
     {
      // $this->service->delete(${{ LOWER_CLASS_NAME }}->id); // For ML, File

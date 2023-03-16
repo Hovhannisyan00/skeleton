@@ -19,9 +19,6 @@ class CRUDGeneratorInit
      */
     protected ConsoleOutput $consoleOutput;
 
-    /**
-     * @param $arguments
-     */
     public function __construct($arguments)
     {
         $this->arguments = $arguments;
@@ -31,7 +28,6 @@ class CRUDGeneratorInit
     /**
      * Function to init crud functionality
      *
-     * @return void
      * @throws BindingResolutionException
      */
     public function init(): void
@@ -50,8 +46,6 @@ class CRUDGeneratorInit
 
     /**
      * Function to make migration.
-     *
-     * @return void
      */
     private function makeMigration(): void
     {
@@ -62,8 +56,6 @@ class CRUDGeneratorInit
 
     /**
      * Function to make ml migration.
-     *
-     * @return void
      */
     private function makeMigrationMl(): void
     {
@@ -76,8 +68,6 @@ class CRUDGeneratorInit
 
     /**
      * Function to show success message.
-     *
-     * @return void
      */
     private function successMessage(): void
     {

@@ -16,9 +16,6 @@ class CRUDGeneratorDelete
      */
     protected string $className;
 
-    /**
-     * @param $arguments
-     */
     public function __construct($arguments)
     {
         $this->className = $arguments['className'];
@@ -26,8 +23,6 @@ class CRUDGeneratorDelete
 
     /**
      * Function to remove crud generated data
-     *
-     * @return void
      */
     public function deleteCrudData(): void
     {

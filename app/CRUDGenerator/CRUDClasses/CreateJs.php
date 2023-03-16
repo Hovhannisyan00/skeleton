@@ -9,9 +9,6 @@ class CreateJs extends CRUDGeneratorAbstract
 {
     public const JS = 'js';
 
-    /**
-     * @param $arguments
-     */
     public function __construct($arguments)
     {
         parent::__construct($arguments);
@@ -20,7 +17,7 @@ class CreateJs extends CRUDGeneratorAbstract
     }
 
     /**
-     * @return void
+     *
      */
     public function make(): void
     {
@@ -30,7 +27,7 @@ class CreateJs extends CRUDGeneratorAbstract
     }
 
     /**
-     * @return string
+     *
      */
     public function getMessageText(): string
     {
@@ -39,8 +36,6 @@ class CreateJs extends CRUDGeneratorAbstract
 
     /**
      * Function to return stub variables
-     *
-     * @return array
      */
     protected function stubVariables(): array
     {

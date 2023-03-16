@@ -42,15 +42,10 @@ class MultipleGroup extends Base
     public const TAG_TEXTAREA = 'textarea';
     public const TAG_SELECT = 'select';
 
-    /**
-     * @param string $class
-     * @param string $index
-     * @param array $multipleData
-     */
     public function __construct(
         string $class = '',
         string $index = '0',
-        mixed  $multipleData = []
+        mixed $multipleData = []
     ) {
         $this->class = $class;
         $this->index = $index;
@@ -60,12 +55,8 @@ class MultipleGroup extends Base
 
     /**
      * Function to render html
-     *
-     * @param string $html
-     * @param array $multipleData
-     * @param string $index
      */
-    public function renderHtml(string $html, mixed $multipleData, string $index)
+    public function renderHtml(string $html, mixed $multipleData, string $index): void
     {
         $this->multipleData = $multipleData;
         $this->index = $index;
@@ -82,12 +73,8 @@ class MultipleGroup extends Base
 
     /**
      * Function to find by selector and change html tag
-     *
-     * @param $xpath
-     * @param string $selector
-     * @param string $attribute
      */
-    private function find($xpath, string $selector, string $attribute = self::ATTRIBUTE_NAME)
+    private function find($xpath, string $selector, string $attribute = self::ATTRIBUTE_NAME): void
     {
         $elements = $xpath->query($selector);
         $this->changeNameAndSetValue($elements, $attribute);
@@ -95,9 +82,6 @@ class MultipleGroup extends Base
 
     /**
      * Function to change html tag name and set value
-     *
-     * @param $inputs
-     * @param $attribute
      */
     private function changeNameAndSetValue($inputs, $attribute)
     {
@@ -122,9 +106,6 @@ class MultipleGroup extends Base
 
     /**
      * Function to element set value
-     *
-     * @param $input
-     * @param $name
      */
     private function setValue($input, $name)
     {
@@ -152,8 +133,6 @@ class MultipleGroup extends Base
 
     /**
      * Get the view / contents that represent the component.
-     *
-     * @return View
      */
     public function render(): View
     {

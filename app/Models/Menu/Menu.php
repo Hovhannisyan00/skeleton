@@ -51,7 +51,7 @@ class Menu extends BaseModel
     /**
      * Function to get admin type menu
      */
-    public function scopeAdmin(Builder $builder)
+    public function scopeAdmin(Builder $builder): void
     {
         $builder->where('type', self::MENU_TYPE_ADMIN);
     }

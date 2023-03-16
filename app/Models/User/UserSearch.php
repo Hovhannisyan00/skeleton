@@ -7,9 +7,6 @@ use Illuminate\Database\Eloquent\Builder;
 
 class UserSearch extends Search
 {
-    /**
-     * @var string[]
-     */
     protected array $orderables = [
         'id',
         'first_name',

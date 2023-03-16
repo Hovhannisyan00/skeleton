@@ -8,11 +8,6 @@ use Illuminate\Contracts\View\View;
 
 class MenuComponent extends Base
 {
-    /**
-     * Menu constructor
-     *
-     * @return void
-     */
     public function __construct()
     {
         //
@@ -20,8 +15,6 @@ class MenuComponent extends Base
 
     /**
      * Function to render Menu view
-     *
-     * @return View
      */
     public function render(): View
     {

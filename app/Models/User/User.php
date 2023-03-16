@@ -65,8 +65,6 @@ class User extends Authenticatable
 
     /**
      * Function to set model files config name
-     *
-     * @return string
      */
     public function setFileConfigName(): string
     {

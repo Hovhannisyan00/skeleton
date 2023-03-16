@@ -16,10 +16,6 @@ class Base extends Component
 
     /**
      * Function to show dashboard component
-     *
-     * @param string|null $componentName
-     * @param array|null $vars
-     * @return View
      */
     public function dashboardComponent(string $componentName = null, ?array $vars = []): View
     {

@@ -7,17 +7,11 @@ use Illuminate\Database\Eloquent\Builder;
 
 class {{ CLASS_NAME }}Search extends Search
 {
-    /**
-     * @var string[]
-     */
     protected array $orderables = [
         'id',
         'name'
     ];
 
-    /**
-     * @return Builder
-     */
     protected function query(): Builder
     {
         $filters = $this->filters;
@@ -34,9 +28,6 @@ class {{ CLASS_NAME }}Search extends Search
              });
     }
 
-    /**
-     * @return int
-     */
     public function totalCount(): int
     {
         return {{ CLASS_NAME }}::count();

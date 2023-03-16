@@ -18,17 +18,11 @@ class ArticleController extends BaseController
         $this->service = $service;
     }
 
-    /**
-     * Function to return article index view
-     */
     public function index(): View
     {
         return $this->dashboardView('article.index');
     }
 
-    /**
-     * Function to return article list
-     */
     public function getListData(ArticleSearchRequest $request): array
     {
         $searcher = new ArticleSearch($request->validated());
@@ -40,17 +34,11 @@ class ArticleController extends BaseController
         ];
     }
 
-    /**
-     * Function to return article create view
-     */
     public function create(): View
     {
         return $this->dashboardView(view: 'article.form', vars: $this->service->getViewData());
     }
 
-    /**
-     * Function to create article
-     */
     public function store(ArticleRequest $request): JsonResponse
     {
         $this->service->createOrUpdate($request->validated());
@@ -60,9 +48,6 @@ class ArticleController extends BaseController
         ]);
     }
 
-    /**
-     * Function to show article
-     */
     public function show(Article $article): View
     {
         return $this->dashboardView(
@@ -72,9 +57,6 @@ class ArticleController extends BaseController
         );
     }
 
-    /**
-     * Function to return article edit view
-     */
     public function edit(Article $article): View
     {
         return $this->dashboardView(
@@ -84,9 +66,6 @@ class ArticleController extends BaseController
         );
     }
 
-    /**
-     * Function to update article
-     */
     public function update(ArticleRequest $request, Article $article): JsonResponse
     {
         $this->service->createOrUpdate($request->validated(), $article->id);
@@ -96,9 +75,6 @@ class ArticleController extends BaseController
         ]);
     }
 
-    /**
-     * Function to delete article
-     */
     public function destroy(Article $article): JsonResponse
     {
         $this->service->delete($article->id);

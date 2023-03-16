@@ -10,9 +10,6 @@ use Illuminate\Support\Facades\Auth;
 
 class BaseRepository implements IBaseRepository
 {
-    /**
-     * @var Model
-     */
     public Model $model;
 
     public function __construct(Model $model)

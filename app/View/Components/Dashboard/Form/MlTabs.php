@@ -4,6 +4,8 @@ namespace App\View\Components\Dashboard\Form;
 
 use App\View\Components\Dashboard\Base;
 use DOMDocument;
+use DOMElement;
+use DOMNodeList;
 use DOMXPath;
 use Illuminate\Contracts\View\View;
 
@@ -33,12 +35,8 @@ class MlTabs extends Base
 
     /**
      * Function to find by selector and change html tag
-     *
-     * @param $xpath
-     * @param string $selector
-     * @param string $attribute
      */
-    private function find($xpath, string $selector, string $attribute = self::ATTRIBUTE_NAME)
+    private function find(DOMXPath $xpath, string $selector, string $attribute = self::ATTRIBUTE_NAME): void
     {
         $elements = $xpath->query($selector);
         $this->changeNameAndSetValue($elements, $attribute);
@@ -46,11 +44,8 @@ class MlTabs extends Base
 
     /**
      * Function to change html tag name and set value
-     *
-     * @param $inputs
-     * @param $attribute
      */
-    private function changeNameAndSetValue($inputs, $attribute)
+    private function changeNameAndSetValue(DOMNodeList $inputs, string $attribute): void
     {
         foreach ($inputs as $input) {
             $name = $input->getAttribute($attribute);
@@ -78,11 +73,8 @@ class MlTabs extends Base
 
     /**
      * Function to element set value
-     *
-     * @param $input
-     * @param $name
      */
-    private function setValue($input, $name)
+    private function setValue(DOMElement $input, string $name): void
     {
         $columnValue = $this->mlData[$this->lngCode]->$name;
         $tagName = $input->tagName;
@@ -94,13 +86,9 @@ class MlTabs extends Base
     }
 
     /**
-     *  Function to render html
-     *
-     * @param string $html
-     * @param string $lngCode
-     * @param array $mlData
+     * Function to render html
      */
-    public function renderHtml(string $html, string $lngCode, mixed $mlData = null)
+    public function renderHtml(string $html, string $lngCode, mixed $mlData = null): void
     {
         $this->lngCode = $lngCode;
         $this->mlData = $mlData;
@@ -115,8 +103,6 @@ class MlTabs extends Base
 
     /**
      * Get the view / contents that represent the component.
-     *
-     * @return View
      */
     public function render(): View
     {

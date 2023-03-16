@@ -8,10 +8,6 @@ trait ResponseFunctions
 {
     /**
      * Function to send response
-     *
-     * @param array $result
-     * @param int $statusCode
-     * @return JsonResponse
      */
     public function sendResponse(array $result = [], int $statusCode = 200): JsonResponse
     {
@@ -20,9 +16,6 @@ trait ResponseFunctions
 
     /**
      * Function to send OK response
-     *
-     * @param array $response
-     * @return JsonResponse
      */
     public function sendOk(array $response = []): JsonResponse
     {
@@ -33,9 +26,6 @@ trait ResponseFunctions
 
     /**
      * Function to send OK response with created message
-     *
-     * @param array $response
-     * @return JsonResponse
      */
     public function sendOkCreated(array $response = []): JsonResponse
     {
@@ -47,9 +37,6 @@ trait ResponseFunctions
 
     /**
      * Function to send OK response with updated message
-     *
-     * @param array $response
-     * @return JsonResponse
      */
     public function sendOkUpdated(array $response = []): JsonResponse
     {
@@ -61,9 +48,6 @@ trait ResponseFunctions
 
     /**
      * Function to send OK response with deleted message
-     *
-     * @param array $response
-     * @return JsonResponse
      */
     public function sendOkDeleted(array $response = []): JsonResponse
     {
@@ -75,9 +59,6 @@ trait ResponseFunctions
 
     /**
      * Function to send OK response with notification
-     *
-     * @param array $response
-     * @return JsonResponse
      */
     public function sendOkWithNotification(array $response = []): JsonResponse
     {
@@ -90,10 +71,6 @@ trait ResponseFunctions
 
     /**
      * Function to send invalid response
-     *
-     * @param array $response
-     * @param int $statusCode
-     * @return JsonResponse
      */
     public function sendInvalid(array $response = [], int $statusCode = 200): JsonResponse
     {

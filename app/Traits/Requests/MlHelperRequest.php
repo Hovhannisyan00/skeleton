@@ -6,9 +6,6 @@ trait MlHelperRequest
 {
     /**
      * Function to making rules set default lng required, other languages set nullable(for default)
-     *
-     * @param array $rules
-     * @return array
      */
     public function makeMlRules(array $rules = []): array
     {

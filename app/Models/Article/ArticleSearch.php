@@ -7,9 +7,6 @@ use Illuminate\Database\Eloquent\Builder;
 
 class ArticleSearch extends Search
 {
-    /**
-     * @var string[]
-     */
     protected array $orderables = [
         'id',
         'title',

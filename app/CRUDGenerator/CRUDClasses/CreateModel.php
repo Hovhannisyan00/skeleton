@@ -37,8 +37,6 @@ class CreateModel extends CRUDGeneratorAbstract
 
     /**
      * Function to return stub variables
-     *
-     * @return array
      */
     protected function stubVariables(): array
     {

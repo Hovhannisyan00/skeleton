@@ -9,26 +9,20 @@ use Illuminate\Http\JsonResponse;
 
 class ProfileController extends BaseController
 {
-    /**
-     * @param ProfileService $service
-     */
     public function __construct(
         ProfileService $service
     ) {
         $this->service = $service;
     }
 
-    /**
-     * Function to show profile page
-     */
     public function index(): View
     {
-        return $this->dashboardView(view: 'profile.index', vars: $this->service->getViewData(auth()->id()));
+        return $this->dashboardView(
+            view: 'profile.index',
+            vars: $this->service->getViewData(auth()->id())
+        );
     }
 
-    /**
-     * Function to update profile data
-     */
     public function update(ProfileRequest $profileRequest, int $id): JsonResponse
     {
         $this->service->update($profileRequest->validated(), $id);

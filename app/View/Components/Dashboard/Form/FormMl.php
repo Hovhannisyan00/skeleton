@@ -32,13 +32,6 @@ class FormMl extends Base
      */
     public string $viewMode;
 
-    /**
-     * @param mixed $showStatus
-     * @param string $action
-     * @param string $indexUrl
-     * @param string $method
-     * @param string $viewMode
-     */
     public function __construct(
         string $showStatus = null,
         string $action = '',
@@ -53,12 +46,7 @@ class FormMl extends Base
         $this->viewMode = $viewMode;
     }
 
-    /**
-     * @param string $slot
-     * @param string $lngCode
-     * @param array $mlData
-     */
-    public function renderMlHtml(string $slot, string $lngCode, mixed $mlData = null)
+    public function renderMlHtml(string $slot, string $lngCode, mixed $mlData = null): void
     {
         $mlForm = new MlTabs();
 
@@ -67,8 +55,6 @@ class FormMl extends Base
 
     /**
      * Get the view / contents that represent the component.
-     *
-     * @return View
      */
     public function render(): View
     {

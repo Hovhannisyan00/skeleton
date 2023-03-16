@@ -12,19 +12,10 @@ abstract class BaseController extends Controller
 {
     use ResponseFunctions;
 
-    /**
-     * @var string
-     */
     protected const DASHBOARD_VIEW_PREFIX = 'components.dashboard';
 
-    /**
-     * @var BaseService
-     */
     protected BaseService $service;
 
-    /**
-     * @var IBaseRepository
-     */
     protected IBaseRepository $repository;
 
     /**

@@ -8,9 +8,6 @@ class CreateService extends CRUDGeneratorAbstract
 {
     public const SERVICE = 'service';
 
-    /**
-     * @param $arguments
-     */
     public function __construct($arguments)
     {
         parent::__construct($arguments);
@@ -19,7 +16,7 @@ class CreateService extends CRUDGeneratorAbstract
     }
 
     /**
-     * @return void
+     *
      */
     public function make(): void
     {
@@ -27,7 +24,7 @@ class CreateService extends CRUDGeneratorAbstract
     }
 
     /**
-     * @return string
+     *
      */
     public function getMessageText(): string
     {
@@ -36,8 +33,6 @@ class CreateService extends CRUDGeneratorAbstract
 
     /**
      * Function to return stub variables
-     *
-     * @return array
      */
     protected function stubVariables(): array
     {

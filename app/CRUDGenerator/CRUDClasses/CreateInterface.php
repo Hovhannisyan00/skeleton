@@ -8,9 +8,6 @@ class CreateInterface extends CRUDGeneratorAbstract
 {
     public const INTERFACE = 'interface';
 
-    /**
-     * @param $arguments
-     */
     public function __construct($arguments)
     {
         parent::__construct($arguments);
@@ -19,7 +16,7 @@ class CreateInterface extends CRUDGeneratorAbstract
     }
 
     /**
-     * @return void
+     *
      */
     public function make(): void
     {
@@ -27,7 +24,7 @@ class CreateInterface extends CRUDGeneratorAbstract
     }
 
     /**
-     * @return string
+     *
      */
     public function getMessageText(): string
     {
@@ -36,8 +33,6 @@ class CreateInterface extends CRUDGeneratorAbstract
 
     /**
      * Function to return stub variables
-     *
-     * @return array
      */
     protected function stubVariables(): array
     {

@@ -24,29 +24,18 @@ abstract class CRUDGeneratorAbstract
      */
     protected array $config;
 
-    /**
-     * @param $arguments
-     */
     public function __construct($arguments)
     {
         $this->arguments = $arguments;
         $this->className = $arguments['className'];
     }
 
-    /**
-     * @return void
-     */
     abstract protected function make(): void;
 
-    /**
-     * @return string
-     */
     abstract protected function getMessageText(): string;
 
     /**
      * Function to show message in terminal
-     *
-     * @return void
      */
     public function showMessage(): void
     {
@@ -57,9 +46,6 @@ abstract class CRUDGeneratorAbstract
 
     /**
      * Function to get CRUD config by key
-     *
-     * @param $key
-     * @return array
      */
     protected function getConfig($key): array
     {
@@ -68,17 +54,11 @@ abstract class CRUDGeneratorAbstract
 
     /**
      * Map the stub variables present in stub to its value
-     *
-     * @return array
-     *
      */
     abstract protected function stubVariables(): array;
 
     /**
      * Function to return stub directory path
-     *
-     * @param $fileInfo
-     * @return string
      */
     protected function getStubDirectoryPath($fileInfo): string
     {
@@ -87,9 +67,6 @@ abstract class CRUDGeneratorAbstract
 
     /**
      * Return the stub file path
-     *
-     * @param array $fileInfo
-     * @return string
      */
     protected function getStubFilePath(array $fileInfo): string
     {
@@ -101,10 +78,6 @@ abstract class CRUDGeneratorAbstract
 
     /**
      * Replace the stub variables(key) with the desire value
-     *
-     * @param $stub
-     * @param array $stubVariables
-     * @return string
      */
     protected function getStubContents($stub, array $stubVariables = []): string
     {
@@ -120,9 +93,6 @@ abstract class CRUDGeneratorAbstract
 
     /**
      * Get the stub path and the stub variables
-     *
-     * @param array|null $fileInfo
-     * @return array
      */
     protected function getSourceFile(array $fileInfo = null): array
     {
@@ -135,8 +105,6 @@ abstract class CRUDGeneratorAbstract
 
     /**
      * Function to check crud has ml
-     *
-     * @return bool
      */
     public function hasMl(): bool
     {

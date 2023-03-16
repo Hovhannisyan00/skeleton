@@ -7,9 +7,6 @@ use {{ ROOT_NAMESPACE }}Services\BaseService;
 
 class {{ CLASS_NAME }}Service extends BaseService
 {
-    /**
-     * @param I{{ CLASS_NAME }}Repository $repository
-     */
     public function __construct(I{{ CLASS_NAME }}Repository $repository)
     {
         $this->repository = $repository;

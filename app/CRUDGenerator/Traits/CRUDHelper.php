@@ -8,9 +8,6 @@ trait CRUDHelper
 {
     /**
      * Function to create file.
-     *
-     * @param array $data
-     * @return void
      */
     public function createFolderAndFile(array $data): void
     {
@@ -30,10 +27,6 @@ trait CRUDHelper
 
     /**
      * Function to replace :attribute to class name
-     *
-     * @param string $fileName
-     * @param null $CLASS_NAME
-     * @return string
      */
     protected function replaceAttributeByClassName(string $fileName, $CLASS_NAME = null): string
     {

@@ -9,9 +9,6 @@ class CreateSearchRequest extends CRUDGeneratorAbstract
 {
     public const REQUEST_REQUEST = 'search_request';
 
-    /**
-     * @param $arguments
-     */
     public function __construct($arguments)
     {
         parent::__construct($arguments);
@@ -20,7 +17,7 @@ class CreateSearchRequest extends CRUDGeneratorAbstract
     }
 
     /**
-     * @return void
+     *
      */
     public function make(): void
     {
@@ -28,7 +25,7 @@ class CreateSearchRequest extends CRUDGeneratorAbstract
     }
 
     /**
-     * @return string
+     *
      */
     public function getMessageText(): string
     {
@@ -37,8 +34,6 @@ class CreateSearchRequest extends CRUDGeneratorAbstract
 
     /**
      * Function to return stub variables
-     *
-     * @return array
      */
     protected function stubVariables(): array
     {

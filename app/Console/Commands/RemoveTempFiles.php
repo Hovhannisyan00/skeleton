@@ -21,11 +21,6 @@ class RemoveTempFiles extends Command
      */
     protected $description = 'Command removed last days temp files';
 
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         parent::__construct();
@@ -33,8 +28,6 @@ class RemoveTempFiles extends Command
 
     /**
      * Function to remove old temp files
-     *
-     * @return void
      */
     public function handle()
     {

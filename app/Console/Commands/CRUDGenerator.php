@@ -39,18 +39,12 @@ class CRUDGenerator extends Command
         13) Migration ml by class name
     ';
 
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         parent::__construct();
     }
 
     /**
-     * @return void
      * @throws BindingResolutionException
      */
     public function handle(): void

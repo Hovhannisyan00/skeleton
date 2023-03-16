@@ -8,9 +8,6 @@ use {{ ROOT_NAMESPACE }}Models\{{ CLASS_NAME }}\{{ CLASS_NAME }};
 
 class {{ CLASS_NAME }}Repository extends BaseRepository implements I{{ CLASS_NAME }}Repository
 {
-    /**
-     * @param {{ CLASS_NAME }} $model
-     */
     public function __construct({{ CLASS_NAME }} $model)
     {
         parent::__construct($model);

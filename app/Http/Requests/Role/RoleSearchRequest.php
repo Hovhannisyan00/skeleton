@@ -6,9 +6,6 @@ use App\Http\Requests\Core\DatatableSearchRequest;
 
 class RoleSearchRequest extends DatatableSearchRequest
 {
-    /**
-     * Get the validation rules that apply to the request.
-     */
     public function rules(): array
     {
         return parent::rules() + [

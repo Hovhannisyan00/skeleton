@@ -8,9 +8,6 @@ trait HasCompositePrimaryKey
 {
     /**
      * Set the keys for a save update query.
-     *
-     * @param mixed $query
-     * @return Builder
      */
     protected function setKeysForSaveQuery($query): Builder
     {
@@ -28,9 +25,6 @@ trait HasCompositePrimaryKey
 
     /**
      * Get the primary key value for a save query.
-     *
-     * @param mixed|null $keyName
-     * @return mixed
      */
     protected function getKeyForSaveQuery(mixed $keyName = null): mixed
     {
