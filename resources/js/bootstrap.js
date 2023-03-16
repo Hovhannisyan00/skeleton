@@ -1,4 +1,6 @@
-window._ = import('lodash');
+import 'element-ui/lib/theme-chalk/index.css';
+
+window._ = require('lodash');
 
 /**
  * We'll load jQuery and the Bootstrap jQuery plugin which provides support
@@ -7,10 +9,10 @@ window._ = import('lodash');
  */
 
 try {
-  window.Popper = import('popper.js').default;
-  window.$ = window.jQuery = import('jquery');
+  window.Popper = require('popper.js').default;
+  window.$ = window.jQuery = require('jquery');
 
-  import('bootstrap');
+  require('bootstrap');
 } catch (e) {}
 
 /**

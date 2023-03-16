@@ -1,11 +1,11 @@
-import { ElNotification } from 'element-plus/dist/index.full';
+import { Notification } from 'element-ui';
 
 // eslint-disable-next-line no-undef
 axios.interceptors.response.use((response) => response, (error) => {
   const resp = error.response;
 
   if (resp.status !== 200 || resp.status !== 201) {
-    ElNotification.error({
+    Notification.error({
       title: 'Error',
       message: resp.data.message,
       dangerouslyUseHTMLString: true,

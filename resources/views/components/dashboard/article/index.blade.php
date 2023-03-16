@@ -44,7 +44,7 @@
     </div>
 
     <x-slot name="scripts">
-        <script src="{{ asset('/js/dashboard/article/index.js') }}"></script>
+        <script type="module" src="{{ asset('/js/dashboard/article/index.js') }}"></script>
     </x-slot>
 </x-dashboard.layouts.app>
 
