@@ -10,7 +10,7 @@ use Illuminate\Http\JsonResponse;
 class FileController extends BaseController
 {
     public function __construct(
-        IFileRepository         $repository,
+        IFileRepository $repository,
         private FileTempService $fileService
     ) {
         $this->repository = $repository;

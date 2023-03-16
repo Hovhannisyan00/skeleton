@@ -21,7 +21,7 @@ class CreateArticleMlsTable extends Migration
             $table->text('short_description')->nullable();
             $table->text('description')->nullable();
             $table->metaData();
-            $table->primary(['article_id','lng_code']);
+            $table->primary(['article_id', 'lng_code']);
         });
     }
 

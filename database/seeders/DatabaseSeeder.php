@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use App\Models\Menu\Menu;
 use App\Models\User\User;
 use Database\Seeders\User\AdminUserSeeder;
 use Database\Seeders\User\UserSeeder;
