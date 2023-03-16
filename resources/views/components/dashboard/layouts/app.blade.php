@@ -37,7 +37,7 @@
 <x-dashboard.partials.modals></x-dashboard.partials.modals>
 
 {{-- Core Js  --}}
-@vite(['resources/js/dashboard/bundle.js', 'resources/js/dashboard/dashboard-app.js'])
+@vite(['resources/js/dashboard/dashboard-app.js'])
 <!--<script src="{{ mix('/js/dashboard/dashboard-app.js') }}"></script>
 
 <script src="{{ mix('/js/dashboard/bundle.js') }}"></script>-->

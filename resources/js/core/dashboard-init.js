@@ -1,10 +1,10 @@
 // Route
-window.route = (name, params = null) => {
-  const route = routesData[name];
+const route = (name, params = null) => {
+  const routed = routesData[name];
   let uri = routesData[name].uri.toString();
 
   // eslint-disable-next-line array-callback-return
-  route.parameters.map((item, index) => {
+  routed.parameters.map((item, index) => {
     if (Array.isArray(params)) {
       uri = uri.replace(`{${item}}`, params[index]);
     } else {

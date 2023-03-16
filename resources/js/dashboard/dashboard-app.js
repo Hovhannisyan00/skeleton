@@ -1,18 +1,20 @@
-import { Message, Notification } from 'element-ui';
+import { ElMessage, ElNotification } from 'element-plus/dist/index.full';
+import 'element-plus/dist/index.css';
 
 window.El = {
-  Message,
-  Notification,
+  Message: ElMessage,
+  Notification: ElNotification,
 };
 
-require('../bootstrap');
-require('../core/dashboard-init');
+import('../bootstrap');
 
-require('./plugins/Select2 4.1.0.min');
-require('./plugins/datatables.net');
-require('./plugins/DataTablesBootstrap');
-require('./plugins/jquery.mask.min');
-
-require('jquery-datetimepicker');
-require('../common/axios/axios');
-require('../common/axios/errorHandler');
+import('../core/dashboard-init');
+//
+// import('./plugins/Select2 4.1.0.min');
+// import('./plugins/datatables.net');
+// import('./plugins/DataTablesBootstrap');
+// import('./plugins/jquery.mask.min');
+// //
+// import('jquery-datetimepicker');
+// import('../common/axios/axios');
+// import('../common/axios/errorHandler');
