@@ -6,9 +6,6 @@ use Closure;
 
 class CollectionMacros
 {
-    /**
-     * Function to get data for select
-     */
     public function getForSelect(): Closure
     {
         return function (string $column = 'name', string $key = 'id') {
@@ -16,9 +13,6 @@ class CollectionMacros
         };
     }
 
-    /**
-     * Function to get relation pluck data
-     */
     public function pluckColumn(): Closure
     {
         return function (string $column = 'id') {

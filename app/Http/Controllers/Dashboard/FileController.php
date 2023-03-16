@@ -16,20 +16,15 @@ class FileController extends BaseController
         $this->repository = $repository;
     }
 
-    /**
-     * Function to store file
-     */
     public function storeTempFile(FileUploadRequest $request): JsonResponse
     {
         return response()->json($this->fileService->storeTempFile($request->validated()));
     }
 
-    /**
-     * Function to delete file
-     */
     public function delete(string $id): JsonResponse
     {
         $this->fileService->deleteFile($id);
+
         return $this->sendOkDeleted();
     }
 }

@@ -78,6 +78,7 @@ class ArticleController extends BaseController
     public function destroy(Article $article): JsonResponse
     {
         $this->service->delete($article->id);
+
         return $this->sendOkDeleted();
     }
 }

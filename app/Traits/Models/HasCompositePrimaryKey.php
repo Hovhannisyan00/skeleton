@@ -6,9 +6,6 @@ use Illuminate\Database\Eloquent\Builder;
 
 trait HasCompositePrimaryKey
 {
-    /**
-     * Set the keys for a save update query.
-     */
     protected function setKeysForSaveQuery($query): Builder
     {
         $keys = $this->getKeyName();
@@ -23,9 +20,6 @@ trait HasCompositePrimaryKey
         return $query;
     }
 
-    /**
-     * Get the primary key value for a save query.
-     */
     protected function getKeyForSaveQuery(mixed $keyName = null): mixed
     {
         if (is_null($keyName)) {

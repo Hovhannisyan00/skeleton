@@ -16,7 +16,6 @@ class MacroServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
     }
 
     /**

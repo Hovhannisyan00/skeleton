@@ -21,9 +21,6 @@ class UserService extends BaseService
         $this->fileService = $fileService;
     }
 
-    /**
-     * Function to create or update user
-     */
     public function createOrUpdate($data, int $id = null): Model
     {
         $data['password'] = Hash::make($data['password']);
@@ -38,9 +35,6 @@ class UserService extends BaseService
         });
     }
 
-    /**
-     * Function to return view data
-     */
     public function getViewData(int $id = null): array
     {
         if ($id) {

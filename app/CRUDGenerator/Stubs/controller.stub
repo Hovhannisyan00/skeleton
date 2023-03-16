@@ -79,6 +79,7 @@ class {{ CLASS_NAME }}Controller extends BaseController
     {
      // $this->service->delete(${{ LOWER_CLASS_NAME }}->id); // For ML, File
         $this->repository->destroy(${{ LOWER_CLASS_NAME }}->id);
+
         return $this->sendOkDeleted();
     }
 }

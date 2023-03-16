@@ -18,9 +18,6 @@ class ValidatorServiceProvider extends ServiceProvider
         $this->existsValidators();
     }
 
-    /**
-     * Function to set global validators
-     */
     private function globalValidators(): void
     {
         $maxStringLength = 250;
@@ -114,11 +111,6 @@ class ValidatorServiceProvider extends ServiceProvider
         }, trans('validation.custom.after_or_equal', ['date' => now()->format(getDateFormatFront())]));
     }
 
-    /**
-     * Function to set exists validators
-     *
-     * @return void
-     */
     private function existsValidators(): void
     {
         Validator::extend('exist_validator', function ($attribute, $value, $parameters) {
@@ -131,9 +123,6 @@ class ValidatorServiceProvider extends ServiceProvider
         }, trans('validation.invalid'));
     }
 
-    /**
-     * Function to get attribute value
-     */
     private function getAttributeValue($attribute, $value): array
     {
         $data = [];

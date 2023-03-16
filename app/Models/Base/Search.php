@@ -7,24 +7,10 @@ use Illuminate\Support\Collection;
 
 abstract class Search
 {
-    /**
-     * @var int
-     */
     protected int $perPage = 25;
-
-    /**
-     * @var int
-     */
     protected int $start = 0;
-
-    /**
-     * @var array
-     */
     protected array $filters = [];
 
-    /**
-     * @var array
-     */
     protected array $order = [
         ['sort_by' => 'id', 'dir' => 'desc']
     ];

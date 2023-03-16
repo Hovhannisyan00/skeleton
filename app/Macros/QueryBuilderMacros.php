@@ -6,9 +6,6 @@ use Closure;
 
 class QueryBuilderMacros
 {
-    /**
-     * Function to search by like
-     */
     public function like(): Closure
     {
         return function (string $attribute, string $searchTerm) {

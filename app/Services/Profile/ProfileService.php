@@ -20,9 +20,6 @@ class ProfileService extends BaseService
         $this->fileService = $fileService;
     }
 
-    /**
-     * Function to update profile data
-     */
     public function update($data, int $id = null): Model
     {
         return DB::transaction(function () use ($id, $data) {

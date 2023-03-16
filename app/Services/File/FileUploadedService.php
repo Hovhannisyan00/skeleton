@@ -7,9 +7,6 @@ use Ramsey\Uuid\Uuid;
 
 class FileUploadedService extends FileService
 {
-    /**
-     * Function to store upload file
-     */
     public function storeFile(Model $model, mixed $files, string $configName): void
     {
         $config = $model->getFileConfig()[$configName];

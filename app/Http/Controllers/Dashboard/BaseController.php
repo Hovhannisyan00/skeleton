@@ -18,9 +18,6 @@ abstract class BaseController extends Controller
 
     protected IBaseRepository $repository;
 
-    /**
-     * Function to show dashboard view
-     */
     protected function dashboardView(string $view, array $vars = [], string $viewMode = 'add'): View
     {
         $vars['viewMode'] = $viewMode;
@@ -30,17 +27,11 @@ abstract class BaseController extends Controller
         return view(self::DASHBOARD_VIEW_PREFIX . '.' . $view, $vars);
     }
 
-    /**
-     * Function to render dashboard view
-     */
     protected function renderDashboardView($view, array $vars = []): string
     {
         return view(self::DASHBOARD_VIEW_PREFIX . '.' . $view, $vars)->render();
     }
 
-    /**
-     * Function to generate sub header data
-     */
     private function generateSubHeaderData(string $view, string $viewMode): void
     {
         // Form mode

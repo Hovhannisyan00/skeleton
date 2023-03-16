@@ -12,14 +12,7 @@ use Illuminate\Support\Facades\Storage;
 
 abstract class FileService
 {
-    /**
-     * @var Filesystem
-     */
     protected Filesystem $uploadsDisk;
-
-    /**
-     * @var Filesystem
-     */
     protected Filesystem $pendingDisk;
 
     public function __construct(protected FileRepository $repository)
@@ -62,9 +55,6 @@ abstract class FileService
         return false;
     }
 
-    /**
-     * Function to save thumb
-     */
     protected function saveThumb(
         string $fileName,
         string $filePath,
@@ -93,9 +83,6 @@ abstract class FileService
         }
     }
 
-    /**
-     * Function to delete Model files
-     */
     public function deleteModelFile($model, $fieldName = null): void
     {
         $files = $model->files($fieldName)->get();
@@ -107,9 +94,6 @@ abstract class FileService
         }
     }
 
-    /**
-     * Function to delete file
-     */
     public function deleteFile(string $id): void
     {
         $file = $this->repository->findOrFail($id);
@@ -117,9 +101,6 @@ abstract class FileService
         $this->repository->destroy($id);
     }
 
-    /**
-     * Function to delete file physically
-     */
     private function deleteFilePhysically($file): void
     {
         $this->uploadsDisk->delete($file->dir_prefix . '/' . $file->field_name . '/' . $file->file_name);
@@ -141,9 +122,6 @@ abstract class FileService
         }
     }
 
-    /**
-     * Function get thumb resize paths
-     */
     private function getThumbResizePath(string $thumbWidth, ?string $thumbHeight): string
     {
         $thumbResizePath = $thumbWidth;
@@ -154,9 +132,6 @@ abstract class FileService
         return $thumbResizePath;
     }
 
-    /**
-     * Function to get file name
-     */
     protected function getFileName(UploadedFile $file): string
     {
         $originalName = $file->getClientOriginalName();
@@ -166,9 +141,6 @@ abstract class FileService
         return $uniqueID . '.' . $file->getClientOriginalExtension();
     }
 
-    /**
-     * Function to make directory
-     */
     protected function makeDirectory(string $path): void
     {
         if (!File::exists(dirname($path))) {
@@ -176,25 +148,16 @@ abstract class FileService
         }
     }
 
-    /**
-     * Function to get file path in uploads disk
-     */
     protected function getFilePathUploadsDisk($path): string
     {
         return $this->uploadsDisk->path($path);
     }
 
-    /**
-     * Function to get file path in pending disk
-     */
     protected function getFilePathPendingDisk($path): string
     {
         return $this->pendingDisk->path($path);
     }
 
-    /**
-     * Function to set disks
-     */
     private function setDisks(): void
     {
         $this->uploadsDisk = Storage::disk('uploads');

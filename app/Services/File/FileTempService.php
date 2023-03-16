@@ -11,9 +11,6 @@ use Symfony\Component\HttpFoundation\File\File;
 
 class FileTempService extends FileService
 {
-    /**
-     * Function to store file
-     */
     public function storeFile(Model $model, array $data): void
     {
         foreach ($model->getFileConfig() as $fieldName => $config) {
@@ -26,9 +23,6 @@ class FileTempService extends FileService
         }
     }
 
-    /**
-     * Function to create file
-     */
     private function create(Model $model, array $config, $fileName): void
     {
         $fieldName = $config['field_name'];
@@ -61,9 +55,6 @@ class FileTempService extends FileService
         }
     }
 
-    /**
-     * Function to store file
-     */
     public function storeTempFile(array $data): array
     {
         $file = $data['file'];
@@ -118,7 +109,7 @@ class FileTempService extends FileService
     }
 
     /**
-     * Function to remove last days temp files
+     * Function to remove without current day temp files
      */
     public static function removeTempFiles(): void
     {
