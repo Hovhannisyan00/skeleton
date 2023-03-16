@@ -8,8 +8,6 @@ class QueryBuilderMacros
 {
     /**
      * Function to search by like
-     *
-     * @return Closure
      */
     public function like(): Closure
     {

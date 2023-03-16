@@ -12,17 +12,15 @@ class ViewServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function register(): void
     {
         //
     }
 
     /**
      * Bootstrap services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         // MetaData
         view()->share('meta', MetaData::getDefaultData());

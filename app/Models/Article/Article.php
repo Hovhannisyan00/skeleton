@@ -59,8 +59,6 @@ class Article extends BaseModel
 
     /**
      * Function to return photo
-     *
-     * @return MorphOne
      */
     public function photo(): MorphOne
     {
@@ -69,8 +67,6 @@ class Article extends BaseModel
 
     /**
      * Function to return formatted publish date
-     *
-     * @return Attribute
      */
     public function publishDate(): Attribute
     {
@@ -81,8 +77,6 @@ class Article extends BaseModel
 
     /**
      * Function to return formatted release datetime
-     *
-     * @return Attribute
      */
     public function releaseDatetime(): Attribute
     {

@@ -20,8 +20,6 @@ class ProfileController extends BaseController
 
     /**
      * Function to show profile page
-     *
-     * @return View
      */
     public function index(): View
     {
@@ -30,10 +28,6 @@ class ProfileController extends BaseController
 
     /**
      * Function to update profile data
-     *
-     * @param ProfileRequest $profileRequest
-     * @param int $id
-     * @return JsonResponse
      */
     public function update(ProfileRequest $profileRequest, int $id): JsonResponse
     {

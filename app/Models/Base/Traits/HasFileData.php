@@ -12,8 +12,6 @@ trait HasFileData
 
     /**
      * Function to get model file config name
-     *
-     * @return string
      */
     public function getFileConfigName(): string
     {
@@ -27,10 +25,6 @@ trait HasFileData
 
     /**
      * Function to get model files (morph table)
-     *
-     * @param string|null $fieldName
-     * @param string|null $fileType
-     * @return MorphMany
      */
     public function files(string $fieldName = null, string $fileType = null): MorphMany
     {

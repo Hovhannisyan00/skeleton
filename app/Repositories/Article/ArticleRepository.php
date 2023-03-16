@@ -8,9 +8,6 @@ use App\Repositories\BaseRepository;
 
 class ArticleRepository extends BaseRepository implements IArticleRepository
 {
-    /**
-     * @param Article $model
-     */
     public function __construct(Article $model)
     {
         parent::__construct($model);

@@ -22,8 +22,6 @@ trait HasMlData
 
     /**
      * Function Initialize the trait
-     *
-     * @return void
      */
     protected function initializeHasMlData(): void
     {
@@ -32,9 +30,6 @@ trait HasMlData
 
     /**
      * Function to get model current ml data
-     *
-     * @param $query
-     * @return Builder
      */
     public function scopeJoinMl($query): Builder
     {
@@ -52,8 +47,6 @@ trait HasMlData
 
     /**
      * Function to get ml data
-     *
-     * @return HasMany
      */
     public function mls(): HasMany
     {
@@ -62,8 +55,6 @@ trait HasMlData
 
     /**
      * Function to return current ml
-     *
-     * @return HasOne
      */
     public function currentMl(): HasOne
     {
@@ -72,8 +63,6 @@ trait HasMlData
 
     /**
      * Function to init Ml Class
-     *
-     * @return BaseMlModel
      */
     private function initMlClass(): BaseMlModel
     {
@@ -86,8 +75,6 @@ trait HasMlData
 
     /**
      * Function to set ml class
-     *
-     * @return BaseMlModel
      */
     protected function setMlClass(): BaseMlModel
     {

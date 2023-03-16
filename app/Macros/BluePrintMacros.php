@@ -9,8 +9,6 @@ class BluePrintMacros
 {
     /**
      * Function to set user info
-     *
-     * @return Closure
      */
     public function userInfo(): Closure
     {
@@ -28,8 +26,6 @@ class BluePrintMacros
 
     /**
      * Function to set show status
-     *
-     * @return Closure
      */
     public function showStatus(): Closure
     {
@@ -40,8 +36,6 @@ class BluePrintMacros
 
     /**
      * Function to set sort order
-     *
-     * @return Closure
      */
     public function sortOrder(): Closure
     {
@@ -52,8 +46,6 @@ class BluePrintMacros
 
     /**
      * Function to set seo data
-     *
-     * @return Closure
      */
     public function metaData(): Closure
     {

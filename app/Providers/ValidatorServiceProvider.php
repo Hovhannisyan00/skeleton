@@ -111,11 +111,11 @@ class ValidatorServiceProvider extends ServiceProvider
         }, trans('validation.invalid'));
 
         // After or equal today
-        Validator::extend('after_or_equal_today', function ($attribute, $value) {
-            $rules = [$attribute => "date_validator|after_or_equal:" . today()];
-
-            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
-        }, trans('validation.custom.after_or_equal', ['date' => now()->format(getDateFormatFront())]));
+//        Validator::extend('after_or_equal_today', function ($attribute, $value) {
+//            $rules = [$attribute => "date_validator|after_or_equal:" . today()];
+//
+//            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
+//        }, trans('validation.custom.after_or_equal', ['date' => now()->format(getDateFormatFront())]));
     }
 
     /**

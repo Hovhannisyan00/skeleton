@@ -18,9 +18,6 @@ class UserSearch extends Search
         'created_at',
     ];
 
-    /**
-     * @return Builder
-     */
     protected function query(): Builder
     {
         $filters = $this->filters;
@@ -49,9 +46,6 @@ class UserSearch extends Search
             });
     }
 
-    /**
-     * @return int
-     */
     public function totalCount(): int
     {
         return User::count();

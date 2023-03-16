@@ -75,10 +75,6 @@ class User extends Authenticatable
 
     /**
      * Function to return user all files
-     *
-     * @param string|null $fieldName
-     * @param string|null $fileType
-     * @return MorphMany
      */
     public function files(string $fieldName = null, string $fileType = null): MorphMany
     {
@@ -93,28 +89,22 @@ class User extends Authenticatable
 
     /**
      * Function to return user signature
-     *
-     * @return Model|null
      */
-    public function getSignatureAttribute(): ?File
+    public function getSignatureAttribute(): ?Model
     {
         return $this->files('signature')->first();
     }
 
     /**
      * Function to return user avatar
-     *
-     * @return Model|null
      */
-    public function getAvatarAttribute(): ?File
+    public function getAvatarAttribute(): ?Model
     {
         return $this->files('avatar')->first();
     }
 
     /**
      * Function to return username
-     *
-     * @return Attribute
      */
     public function name(): Attribute
     {

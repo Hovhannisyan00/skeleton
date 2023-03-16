@@ -10,8 +10,6 @@ trait ModelHelperFunctions
 {
     /**
      * Function to get model class name
-     *
-     * @return string
      */
     public static function getClassName(): string
     {
@@ -20,8 +18,6 @@ trait ModelHelperFunctions
 
     /**
      * Function to get model class name camel case
-     *
-     * @return string
      */
     public static function getClassNameCamelCase(): string
     {
@@ -30,8 +26,6 @@ trait ModelHelperFunctions
 
     /**
      * Function to get class namespace
-     *
-     * @return string
      */
     public function getClassNamespace(): string
     {
@@ -41,8 +35,6 @@ trait ModelHelperFunctions
 
     /**
      * Function to get table name
-     *
-     * @return string
      */
     public static function getTableName(): string
     {
@@ -51,8 +43,6 @@ trait ModelHelperFunctions
 
     /**
      * Function to check model has files
-     *
-     * @return bool
      */
     public function hasFilesData(): bool
     {
@@ -61,8 +51,6 @@ trait ModelHelperFunctions
 
     /**
      * Function to check model has show_status column
-     *
-     * @return bool
      */
     public function hasShowStatus(): bool
     {
@@ -76,7 +64,6 @@ trait ModelHelperFunctions
     /**
      * Function to get model file config file
      *
-     * @return array
      * @throws Exception
      */
     public function getFileConfig(): array

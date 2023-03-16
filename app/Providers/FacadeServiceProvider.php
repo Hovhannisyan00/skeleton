@@ -22,7 +22,7 @@ class FacadeServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         //
         $this->app->singleton('metadata', function () {

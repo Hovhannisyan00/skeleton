@@ -13,10 +13,6 @@ use Illuminate\Http\JsonResponse;
 
 class UserController extends BaseController
 {
-    /**
-     * @param IUserRepository $repository
-     * @param UserService $service
-     */
     public function __construct(
         IUserRepository $repository,
         UserService     $service
@@ -27,8 +23,6 @@ class UserController extends BaseController
 
     /**
      * Function to return users index view
-     *
-     * @return View
      */
     public function index(): View
     {
@@ -37,9 +31,6 @@ class UserController extends BaseController
 
     /**
      * Function to return users list
-     *
-     * @param UserSearchRequest $request
-     * @return array
      */
     public function getListData(UserSearchRequest $request): array
     {
@@ -54,8 +45,6 @@ class UserController extends BaseController
 
     /**
      * Function to return users create view
-     *
-     * @return View
      */
     public function create(): View
     {
@@ -64,9 +53,6 @@ class UserController extends BaseController
 
     /**
      * Function to create user
-     *
-     * @param UserRequest $request
-     * @return JsonResponse
      */
     public function store(UserRequest $request): JsonResponse
     {
@@ -79,9 +65,6 @@ class UserController extends BaseController
 
     /**
      * Function to show user
-     *
-     * @param User $user
-     * @return View
      */
     public function show(User $user): View
     {
@@ -90,9 +73,6 @@ class UserController extends BaseController
 
     /**
      * Function to return users edit view
-     *
-     * @param User $user
-     * @return View
      */
     public function edit(User $user): View
     {
@@ -101,10 +81,6 @@ class UserController extends BaseController
 
     /**
      * Function to update user
-     *
-     * @param UserRequest $request
-     * @param User $user
-     * @return JsonResponse
      */
     public function update(UserRequest $request, User $user): JsonResponse
     {
@@ -117,9 +93,6 @@ class UserController extends BaseController
 
     /**
      * Function to delete user
-     *
-     * @param User $user
-     * @return JsonResponse
      */
     public function destroy(User $user): JsonResponse
     {

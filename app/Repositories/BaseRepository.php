@@ -15,26 +15,16 @@ class BaseRepository implements IBaseRepository
      */
     public Model $model;
 
-    /**
-     * @param Model $model
-     */
     public function __construct(Model $model)
     {
         $this->model = $model;
     }
 
-    /**
-     * @return Model
-     */
     public function getInstance(): Model
     {
         return new $this->model();
     }
 
-    /**
-     * @param array $data
-     * @return Model
-     */
     public function create(array $data): Model
     {
         if ($this->model->defaultValues) {
@@ -44,21 +34,11 @@ class BaseRepository implements IBaseRepository
         return $this->model->create($data);
     }
 
-    /**
-     * @param array $data
-     * @return bool
-     */
     public function insert(array $data): bool
     {
         return $this->model->insert($data);
     }
 
-    /**
-     * @param int $id
-     * @param array $with
-     * @param bool $throw
-     * @return Model
-     */
     public function find(int $id, array $with = [], bool $throw = true): Model
     {
         $model = empty($with) ? $this->model : $this->model::with($with);
@@ -66,125 +46,66 @@ class BaseRepository implements IBaseRepository
         return $throw ? $model->findOrFail($id) : $model->find($id);
     }
 
-    /**
-     * @param int $id
-     * @param array $data
-     * @return bool
-     */
     public function findUpdate(int $id, array $data): bool
     {
         return $this->find($id)->update($data);
     }
 
-    /**
-     * @param int|string $id
-     * @return Model
-     */
     public function findOrFail(int|string $id): Model
     {
         return $this->model->findOrFail($id);
     }
 
-    /**
-     * @param string $uuid
-     * @return Model
-     */
     public function firstOrFailByUUID(string $uuid): Model
     {
         return $this->model->where(['uuid' => $uuid])->firstOrFail();
     }
 
-    /**
-     * @param string $token
-     * @return Model
-     */
     public function firstOrFailByToken(string $token): Model
     {
         return $this->model->where(['token' => $token])->firstOrFail();
     }
 
-    /**
-     * @param string $slug
-     * @return Model|null
-     */
     public function firstBySlug(string $slug): ?Model
     {
         return $this->model->whereSlug($slug)->first();
     }
 
-    /**
-     * @return Collection
-     */
     public function all(): Collection
     {
         return $this->model->all();
     }
 
-    /**
-     * @param array|null $columns
-     * @return Collection
-     */
     public function get(array $columns = null): Collection
     {
         return $columns ? $this->model->get($columns) : $this->model->get();
     }
 
-    /**
-     * @param array $whereIn
-     * @return Collection
-     */
     public function getWhereIn(array $whereIn): Collection
     {
         return $this->model->whereIn('id', $whereIn)->get();
     }
 
-    /**
-     * @param array $where
-     * @return Collection
-     */
     public function getWhere(array $where): Collection
     {
         return $this->model->where($where)->get();
     }
 
-    /**
-     * @param array $where
-     * @return Model|null
-     */
     public function firstWhere(array $where): ?Model
     {
         return $this->model->where($where)->first();
     }
 
-    /**
-     * Function to get for select
-     *
-     * @param string $column
-     * @param string $key
-     * @return Collection
-     */
     public function getForSelect(string $column = 'name', string $key = 'id'): Collection
     {
         return $this->model->pluck($column, $key);
     }
 
-    /**
-     * Function to get for select by join Ml
-     *
-     * @param string $column
-     * @param string $key
-     * @return Collection
-     */
     public function getForSelectMl(string $column = 'name', string $key = 'id'): Collection
     {
         return $this->model->joinML()->pluck($column, $key);
     }
 
-    /**
-     * @param int $id
-     * @param array $data
-     * @return Model
-     */
     public function update(int $id, array $data): Model
     {
         $model = $this->find($id);
@@ -196,49 +117,26 @@ class BaseRepository implements IBaseRepository
         return $model->refresh();
     }
 
-    /**
-     * @param array $whereData
-     * @param array $data
-     * @return Model
-     */
     public function updateOrCreate(array $whereData, array $data): Model
     {
         return $this->model->updateOrCreate($whereData, $data);
     }
 
-    /**
-     * @param array $ids
-     * @param array $data
-     * @return bool
-     */
     public function updateIn(array $ids, array $data): bool
     {
         return $this->model->whereIn('id', $ids)->update($data);
     }
 
-    /**
-     * @param array $whereData
-     * @param array $data
-     * @return bool
-     */
     public function updateWhere(array $whereData, array $data): bool
     {
         return $this->model->where($whereData)->update($data);
     }
 
-    /**
-     * @param int|string $id
-     * @return bool
-     */
     public function destroy(int|string $id): bool
     {
         return $this->model->destroy($id);
     }
 
-    /**
-     * @param int $id
-     * @return bool
-     */
     public function softDelete(int $id): bool
     {
         $currentModel = $this->model->findOrFail($id);
@@ -258,10 +156,6 @@ class BaseRepository implements IBaseRepository
         return $this->model->where('id', $id)->update($updateData);
     }
 
-    /**
-     * @param Model $model
-     * @param array $mlsData
-     */
     public function saveMl(Model $model, array $mlsData): void
     {
         foreach ($mlsData as $lngCode => $mlData) {

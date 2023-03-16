@@ -20,8 +20,6 @@ class RoleController extends BaseController
 
     /**
      * Function to return roles index view
-     *
-     * @return View
      */
     public function index(): View
     {
@@ -30,9 +28,6 @@ class RoleController extends BaseController
 
     /**
      * Function to return users list
-     *
-     * @param RoleSearchRequest $request
-     * @return array
      */
     public function getListData(RoleSearchRequest $request): array
     {
@@ -55,8 +50,6 @@ class RoleController extends BaseController
 
     /**
      * Store a newly created resource in storage.
-     *
-     * @param Request $request
      */
     public function store(Request $request)
     {
@@ -65,8 +58,6 @@ class RoleController extends BaseController
 
     /**
      * Display the specified resource.
-     *
-     * @param int $id
      */
     public function show(int $id)
     {
@@ -75,8 +66,6 @@ class RoleController extends BaseController
 
     /**
      * Show the form for editing the specified resource.
-     *
-     * @param int $id
      */
     public function edit(int $id)
     {
@@ -85,9 +74,6 @@ class RoleController extends BaseController
 
     /**
      * Update the specified resource in storage.
-     *
-     * @param Request $request
-     * @param int $id
      */
     public function update(Request $request, int $id)
     {
@@ -96,8 +82,6 @@ class RoleController extends BaseController
 
     /**
      * Remove the specified resource from storage.
-     *
-     * @param int $id
      */
     public function destroy(int $id)
     {

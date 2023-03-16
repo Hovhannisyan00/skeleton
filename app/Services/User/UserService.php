@@ -12,11 +12,6 @@ use Illuminate\Support\Facades\Hash;
 
 class UserService extends BaseService
 {
-    /**
-     * @param IUserRepository $repository
-     * @param IRoleRepository $roleRepository
-     * @param FileTempService $fileService
-     */
     public function __construct(
         IUserRepository           $repository,
         FileTempService           $fileService,
@@ -28,10 +23,6 @@ class UserService extends BaseService
 
     /**
      * Function to create or update user
-     *
-     * @param $data
-     * @param int|null $id
-     * @return Model
      */
     public function createOrUpdate($data, int $id = null): Model
     {
@@ -49,9 +40,6 @@ class UserService extends BaseService
 
     /**
      * Function to return view data
-     *
-     * @param int|null $id
-     * @return array
      */
     public function getViewData(int $id = null): array
     {

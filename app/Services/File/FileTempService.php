@@ -13,10 +13,6 @@ class FileTempService extends FileService
 {
     /**
      * Function to store file
-     *
-     * @param Model $model
-     * @param array $data
-     * @return void
      */
     public function storeFile(Model $model, array $data): void
     {
@@ -32,11 +28,6 @@ class FileTempService extends FileService
 
     /**
      * Function to create file
-     *
-     * @param Model $model
-     * @param array $config
-     * @param $fileName
-     * @return void
      */
     private function create(Model $model, array $config, $fileName): void
     {
@@ -72,9 +63,6 @@ class FileTempService extends FileService
 
     /**
      * Function to store file
-     *
-     * @param array $data
-     * @return array
      */
     public function storeTempFile(array $data): array
     {
@@ -101,9 +89,6 @@ class FileTempService extends FileService
 
     /**
      * Function to from base_64 get UploadedFile type
-     *
-     * @param array $data
-     * @return UploadedFile
      */
     private function getCroppedFile(array $data): UploadedFile
     {
@@ -134,8 +119,6 @@ class FileTempService extends FileService
 
     /**
      * Function to remove last days temp files
-     *
-     * @return void
      */
     public static function removeTempFiles(): void
     {
@@ -153,11 +136,6 @@ class FileTempService extends FileService
 
     /**
      * Function to move files from pending to uploads
-     *
-     * @param string $fileName
-     * @param string $customDirectory
-     * @param array $config
-     * @return string
      */
     public function moveToUploadsFolder(string $fileName, string $customDirectory = '', array $config = []): string
     {

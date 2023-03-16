@@ -13,10 +13,8 @@ class MacroServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
         //
     }
@@ -24,7 +22,7 @@ class MacroServiceProvider extends ServiceProvider
     /**
      * @throws ReflectionException
      */
-    public function boot()
+    public function boot(): void
     {
         Builder::mixin(new QueryBuilderMacros());
 

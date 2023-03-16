@@ -15,9 +15,6 @@ class RoleSearch extends Search
         'name',
     ];
 
-    /**
-     * @return Builder
-     */
     protected function query(): Builder
     {
         $filters = $this->filters;
@@ -38,9 +35,6 @@ class RoleSearch extends Search
             });
     }
 
-    /**
-     * @return int
-     */
     public function totalCount(): int
     {
         return Role::count();

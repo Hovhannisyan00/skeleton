@@ -13,8 +13,6 @@ class MetaData
 
     /**
      * Function to get Title
-     *
-     * @return string
      */
     public function getTitle(): string
     {
@@ -23,9 +21,6 @@ class MetaData
 
     /**
      * Function to set Title
-     *
-     * @param string $title
-     * @return $this
      */
     public function setTitle(string $title): static
     {
@@ -36,8 +31,6 @@ class MetaData
 
     /**
      * Function to get Description
-     *
-     * @return string
      */
     public function getDescription(): string
     {
@@ -46,9 +39,6 @@ class MetaData
 
     /**
      * Function to set Description
-     *
-     * @param string $description
-     * @return $this
      */
     public function setDescription(string $description): static
     {
@@ -59,8 +49,6 @@ class MetaData
 
     /**
      * Function to get Og image
-     *
-     * @return string
      */
     public function getOgImage(): string
     {
@@ -69,9 +57,6 @@ class MetaData
 
     /**
      * Function to set Og image
-     *
-     * @param string $ogImage
-     * @return $this
      */
     public function setOgImage(string $ogImage): static
     {
@@ -82,8 +67,6 @@ class MetaData
 
     /**
      * Function to get Og Url
-     *
-     * @return string
      */
     public function getOgUrl(): string
     {
@@ -92,9 +75,6 @@ class MetaData
 
     /**
      * Function to set Og Url
-     *
-     * @param string $ogUrl
-     * @return $this
      */
     public function setOgUrl(string $ogUrl): static
     {
@@ -105,8 +85,6 @@ class MetaData
 
     /**
      * Function to get Og Type
-     *
-     * @return string
      */
     public function getOgType(): string
     {
@@ -115,9 +93,6 @@ class MetaData
 
     /**
      * Function to set Og Type
-     *
-     * @param string $ogType
-     * @return $this
      */
     public function setOgType(string $ogType): static
     {
@@ -128,8 +103,6 @@ class MetaData
 
     /**
      * Function to get default data
-     *
-     * @return $this
      */
     public function getDefaultData(): static
     {
@@ -141,8 +114,6 @@ class MetaData
 
     /**
      * Function to get keywords
-     *
-     * @return string
      */
     public function getKeywords(): string
     {
@@ -151,9 +122,6 @@ class MetaData
 
     /**
      * Function to set keywords
-     *
-     * @param string $keywords
-     * @return $this
      */
     public function setKeywords(string $keywords): static
     {

@@ -6,8 +6,6 @@ class MetaDataValidation
 {
     /**
      * Function to set seo data
-     *
-     * @return string[]
      */
     public static function rules(bool $isRequired = false): array
     {

@@ -51,8 +51,6 @@ class File extends BaseModel
 
     /**
      * Function to generate file url
-     *
-     * @return string
      */
     public function getFileUrlAttribute(): string
     {
@@ -62,8 +60,6 @@ class File extends BaseModel
 
     /**
      * Function to generate file path
-     *
-     * @return string
      */
     public function getFilePathAttribute(): string
     {
@@ -73,8 +69,6 @@ class File extends BaseModel
 
     /**
      * Function to get file original name
-     *
-     * @return string
      */
     public function getFileOriginalNameAttribute(): string
     {

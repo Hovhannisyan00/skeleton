@@ -7,9 +7,6 @@ use App\Services\BaseService;
 
 class ArticleService extends BaseService
 {
-    /**
-     * @param IArticleRepository $repository
-     */
     public function __construct(
         IArticleRepository $repository
     ) {

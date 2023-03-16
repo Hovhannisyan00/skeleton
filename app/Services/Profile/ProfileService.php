@@ -12,9 +12,6 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileService extends BaseService
 {
-    /**
-     * @param UserRepository $repository
-     */
     public function __construct(
         IUserRepository $repository,
         FileTempService $fileService,
@@ -25,10 +22,6 @@ class ProfileService extends BaseService
 
     /**
      * Function to update profile data
-     *
-     * @param $data
-     * @param int|null $id
-     * @return Model
      */
     public function update($data, int $id = null): Model
     {

@@ -8,9 +8,6 @@ use App\Repositories\BaseRepository;
 
 class FileRepository extends BaseRepository implements IFileRepository
 {
-    /**
-     * @param File $model
-     */
     public function __construct(File $model)
     {
         parent::__construct($model);

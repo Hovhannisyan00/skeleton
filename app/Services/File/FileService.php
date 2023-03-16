@@ -32,11 +32,6 @@ abstract class FileService
 
     /**
      * Function to move tmp file from pending dir to upload dir
-     *
-     * @param string $fileName
-     * @param array $config
-     * @param array $directoryData
-     * @return bool
      */
     protected function movePendingFileToUploadsFolder(
         string $fileName,
@@ -72,12 +67,6 @@ abstract class FileService
 
     /**
      * Function to save thumb
-     *
-     * @param string $fileName
-     * @param string $filePath
-     * @param array $directoryData
-     * @param array $thumbConfig
-     * @return void
      */
     protected function saveThumb(
         string $fileName,
@@ -109,10 +98,6 @@ abstract class FileService
 
     /**
      * Function to delete Model files
-     *
-     * @param $model
-     * @param null $fieldName
-     * @return void
      */
     public function deleteModelFile($model, $fieldName = null): void
     {
@@ -127,9 +112,6 @@ abstract class FileService
 
     /**
      * Function to delete file
-     *
-     * @param string $id
-     * @return void
      */
     public function deleteFile(string $id): void
     {
@@ -140,9 +122,6 @@ abstract class FileService
 
     /**
      * Function to delete file physically
-     *
-     * @param $file
-     * @return void
      */
     private function deleteFilePhysically($file): void
     {
@@ -167,10 +146,6 @@ abstract class FileService
 
     /**
      * Function get thumb resize paths
-     *
-     * @param string $thumbWidth
-     * @param string|null $thumbHeight
-     * @return string
      */
     private function getThumbResizePath(string $thumbWidth, ?string $thumbHeight): string
     {
@@ -184,9 +159,6 @@ abstract class FileService
 
     /**
      * Function to get file name
-     *
-     * @param UploadedFile $file
-     * @return string
      */
     protected function getFileName(UploadedFile $file): string
     {
@@ -199,9 +171,6 @@ abstract class FileService
 
     /**
      * Function to make directory
-     *
-     * @param string $path
-     * @return void
      */
     protected function makeDirectory(string $path): void
     {
@@ -212,9 +181,6 @@ abstract class FileService
 
     /**
      * Function to get file path in uploads disk
-     *
-     * @param $path
-     * @return string
      */
     protected function getFilePathUploadsDisk($path): string
     {
@@ -223,9 +189,6 @@ abstract class FileService
 
     /**
      * Function to get file path in pending disk
-     *
-     * @param $path
-     * @return string
      */
     protected function getFilePathPendingDisk($path): string
     {
@@ -234,8 +197,6 @@ abstract class FileService
 
     /**
      * Function to set disks
-     *
-     * @return void
      */
     private function setDisks(): void
     {

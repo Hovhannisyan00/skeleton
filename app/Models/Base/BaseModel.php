@@ -4,7 +4,6 @@ namespace App\Models\Base;
 
 use App\Models\Base\Traits\ModelHelperFunctions;
 use App\Models\Scopes\Base\DeletedScope;
-use Illuminate\Contracts\Container\BindingResolutionException;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -79,8 +78,6 @@ class BaseModel extends Model
 
     /**
      * Function to boot model creating/updating
-     *
-     * @return void
      */
     public static function boot(): void
     {
@@ -114,10 +111,6 @@ class BaseModel extends Model
 
     /**
      * Function to join tables
-     *
-     * @param $query
-     * @return Builder
-     * @throws BindingResolutionException
      */
     public function scopeJoinTo($query): Builder
     {
@@ -140,10 +133,6 @@ class BaseModel extends Model
 
     /**
      * Function to order by sort_order
-     *
-     * @param $query
-     * @param string $mode
-     * @return Builder
      */
     public function scopeOrdered($query, string $mode = 'ASC'): Builder
     {
@@ -153,10 +142,6 @@ class BaseModel extends Model
 
     /**
      * Function to exclude select data
-     *
-     * @param $query
-     * @param array $excludeColumns
-     * @return Builder
      */
     public function scopeExclude($query, array $excludeColumns = []): Builder
     {
@@ -167,10 +152,7 @@ class BaseModel extends Model
     }
 
     /**
-     *  Function to get only active data
-     *
-     * @param $query
-     * @return Builder
+     * Function to get only active data
      */
     public function scopeActive($query): Builder
     {
@@ -180,8 +162,6 @@ class BaseModel extends Model
 
     /**
      * Function to set file config key
-     *
-     * @return string
      */
     public function setFileConfigName(): string
     {

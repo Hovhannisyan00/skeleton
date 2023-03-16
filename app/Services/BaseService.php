@@ -22,10 +22,6 @@ abstract class BaseService
 
     /**
      * Function to create or update model
-     *
-     * @param array $data
-     * @param int|null $id
-     * @return Model
      */
     public function createOrUpdate(array $data, int $id = null): Model
     {
@@ -36,10 +32,6 @@ abstract class BaseService
 
     /**
      * Function to create or update model without transaction
-     *
-     * @param array $data
-     * @param int|null $id
-     * @return Model
      */
     public function createOrUpdateWithoutTransaction(array $data, int $id = null): Model
     {
@@ -60,9 +52,6 @@ abstract class BaseService
 
     /**
      * Function to return view data
-     *
-     * @param int|null $id
-     * @return array
      */
     public function getViewData(int $id = null): array
     {
@@ -91,9 +80,6 @@ abstract class BaseService
 
     /**
      * Function to delete model
-     *
-     * @param int $id
-     * @return void
      */
     public function delete(int $id): void
     {
@@ -111,8 +97,6 @@ abstract class BaseService
 
     /**
      * Function to get FileService class
-     *
-     * @return FileTempService
      */
     private function fileService(): FileTempService
     {

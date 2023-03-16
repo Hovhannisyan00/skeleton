@@ -8,8 +8,6 @@ class DashboardController extends BaseController
 {
     /**
      * Function to show dashboard page
-     *
-     * @return View
      */
     public function index(): View
     {

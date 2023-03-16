@@ -18,9 +18,6 @@ class ArticleSearch extends Search
         'created_at'
     ];
 
-    /**
-     * @return Builder
-     */
     protected function query(): Builder
     {
         $filters = $this->filters;
@@ -47,9 +44,6 @@ class ArticleSearch extends Search
             });
     }
 
-    /**
-     * @return int
-     */
     public function totalCount(): int
     {
         return Article::count();

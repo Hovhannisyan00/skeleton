@@ -8,8 +8,6 @@ class CollectionMacros
 {
     /**
      * Function to get data for select
-     *
-     * @return Closure
      */
     public function getForSelect(): Closure
     {
@@ -20,8 +18,6 @@ class CollectionMacros
 
     /**
      * Function to get relation pluck data
-     *
-     * @return Closure
      */
     public function pluckColumn(): Closure
     {

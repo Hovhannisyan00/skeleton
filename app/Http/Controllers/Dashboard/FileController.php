@@ -9,10 +9,6 @@ use Illuminate\Http\JsonResponse;
 
 class FileController extends BaseController
 {
-    /**
-     * @param IFileRepository $repository
-     * @param FileTempService $fileService
-     */
     public function __construct(
         IFileRepository         $repository,
         private FileTempService $fileService
@@ -22,9 +18,6 @@ class FileController extends BaseController
 
     /**
      * Function to store file
-     *
-     * @param FileUploadRequest $request
-     * @return JsonResponse
      */
     public function storeTempFile(FileUploadRequest $request): JsonResponse
     {
@@ -33,9 +26,6 @@ class FileController extends BaseController
 
     /**
      * Function to delete file
-     *
-     * @param string $id
-     * @return JsonResponse
      */
     public function delete(string $id): JsonResponse
     {

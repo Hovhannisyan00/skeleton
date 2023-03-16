@@ -29,6 +29,7 @@
         "vue-template-compiler": "^2.6.12"
     },
     "dependencies": {
+        "cross-env": "^7.0.3",
         "element-ui": "^2.15.6",
         "jquery-datetimepicker": "^2.5.21"
     }

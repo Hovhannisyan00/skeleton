@@ -42,8 +42,6 @@ class Menu extends BaseModel
 
     /**
      * The "booted" method of the model.
-     *
-     * @return void
      */
     protected static function booted(): void
     {
@@ -52,8 +50,6 @@ class Menu extends BaseModel
 
     /**
      * Function to get admin type menu
-     *
-     * @param Builder $builder
      */
     public function scopeAdmin(Builder $builder)
     {
@@ -62,8 +58,6 @@ class Menu extends BaseModel
 
     /**
      * Function to get child menus
-     *
-     * @return HasMany
      */
     public function subMenu(): HasMany
     {

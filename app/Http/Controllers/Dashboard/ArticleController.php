@@ -12,9 +12,6 @@ use Illuminate\Http\JsonResponse;
 
 class ArticleController extends BaseController
 {
-    /**
-     * @param ArticleService $service
-     */
     public function __construct(
         ArticleService $service
     ) {
@@ -23,8 +20,6 @@ class ArticleController extends BaseController
 
     /**
      * Function to return article index view
-     *
-     * @return View
      */
     public function index(): View
     {
@@ -33,9 +28,6 @@ class ArticleController extends BaseController
 
     /**
      * Function to return article list
-     *
-     * @param ArticleSearchRequest $request
-     * @return array
      */
     public function getListData(ArticleSearchRequest $request): array
     {
@@ -50,8 +42,6 @@ class ArticleController extends BaseController
 
     /**
      * Function to return article create view
-     *
-     * @return View
      */
     public function create(): View
     {
@@ -60,9 +50,6 @@ class ArticleController extends BaseController
 
     /**
      * Function to create article
-     *
-     * @param ArticleRequest $request
-     * @return JsonResponse
      */
     public function store(ArticleRequest $request): JsonResponse
     {
@@ -75,9 +62,6 @@ class ArticleController extends BaseController
 
     /**
      * Function to show article
-     *
-     * @param Article $article
-     * @return View
      */
     public function show(Article $article): View
     {
@@ -90,9 +74,6 @@ class ArticleController extends BaseController
 
     /**
      * Function to return article edit view
-     *
-     * @param Article $article
-     * @return View
      */
     public function edit(Article $article): View
     {
@@ -105,10 +86,6 @@ class ArticleController extends BaseController
 
     /**
      * Function to update article
-     *
-     * @param ArticleRequest $request
-     * @param Article $article
-     * @return JsonResponse
      */
     public function update(ArticleRequest $request, Article $article): JsonResponse
     {
@@ -121,9 +98,6 @@ class ArticleController extends BaseController
 
     /**
      * Function to delete article
-     *
-     * @param Article $article
-     * @return JsonResponse
      */
     public function destroy(Article $article): JsonResponse
     {

@@ -9,11 +9,6 @@ class FileUploadedService extends FileService
 {
     /**
      * Function to store upload file
-     *
-     * @param Model $model
-     * @param string|array $files
-     * @param string $configName
-     * @return void
      */
     public function storeFile(Model $model, mixed $files, string $configName): void
     {
@@ -29,11 +24,6 @@ class FileUploadedService extends FileService
 
     /**
      * Function to put file to folder and save to db
-     *
-     * @param Model $model
-     * @param $file
-     * @param $config
-     * @return void
      */
     private function create(Model $model, $file, $config): void
     {

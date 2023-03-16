@@ -58,14 +58,8 @@ abstract class Search
         }
     }
 
-    /**
-     * @return Builder
-     */
     abstract protected function query(): Builder;
 
-    /**
-     * @param $query
-     */
     protected function setOrdering($query): void
     {
         if (in_array($this->order['sort_by'] ?? '', $this->orderables)) {
@@ -73,9 +67,6 @@ abstract class Search
         }
     }
 
-    /**
-     * @param $query
-     */
     protected function setLimits($query): void
     {
         $query
@@ -83,9 +74,6 @@ abstract class Search
             ->take($this->perPage);
     }
 
-    /**
-     * @return Collection
-     */
     public function search(): Collection
     {
         $query = $this->query();
@@ -94,26 +82,16 @@ abstract class Search
         return $this->setReturnData($query);
     }
 
-    /**
-     * @param $query
-     * @return Collection
-     */
     public function setReturnData($query): mixed
     {
         return $query->get();
     }
 
-    /**
-     * @return int
-     */
     protected function totalCount(): int
     {
         return 0;
     }
 
-    /**
-     * @return int
-     */
     public function filteredCount(): int
     {
         return $this->query()->count();

@@ -29,11 +29,6 @@ abstract class BaseController extends Controller
 
     /**
      * Function to show dashboard view
-     *
-     * @param string $view
-     * @param array $vars
-     * @param string $viewMode
-     * @return View
      */
     protected function dashboardView(string $view, array $vars = [], string $viewMode = 'add'): View
     {
@@ -46,10 +41,6 @@ abstract class BaseController extends Controller
 
     /**
      * Function to render dashboard view
-     *
-     * @param $view
-     * @param array $vars
-     * @return string
      */
     protected function renderDashboardView($view, array $vars = []): string
     {
@@ -58,10 +49,6 @@ abstract class BaseController extends Controller
 
     /**
      * Function to generate sub header data
-     *
-     * @param string $view
-     * @param string $viewMode
-     * @return void
      */
     private function generateSubHeaderData(string $view, string $viewMode): void
     {

@@ -8,9 +8,6 @@ use App\Repositories\BaseRepository;
 
 class RoleRepository extends BaseRepository implements IRoleRepository
 {
-    /**
-     * @param Role $model
-     */
     public function __construct(Role $model)
     {
         parent::__construct($model);
