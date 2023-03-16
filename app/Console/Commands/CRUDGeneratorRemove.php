@@ -13,7 +13,7 @@ class CRUDGeneratorRemove extends Command
      *
      * @var string
      */
-    protected $signature = 'crud:remove';
+    protected $signature = 'remove:crud';
 
     /**
      * The console command description.

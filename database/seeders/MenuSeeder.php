@@ -26,7 +26,6 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-language fa-fw',
                 'type' => 'admin',
                 'role' => [Role::ROLE_SUPER_ADMIN],
-                'sort_order' => 1,
             ],
             [
                 'title' => 'Users',
@@ -35,7 +34,6 @@ class MenuSeeder extends Seeder
                 'icon' => 'fas fa-users fa-fw',
                 'type' => 'admin',
                 'role' => [Role::ROLE_SUPER_ADMIN],
-                'sort_order' => 2,
             ],
             [
                 'title' => 'Articles',
@@ -44,7 +42,6 @@ class MenuSeeder extends Seeder
                 'icon' => 'far fa-newspaper fa-fw',
                 'type' => 'admin',
                 'role' => [Role::ROLE_SUPER_ADMIN],
-                'sort_order' => 3,
                 /*'sub' =>  [
                     [
                         'title' => 'Sub Article',
@@ -55,10 +52,13 @@ class MenuSeeder extends Seeder
                     ]
                 ],*/
             ],
-
         ];
 
-        foreach ($menus as $menu) {
+        foreach ($menus as $key => $menu) {
+            if (!isset($menu['sort_order'])) {
+                $menu['sort_order'] = $key + 1;
+            }
+
             $createdMenu = Menu::create($menu);
 
             foreach ($menu['sub'] ?? [] as $subMenu) {

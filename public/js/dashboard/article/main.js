@@ -20,13 +20,10 @@ new FormRequest();
 const infoModal = new Modal('infoModal');
 
 $(function () {
-
   infoModalEvent();
-
 });
 
 function infoModalEvent() {
-
   infoModal.afterShow(function () {
     // Info Modal Opened!
   });
@@ -57,5 +54,4 @@ function infoModalEvent() {
   // infoModal.clickItem('.custom-save-btn', function () {
   //   console.log('custom-save-btn');
   // });
-
 }

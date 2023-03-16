@@ -16,9 +16,6 @@ class CreateJs extends CRUDGeneratorAbstract
         $this->config = $this->getConfig(self::JS);
     }
 
-    /**
-     *
-     */
     public function make(): void
     {
         foreach ($this->config['files'] as $file) {
@@ -26,9 +23,6 @@ class CreateJs extends CRUDGeneratorAbstract
         }
     }
 
-    /**
-     *
-     */
     public function getMessageText(): string
     {
         return ucfirst(self::JS);

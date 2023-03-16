@@ -9,22 +9,16 @@ class FacadeServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
-     *
-     * @return void
      */
-    public function register()
+    public function register(): void
     {
-        //
     }
 
     /**
      * Bootstrap services.
-     *
-     * @return void
      */
     public function boot(): void
     {
-        //
         $this->app->singleton('metadata', function () {
             return new MetaData();
         });

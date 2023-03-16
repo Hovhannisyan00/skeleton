@@ -10,8 +10,6 @@ class ValidatorServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap services.
-     *
-     * @return void
      */
     public function boot(): void
     {
@@ -22,8 +20,6 @@ class ValidatorServiceProvider extends ServiceProvider
 
     /**
      * Function to set global validators
-     *
-     * @return void
      */
     private function globalValidators(): void
     {
@@ -137,10 +133,6 @@ class ValidatorServiceProvider extends ServiceProvider
 
     /**
      * Function to get attribute value
-     *
-     * @param $attribute
-     * @param $value
-     * @return array
      */
     private function getAttributeValue($attribute, $value): array
     {
@@ -156,12 +148,6 @@ class ValidatorServiceProvider extends ServiceProvider
         return $data;
     }
 
-
-    /**
-     * @param $data
-     * @param $rules
-     * @return bool
-     */
     private function validator($data, $rules): bool
     {
         $validator = Validator::make($data, $rules);
@@ -173,11 +159,6 @@ class ValidatorServiceProvider extends ServiceProvider
         return true;
     }
 
-    /**
-     * @param $array
-     * @param $value
-     * @return array
-     */
     private function dataArray($array, $value): array
     {
         $resultArray = $value;

@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-underscore-dangle
 let _selfConfirmModal;
+
 // eslint-disable-next-line no-unused-vars
 class ConfirmModal {
   constructor() {
@@ -67,5 +68,6 @@ class ConfirmModal {
     this.$_clicks();
   }
 }
+
 // eslint-disable-next-line no-new
 new ConfirmModal();

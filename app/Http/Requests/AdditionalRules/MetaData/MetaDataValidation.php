@@ -4,9 +4,6 @@ namespace App\Http\Requests\AdditionalRules\MetaData;
 
 class MetaDataValidation
 {
-    /**
-     * Function to set seo data
-     */
     public static function rules(bool $isRequired = false): array
     {
         $requiredRule = $isRequired ? 'required' : 'nullable';

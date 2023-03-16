@@ -1,5 +1,4 @@
 $(function () {
-
   select2Init();
 
   datepickerInit();
@@ -13,58 +12,54 @@ $(function () {
   copyMlInfo();
 
   responseMessage();
-
 });
 
-select2Init = function (div, className = 'select2') {
-  let select2 = $('select.' + className);
-  if (typeof div !== "undefined") {
-    select2 = div.find('select.' + className);
+select2Init = function (div = undefined, className = 'select2') {
+  let select2 = $(`select.${className}`);
+  if (typeof div !== 'undefined') {
+    select2 = div.find(`select.${className}`);
   }
 
   $.each(select2, function () {
-
     $(this).select2({
       placeholder: $trans('__dashboard.select.option.default'),
       minimumResultsForSearch: 10,
-      allowClear: $(this).data('allow-clear') || false
+      allowClear: $(this).data('allow-clear') || false,
     });
   });
-}
+};
 
 select2Reset = function (select) {
   if (select.length) {
-    select.select2("val", "");
+    select.select2('val', '');
     select.find('option').not(':first-child').remove();
   }
-}
+};
 
 select2SetValues = function (select, data) {
-  $.each(data, function (key, value) {
+  $.each(data, (key, value) => {
     select.append(new Option(value, key, false, false)).trigger('change.select2');
   });
-}
+};
 
 disableField = function (field, disable) {
-
-  if (typeof disable === "undefined") {
-    disable = true
+  if (typeof disable === 'undefined') {
+    disable = true;
   }
 
   field.prop('disabled', disable);
-}
+};
 
 loadContent = function (content, removeLoad) {
-
-  if (typeof removeLoad === "undefined") {
+  if (typeof removeLoad === 'undefined') {
     content.addClass('loading-content position-relative');
   } else {
     content.removeClass('loading-content position-relative');
   }
-}
+};
 
 // ClassicEditor
-function ckEditorInit(){
+function ckEditorInit() {
   const ckeditorEls = document.querySelectorAll('.ckeditor5');
 
   ckeditorEls.forEach((item) => {
@@ -74,11 +69,11 @@ function ckEditorInit(){
         uploadUrl: 'https://33333.cke-cs.com/easyimage/upload/',
       },
     })
-      .then(editor => {
-        if($(item).attr('disabled')){
+      .then((editor) => {
+        if ($(item).attr('disabled')) {
           editor.isReadOnly = true;
         }
-      } )
+      })
       .catch((error) => {
         console.error(error);
       });
@@ -86,77 +81,60 @@ function ckEditorInit(){
 }
 
 function datepickerInit() {
-
   const datepickerInputs = $('.datepicker');
 
   if (datepickerInputs.length) {
-
     $.each(datepickerInputs, function () {
-
       const self = $(this);
 
       self.datetimepicker({
-        timepicker: false,
-        format: 'd.m.Y',
-        scrollMonth: false,
-        scrollInput: false,
-        onChangeDateTime: function (dp, $input) {
+        timepicker: false, format: 'd.m.Y', scrollMonth: false, scrollInput: false, onChangeDateTime(dp, $input) {
           let backendVal = '';
           if ($input.val()) {
-            backendVal = moment($input.val(), "DD.MM.YYYY").format($dashboardDates.js.date_format)
+            backendVal = moment($input.val(), 'DD.MM.YYYY').format($dashboardDates.js.date_format);
           }
-          self.siblings('.backend-date-value').val(backendVal)
-        }
+          self.siblings('.backend-date-value').val(backendVal);
+        },
       });
-
-    })
+    });
   }
 }
 
 function datetimePickerInit() {
-
   const datetimePickerInputs = $('.datetimepicker');
 
   if (datetimePickerInputs.length) {
-
     $.each(datetimePickerInputs, function () {
-
       const self = $(this);
 
       self.datetimepicker({
-        format: 'd.m.Y H:i',
-        onChangeDateTime: function (dp, $input) {
+        format: 'd.m.Y H:i', onChangeDateTime(dp, $input) {
           let backendVal = '';
           if ($input.val()) {
-            backendVal = moment($input.val(), "DD.MM.YYYY HH:mm").format($dashboardDates.js.date_time_format)
+            backendVal = moment($input.val(), 'DD.MM.YYYY HH:mm').format($dashboardDates.js.date_time_format);
           }
-          self.siblings('.backend-date-value').val(backendVal)
-        }
+          self.siblings('.backend-date-value').val(backendVal);
+        },
       });
-
     });
-
   }
 }
 
 function openMenu() {
-  $('.open-menu').click(function () {
+  $('.open-menu').click(() => {
     $('.page').toggleClass('left-menu-opened');
     $('.open-menu').toggleClass('open-menu-opened');
   });
 }
 
 function copyMlInfo() {
-
-  const copyMlButton = $(".copy-ml-info-btn");
+  const copyMlButton = $('.copy-ml-info-btn');
 
   if (copyMlButton.length) {
-
     copyMlButton.click(function () {
-
       const self = $(this);
       const currentTabData = self.closest('.tab-pane').find(':input');
-      const toTabData = $('#__mls__tab__' + self.data('to-lang-code'));
+      const toTabData = $(`#__mls__tab__${self.data('to-lang-code')}`);
 
       self.prop('disabled', true);
 
@@ -165,10 +143,9 @@ function copyMlInfo() {
 
         if (inputName) {
           const toInputName = inputName.replace(self.data('current-lang-code'), self.data('to-lang-code'));
-          const toInput = toTabData.find('*[name="' + toInputName + '"]');
+          const toInput = toTabData.find(`*[name="${toInputName}"]`);
 
           if (toInput.length) {
-
             // @todo ckeditor set val
             if (toInput.hasClass('ckeditor5')) {
               // toInput.ckeditor5().setData($(this).val());
@@ -179,19 +156,18 @@ function copyMlInfo() {
 
           setTimeout(() => {
             self.prop('disabled', false);
-          }, 120)
+          }, 120);
         }
       });
     });
   }
-
 }
 
-function responseMessage(){
-  const responseMessage = localStorage.getItem('_message');
-  if (responseMessage) {
+function responseMessage() {
+  const responseMessageStorage = localStorage.getItem('_message');
+  if (responseMessageStorage) {
     // eslint-disable-next-line no-undef
-    El.Message.success(responseMessage);
+    El.Message.success(responseMessageStorage);
   }
   localStorage.removeItem('_message');
 }

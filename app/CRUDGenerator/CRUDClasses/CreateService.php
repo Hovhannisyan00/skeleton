@@ -15,25 +15,16 @@ class CreateService extends CRUDGeneratorAbstract
         $this->config = $this->getConfig(self::SERVICE);
     }
 
-    /**
-     *
-     */
     public function make(): void
     {
         $this->createFolderAndFile($this->getSourceFile($this->config));
     }
 
-    /**
-     *
-     */
     public function getMessageText(): string
     {
         return "{$this->className}Service";
     }
 
-    /**
-     * Function to return stub variables
-     */
     protected function stubVariables(): array
     {
         return [

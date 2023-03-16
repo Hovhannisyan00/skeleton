@@ -78,7 +78,7 @@ class CRUDGeneratorInit
         $textMessage = "
 <fg=yellow>Please don't forget put this codes</>
 <fg=blue>1) </>
-<fg=green>// {$this->arguments['className']}Repository registration
+<fg=green>
 I{$this->arguments['className']}Repository::class => {$this->arguments['className']}Repository::class,</> <fg=yellow>in RepositoryServiceProvider \$singletons array.</>
 <fg=blue>2) </>
 <fg=green>// $plural

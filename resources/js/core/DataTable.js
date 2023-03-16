@@ -17,20 +17,18 @@ class DataTable {
   }
 
   columnDefaultRender(options) {
-
     const showStatusRender = {
       show_status: {
         render(showStatus) {
-          return `<span class="show-status-${showStatus}">${$trans('__dashboard.select.option.show_status_' + showStatus)}</span>`;
-        }
-      }
-    }
+          return `<span class="show-status-${showStatus}">${$trans(`__dashboard.select.option.show_status_${showStatus}`)}</span>`;
+        },
+      },
+    };
 
-    options.columnsRender = {...showStatusRender, ...options.columnsRender}
+    options.columnsRender = { ...showStatusRender, ...options.columnsRender };
   }
 
   actions() {
-
     const replaceId = (id, type) => this.pathOptions[`${type}Path`].replace(':id', id);
 
     const self = this;
@@ -48,13 +46,13 @@ class DataTable {
       },
 
       clone(row) {
-        if (self.pathOptions['clonePath']) {
+        if (self.pathOptions.clonePath) {
           return `<a href="${replaceId(row.id, 'clone')}" class="btn" title="Duplicate">
                    <i class="fas fa-copy fa-fw"></i>
                 </a>`;
         }
 
-        return ''
+        return '';
       },
 
       delete(row) {
@@ -64,7 +62,7 @@ class DataTable {
       },
     };
 
-    this.options.actions = {...defaultActions, ...this.options.actions};
+    this.options.actions = { ...defaultActions, ...this.options.actions };
   }
 
   renderActions(data, type, row, meta) {
@@ -84,13 +82,11 @@ class DataTable {
         let text = '';
 
         if (data && !Array.isArray(data)) {
+          // if relation is objected
+          if (typeof relationName !== 'string') {
+            const relationKey = Object.keys(relationName)[0] || '';
 
-          // if relation is object
-          if(typeof relationName != 'string'){
-
-            const relationKey = Object.keys(relationName)[0] || ''
-
-            if(data[relationKey]){
+            if (data[relationKey]) {
               return data[relationKey][relationName[relationKey]];
             }
           }
@@ -100,9 +96,8 @@ class DataTable {
 
         if (Array.isArray(data)) {
           data.map((item, index) => {
-
-            if (typeof relationName != 'string') {
-              const relationKey = Object.keys(relationName)[0] || ''
+            if (typeof relationName !== 'string') {
+              const relationKey = Object.keys(relationName)[0] || '';
               if (item[relationKey]) {
                 const relVal = item[relationKey][relationName[relationKey]];
                 text += index ? `, ${relVal}` : relVal;
@@ -110,7 +105,6 @@ class DataTable {
             } else {
               text += index ? `, ${item[relationName]}` : item[relationName];
             }
-
           });
 
           return text;
@@ -142,10 +136,10 @@ class DataTable {
         orderable: $(field).data('orderable') ?? true,
       };
 
-      const {columnsRender} = this.options;
+      const { columnsRender } = this.options;
 
       if (columnsRender && columnsRender[columnName]) {
-        column = {...column, ...columnsRender[column.data]};
+        column = { ...column, ...columnsRender[column.data] };
       }
 
       if (columnName) {
@@ -157,7 +151,7 @@ class DataTable {
 
   getAndGenerateColumns() {
     const columns = this.mapTableColumns();
-    if (typeof this.options.noActions == "undefined" || !this.options.noActions) {
+    if (typeof this.options.noActions === 'undefined' || !this.options.noActions) {
       columns.push(this.actionsColumn());
     }
     return columns;
@@ -178,7 +172,7 @@ class DataTable {
   async ajaxSend(data, callback) {
     this.resetForm();
     // eslint-disable-next-line no-undef
-    await axios(this.pathOptions.searchPath, {params: this.generateRequestData(data)})
+    await axios(this.pathOptions.searchPath, { params: this.generateRequestData(data) })
       .then((resp) => {
         callback(resp.data);
       }).catch(this.errorHandler.bind(this));
@@ -209,7 +203,7 @@ class DataTable {
       pageLength: 25,
       columns: this.getAndGenerateColumns(),
     };
-    this.options = {...options, ...this.options};
+    this.options = { ...options, ...this.options };
   }
 
   tableReload() {
@@ -224,7 +218,7 @@ class DataTable {
 
   searchFromLoader(is) {
     const spinner = this.searchFormEl.find('button.search__form__btn .spinner-border');
-    if (is) spinner.css({display: 'inline-block'});
+    if (is) spinner.css({ display: 'inline-block' });
     else spinner.hide();
   }
 
@@ -237,22 +231,20 @@ class DataTable {
     const searchData = $(el).serializeArray();
 
     searchData.map((item, id) => {
-
       let addArrayBrackets = '';
-      if ($(el).find('select[name="' + item.name + '"][multiple]').length) {
-        addArrayBrackets = '[' + id + ']'
+      if ($(el).find(`select[name="${item.name}"][multiple]`).length) {
+        addArrayBrackets = `[${id}]`;
       }
 
-      this.searchData[`f[${item.name}]` + addArrayBrackets] = item.value;
+      this.searchData[`f[${item.name}]${addArrayBrackets}`] = item.value;
     });
 
     this.tableReload();
   }
 
   defaultSearchData() {
-
-    let self = this;
-    $.each(this.searchFormEl.find('.default-search'), function (k, item) {
+    const self = this;
+    $.each(this.searchFormEl.find('.default-search'), (k, item) => {
       self.searchData[`f[${$(item).attr('name')}]`] = $(item).val();
     });
   }

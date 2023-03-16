@@ -15,17 +15,11 @@ class CreateInterface extends CRUDGeneratorAbstract
         $this->config = $this->getConfig(self::INTERFACE);
     }
 
-    /**
-     *
-     */
     public function make(): void
     {
         $this->createFolderAndFile($this->getSourceFile($this->config));
     }
 
-    /**
-     *
-     */
     public function getMessageText(): string
     {
         return "I{$this->className}Repository";

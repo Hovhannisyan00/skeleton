@@ -16,9 +16,6 @@ class CreateBlades extends CRUDGeneratorAbstract
         $this->config = $this->getConfig(self::BLADES);
     }
 
-    /**
-     *
-     */
     public function make(): void
     {
         foreach ($this->config['files'] as $file) {
@@ -30,17 +27,11 @@ class CreateBlades extends CRUDGeneratorAbstract
         }
     }
 
-    /**
-     *
-     */
     public function getMessageText(): string
     {
         return ucfirst(self::BLADES);
     }
 
-    /**
-     * Function to return stub variables
-     */
     protected function stubVariables(): array
     {
         $className = Str::snake($this->className, '-');

@@ -16,25 +16,16 @@ class CreateSearchRequest extends CRUDGeneratorAbstract
         $this->config = $this->getConfig(self::REQUEST_REQUEST);
     }
 
-    /**
-     *
-     */
     public function make(): void
     {
         $this->createFolderAndFile($this->getSourceFile($this->config));
     }
 
-    /**
-     *
-     */
     public function getMessageText(): string
     {
         return "{$this->className}SearchRequest";
     }
 
-    /**
-     * Function to return stub variables
-     */
     protected function stubVariables(): array
     {
         $singularClassName = strtolower(Str::singular($this->className));

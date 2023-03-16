@@ -10,7 +10,7 @@ class FormRequest {
 
   async formSubmit(event) {
     event.preventDefault();
-    let form = event.target;
+    const form = event.target;
 
     const method = $(form).attr('method');
     const url = $(form).attr('action');
@@ -22,7 +22,7 @@ class FormRequest {
     this.formEl.find('.validation-error').html('');
     this.formRequestLoader();
 
-    if(this.__checkOptionMethodsExist() && this.options.methods.beforeSendRequest){
+    if (this.__checkOptionMethodsExist() && this.options.methods.beforeSendRequest) {
       this.options.methods.beforeSendRequest();
     }
 
@@ -38,7 +38,7 @@ class FormRequest {
   successHandler(resp) {
     resp = resp.data;
 
-    if(this.__checkOptionMethodsExist() && this.options.methods.afterSuccess){
+    if (this.__checkOptionMethodsExist() && this.options.methods.afterSuccess) {
       this.formLoad(false);
       this.formRequestLoader(false);
       return this.options.methods.afterSuccess(resp);
@@ -47,11 +47,10 @@ class FormRequest {
     if (resp.redirectUrl) {
       localStorage.setItem('_message', resp.message);
       location.href = resp.redirectUrl;
-    }else{
+    } else {
       this.formRequestLoader(false);
       this.formLoad(false);
     }
-
   }
 
   errorHandler(error) {
@@ -74,7 +73,7 @@ class FormRequest {
 
       this.scrollToFirstError();
 
-      if(this.__checkOptionMethodsExist() && this.options.methods.afterError){
+      if (this.__checkOptionMethodsExist() && this.options.methods.afterError) {
         this.options.methods.afterError(error);
       }
     }
@@ -90,21 +89,20 @@ class FormRequest {
       $(`.nav-tabs a[href="#${firstError.closest('.tab-pane').attr('id')}"]`).tab('show');
     }
 
-    if(firstError.length){
+    if (firstError.length) {
       setTimeout(() => {
         $('html, body').animate({
           scrollTop: firstError.offset().top - 300,
         }, 200);
       }, 150);
     }
-
   }
 
   formRequestLoader(is = true) {
     const spinner = this.formEl.find('button.form__request__send__btn .spinner-border');
     const btn = this.formEl.find('button.form__request__send__btn');
     if (is) {
-      spinner.css({display: 'inline-block'});
+      spinner.css({ display: 'inline-block' });
       btn.prop('disabled', true);
     } else {
       spinner.hide();
@@ -112,16 +110,16 @@ class FormRequest {
     }
   }
 
-  formLoad(is = true){
-    if(is){
+  formLoad(is = true) {
+    if (is) {
       this.cardBody.addClass('loading-content');
-    }else{
+    } else {
       this.cardBody.removeClass('loading-content');
     }
   }
 
-  showMode(){
-    this.formEl.find(':input').prop('disabled',true);
+  showMode() {
+    this.formEl.find(':input').prop('disabled', true);
   }
 
   clickSubmit() {
@@ -129,8 +127,8 @@ class FormRequest {
   }
 
   init() {
-    if(this.formEl.hasClass('show-mode')){
-      this.showMode()
+    if (this.formEl.hasClass('show-mode')) {
+      this.showMode();
     }
 
     this.clickSubmit();
@@ -138,7 +136,7 @@ class FormRequest {
     this.formLoad(false);
   }
 
-  __checkOptionMethodsExist(){
-    return typeof this.options != "undefined" && typeof this.options.methods != "undefined";
+  __checkOptionMethodsExist() {
+    return typeof this.options != 'undefined' && typeof this.options.methods != 'undefined';
   }
 }

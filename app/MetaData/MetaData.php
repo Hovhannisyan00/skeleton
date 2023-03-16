@@ -11,17 +11,11 @@ class MetaData
     private string $og_type = 'website';
     private string $keywords = '';
 
-    /**
-     * Function to get Title
-     */
     public function getTitle(): string
     {
         return $this->title;
     }
 
-    /**
-     * Function to set Title
-     */
     public function setTitle(string $title): static
     {
         $this->title = $title;
@@ -29,17 +23,11 @@ class MetaData
         return $this;
     }
 
-    /**
-     * Function to get Description
-     */
     public function getDescription(): string
     {
         return $this->description;
     }
 
-    /**
-     * Function to set Description
-     */
     public function setDescription(string $description): static
     {
         $this->description = $description;
@@ -47,17 +35,11 @@ class MetaData
         return $this;
     }
 
-    /**
-     * Function to get Og image
-     */
     public function getOgImage(): string
     {
         return url($this->og_image);
     }
 
-    /**
-     * Function to set Og image
-     */
     public function setOgImage(string $ogImage): static
     {
         $this->og_image = $ogImage;
@@ -65,17 +47,11 @@ class MetaData
         return $this;
     }
 
-    /**
-     * Function to get Og Url
-     */
     public function getOgUrl(): string
     {
         return urlWithLng($this->og_url);
     }
 
-    /**
-     * Function to set Og Url
-     */
     public function setOgUrl(string $ogUrl): static
     {
         $this->og_url = $ogUrl;
@@ -83,17 +59,11 @@ class MetaData
         return $this;
     }
 
-    /**
-     * Function to get Og Type
-     */
     public function getOgType(): string
     {
         return $this->og_type;
     }
 
-    /**
-     * Function to set Og Type
-     */
     public function setOgType(string $ogType): static
     {
         $this->og_type = $ogType;
@@ -101,9 +71,6 @@ class MetaData
         return $this;
     }
 
-    /**
-     * Function to get default data
-     */
     public function getDefaultData(): static
     {
         $this->setTitle(config('app.name') ?? trans('meta.home.title'));
@@ -112,17 +79,11 @@ class MetaData
         return $this;
     }
 
-    /**
-     * Function to get keywords
-     */
     public function getKeywords(): string
     {
         return $this->keywords;
     }
 
-    /**
-     * Function to set keywords
-     */
     public function setKeywords(string $keywords): static
     {
         $this->keywords = $keywords;

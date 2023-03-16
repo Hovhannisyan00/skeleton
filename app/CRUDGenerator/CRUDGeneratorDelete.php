@@ -52,7 +52,7 @@ class CRUDGeneratorDelete
                 $absolutePath = $module['path'] . '\\' . $this->replaceAttributeByClassName($module['file_name']);
 
                 if ($disk->exists($absolutePath)) {
-                    unlink($absolutePath);
+                    $disk->delete($absolutePath);
                 } else {
                     (new ConsoleOutput())->writeln("<fg=red>$absolutePath :Not Found!!</>");
                 }

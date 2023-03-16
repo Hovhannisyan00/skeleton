@@ -8,10 +8,7 @@ class UserRequest extends FormRequest
 {
     public function rules(): array
     {
-        $passwordRule = 'required';
-        if ($this->user) {
-            $passwordRule = 'nullable';
-        }
+        $passwordRule = $this->user ? 'nullable' : 'required';
 
         return [
             'first_name' => 'required|string_with_max',

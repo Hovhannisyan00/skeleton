@@ -31,7 +31,7 @@ class FileUploader {
     this.filename = '';
 
     if ($(this.$el).data('has-crop')) {
-      if (typeof this.cropContainer == "undefined") {
+      if (typeof this.cropContainer == 'undefined') {
         this.initCroppie();
         this.cropModalActions();
       }
@@ -59,36 +59,34 @@ class FileUploader {
       viewport: {
         width: 200,
         height: 200,
-        type: 'circle'
+        type: 'circle',
       },
       boundary: {
         width: 300,
-        height: 300
-      }
+        height: 300,
+      },
     });
   }
 
   cropperImageChange() {
     cropperModal.show();
 
-    let reader = new FileReader();
-    reader.onload =  (e) => {
+    const reader = new FileReader();
+    reader.onload = (e) => {
       this.cropContainer.croppie('bind', {
-        url: e.target.result
+        url: e.target.result,
       });
-    }
+    };
     reader.readAsDataURL(this.fileData[0]);
     this.filename = this.fileData[0].name;
   }
 
   cropModalActions() {
-
     cropperModal.save(() => {
       this.cropContainer.croppie('result', {
         type: 'canvas',
-        size: 'viewport'
+        size: 'viewport',
       }).then((resp) => {
-
         //
         this.removeOldUploadedFiles();
 
@@ -154,7 +152,7 @@ class FileUploader {
     const fileItem = $(this.$fileListEl)
       .find(`.file__item[data-index=${fileIndex}]`);
 
-    fileItem.addClass('file__item__type__' + fileInfo.file_type)
+    fileItem.addClass(`file__item__type__${fileInfo.file_type}`);
     fileItem.html(this.createHtmlForFile(fileInfo));
   }
 
@@ -186,7 +184,7 @@ class FileUploader {
       this.$fileErrorBox.show();
       error = error.response.data;
       // eslint-disable-next-line no-restricted-syntax
-      for (const [key, value] of Object.entries(error.errors)) {
+      for (const value of Object.entries(error.errors)) {
         this.$fileErrorBox.find('ul').append(`<li data-index="${fileIndex}">File :${fileIndex} ${value}</li>`);
       }
     }
@@ -195,7 +193,7 @@ class FileUploader {
   progressBar(progress, fileIndex) {
     $(this.$fileListEl)
       .find(`.file__item[data-index=${fileIndex}] .file__progress .progress-bar`)
-      .css({width: `${progress}%`})
+      .css({ width: `${progress}%` })
       .attr('aria-valuenow', progress)
       .html(`${progress}%`);
   }
@@ -240,6 +238,7 @@ class FileUploader {
     }
 
     $(el).closest('.file__item').remove();
+    this.$fileHiddenInputsBox.html('');
     this.deleteFileEvent();
   }
 
@@ -256,4 +255,5 @@ class FileUploader {
   // Delete functions end
 }
 
+// eslint-disable-next-line no-new
 new FileUploader();

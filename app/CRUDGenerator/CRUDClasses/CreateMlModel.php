@@ -16,9 +16,6 @@ class CreateMlModel extends CRUDGeneratorAbstract
         $this->config = $this->getConfig(self::ML_MODEL);
     }
 
-    /**
-     *
-     */
     public function make(): void
     {
         if ($this->arguments['migrationMl']) {
@@ -26,9 +23,6 @@ class CreateMlModel extends CRUDGeneratorAbstract
         }
     }
 
-    /**
-     *
-     */
     public function getMessageText(): string
     {
         return $this->arguments['migrationMl'] ? $this->className . ' ml model' : '';
