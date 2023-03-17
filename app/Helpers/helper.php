@@ -130,6 +130,7 @@ if (!function_exists('langIconPath')) {
     function langIconPath($lang = null): string
     {
         return match ($lang) {
+            'de' => '/img/germany.svg',
             'ru' => '/img/Flag_of_Russia.svg',
             'hy' => '/img/Armenia_-_Rounded_Rectangle.svg',
             default => '/img/united-states.svg'

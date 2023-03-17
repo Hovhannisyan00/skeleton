@@ -15,7 +15,7 @@
                         <span class="svg-icon">
                             <i class="{{ $menu->icon }}"></i>
                         </span>
-                    <span class="menu-text">{{ __('__dashboard.menu.'.$menu->slug) }}</span>
+                    <span class="menu-text">{{ __('dashboard_menu.'.$menu->slug) }}</span>
                     <i class="menu-arrow"></i>
                 </a>
                 <div class="collapse {{$hasActiveSubMenu ? 'show' : ''}}" data-parent="#menu-nav" id="collapseMenu_{{$menu->id}}">
@@ -26,7 +26,7 @@
                                     <i class="menu-bullet-line">
                                         <span></span>
                                     </i>
-                                    <span class="menu-text">{{ __('__dashboard.menu.'.$subMenu->slug) }}</span>
+                                    <span class="menu-text">{{ __('dashboard_menu.'.$subMenu->slug) }}</span>
                                 </a>
                             </li>
                         @endforeach
@@ -38,7 +38,7 @@
                 <span class="svg-icon">
                     <i class="{{ $menu->icon }}"></i>
                 </span>
-                    <span class="menu-text">{{ __('__dashboard.menu.'.$menu->slug) }}</span>
+                    <span class="menu-text">{{ __('dashboard_menu.'.$menu->slug) }}</span>
                 </a>
             </li>
         @endif

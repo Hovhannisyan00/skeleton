@@ -20,6 +20,11 @@
                         <x-dashboard.form.uploader._file name="avatar" :value="$user->avatar" :crop="true" :configKey="$user->getFileConfigName()"/>
                         <x-dashboard.form.modals._crop id="cropImage" static></x-dashboard.form.modals._crop>
                     </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-6">
 
                     <div class="form-group required">
                         <x-dashboard.form._input name="first_name" :value="$user->first_name"/>
@@ -32,15 +37,15 @@
                     <div class="form-group">
                         <x-dashboard.form._input name="email" disabled :value="$user->email"/>
                     </div>
+                </div>
 
-                    <hr />
-
+                <div class="col-lg-6">
                     <div class="form-group">
-                        <x-dashboard.form._input name="current_password" autocomplete="off" type="password"/>
+                        <x-dashboard.form._input name="current_password" autocomplete type="password"/>
                     </div>
 
                     <div class="form-group">
-                        <x-dashboard.form._input name="new_password" autocomplete="off" type="password"/>
+                        <x-dashboard.form._input name="new_password" autocomplete type="password"/>
                     </div>
 
                     <div class="form-group mb-0">

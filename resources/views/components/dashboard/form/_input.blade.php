@@ -16,6 +16,9 @@
        @if(!isset($noPlaceholder))
        placeholder="{{ $title }}"
        @endif
+       @if(isset($decimal))
+       step="any"
+       @endif
        name="{{ $name ?? '' }}"
        value="{{ $value ?? '' }}"
        class="form-control {{ $class ?? '' }}">
