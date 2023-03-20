@@ -8,6 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ $meta->getTitle() }}</title>
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
 
     <!-- Meta Data -->
     <meta name="description" content="{{$meta->getDescription()}}">

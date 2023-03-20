@@ -69,6 +69,7 @@ return array(
         'delete' => 'Delete',
         'add_more' => 'Add more',
         'crop' => 'Crop',
+        'create' => 'Create',
     ],
 
     'label' => [

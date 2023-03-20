@@ -1,15 +1,19 @@
 <div class="card-header">
     <div class="card-title">
-        @isset($title)<h3 class="card-label">{{ $title }}</h3>@endisset
-{{--        <h3 class="card-label">{{ isset($subHeaderData['pageName']) ? __('__dashboard.'.$subHeaderData['pageName'].'.title') : __('__dashboard.title')  }}</h3>--}}
+        @isset($title)
+            <h3 class="card-label">{{ $title }}</h3>
+        @endisset
     </div>
 
     @isset($createRoute)
-    <div class="ml-auto">
-        <a href="{{ $createRoute }}" class="btn btn-create">
-            <i class="flaticon2-plus mr-2"></i>
-            {{ __('__dashboard.'.$subHeaderData['pageName'].'.create') }}
-        </a>
-    </div>
+        @php
+            $pageName = isset($addPageName) ? '.'.$subHeaderData['pageName'] : '';
+        @endphp
+        <div class="ml-auto">
+            <a href="{{ $createRoute }}" class="btn btn-create">
+                <i class="flaticon2-plus mr-2"></i>
+                {{ __("__dashboard$pageName.button.create") }}
+            </a>
+        </div>
     @endisset
 </div>
