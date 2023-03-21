@@ -40,7 +40,6 @@ if (!function_exists("routeIs")) {
 }
 
 if (!function_exists('getAllRoutesName')) {
-
     function getAllRoutesName(): array
     {
         $routeCollection = Route::getRoutes()->get();
@@ -126,7 +125,6 @@ if (!function_exists("getTrans")) {
 }
 
 if (!function_exists('langIconPath')) {
-
     function langIconPath($lang = null): string
     {
         return match ($lang) {
@@ -288,4 +286,28 @@ if (!function_exists("replaceNameWithDots")) {
 
 /* ========================================================================================
                                 String Helper Functions - End
+ ======================================================================================== */
+
+
+/* ========================================================================================
+                                Array Helper Functions - Start
+ ======================================================================================== */
+
+if (!function_exists("modifyDataForSelect")) {
+    function modifyDataForSelect(array $data, bool $customKey = false, string $addTransKey = ''): array
+    {
+        $result = [];
+        foreach ($data as $key => $value) {
+            $result[] = [
+                'text' => $addTransKey ? trans($addTransKey . '.' . $value) : $value,
+                'value' => $customKey ? $key : $value,
+            ];
+        }
+
+        return $result;
+    }
+}
+
+/* ========================================================================================
+                                Array Helper Functions - End
  ======================================================================================== */

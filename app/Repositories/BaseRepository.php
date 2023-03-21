@@ -78,6 +78,11 @@ class BaseRepository implements IBaseRepository
         return $columns ? $this->model->get($columns) : $this->model->get();
     }
 
+    public function getWith(array $with = []): Collection
+    {
+        return $this->model->with($with)->get();
+    }
+
     public function getWhereIn(array $whereIn): Collection
     {
         return $this->model->whereIn('id', $whereIn)->get();

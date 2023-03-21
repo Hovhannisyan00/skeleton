@@ -13,7 +13,7 @@ interface IBaseRepository
 
     public function insert(array $data): bool;
 
-    public function find(int $id, array $with = [], bool $throw = true): Model;
+    public function find(int $id): Model;
 
     public function findUpdate(int $id, array $data): bool;
 
@@ -28,6 +28,8 @@ interface IBaseRepository
     public function all(): Collection;
 
     public function get(array $columns = null): Collection;
+
+    public function getWith(array $with = []): Collection;
 
     public function getWhereIn(array $whereIn): Collection;
 
