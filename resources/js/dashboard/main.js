@@ -12,6 +12,8 @@ $(function () {
   copyMlInfo();
 
   responseMessage();
+
+  minimizeMenu();
 });
 
 select2Init = function (div = undefined, className = 'select2') {
@@ -57,6 +59,16 @@ loadContent = function (content, removeLoad) {
     content.removeClass('loading-content position-relative');
   }
 };
+
+function minimizeMenu() {
+  $('.brand-toggle').click(() => {
+    $('.page').toggleClass('minimaize-menu');
+  });
+  $('.open-menu').click(() => {
+    $('.page').toggleClass('left-menu-opened');
+    $('.open-menu').toggleClass('open-menu-opened');
+  });
+}
 
 // ClassicEditor
 function ckEditorInit() {
