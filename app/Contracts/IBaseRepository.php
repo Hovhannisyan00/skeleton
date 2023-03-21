@@ -13,7 +13,7 @@ interface IBaseRepository
 
     public function insert(array $data): bool;
 
-    public function find(int $id): Model;
+    public function find(int $id, array $with = [], bool $throw = true): Model;
 
     public function findUpdate(int $id, array $data): bool;
 
