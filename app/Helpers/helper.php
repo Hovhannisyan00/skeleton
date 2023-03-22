@@ -294,14 +294,11 @@ if (!function_exists("replaceNameWithDots")) {
  ======================================================================================== */
 
 if (!function_exists("modifyDataForSelect")) {
-    function modifyDataForSelect(array $data, bool $customKey = false, string $addTransKey = ''): array
+    function modifyDataForSelect(array $data, $customKey = false, string $addTransKey = ''): array
     {
         $result = [];
         foreach ($data as $key => $value) {
-            $result[] = [
-                'text' => $addTransKey ? trans($addTransKey . '.' . $value) : $value,
-                'value' => $customKey ? $key : $value,
-            ];
+            $result[$customKey ? $key : $value] = $addTransKey ? trans($addTransKey . '.' . $value) : $value;
         }
 
         return $result;
