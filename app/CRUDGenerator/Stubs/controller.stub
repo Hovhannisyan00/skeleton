@@ -39,12 +39,16 @@ class {{ CLASS_NAME }}Controller extends BaseController
 
     public function create(): View
     {
-        return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: $this->service->getViewData());
+        return $this->dashboardView(
+            view: '{{ FOLDER_NAME }}.form',
+            vars: $this->service->getViewData()
+        );
     }
 
     public function store({{ CLASS_NAME }}Request $request): JsonResponse
     {
-     // $this->service->createOrUpdate($request->validated()); // For ML, File
+        // For ML, File
+     // $this->service->createOrUpdate($request->validated());
         $this->repository->create($request->validated());
 
         return $this->sendOkCreated([
@@ -54,20 +58,33 @@ class {{ CLASS_NAME }}Controller extends BaseController
 
     public function show({{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}): View
     {
-   //  return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: $this->service->getViewData(${{ LOWER_CLASS_NAME }}->id), viewMode: 'show');
+       /* return $this->dashboardView(
+           view: '{{ FOLDER_NAME }}.form',
+           vars: $this->service->getViewData(${{ LOWER_CLASS_NAME }}->id),
+           viewMode: 'show'
+       );*/
     }
 
     public function edit({{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}): View
     {
-        ${{ CAMEL_CASE_CLASS_NAME }} = $this->repository->find(${{ LOWER_CLASS_NAME }}->id);
+        // For ML, File
+        /* return $this->dashboardView(
+            view: '{{ FOLDER_NAME }}.form',
+            vars: $this->service->getViewData(${{ LOWER_CLASS_NAME }}->id),
+            viewMode: 'edit'
+        );*/
 
-    //  return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: $this->service->getViewData(${{ LOWER_CLASS_NAME }}->id), viewMode: 'edit'); // For ML, File
-        return $this->dashboardView(view: '{{ FOLDER_NAME }}.form', vars: ['{{ CAMEL_CASE_CLASS_NAME }}' => ${{ CAMEL_CASE_CLASS_NAME }}], viewMode: 'edit');
+        return $this->dashboardView(
+            view: '{{ FOLDER_NAME }}.form',
+            vars: ['{{ CAMEL_CASE_CLASS_NAME }}' => ${{ LOWER_CLASS_NAME }}],
+            viewMode: 'edit'
+        );
     }
 
     public function update({{ CLASS_NAME }}Request $request, {{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}): JsonResponse
     {
-     // $this->service->createOrUpdate($request->validated(), ${{ LOWER_CLASS_NAME }}->id);  // For ML, File
+        // For ML, File
+     // $this->service->createOrUpdate($request->validated(), ${{ LOWER_CLASS_NAME }}->id);
         $this->repository->update(${{ LOWER_CLASS_NAME }}->id, $request->validated());
 
         return $this->sendOkUpdated([
@@ -77,7 +94,8 @@ class {{ CLASS_NAME }}Controller extends BaseController
 
     public function destroy({{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}): JsonResponse
     {
-     // $this->service->delete(${{ LOWER_CLASS_NAME }}->id); // For ML, File
+        // For ML, File
+     // $this->service->delete(${{ LOWER_CLASS_NAME }}->id);
         $this->repository->destroy(${{ LOWER_CLASS_NAME }}->id);
 
         return $this->sendOkDeleted();

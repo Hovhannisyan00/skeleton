@@ -36,7 +36,10 @@ class ArticleController extends BaseController
 
     public function create(): View
     {
-        return $this->dashboardView(view: 'article.form', vars: $this->service->getViewData());
+        return $this->dashboardView(
+            view: 'article.form',
+            vars: $this->service->getViewData()
+        );
     }
 
     public function store(ArticleRequest $request): JsonResponse
@@ -50,11 +53,11 @@ class ArticleController extends BaseController
 
     public function show(Article $article): View
     {
-        return $this->dashboardView(
+        /*return $this->dashboardView(
             view: 'article.form',
             vars: $this->service->getViewData($article->id),
             viewMode: 'show'
-        );
+        );*/
     }
 
     public function edit(Article $article): View
