@@ -8,6 +8,7 @@ use App\Models\RoleAndPermission\RoleSearch;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
 
+// NOT USED FOR NOW
 class RoleController extends BaseController
 {
     public function __construct(IRoleRepository $repository)
