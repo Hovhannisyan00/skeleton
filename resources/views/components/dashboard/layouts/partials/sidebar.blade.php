@@ -6,7 +6,7 @@
             <a href="/" class="brand-logo" aria-label="brand">
                 Dashboard Core
             </a>
-            @if(config('app.env') != 'production')
+            @if(!isProduction())
             <br>
             <p class="text-white">
                 {{ config('app.version') }} - {{ config('app.last_updated_at') }}
