@@ -3,23 +3,17 @@
         <div class="card mb-4">
             <x-dashboard.layouts.partials.card-header :createRoute="route('dashboard.users.create')"/>
             <div class="card-body">
-                <form class="ml-auto row d-flex  justify-content-between flex-wrap"
-                      id="dataTable__search__form">
-                    <div class="row col-md-11 p-0 m-0">
-                        <div class="col-md-4 form-group">
-                            <x-dashboard.form._input name="first_name"/>
-                        </div>
-                        <div class="col-md-4 form-group">
-                            <x-dashboard.form._input name="last_name"/>
-                        </div>
-                        <div class="col-md-4 form-group">
-                            <x-dashboard.form._input name="email"/>
-                        </div>
+                <x-dashboard.form.search._search_form>
+                    <div class="col-md-4 form-group">
+                        <x-dashboard.form._input name="first_name"/>
                     </div>
-                    <div class="col-md-1 form-group text-right d-flex flex-column justify-content-end ">
-                        <x-dashboard.form._loader_btn/>
+                    <div class="col-md-4 form-group">
+                        <x-dashboard.form._input name="last_name"/>
                     </div>
-                </form>
+                    <div class="col-md-4 form-group">
+                        <x-dashboard.form._input name="email"/>
+                    </div>
+                </x-dashboard.form.search._search_form>
 
                 <div class="table-responsive">
                     <table class="table w-100 table-hover" id="__data__table">

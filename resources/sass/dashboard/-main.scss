@@ -618,10 +618,7 @@ table.dataTable > thead > tr th{
 #dataTable__search__form{
     border-bottom: 1px solid #ddd;
     margin-bottom: 20px;
-
-    .row > .form-group:nth-child(3n+1){
-        padding-left: 0;
-    }
+    padding-bottom: 20px;
 }
 
 .__show__status_label{
@@ -782,3 +779,37 @@ table.dataTable > thead > tr th{
     100% { transform: rotate(360deg); }
 }
 
+.open__search__form__btn{
+    &[aria-expanded="true"]{
+        .text-search{
+            display: none;
+        }
+
+        .close-search{
+            display: block;
+        }
+
+        background-color: #F64E60;
+        border-color:  #F64E60;
+
+        &:hover{
+            background-color: #EE2D41;
+            border-color: #EE2D41;
+        }
+    }
+
+    &[aria-expanded="false"]{
+        .text-search{
+            display: block;
+        }
+
+        .close-search{
+            display: none;
+        }
+    }
+
+    .close-search{
+        font-size: 14px;
+        min-width: 30px;
+    }
+}

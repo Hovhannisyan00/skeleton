@@ -70,6 +70,7 @@ return array(
         'add_more' => 'Add more',
         'crop' => 'Crop',
         'create' => 'Create',
+        'reset' => 'Reset',
     ],
 
     'label' => [

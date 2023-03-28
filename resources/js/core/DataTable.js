@@ -177,6 +177,7 @@ class DataTable {
         callback(resp.data);
       }).catch(this.errorHandler.bind(this));
     this.searchFromLoader();
+    this.searchFormReset();
   }
 
   errorHandler(error) {
@@ -220,6 +221,14 @@ class DataTable {
     const spinner = this.searchFormEl.find('button.search__form__btn .spinner-border');
     if (is) spinner.css({ display: 'inline-block' });
     else spinner.hide();
+  }
+
+  searchFormReset() {
+    this.searchFormEl.find('.reset__form__btn').click(() => {
+      this.searchData = {};
+      this.searchFormEl[0].reset();
+      this.tableReload();
+    });
   }
 
   searchFormSubmit(event) {
