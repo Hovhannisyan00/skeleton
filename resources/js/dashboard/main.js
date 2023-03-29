@@ -85,6 +85,10 @@ function ckEditorInit() {
         if ($(item).attr('disabled')) {
           editor.isReadOnly = true;
         }
+
+        editor.model.document.on('change:data', (evt, data) => {
+          editor.updateSourceElement();
+        });
       })
       .catch((error) => {
         console.error(error);
