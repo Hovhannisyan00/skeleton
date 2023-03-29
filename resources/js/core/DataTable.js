@@ -1,7 +1,11 @@
+const SEARCH_LOCALSTORAGE_KEY = 'datatable_search_values';
+const SEARCH_DATATABLE_STATE_KEY = 'datatable_search_state';
+
 // eslint-disable-next-line no-unused-vars
 class DataTable {
   constructor(options = {}, tableId = '#__data__table') {
     this.initVariables(options, tableId);
+    this.setSearchStoredData();
     this.columnDefaultRender(options);
     this.init();
   }
@@ -26,6 +30,10 @@ class DataTable {
     };
 
     options.columnsRender = { ...showStatusRender, ...options.columnsRender };
+  }
+
+  storeSearchData() {
+    return this.options.storeSearchData ?? true;
   }
 
   actions() {
@@ -195,6 +203,8 @@ class DataTable {
   }
 
   generateOptions() {
+    const moduleName = this.getCurrentModuleName();
+
     const options = {
       processing: true,
       serverSide: true,
@@ -203,7 +213,17 @@ class DataTable {
       order: [[0, 'desc']],
       pageLength: 25,
       columns: this.getAndGenerateColumns(),
+      bStateSave: true,
+      stateSaveCallback(oSettings, oData) {
+        localStorage.setItem(SEARCH_DATATABLE_STATE_KEY, JSON.stringify({ [moduleName]: oData }));
+      },
     };
+
+    const savedDatatableState = JSON.parse(localStorage.getItem(SEARCH_DATATABLE_STATE_KEY));
+    if (savedDatatableState && savedDatatableState[moduleName]) {
+      options.stateLoadCallback = () => savedDatatableState[moduleName];
+    }
+
     this.options = { ...options, ...this.options };
   }
 
@@ -219,14 +239,14 @@ class DataTable {
 
   searchFromLoader(is) {
     const spinner = this.searchFormEl.find('button.search__form__btn .spinner-border');
-    if (is) spinner.css({ display: 'inline-block' });
-    else spinner.hide();
+    if (is) spinner.css({ display: 'inline-block' }); else spinner.hide();
   }
 
   searchFormReset() {
     this.searchFormEl.find('.reset__form__btn').click(() => {
       this.searchData = {};
       this.searchFormEl[0].reset();
+      this.clearSearchedDataFromLocalstorage();
       this.tableReload();
     });
   }
@@ -248,7 +268,65 @@ class DataTable {
       this.searchData[`f[${item.name}]${addArrayBrackets}`] = item.value;
     });
 
+    this.storeSearchedData();
     this.tableReload();
+  }
+
+  storeSearchedData() {
+    if (this.storeSearchData()) {
+      const searchData = this.searchFormEl.serializeArray();
+      const searchDataValues = searchData.filter((item) => item.value !== '' || item.name === 'show_status');
+      const moduleName = this.getCurrentModuleName();
+
+      const storeData = {};
+      storeData[moduleName] = searchDataValues;
+
+      localStorage.setItem(SEARCH_LOCALSTORAGE_KEY, JSON.stringify(storeData));
+
+      if (this.options.afterStoreSearchedData) {
+        this.options.afterStoreSearchedData(storeData);
+      }
+    }
+  }
+
+  setSearchStoredData() {
+    if (this.storeSearchData()) {
+      const localStoredData = JSON.parse(localStorage.getItem(SEARCH_LOCALSTORAGE_KEY));
+      const moduleName = this.getCurrentModuleName();
+
+      if (
+        localStoredData
+        && localStoredData[moduleName]
+      ) {
+        const self = this;
+
+        this.searchFormEl.closest('.datatable-search-collapse').find('.collapse').collapse('show');
+        const storedData = localStoredData[moduleName];
+        $.each(storedData, (key, item) => {
+          const searchInput = self.searchFormEl.find(`:input[name='${item.name}']`);
+
+          if (searchInput.is(':checkbox')) {
+            searchInput.prop('checked', true);
+          }
+
+          searchInput.val(item.value);
+          self.searchData[`f[${item.name}]`] = item.value;
+        });
+
+        if (this.options.afterSetSearchStoredData) {
+          this.options.afterSetSearchStoredData(storedData);
+        }
+      }
+    }
+  }
+
+  getCurrentModuleName() {
+    return location.pathname.split('/')[3];
+  }
+
+  clearSearchedDataFromLocalstorage() {
+    localStorage.removeItem(SEARCH_LOCALSTORAGE_KEY);
+    localStorage.removeItem(SEARCH_DATATABLE_STATE_KEY);
   }
 
   defaultSearchData() {
@@ -275,4 +353,3 @@ class DataTable {
     this.$_functions();
   }
 }
-

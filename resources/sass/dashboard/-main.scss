@@ -810,6 +810,14 @@ table.dataTable > thead > tr th{
 
     .close-search{
         font-size: 14px;
-        min-width: 30px;
+        min-width: 20px;
+    }
+}
+
+.datatable-search-collapse{
+    .collapsing {
+        -webkit-transition: none;
+        transition: none;
+        display: none;
     }
 }

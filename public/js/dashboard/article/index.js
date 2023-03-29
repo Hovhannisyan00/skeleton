@@ -13,18 +13,29 @@ const options = {
     // }
   },
 
-  /*relations: {
-    relationName : 'columnName',
+  // If don't want to save search data
+  // storeSearchData: false,
+
+  /*afterStoreSearchedData(storedData) {
+    console.log(storedData);
+  },
+
+  afterSetSearchStoredData(storedData) {
+    console.log(storedData);
   },*/
 
+  /* relations: {
+    relationName: 'columnName',
+  }, */
+
   // Its a Example for show column render data type (no open comment!!)
-  /*columnsRender: {
+  /* columnsRender: {
     show_status: {
       render(showStatus,display,row) {
-        return `<span class="show-status-${showStatus}">${$trans('__dashboard.select.option.show_status_'+showStatus)}</span>`;
-      }
-    }
-  }*/
+        return `<span class="show-status-${showStatus}">${$trans(`__dashboard.select.option.show_status_${showStatus}`)}</span>`;
+      },
+    },
+  }, */
 
 };
 // eslint-disable-next-line no-new,no-undef
