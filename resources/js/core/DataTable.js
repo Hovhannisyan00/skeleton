@@ -183,7 +183,18 @@ class DataTable {
     await axios(this.pathOptions.searchPath, { params: this.generateRequestData(data) })
       .then((resp) => {
         callback(resp.data);
-      }).catch(this.errorHandler.bind(this));
+
+        if(this.options.beforeSendRequest) {
+          this.options.beforeSendRequest(resp.data);
+        }
+      }).catch((err) => {
+        this.errorHandler(err);
+        callback({
+          data: [],
+          recordsFiltered: 0,
+        });
+      });
+
     this.searchFromLoader();
     this.searchFormReset();
   }
@@ -191,15 +202,28 @@ class DataTable {
   errorHandler(error) {
     error = error.response.data;
     if (error) {
-      // eslint-disable-next-line no-restricted-syntax
+      const formEl = this.searchFormEl;
+
+      formEl.find('.validation-error').removeClass('has-error');
+      formEl.find('.form-group').removeClass('is-invalid');
+
       for (const [key, value] of Object.entries(error.errors)) {
-        this.searchFormEl.find(`.validation-error[data-name="${key.substring(2)}"]`).html(value);
+        const nameKEy = key.substring(2);
+        let hasErrorSpan = formEl.find(`.validation-error[data-name="${nameKEy}"]`);
+
+        if (!hasErrorSpan.length) {
+          hasErrorSpan = formEl.find(`.validation-error[data-name="${nameKEy}[]"]`);
+        }
+
+        hasErrorSpan.closest('.form-group').addClass('is-invalid');
+        hasErrorSpan.html(value).addClass('has-error');
       }
     }
   }
 
   resetForm() {
     this.searchFormEl.find('.validation-error').html('');
+    this.searchFormEl.find('.form-group').removeClass('is-invalid');
   }
 
   generateOptions() {
@@ -247,6 +271,7 @@ class DataTable {
       this.searchData = {};
       this.searchFormEl[0].reset();
       this.clearSearchedDataFromLocalstorage();
+      this.searchFormEl.find('.select2').val(null).trigger('change');
       this.tableReload();
     });
   }
