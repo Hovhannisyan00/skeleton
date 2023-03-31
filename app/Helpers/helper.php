@@ -192,6 +192,11 @@ if (!function_exists("formattedDate")) {
 if (!function_exists("formatDateForBackend")) {
     function formatDateForBackend($date): string
     {
+        $dateObject = DateTime::createFromFormat(getDateFormat(), $date);
+        if ($dateObject !== false && $dateObject->format(getDateFormat()) === $date) {
+            return $date;
+        }
+
         return $date ? Carbon::createFromFormat(getDateFormatFront(), $date)->format(getDateFormat()) : '';
     }
 }
@@ -199,6 +204,11 @@ if (!function_exists("formatDateForBackend")) {
 if (!function_exists("formatDateTimeForBackend")) {
     function formatDateTimeForBackend($dateTime): string
     {
+        $dateObject = DateTime::createFromFormat(getDateTimeFormat(), $dateTime);
+        if ($dateObject !== false && $dateObject->format(getDateTimeFormat()) === $dateTime) {
+            return $dateTime;
+        }
+
         return $dateTime ? Carbon::createFromFormat(getDateTimeFormatFront(), $dateTime)
             ->format(getDateTimeFormat()) : '';
     }
@@ -326,3 +336,44 @@ if (!function_exists('isProduction')) {
                                 Global Functions - Start
  ======================================================================================== */
 
+if (!function_exists("formattedPrice")) {
+    function formattedPrice(string|null $price = '', bool $addIcon = false): string
+    {
+        $result = 0;
+        if ($price) {
+            switch (currentLanguageCode()) {
+                case 'de':
+                    $decimalOperator = ',';
+                    $thousandOperator = '.';
+                    break;
+
+                default:
+                    $decimalOperator = '.';
+                    $thousandOperator = ',';
+            }
+
+            $result = number_format($price, 2, $decimalOperator, $thousandOperator);
+
+            if ($addIcon) {
+                $result = $result . ' ' . getCurrencyIcon();
+            }
+        }
+
+        return $result;
+    }
+}
+
+if (!function_exists("getCurrencyIcon")) {
+    function getCurrencyIcon(): string
+    {
+        return match (currentLanguageCode()) {
+            'de' => config('enums.currencies.EUR.icon'),
+            'ean' => config('enums.currencies.USD.icon'),
+            default => ''
+        };
+    }
+}
+
+/* ========================================================================================
+                                Currency Helper Functions - End
+ ======================================================================================== */

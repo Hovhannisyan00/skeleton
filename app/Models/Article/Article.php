@@ -2,12 +2,11 @@
 
 namespace App\Models\Article;
 
+use App\Casts\DateCast;
 use App\Models\Base\BaseModel;
 use App\Models\Base\Traits\HasFileData;
 use App\Models\Base\Traits\HasMlData;
 use App\Models\File\File;
-use Carbon\Carbon;
-use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Article extends BaseModel
@@ -40,10 +39,20 @@ class Article extends BaseModel
      * @var array
      */
     protected $casts = [
-        'created_at' => 'datetime:d.m.Y',
+        'created_at' => DateCast::class,
 
         'multiple_group_data' => 'array',
         'multiple_author' => 'array',
+
+        // Will be changed price field
+//        'price' => CurrencyCast::class.':0,0',
+
+        // Will be added new attribute,      get data with icon
+//        'price_formatted' => CurrencyCast::class . ':1',
+
+        'publish_date' => DateCast::class,
+        'release_date_time' => DateCast::class . ':0,1',
+//        'publish_date_formatted' => DateCast::class.':1'
     ];
 
 //    /**
@@ -63,25 +72,5 @@ class Article extends BaseModel
     public function photo(): MorphOne
     {
         return $this->morphOne(File::class, 'fileable')->where('field_name', 'photo');
-    }
-
-    /**
-     * Function to return formatted publish date
-     */
-    public function publishDate(): Attribute
-    {
-        return new Attribute(
-            get: fn($value) => $value ? Carbon::parse($value)->format(getDateFormatFront()) : '',
-        );
-    }
-
-    /**
-     * Function to return formatted release datetime
-     */
-    public function releaseDatetime(): Attribute
-    {
-        return new Attribute(
-            get: fn($value) => $value ? Carbon::parse($value)->format(getDateTimeFormatFront()) : ''
-        );
     }
 }

@@ -2,9 +2,9 @@
 
 namespace App\Models\Base;
 
+use App\Models\Base\Traits\BaseModelScopes;
 use App\Models\Base\Traits\ModelHelperFunctions;
 use App\Models\Scopes\Base\DeletedScope;
-use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -13,6 +13,7 @@ class BaseModel extends Model
 {
     use HasFactory;
     use ModelHelperFunctions;
+    use BaseModelScopes;
 
     /**
      * @var string
@@ -107,57 +108,6 @@ class BaseModel extends Model
                 }
             }
         });
-    }
-
-    /**
-     * Function to join tables
-     */
-    public function scopeJoinTo($query): Builder
-    {
-        $params = func_get_args()[1];
-        $table = $this->getTable();
-        $joinTableName = is_array($params) ? $params['t'] : $params;
-        $joinTable = app()->make($joinTableName)->getTable();
-
-        return $query->join($joinTable, function ($query) use ($table, $params, $joinTable) {
-            $localKey = $params['l_k'] ?? 'id';
-            $foreignKey = $params['f_k'] ?? $this->getForeignKey();
-
-            $query->on($joinTable . '.' . $foreignKey, '=', $table . '.' . $localKey);
-
-            if (isset($params['where'])) {
-                $query->where($params['where']);
-            }
-        });
-    }
-
-    /**
-     * Function to order by sort_order
-     */
-    public function scopeOrdered($query, string $mode = 'ASC'): Builder
-    {
-        $table = $this->getTable();
-        return $query->orderBy($table . '.sort_order', $mode)->orderByDesc($table . '.id');
-    }
-
-    /**
-     * Function to exclude select data
-     */
-    public function scopeExclude($query, array $excludeColumns = []): Builder
-    {
-        $selectColumns = array_diff($this->fillable, $excludeColumns);
-        $selectColumns[] = 'id';
-
-        return $query->select($selectColumns);
-    }
-
-    /**
-     * Function to get only active data
-     */
-    public function scopeActive($query): Builder
-    {
-        $table = $this->getTable();
-        return $query->where($table . '.show_status', self::SHOW_STATUS_ACTIVE);
     }
 
     /**
