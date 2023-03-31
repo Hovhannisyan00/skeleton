@@ -13,11 +13,15 @@ class UserRequest extends FormRequest
         return [
             'first_name' => 'required|string_with_max',
             'last_name' => 'required|string_with_max',
+
             'email' => 'required|string|string_with_max|email|unique:users,email,' . $this->user?->id,
+            'signature' => 'required|string_with_max',
+
             'role_ids' => 'required|array',
             'role_ids.*' => 'required|exist_validator:roles,id',
-            'signature' => 'required|string_with_max',
+
             'password' => $passwordRule . '|string|min:6|string_with_max|confirmed',
+            'password_confirmation' => $passwordRule . '|string_with_max',
         ];
     }
 }

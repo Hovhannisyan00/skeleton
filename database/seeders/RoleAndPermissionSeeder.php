@@ -18,7 +18,7 @@ class RoleAndPermissionSeeder extends Seeder
         $roles = [
             [
                 'id' => 1,
-                'name' => Role::ROLE_SUPER_ADMIN,
+                'name' => Role::ROLE_ADMIN,
                 'guard_name' => 'web',
             ],
             [

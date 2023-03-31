@@ -12,14 +12,14 @@ class Role extends SpatieRole
     /**
      * @var string
      */
-    public const ROLE_SUPER_ADMIN = 'super-admin';
+    public const ROLE_ADMIN = 'admin';
     public const ROLE_USER = 'user';
 
     /**
      * @var array
      */
     public const ROLES = [
-        self::ROLE_SUPER_ADMIN,
+        self::ROLE_ADMIN,
         self::ROLE_USER,
     ];
 
@@ -27,4 +27,9 @@ class Role extends SpatieRole
      * @var string[]
      */
     protected $fillable = ['name', 'guard_name'];
+
+    public static function getRolesFormatted(): string
+    {
+        return self::get()->implode('name','|');
+    }
 }

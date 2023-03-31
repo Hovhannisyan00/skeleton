@@ -61,7 +61,7 @@ class RouteServiceProvider extends ServiceProvider
                     'localizationRedirect',
                     'localeViewPath',
                     'auth',
-                    'role:' . Role::ROLE_SUPER_ADMIN,
+                    'role:' . Role::getRolesFormatted(),
                 ])
                 ->namespace($this->namespace)
 //                ->middleware('auth')

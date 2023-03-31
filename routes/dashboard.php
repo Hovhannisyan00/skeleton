@@ -22,9 +22,13 @@ Route::controller(Barryvdh\TranslationManager\Controller::class)->as('translatio
     Route::get('/translations/view/{group?}', 'getView')->name('group');
 });
 
-// Users
-Route::resource('users', UserController::class);
-Route::get('users/dataTable/get-list', [UserController::class, 'getListData'])->name('users.getListData');
+// Middleware(Admin)
+Route::group(['middleware' => ['role:admin']], function () {
+
+    // Users
+    Route::resource('users', UserController::class);
+    Route::get('users/dataTable/get-list', [UserController::class, 'getListData'])->name('users.getListData');
+});
 
 // Articles
 Route::resource('articles', ArticleController::class);
