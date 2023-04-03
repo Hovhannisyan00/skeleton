@@ -64,7 +64,6 @@ class RouteServiceProvider extends ServiceProvider
                     'role:' . Role::getRolesFormatted(),
                 ])
                 ->namespace($this->namespace)
-//                ->middleware('auth')
                 ->group(base_path('routes/dashboard.php'));
         });
     }
