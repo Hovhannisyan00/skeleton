@@ -196,7 +196,6 @@ class DataTable {
       });
 
     this.searchFromLoader();
-    this.searchFormReset();
   }
 
   errorHandler(error) {
@@ -376,5 +375,6 @@ class DataTable {
     this.generateOptions();
     this.eventListener();
     this.$_functions();
+    this.searchFormReset();
   }
 }

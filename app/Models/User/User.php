@@ -7,8 +7,8 @@ use App\Models\Base\Traits\ModelHelperFunctions;
 use App\Models\File\File;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
+use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -63,17 +63,11 @@ class User extends Authenticatable
      */
     public array $defaultValues = [];
 
-    /**
-     * Function to set model files config name
-     */
     public function setFileConfigName(): string
     {
         return self::getClassName();
     }
 
-    /**
-     * Function to return user all files
-     */
     public function files(string $fieldName = null, string $fileType = null): MorphMany
     {
         return $this->morphMany(File::class, 'fileable')
@@ -85,25 +79,16 @@ class User extends Authenticatable
             });
     }
 
-    /**
-     * Function to return user signature
-     */
-    public function getSignatureAttribute(): ?Model
+    public function signature(): MorphOne
     {
-        return $this->files('signature')->first();
+        return $this->morphOne(File::class, 'fileable')->where('field_name', 'signature');
     }
 
-    /**
-     * Function to return user avatar
-     */
-    public function getAvatarAttribute(): ?Model
+    public function avatar(): MorphOne
     {
-        return $this->files('avatar')->first();
+        return $this->morphOne(File::class, 'fileable')->where('field_name', 'avatar');
     }
 
-    /**
-     * Function to return username
-     */
     public function name(): Attribute
     {
         return new Attribute(

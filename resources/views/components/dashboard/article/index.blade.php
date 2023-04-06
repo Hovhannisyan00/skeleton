@@ -7,6 +7,10 @@
                     <div class="col-md-4 form-group">
                         <x-dashboard.form._input name="id" type="number"/>
                     </div>
+
+                    <div class="col-md-4 form-group">
+                        <x-dashboard.form._date name="publish_date" class="datepicker"/>
+                    </div>
                     <div class="col-md-4 form-group">
                         <x-dashboard.form._input name="title"/>
                     </div>
