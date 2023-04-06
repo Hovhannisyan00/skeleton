@@ -79,11 +79,6 @@ class User extends Authenticatable
             });
     }
 
-    public function signature(): MorphOne
-    {
-        return $this->morphOne(File::class, 'fileable')->where('field_name', 'signature');
-    }
-
     public function avatar(): MorphOne
     {
         return $this->morphOne(File::class, 'fileable')->where('field_name', 'avatar');

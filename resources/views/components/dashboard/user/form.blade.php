@@ -1,4 +1,8 @@
 <x-dashboard.layouts.app>
+    <x-slot name="head">
+        <link rel="stylesheet" href="{{ asset('/plugins/croppie/croppie.min.css') }}" />
+    </x-slot>
+
     <div class="container-fluid">
         <div class="card">
             <x-dashboard.form._form
@@ -11,9 +15,10 @@
                     <div class="col-lg-6">
                         <div class="form-group required">
                             <x-dashboard.form.uploader._file
-                                name="signature"
+                                name="avatar"
+                                :crop="true"
                                 :configKey="$user->getFileConfigName()"
-                                :value="$user->signature"
+                                :value="$user->avatar"
                             />
                         </div>
                     </div>
@@ -53,7 +58,11 @@
         </div>
     </div>
 
+    {{--  Crop Modal  --}}
+    <x-dashboard.form.modals._crop id="cropImage" static />
+
     <x-slot name="scripts">
+        <script src="{{ asset('/plugins/croppie/croppie.min.js') }}"></script>
         <script src="{{ asset('/js/dashboard/user/main.js') }}"></script>
     </x-slot>
 </x-dashboard.layouts.app>

@@ -330,6 +330,8 @@ class DataTable {
         const storedDataModified = storedData.reduce((prev, current) => {
           if (typeof prev[current.name] === 'undefined') {
             prev[current.name] = current.value;
+          } else if (Array.isArray(prev[current.name])) {
+            prev[current.name].push(current.value);
           } else {
             prev[current.name] = [prev[current.name], current.value];
           }

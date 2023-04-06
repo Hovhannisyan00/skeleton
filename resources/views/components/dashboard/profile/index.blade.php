@@ -18,7 +18,6 @@
                 <div class="col-lg-6">
                     <div class="form-group">
                         <x-dashboard.form.uploader._file name="avatar" :value="$user->avatar" :crop="true" :configKey="$user->getFileConfigName()"/>
-                        <x-dashboard.form.modals._crop id="cropImage" static></x-dashboard.form.modals._crop>
                     </div>
                 </div>
             </div>
@@ -55,9 +54,11 @@
             </div>
 
             </x-dashboard.form._form>
-
         </div>
     </div>
+
+    {{--  Crop Modal  --}}
+    <x-dashboard.form.modals._crop id="cropImage" static />
 
     <x-slot name="scripts">
         <script src="{{ asset('/plugins/croppie/croppie.min.js') }}"></script>

@@ -15,7 +15,7 @@ class UserRequest extends FormRequest
             'last_name' => 'required|string_with_max',
 
             'email' => 'required|string|string_with_max|email|unique:users,email,' . $this->user?->id,
-            'signature' => 'required|string_with_max',
+            'avatar' => 'required|string_with_max',
 
             'role_ids' => 'required|array',
             'role_ids.*' => 'required|exist_validator:roles,id',
