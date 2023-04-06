@@ -104,7 +104,11 @@ function datepickerInit() {
       const self = $(this);
 
       self.datetimepicker({
-        timepicker: false, format: 'd.m.Y', scrollMonth: false, scrollInput: false, onChangeDateTime(dp, $input) {
+        timepicker: false,
+        format: 'd.m.Y',
+        scrollMonth: false,
+        scrollInput: false,
+        onChangeDateTime(dp, $input) {
           let backendVal = '';
           if ($input.val()) {
             backendVal = moment($input.val(), 'DD.MM.YYYY').format($dashboardDates.js.date_format);
@@ -124,7 +128,8 @@ function datetimePickerInit() {
       const self = $(this);
 
       self.datetimepicker({
-        format: 'd.m.Y H:i', onChangeDateTime(dp, $input) {
+        format: 'd.m.Y H:i',
+        onChangeDateTime(dp, $input) {
           let backendVal = '';
           if ($input.val()) {
             backendVal = moment($input.val(), 'DD.MM.YYYY HH:mm').format($dashboardDates.js.date_time_format);

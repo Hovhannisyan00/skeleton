@@ -225,6 +225,8 @@ if (!function_exists("getDashboardDates")) {
             'js' => [
                 'date_format' => config('dashboard.js.date_format'),
                 'date_time_format' => config('dashboard.js.date_time_format'),
+                'date_format_front' => config('dashboard.js.date_format_front'),
+                'date_time_format_front' => config('dashboard.js.date_time_format_front'),
             ]
         ];
     }

@@ -184,7 +184,7 @@ class DataTable {
       .then((resp) => {
         callback(resp.data);
 
-        if(this.options.beforeSendRequest) {
+        if (this.options.beforeSendRequest) {
           this.options.beforeSendRequest(resp.data);
         }
       }).catch((err) => {
@@ -326,15 +326,43 @@ class DataTable {
 
         this.searchFormEl.closest('.datatable-search-collapse').find('.collapse').collapse('show');
         const storedData = localStoredData[moduleName];
-        $.each(storedData, (key, item) => {
-          const searchInput = self.searchFormEl.find(`:input[name='${item.name}']`);
 
+        const storedDataModified = storedData.reduce((prev, current) => {
+          if (typeof prev[current.name] === 'undefined') {
+            prev[current.name] = current.value;
+          } else {
+            prev[current.name] = [prev[current.name], current.value];
+          }
+          return prev;
+        }, {});
+
+        $.each(storedDataModified, (key, value) => {
+          const searchInput = self.searchFormEl.find(`:input[name='${key}']`);
+
+          // Checkbox
           if (searchInput.is(':checkbox')) {
             searchInput.prop('checked', true);
           }
 
-          searchInput.val(item.value);
-          self.searchData[`f[${item.name}]`] = item.value;
+          // Date
+          if (searchInput.hasClass('backend-date-value')) {
+            const closestDiv = searchInput.closest('div');
+            if (closestDiv.find('.datepicker').length) {
+              closestDiv.find('.datepicker')
+                .val(moment(value, $dashboardDates.js.date_format)
+                  .format($dashboardDates.js.date_format_front));
+            }
+
+            if (closestDiv.find('.datetimepicker').length) {
+              closestDiv.find('.datetimepicker')
+                .val(moment(value, $dashboardDates.js.date_time_format)
+                  .format($dashboardDates.js.date_time_format_front));
+            }
+          }
+
+          //
+          searchInput.val(value);
+          self.searchData[`f[${key}]`] = value;
         });
 
         if (this.options.afterSetSearchStoredData) {
