@@ -2,6 +2,7 @@
 
 namespace App\Models\User;
 
+use App\Casts\DateCast;
 use App\Models\Base\Traits\HasFileData;
 use App\Models\Base\Traits\ModelHelperFunctions;
 use App\Models\File\File;
@@ -55,7 +56,7 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'created_at' => 'datetime:d.m.Y',
+        'created_at' => DateCast::class,
     ];
 
     /**

@@ -370,7 +370,7 @@ if (!function_exists("getCurrencyIcon")) {
     {
         return match (currentLanguageCode()) {
             'de' => config('enums.currencies.EUR.icon'),
-            'ean' => config('enums.currencies.USD.icon'),
+            'en' => config('enums.currencies.USD.icon'),
             default => ''
         };
     }
