@@ -9,7 +9,7 @@ class CurrencyCast implements CastsAttributes
 {
     public function __construct(
         private readonly bool $addIcon = false,
-        private readonly bool $withFormatted = true,
+        private readonly bool $withFormatted = false,
     ) {
     }
 

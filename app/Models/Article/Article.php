@@ -45,10 +45,13 @@ class Article extends BaseModel
         'multiple_author' => 'array',
 
         // Will be changed price field
-//        'price' => CurrencyCast::class.':0,0',
+//        'price' => CurrencyCast::class,
 
-        // Will be added new attribute,      get data with icon
-//        'price_formatted' => CurrencyCast::class . ':1',
+        // Will be added new attribute, get data with icon and formatted
+//        'price_formatted' => CurrencyCast::class . ':1,1',
+
+        // Will be added new attribute, get data with formatted
+//        'price_formatted' => CurrencyCast::class . ':0,1',
 
         'publish_date' => DateCast::class,
         'release_date_time' => DateCast::class . ':0,1',
