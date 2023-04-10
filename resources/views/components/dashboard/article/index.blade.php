@@ -2,6 +2,7 @@
     <div class="container-fluid">
         <div class="card mb-4">
             <x-dashboard.layouts.partials.card-header :createRoute="route('dashboard.articles.create')"/>
+
             <div class="card-body">
                 <x-dashboard.form.search._search_form>
                     <div class="col-md-4 form-group">
