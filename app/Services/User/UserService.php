@@ -21,20 +21,6 @@ class UserService extends BaseService
         $this->fileService = $fileService;
     }
 
-    public function createOrUpdate($data, int $id = null): Model
-    {
-        $data['password'] = Hash::make($data['password']);
-
-        return DB::transaction(function () use ($id, $data) {
-            $user = $id ? $this->repository->update($id, $data) : $this->repository->create($data);
-            $user->syncRoles($data['role_ids']);
-
-            $this->fileService->storeFile($user, $data);
-
-            return $user;
-        });
-    }
-
     public function getViewData(int $id = null): array
     {
         if ($id) {
@@ -47,5 +33,19 @@ class UserService extends BaseService
             'user' => $user ?? $this->repository->getInstance(),
             'userRoleIds' => $userRoleIds ?? null,
         ];
+    }
+
+    public function createOrUpdate($data, int $id = null): Model
+    {
+        $data['password'] = Hash::make($data['password']);
+
+        return DB::transaction(function () use ($id, $data) {
+            $user = $id ? $this->repository->update($id, $data) : $this->repository->create($data);
+            $user->syncRoles($data['role_ids']);
+
+            $this->fileService->storeFile($user, $data);
+
+            return $user;
+        });
     }
 }

@@ -54,7 +54,6 @@ trait BaseModelScopes
      */
     public function scopeActive($query): Builder
     {
-        $table = $this->getTable();
-        return $query->where($table . '.show_status', BaseModel::SHOW_STATUS_ACTIVE);
+        return $query->where($this->getTable() . '.show_status', BaseModel::SHOW_STATUS_ACTIVE);
     }
 }
