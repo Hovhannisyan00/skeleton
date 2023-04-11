@@ -14,7 +14,7 @@ use Illuminate\Contracts\View\View;
 class {{ CLASS_NAME }}Controller extends BaseController
 {
     public function __construct(
-        {{ CLASS_NAME }}Service     $service,
+        {{ CLASS_NAME }}Service $service,
         I{{ CLASS_NAME }}Repository $repository
     ){
         $this->service = $service;

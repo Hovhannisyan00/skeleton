@@ -1,7 +1,7 @@
 
 ## About Core, Created By AREG & GEVOR
 
-No Need Description Everything, is Perfect. ;)
+Everything is Perfect. ;)
 
 ## Run Commands
 - composer install
