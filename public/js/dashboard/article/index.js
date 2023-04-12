@@ -29,7 +29,7 @@ const options = {
     relationName: 'columnName',
   }, */
 
-  // Its a Example for show column render data type (don't open comment!!)
+  // It's an Example for show column render data type (don't open comment!!)
   /* columnsRender: {
     show_status: {
       render(showStatus,display,row) {
