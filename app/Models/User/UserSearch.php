@@ -19,13 +19,13 @@ class UserSearch extends Search
     {
         $filters = $this->filters;
 
-        return User::with('roles')->select(
+        return User::with('roles')->select([
             'id',
             'first_name',
             'last_name',
             'email',
             'created_at'
-        )
+        ])
             ->when(!empty($filters['id']), function ($query) use ($filters) {
                 $query->where('id', $filters['id']);
             })

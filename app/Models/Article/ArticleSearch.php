@@ -19,14 +19,14 @@ class ArticleSearch extends Search
     {
         $filters = $this->filters;
 
-        return Article::joinMl()->select(
+        return Article::joinMl()->select([
             'id',
             'publish_date',
             'title',
             'description',
             'show_status',
             'created_at'
-        )
+        ])
             ->when(!empty($filters['id']), function ($query) use ($filters) {
                 $query->where('id', $filters['id']);
             })
