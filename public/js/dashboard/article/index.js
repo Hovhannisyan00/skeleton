@@ -3,6 +3,7 @@ const options = {
     searchPath: route('dashboard.articles.getListData'),
     deletePath: route('dashboard.articles.destroy', ':id'),
     editPath: route('dashboard.articles.edit', ':id'),
+    // showPath: route('dashboard.articles.show', ':id'),
   },
 
   actions: {
