@@ -272,6 +272,7 @@ class DataTable {
       this.clearSearchedDataFromLocalstorage();
       this.searchFormEl.find('.select2').val(null).trigger('change');
       this.tableReload();
+      this.getSearchCollapse().removeClass('has-default-values');
     });
   }
 
@@ -324,7 +325,9 @@ class DataTable {
       ) {
         const self = this;
 
-        this.searchFormEl.closest('.datatable-search-collapse').find('.collapse').collapse('show');
+        // Show Collapse
+        this.showSearchCollapse();
+
         const storedData = localStoredData[moduleName];
 
         const storedDataModified = storedData.reduce((prev, current) => {
@@ -372,6 +375,17 @@ class DataTable {
         }
       }
     }
+  }
+
+  getSearchCollapse() {
+    return this.searchFormEl.closest('.datatable-search-collapse')
+      .find('.collapse');
+  }
+
+  showSearchCollapse() {
+    this.getSearchCollapse()
+      .addClass('has-default-values')
+      .collapse('show');
   }
 
   getCurrentModuleName() {

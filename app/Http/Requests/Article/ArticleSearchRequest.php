@@ -10,10 +10,8 @@ class ArticleSearchRequest extends DatatableSearchRequest
     {
         return parent::rules() + [
                 'f.id' => 'nullable|integer_with_max',
-                'f.slug' => 'nullable|string_with_max',
                 'f.title' => 'nullable|string_with_max',
                 'f.description' => 'nullable|string_with_max',
-                'f.publish_date' => 'nullable|date',
                 'f.show_status' => 'nullable|show_status_validator',
             ];
     }

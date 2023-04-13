@@ -815,7 +815,7 @@ table.dataTable > thead > tr th{
 }
 
 .datatable-search-collapse{
-    .collapsing {
+    .has-default-values.collapsing {
         -webkit-transition: none;
         transition: none;
         display: none;
