@@ -40,6 +40,7 @@ class CRUDGeneratorInit
         }
 
         $this->makeMigration();
+        sleep(1);
         $this->makeMigrationMl();
         $this->successMessage();
     }

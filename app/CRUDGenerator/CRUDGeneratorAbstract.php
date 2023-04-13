@@ -73,6 +73,10 @@ abstract class CRUDGeneratorAbstract
         $path = $this->getStubDirectoryPath($fileInfo);
         $stub_file_name = $fileInfo['stub_file_name'];
 
+        if ($this->arguments['migrationMl'] && isset($fileInfo['stub_file_name_ml'])) {
+            $stub_file_name = $fileInfo['stub_file_name_ml'];
+        }
+
         return __DIR__ . "/Stubs/$path$stub_file_name.stub";
     }
 

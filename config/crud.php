@@ -6,6 +6,7 @@ return [
         'path' => "$rootNamespace\\Http\\Controllers\\Dashboard",
         'file_name' => ":attributeController.php",
         'stub_file_name' => 'controller',
+        'stub_file_name_ml' => 'controllerMl',
     ],
 
     'interface' => [
