@@ -31,7 +31,7 @@
                         </div>
 
                         <div class="form-group required">
-                            <x-dashboard.form._input name="email" type="email" value="{{ $user->email}}"/>
+                            <x-dashboard.form._input name="email" autocomplete type="email" value="{{ $user->email}}"/>
                         </div>
 
                         <div class="form-group required">
