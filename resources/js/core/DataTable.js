@@ -322,6 +322,7 @@ class DataTable {
       if (
         localStoredData
         && localStoredData[moduleName]
+        && localStoredData[moduleName].length
       ) {
         const self = this;
 
