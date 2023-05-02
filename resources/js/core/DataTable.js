@@ -366,9 +366,14 @@ class DataTable {
             }
           }
 
+          let addArrayBrackets = '';
+          if (!Array.isArray(value) && searchInput.attr('multiple')) {
+            addArrayBrackets = '[]';
+          }
+
           //
           searchInput.val(value);
-          self.searchData[`f[${key}]`] = value;
+          self.searchData[`f[${key}]${addArrayBrackets}`] = value;
         });
 
         if (this.options.afterSetSearchStoredData) {
