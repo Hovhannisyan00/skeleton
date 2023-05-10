@@ -71,6 +71,7 @@ return array(
         'crop' => 'Crop',
         'create' => 'Create',
         'reset' => 'Reset',
+        'filters' => 'Filters',
     ],
 
     'label' => [

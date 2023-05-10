@@ -5,26 +5,20 @@
             <x-dashboard.layouts.partials.card-header :createRoute="route('dashboard.{{ ROUTE_NAME }}.create')"/>
 
             <div class="card-body">
-                <x-dashboard.form.search._search_form>
+                <x-dashboard.datatable._filters_form>
                     <div class="col-md-4 form-group">
                         <x-dashboard.form._input name="id" type="number"/>
                     </div>
                     <div class="col-md-4 form-group">
                         <x-dashboard.form._input name="name"/>
                     </div>
-                </x-dashboard.form.search._search_form>
+                </x-dashboard.datatable._filters_form>
 
-                <div class="table-responsive">
-                    <table class="table w-100 table-hover" id="__data__table">
-                        <thead>
-                        <tr>
-                            <th data-key="id">{{ __('__dashboard.label.id') }}</th>
-                            <th data-key="name">{{ __('__dashboard.label.name') }}</th>
-                            <th class="text-center">{{ __('__dashboard.label.actions') }}</th>
-                        </tr>
-                        </thead>
-                    </table>
-                </div>
+                <x-dashboard.datatable._table>
+                   <th data-key="id">{{ __('__dashboard.label.id') }}</th>
+                   <th data-key="name">{{ __('__dashboard.label.name') }}</th>
+                   <th class="text-center">{{ __('__dashboard.label.actions') }}</th>
+                </x-dashboard.datatable._table>
             </div>
         </div>
     </div>

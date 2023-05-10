@@ -482,14 +482,6 @@ select.form-control[multiple].select2{
     height: 40px;
 }
 
-.dataTable thead th {
-    border: none;
-    color: #595d6e;
-}
-
-div.dataTables_wrapper div.dataTables_length select {
-    margin-left: 10px;
-}
 
 .el-notification.global-error-message {
     //background: #ffc8c8;
@@ -611,15 +603,7 @@ div.dataTables_wrapper div.dataTables_length select {
     min-height: 200px;
 }
 
-table.dataTable > thead > tr th{
-    background-color: #eee;
-}
 
-#dataTable__search__form{
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-}
 
 .__show__status_label{
     margin-left: 5px;
@@ -780,6 +764,13 @@ table.dataTable > thead > tr th{
 }
 
 .open__search__form__btn{
+
+    border: 1px solid #d0d5dd;
+    color: var(--grey-700);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8.5px 16px;
+
     &[aria-expanded="true"]{
         .text-search{
             display: none;
@@ -787,6 +778,7 @@ table.dataTable > thead > tr th{
 
         .close-search{
             display: block;
+            color: #fff;
         }
 
         background-color: #F64E60;

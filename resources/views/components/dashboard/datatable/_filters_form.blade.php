@@ -6,11 +6,11 @@
 
 <div class="text-right">
     @if($addCollapse)
-    <button class="btn btn-primary open__search__form__btn" type="button" data-toggle="collapse"
+    <button class="btn open__search__form__btn" type="button" data-toggle="collapse"
             data-target="#{{$target}}"
             aria-expanded="{{$showCollapse ? 'true' : 'false'}}"
             aria-controls="{{$target}}">
-        <span class="text-search"><i class="fa fa-search mr-2"></i>{{__('__dashboard.button.search')}}</span>
+        <span class="text-search"><i class="fas fa-filter mr-2"></i></i>{{__('__dashboard.button.filters')}}</span>
         <span class="close-search"><i class="fa fa-times"></i></span>
     </button>
     @endif
