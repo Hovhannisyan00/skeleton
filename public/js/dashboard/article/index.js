@@ -14,6 +14,9 @@ const options = {
     // }
   },
 
+  // Search input hide
+  // searching: false
+
   // If don't want to save search data
   // storeSearchData: false,
 

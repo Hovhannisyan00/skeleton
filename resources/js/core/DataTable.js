@@ -179,6 +179,11 @@ class DataTable {
 
   async ajaxSend(data, callback) {
     this.resetForm();
+    const searchInput = this.getDefaultSearchInputField();
+    if (searchInput.val() && searchInput.val().trim()) {
+      searchInput.prop('readOnly', true);
+    }
+
     // eslint-disable-next-line no-undef
     await axios(this.pathOptions.searchPath, { params: this.generateRequestData(data) })
       .then((resp) => {
@@ -193,6 +198,8 @@ class DataTable {
           data: [],
           recordsFiltered: 0,
         });
+      }).finally(() => {
+        searchInput.prop('readOnly', false);
       });
 
     this.searchFromLoader();
@@ -231,7 +238,8 @@ class DataTable {
     const options = {
       processing: true,
       serverSide: true,
-      searching: false,
+      searching: true,
+      // searchDelay: 1000,
       ajax: this.ajaxSend.bind(this),
       order: [[0, 'desc']],
       pageLength: 25,
@@ -239,6 +247,10 @@ class DataTable {
       bStateSave: true,
       stateSaveCallback(oSettings, oData) {
         localStorage.setItem(SEARCH_DATATABLE_STATE_KEY, JSON.stringify({ [moduleName]: oData }));
+      },
+      language: {
+        search: '',
+        searchPlaceholder: $trans('__dashboard.datatable.search_input_placeholder')
       },
     };
 
@@ -269,6 +281,7 @@ class DataTable {
     this.searchFormEl.find('.reset__form__btn').click(() => {
       this.searchData = {};
       this.searchFormEl[0].reset();
+      this.table.search('');
       this.clearSearchedDataFromLocalstorage();
       this.searchFormEl.find('.select2').val(null).trigger('change');
       this.tableReload();
@@ -293,6 +306,10 @@ class DataTable {
       this.searchData[`f[${item.name}]${addArrayBrackets}`] = item.value;
     });
 
+    if (this.table.search().length) {
+      this.searchData['f[search]'] = this.table.search();
+    }
+
     this.storeSearchedData();
     this.tableReload();
   }
@@ -304,6 +321,10 @@ class DataTable {
       const moduleName = this.getCurrentModuleName();
 
       const storeData = {};
+      if (this.table.search()) {
+        searchDataValues.push({ name: 'search', value: this.table.search() });
+      }
+
       storeData[moduleName] = searchDataValues;
 
       localStorage.setItem(SEARCH_LOCALSTORAGE_KEY, JSON.stringify(storeData));
@@ -325,11 +346,21 @@ class DataTable {
         && localStoredData[moduleName].length
       ) {
         const self = this;
+        const storedData = localStoredData[moduleName];
 
         // Show Collapse
-        this.showSearchCollapse();
+        let showCollapse = true;
+        if (storedData.length === 1 && (storedData[0].name === 'search' || storedData[0].name === 'show_status')) {
+          showCollapse = false;
+        }
 
-        const storedData = localStoredData[moduleName];
+        if (storedData.length === 2 && storedData[0].name === 'show_status' && storedData[1].name === 'search') {
+          showCollapse = false;
+        }
+
+        if (showCollapse) {
+          this.showSearchCollapse();
+        }
 
         const storedDataModified = storedData.reduce((prev, current) => {
           if (typeof prev[current.name] === 'undefined') {
@@ -366,6 +397,7 @@ class DataTable {
             }
           }
 
+          //
           let addArrayBrackets = '';
           if (!Array.isArray(value) && searchInput.attr('multiple')) {
             addArrayBrackets = '[]';
@@ -414,6 +446,28 @@ class DataTable {
     this.table = this.tableEl.DataTable(this.options);
   }
 
+  defaultSearchInput() {
+    const self = this;
+    let timer;
+
+    this.getDefaultSearchInputField()
+      .unbind()
+      .bind('keyup input', function () {
+        clearTimeout(timer);
+        timer = setTimeout(() => {
+          self.searchData['f[search]'] = $(this).val();
+          self.table.search($(this).val());
+
+          self.tableReload();
+          self.storeSearchedData();
+        }, 500);
+      });
+  }
+
+  getDefaultSearchInputField() {
+    return $(`#${this.tableId.substring(1)}_filter`).find('input');
+  }
+
   $_functions() {
     this.createDataTable();
     this.searchFormEl.submit(this.searchFormSubmit.bind(this));
@@ -426,5 +480,6 @@ class DataTable {
     this.eventListener();
     this.$_functions();
     this.searchFormReset();
+    this.defaultSearchInput();
   }
 }

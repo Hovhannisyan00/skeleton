@@ -3,13 +3,14 @@
 namespace App\Traits\Helpers;
 
 use Illuminate\Http\JsonResponse;
+use Symfony\Component\HttpFoundation\Response;
 
 trait ResponseFunctions
 {
     /**
      * Function to send response
      */
-    public function sendResponse(array $result = [], int $statusCode = 200): JsonResponse
+    public function sendResponse(array $result = [], int $statusCode = Response::HTTP_OK): JsonResponse
     {
         return response()->json($result, $statusCode);
     }
@@ -72,7 +73,7 @@ trait ResponseFunctions
     /**
      * Function to send invalid response
      */
-    public function sendInvalid(array $response = [], int $statusCode = 200): JsonResponse
+    public function sendInvalid(array $response = [], int $statusCode = Response::HTTP_OK): JsonResponse
     {
         $response['status'] = 'INVALID';
 

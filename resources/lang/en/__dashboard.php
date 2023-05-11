@@ -141,4 +141,8 @@ return array(
     'tab' => [
         'general' => 'General',
     ],
+
+    'datatable' => [
+        'search_input_placeholder' => 'Search...'
+    ]
 );

@@ -27,6 +27,9 @@ class ArticleSearch extends Search
             'show_status',
             'created_at'
         ])
+            ->when(!empty($filters['search']), function ($query) use ($filters) {
+                $query->likeOr(['id', 'title', 'description'], $filters);
+            })
             ->when(!empty($filters['id']), function ($query) use ($filters) {
                 $query->where('id', $filters['id']);
             })
