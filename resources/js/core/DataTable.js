@@ -348,9 +348,10 @@ class DataTable {
         const self = this;
         const storedData = localStoredData[moduleName];
 
-        // Show Collapse
+        // Collapse Show Part
         let showCollapse = true;
-        if (storedData.length === 1 && (storedData[0].name === 'search' || storedData[0].name === 'show_status')) {
+
+        if (storedData.length === 1 && $.inArray(storedData[0].name, ['search', 'show_status']) !== -1) {
           showCollapse = false;
         }
 
