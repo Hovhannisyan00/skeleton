@@ -15,21 +15,11 @@ class RoleAndPermissionSeeder extends Seeder
      */
     public function run()
     {
-        $roles = [
-            [
-                'id' => 1,
-                'name' => Role::ROLE_ADMIN,
+        foreach (Role::ROLES as $role) {
+            Role::query()->create([
+                'name' => $role,
                 'guard_name' => 'web',
-            ],
-            [
-                'id' => 2,
-                'name' => Role::ROLE_USER,
-                'guard_name' => 'web',
-            ]
-        ];
-
-        foreach ($roles as $role) {
-            Role::query()->insert($role);
+            ]);
         }
     }
 }
