@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands;
+namespace App\Console\Commands\Core;
 
 use App\CRUDGenerator\CRUDGeneratorInit;
 use Illuminate\Console\Command;

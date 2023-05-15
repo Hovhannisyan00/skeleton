@@ -2,8 +2,8 @@
 
 namespace App\Console;
 
-use App\Console\Commands\CRUDGenerator;
-use App\Console\Commands\RemoveTempFiles;
+use App\Console\Commands\Core\CRUDGenerator;
+use App\Console\Commands\Core\RemoveTempFiles;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 

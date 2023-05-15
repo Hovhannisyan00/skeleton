@@ -367,3 +367,85 @@ table.dataTable tr {
 div.dataTables_wrapper div.dataTables_length select {
     margin-left: 10px;
 }
+
+.datatable-search-collapse{
+    .has-default-values.collapsing {
+        -webkit-transition: none;
+        transition: none;
+        display: none;
+    }
+
+    .select2.select2-container{
+        width: 100% !important;
+    }
+}
+
+.table-buttons {
+    white-space: nowrap;
+    padding: 0 !important;
+    vertical-align: middle !important;
+
+    @media screen and (max-width: 991px) {
+        text-align: right !important;
+    }
+
+    .btn {
+        padding: 0.4rem .8rem;
+
+        &:hover {
+            background: #f0f3ff;
+
+            i {
+                color: #5d78ff;
+            }
+        }
+
+        i {
+            color: #93a2dd;
+            font-size: 16px;
+        }
+    }
+}
+
+.open__search__form__btn{
+
+    border: 1px solid #d0d5dd;
+    color: var(--grey-700);
+    font-size: 14px;
+    font-weight: 500;
+    padding: 8.5px 16px;
+
+    &[aria-expanded="true"]{
+        .text-search{
+            display: none;
+        }
+
+        .close-search{
+            display: block;
+            color: #fff;
+        }
+
+        background-color: #F64E60;
+        border-color:  #F64E60;
+
+        &:hover{
+            background-color: #EE2D41;
+            border-color: #EE2D41;
+        }
+    }
+
+    &[aria-expanded="false"]{
+        .text-search{
+            display: block;
+        }
+
+        .close-search{
+            display: none;
+        }
+    }
+
+    .close-search{
+        font-size: 14px;
+        min-width: 20px;
+    }
+}

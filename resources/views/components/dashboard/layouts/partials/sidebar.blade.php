@@ -4,7 +4,7 @@
 
         <div>
             <a href="/" class="brand-logo" aria-label="brand">
-                Dashboard Core
+                {{config('app.name')}}
             </a>
             @if(!isProduction())
             <br>
