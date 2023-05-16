@@ -30,6 +30,6 @@ class Role extends SpatieRole
 
     public static function getRolesFormatted(): string
     {
-        return implode('|',self::ROLES);
+        return implode('|', self::ROLES);
     }
 }

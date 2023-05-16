@@ -3,9 +3,14 @@
     $title = __('__dashboard.label.'.($title ?? $replacedName));
     $labelId = empty($id) ? $name.'_'.rand() : $id;
 @endphp
+@if(!isset($noLabel))
 <label for="{{$labelId}}" class="control-label">{{ $title }}</label>
+@endif
 <select name="{{ $name }}"
         id="{{$labelId}}"
+        @isset($dataName)
+            data-name="{{$dataName}}"
+        @endisset
         class="form-control {{ $class ?? '' }}"
         @isset($multiple) multiple @endisset
         @isset($allowClear) data-allow-clear="true" @endisset

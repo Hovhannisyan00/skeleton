@@ -53,13 +53,13 @@ class MultipleInputs {
 
             // input
             currentInput.val('').attr('name', replacedName);
+            const newInputId = `${currentInput.attr('data-name')}_${new Date().getTime()}`;
 
-            // label
+            // Add New I'd
             if (currentLabel.length) {
-              const newInputId = `${currentInput.attr('data-name')}_${new Date().getTime()}`;
               currentLabel.attr('for', newInputId);
-              currentInput.attr('id', newInputId);
             }
+            currentInput.attr('id', newInputId);
           }
 
           const replacedErrorName = errorSpan.attr('data-name').replace('0', groupItemsLength);
