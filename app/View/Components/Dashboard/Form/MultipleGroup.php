@@ -9,38 +9,23 @@ use Illuminate\Contracts\View\View;
 
 class MultipleGroup extends Base
 {
-    /**
-     * @var string
-     */
     public string $class;
 
-    /**
-     * @var string
-     */
     public string $index;
 
-    /**
-     * @var array
-     */
     public mixed $multipleData;
 
-    /**
-     * @var array
-     */
     public array $groupData;
 
-    /**
-     * @var string
-     */
+    public $xpath;
+
     public const ATTRIBUTE_NAME = 'name';
     public const ATTRIBUTE_DATA_NAME = 'data-name';
 
-    /**
-     * @var string
-     */
     public const TAG_INPUT = 'input';
     public const TAG_TEXTAREA = 'textarea';
     public const TAG_SELECT = 'select';
+    public const TAG_CHECKBOX = 'checkbox';
 
     public function __construct(
         string $class = '',
@@ -63,6 +48,9 @@ class MultipleGroup extends Base
         $dom = new DOMDocument('1.0', 'UTF-8');
         $dom->loadHTML($html);
         $xpath = new DOMXPath($dom);
+        $this->xpath = $xpath;
+
+        //
         $this->find($xpath, '//span[@data-name]', self::ATTRIBUTE_DATA_NAME);
         $this->find($xpath, '//input[@name]');
         $this->find($xpath, '//textarea[@name]');
@@ -77,13 +65,14 @@ class MultipleGroup extends Base
     private function find($xpath, string $selector, string $attribute = self::ATTRIBUTE_NAME): void
     {
         $elements = $xpath->query($selector);
+
         $this->changeNameAndSetValue($elements, $attribute);
     }
 
     /**
      * Function to change html tag name and set value
      */
-    private function changeNameAndSetValue($inputs, $attribute)
+    private function changeNameAndSetValue($inputs, $attribute): void
     {
         foreach ($inputs as $input) {
             $name = $input->getAttribute($attribute);
@@ -93,6 +82,7 @@ class MultipleGroup extends Base
                 $newValue = str_replace('0', $this->index, $replacedName);
             } else {
                 $name = $input->getAttribute($attribute);
+
                 if (!empty($this->multipleData)) {
                     $this->setValue($input, $input->getAttribute('data-name'));
                 }
@@ -107,7 +97,7 @@ class MultipleGroup extends Base
     /**
      * Function to element set value
      */
-    private function setValue($input, $name)
+    private function setValue($input, $name): void
     {
         if ($name) {
             $columnValue = $this->multipleData[$name];
@@ -116,18 +106,42 @@ class MultipleGroup extends Base
         }
 
         $tagName = $input->tagName;
-        if ($tagName === self::TAG_INPUT) {
-            $input->setAttribute('value', $columnValue);
-        } elseif ($tagName === self::TAG_TEXTAREA) {
-            $input->textContent = $columnValue;
-        } elseif ($tagName === self::TAG_SELECT) {
-            $input->setAttribute('id', $input->getAttribute('id') . '_' . rand());
-            $optionTags = $input->getElementsByTagName('option');
-            foreach ($optionTags as $tag) {
-                if ($tag->getAttribute('value') == $columnValue) {
-                    $tag->setAttribute('selected', 'selected');
+        if ($input->getAttribute('type') === self::TAG_CHECKBOX) {
+            $tagName = self::TAG_CHECKBOX;
+        }
+
+        switch ($tagName) {
+            case self::TAG_INPUT:
+                $input->setAttribute('value', $columnValue);
+                break;
+
+            case self::TAG_TEXTAREA:
+                $input->textContent = $columnValue;
+                break;
+
+            case self::TAG_CHECKBOX:
+                if ($columnValue) {
+                    $input->setAttribute('checked', true);
                 }
-            }
+
+                $inputId = $input->getAttribute('id');
+                $newId = $input->getAttribute('name') . '_' . rand();
+                $label = $this->xpath->query("//label[@for='$inputId']")->item(0);
+
+                $label->setAttribute('for', $newId);
+                $input->setAttribute('id', $newId);
+
+                break;
+
+            case self::TAG_SELECT:
+                $input->setAttribute('id', $input->getAttribute('id') . '_' . rand());
+                $optionTags = $input->getElementsByTagName('option');
+                foreach ($optionTags as $tag) {
+                    if ($tag->getAttribute('value') == $columnValue) {
+                        $tag->setAttribute('selected', 'selected');
+                    }
+                }
+                break;
         }
     }
 
