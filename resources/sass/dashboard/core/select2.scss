@@ -188,9 +188,11 @@
     cursor: pointer;
     float: right;
     font-weight: bold;
-    height: 38px;
+    line-height: 37px;
     margin-right: 25px;
     padding-right: 0;
+    color: red;
+    font-size: 19px;
 }
 
 .select2-container--default .select2-selection--single .select2-selection__placeholder {

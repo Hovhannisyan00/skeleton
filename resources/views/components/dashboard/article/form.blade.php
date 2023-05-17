@@ -75,7 +75,7 @@
                         </div>
 
                         <div class="form-group col-lg-12">
-                            <x-dashboard.form._select title="grouped_user" :data="$users" noLabel dataName="user" class="select2"
+                            <x-dashboard.form._select title="grouped_user" allowClear :data="$users" noLabel dataName="user" class="select2"
                                                       defaultOption
                                                       name="multiple_group_data[0][user]"/>
                         </div>
