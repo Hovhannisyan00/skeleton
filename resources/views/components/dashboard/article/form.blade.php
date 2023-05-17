@@ -70,6 +70,16 @@
                             <x-dashboard.form._input_multiple title="grouped_link" noLabel dataName="link" name="multiple_group_data[0][link]"/>
                         </div>
 
+                        <div class="form-group col-lg-12">
+                            <x-dashboard.form._textarea rows="2" title="grouped_desc" noLabel dataName="desc" name="multiple_group_data[0][desc]"/>
+                        </div>
+
+                        <div class="form-group col-lg-12">
+                            <x-dashboard.form._select title="grouped_user" :data="$users" noLabel dataName="user" class="select2"
+                                                      defaultOption
+                                                      name="multiple_group_data[0][user]"/>
+                        </div>
+
                     </x-dashboard.form.multiple-group>
 
                     {{-- Multiple --}}

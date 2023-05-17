@@ -3,27 +3,26 @@
 namespace App\Services\Article;
 
 use App\Contracts\Article\IArticleRepository;
+use App\Contracts\User\IUserRepository;
 use App\Services\BaseService;
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class ArticleService extends BaseService
 {
     public function __construct(
-        IArticleRepository $repository
+        IArticleRepository $repository,
+        private readonly IUserRepository $userRepository
     ) {
         $this->repository = $repository;
     }
 
-    /*public function getViewData(int $id = null): array
+    public function getViewData(int $id = null): array
     {
         $viewData = parent::getViewData($id);
 
-        //
         return $viewData + [
-
+                'users' => $this->userRepository->getForSelect()
             ];
-    }*/
+    }
 
     /* public function createOrUpdate(array $data, int $id = null): Model
      {

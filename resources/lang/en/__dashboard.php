@@ -102,6 +102,7 @@ return array(
         'password_confirmation' => 'Confirm Password',
         'grouped_title' => 'Title',
         'grouped_link' => 'Link',
+        'grouped_desc' => 'Desc',
         'multiple_author' => 'Author',
         'release_date_time' => 'Release datetime',
         'avatar' => 'Avatar',
