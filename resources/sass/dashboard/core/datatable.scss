@@ -412,7 +412,6 @@ div.dataTables_wrapper div.dataTables_length select {
     border: 1px solid #d0d5dd;
     color: var(--grey-700);
     font-size: 14px;
-    font-weight: 500;
     padding: 8.5px 16px;
 
     &[aria-expanded="true"]{
@@ -454,4 +453,8 @@ table.dataTable td{
     font-size: 14px;
     padding-block: 12px;
     color: #667085;
+
+    p{
+        margin-bottom: 0;
+    }
 }

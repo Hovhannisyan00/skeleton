@@ -10,7 +10,7 @@
             data-target="#{{$target}}"
             aria-expanded="{{$showCollapse ? 'true' : 'false'}}"
             aria-controls="{{$target}}">
-        <span class="text-search"><i class="fas fa-filter mr-2"></i></i>{{__('__dashboard.button.filters')}}</span>
+        <span class="text-search"><img class="mr-2" src="/img/filter-icon.svg" /> {{__('__dashboard.button.filters')}}</span>
         <span class="close-search"><i class="fa fa-times"></i></span>
     </button>
     @endif
