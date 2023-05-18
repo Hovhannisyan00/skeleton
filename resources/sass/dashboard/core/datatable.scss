@@ -391,6 +391,7 @@ div.dataTables_wrapper div.dataTables_length select {
 
     .btn {
         padding: 0.4rem .8rem;
+        --bs-btn-active-border-color: transparent;
 
         &:hover {
             background: #f0f3ff;
@@ -408,7 +409,8 @@ div.dataTables_wrapper div.dataTables_length select {
 }
 
 .open__search__form__btn{
-
+    --bs-btn-hover-border-color: #d0d5dd;
+    --bs-btn-active-border-color: #d0d5dd;
     border: 1px solid #d0d5dd;
     color: var(--grey-700);
     font-size: 14px;
@@ -450,6 +452,7 @@ div.dataTables_wrapper div.dataTables_length select {
 }
 
 table.dataTable td{
+    border-bottom-width: 0;
     font-size: 14px;
     padding-block: 12px;
     color: #667085;

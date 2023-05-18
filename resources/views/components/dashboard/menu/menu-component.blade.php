@@ -10,7 +10,7 @@
             @endphp
 
             <li class="menu-item {{ $hasActiveSubMenu ? 'active' : '' }}">
-                <a class="menu-link" data-toggle="collapse" href="#collapseMenu_{{$menu->id}}" role="button" aria-expanded="{{$hasActiveSubMenu ? 'true' : 'false'}}"
+                <a class="menu-link" data-bs-toggle="collapse" href="#collapseMenu_{{$menu->id}}" role="button" aria-expanded="{{$hasActiveSubMenu ? 'true' : 'false'}}"
                    aria-controls="collapseMenu_{{$menu->id}}">
                         <span class="svg-icon">
                             <i class="{{ $menu->icon }}"></i>

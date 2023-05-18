@@ -99,10 +99,9 @@ class MultipleGroup extends Base
      */
     private function setValue($input, $name): void
     {
+        $columnValue = $this->multipleData;
         if ($name) {
-            $columnValue = $this->multipleData[$name];
-        } else {
-            $columnValue = $this->multipleData;
+            $columnValue = $this->multipleData[$name] ?? '';
         }
 
         $tagName = $input->tagName;

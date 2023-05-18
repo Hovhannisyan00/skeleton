@@ -423,8 +423,7 @@ class DataTable {
 
   showSearchCollapse() {
     this.getSearchCollapse()
-      .addClass('has-default-values')
-      .collapse('show');
+      .addClass('has-default-values show');
   }
 
   getCurrentModuleName() {

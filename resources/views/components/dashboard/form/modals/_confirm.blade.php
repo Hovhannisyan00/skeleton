@@ -8,12 +8,12 @@ $modalId = "confirmModal";
 ?>
 
 <div class="modal fade" id="{{$modalId}}" tabindex="-1" role="dialog" aria-labelledby="{{$modalId}}Label"
-     aria-modal="true" @isset($static) data-backdrop="static" @endisset>
+     aria-modal="true" @isset($static) data-bs-backdrop="static" @endisset>
     <div class="modal-dialog modal-{{$size}} modal-dialog-scrollable" role="dialog">
         <div class="modal-content border-0">
             <div class="modal-header">
                 <h5 class="modal-title">{{ __('__dashboard.modal.confirm_action') }}</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             </div>
@@ -33,7 +33,7 @@ $modalId = "confirmModal";
 
                 @if(!isset($cancelHide))
                     <button type="button" class="btn btn-secondary py-2 cancel-btn"
-                            data-dismiss="modal">{{__('__dashboard.button.'.$cancelBtnKey)}}</button>@endif
+                            data-bs-dismiss="modal">{{__('__dashboard.button.'.$cancelBtnKey)}}</button>@endif
 
                 @if(!isset($saveHide))
                      <button type="button"

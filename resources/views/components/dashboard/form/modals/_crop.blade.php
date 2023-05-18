@@ -7,7 +7,7 @@ $modalId = $id . "Modal";
 ?>
 
 <div class="modal crop-modal" id="{{$modalId}}" tabindex="-1" role="dialog" aria-labelledby="{{$modalId}}Label"
-     aria-modal="true" @isset($static) data-backdrop="static" @endisset>
+     aria-modal="true" @isset($static) data-bs-backdrop="static" @endisset>
     <div class="modal-dialog modal-{{$size}} modal-dialog-scrollable" role="dialog">
         <div class="modal-content border-0">
 
@@ -16,7 +16,7 @@ $modalId = $id . "Modal";
                     {{ $header }}
                 @else
                     <h5 class="modal-title">@isset($headerText){{__('__dashboard.modal.title.'.$headerText)}}@endisset</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 @endisset
@@ -32,7 +32,7 @@ $modalId = $id . "Modal";
                 @else
 
                     <button type="button" class="btn btn-secondary py-2 cancel-btn"
-                            data-dismiss="modal">{{__('__dashboard.button.'.$cancelBtnKey)}}</button>
+                            data-bs-dismiss="modal">{{__('__dashboard.button.'.$cancelBtnKey)}}</button>
 
                     <button type="button"
                             class="btn btn-{{$saveBtnClass}} py-2 save-btn">{{__('__dashboard.button.'.$saveBtnKey)}}</button>

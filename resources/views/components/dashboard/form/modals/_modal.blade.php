@@ -16,7 +16,7 @@ $modalId = $id . "Modal";
                 {{ $header }}
             @else
                 <h5 class="modal-title">@isset($headerText){{__('__dashboard.modal.title.'.$headerText)}}@endisset</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">×</span>
                 </button>
             @endisset
@@ -33,7 +33,7 @@ $modalId = $id . "Modal";
 
                 @if(!isset($cancelHide))
                     <button type="button" class="btn btn-secondary py-2 cancel-btn"
-                            data-dismiss="modal">{{__('__dashboard.button.'.$cancelBtnKey)}}</button>@endif
+                            data-bs-dismiss="modal">{{__('__dashboard.button.'.$cancelBtnKey)}}</button>@endif
 
                 @if(!isset($saveHide))
                     <button type="button"

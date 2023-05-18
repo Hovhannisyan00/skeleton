@@ -1,12 +1,12 @@
 <form action="{{ $action ?? '' }}" method="{{ $formMethod ?? 'post'}}" id="{{ $id ?? '__form__request' }}"  @if($viewMode == 'show') class="show-mode" @endif>
 
 <div class="card-header">
-    <div class="d-flex justify-content-end ml-auto form-bottom-buttons">
-        <a href="{{ $indexUrl }}" class="btn btn-secondary ml-2">{{ __('__dashboard.button.cancel') }}</a>
+    <div class="form-bottom-buttons">
+        <a href="{{ $indexUrl }}" class="btn btn-secondary ms-2">{{ __('__dashboard.button.cancel') }}</a>
 
         @if($viewMode != 'show')
         <x-dashboard.form._loader_btn disabled
-            class="form__request__send__btn ml-2"
+            class="form__request__send__btn ms-2"
             text="{{ $textBtn ?? 'save' }}"
         />
         @endif
@@ -26,12 +26,12 @@
     <div class="bordered-tabs {{ $attributes['class'] ?? '' }}">
         <ul class="nav nav-tabs" id="{{$tabId}}" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="general" data-toggle="tab" href="#{{$tabLocalId}}__general" role="tab" aria-controls="home"
+                <a class="nav-link active" id="general" data-bs-toggle="tab" href="#{{$tabLocalId}}__general" role="tab" aria-controls="home"
                    aria-selected="true">{{__('__dashboard.tab.general')}}</a>
             </li>
             @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
                 <li class="nav-item">
-                    <a class="nav-link" id="{{$localeCode}}" data-toggle="tab" href="#{{$tabLocalId}}__{{$localeCode}}" role="tab" aria-controls="home"
+                    <a class="nav-link" id="{{$localeCode}}" data-bs-toggle="tab" href="#{{$tabLocalId}}__{{$localeCode}}" role="tab" aria-controls="home"
                        aria-selected="true">{{ $properties['name'] }}</a>
                 </li>
             @endforeach
@@ -81,15 +81,15 @@
 </div>
 
 <div class="card-footer">
-    <div class="d-flex justify-content-end ml-auto form-bottom-buttons">
+    <div class="form-bottom-buttons">
         @isset($footer)
             {{ $footer }}
         @else
-            <a href="{{ $indexUrl }}" class="btn btn-secondary ml-2">{{ __('__dashboard.button.cancel') }}</a>
+            <a href="{{ $indexUrl }}" class="btn btn-secondary ms-2">{{ __('__dashboard.button.cancel') }}</a>
 
             @if($viewMode != 'show')
             <x-dashboard.form._loader_btn disabled
-                class="form__request__send__btn ml-2"
+                class="form__request__send__btn ms-2"
                 text="{{ $textBtn ?? 'save' }}"
             />
             @endif

@@ -6,7 +6,7 @@
 
         {{-- Notification Block --}}
         @if(config('dashboard.show_notification'))
-        <a href="#" class="notification-btn ml-auto position-relative dropdown-toggle" data-toggle="dropdown"
+        <a href="#" class="notification-btn ms-auto position-relative dropdown-toggle" data-bs-toggle="dropdown"
            aria-haspopup="true" aria-expanded="false">
             <i>15</i>
             <span class="svg-icons">
@@ -81,8 +81,8 @@
         @endif
 
         {{-- Lnaguage Block --}}
-        <div class="btn-group lang-drop {{!config('dashboard.show_notification') ? 'ml-auto' : ''}}">
-            <button type="button" class="btn dropdown-toggle" data-toggle="dropdown" aria-label="lang"
+        <div class="btn-group lang-drop {{!config('dashboard.show_notification') ? 'ms-auto' : ''}}">
+            <button type="button" class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-label="lang"
                     aria-haspopup="true" aria-expanded="false">
                 <img
                     src="{{langIconPath(LaravelLocalization::getCurrentLocale())}}"
@@ -103,23 +103,23 @@
 
         {{-- User Block --}}
         <div class="btn-group">
-            <button type="button" class="btn dropdown-toggle d-flex align-items-center" data-toggle="dropdown"
+            <button type="button" class="btn dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                 <span class="d-none d-md-inline-block">{{auth()->user()->first_name}}</span>
 
                 @if(auth()->user()->avatar)
-                    <img src="{{auth()->user()->avatar->file_url}}" class="ml-2" width="30px" alt="">
+                    <img src="{{auth()->user()->avatar->file_url}}" class="ms-2" width="30px" alt="">
                 @else
-                    <span class="flaticon-user ml-2"></span>
+                    <span class="flaticon-user ms-2"></span>
                 @endif
             </button>
             <div class="dropdown-menu dropdown-menu-right">
                 <a href="{{dashboardRoute('profile.index')}}" class="dropdown-item {{routeIs('dashboard.profile.index') ? 'active' : ''}}"  type="button">
-                    <i class="flaticon2-user-1 mr-2"></i>
+                    <i class="flaticon2-user-1 me-2"></i>
                     {{__('__dashboard.profile.dropdown')}}
                 </a>
                 <button class="dropdown-item" type="button" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                    <i class="flaticon-logout  mr-2"></i>
+                    <i class="flaticon-logout  me-2"></i>
                     {{__('__dashboard.global.log_out')}}
                 </button>
 

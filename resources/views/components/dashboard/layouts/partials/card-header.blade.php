@@ -9,9 +9,9 @@
         @php
             $pageName = isset($addPageName) ? '.'.$subHeaderData['pageName'] : '';
         @endphp
-        <div class="ml-auto">
+        <div class="ms-auto">
             <a href="{{ $createRoute }}" class="btn btn-create">
-                <i class="flaticon2-plus mr-2"></i>
+                <i class="flaticon2-plus me-2"></i>
                 {{ __("__dashboard$pageName.button.create") }}
             </a>
         </div>

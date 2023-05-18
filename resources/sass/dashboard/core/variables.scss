@@ -220,12 +220,12 @@ select.form-control:not([multiple]){
 }
 
 .btn.btn-primary {
-    color: #FFFFFF;
+    --bs-btn-color: #fff;
+    --bs-btn-hover-color: #fff;
     background-color: #3699FF;
     border-color: #3699FF;
 
     &:hover{
-        color: #FFFFFF;
         background-color: #187DE4;
         border-color: #187DE4;
     }
@@ -308,13 +308,13 @@ select.form-control:not([multiple]){
 .btn-create{
     background-color: #5d78ff;
     border-color: #5d78ff;
-    color: #fff;
+    --bs-btn-color: #fff;
+    --bs-btn-active-color: #fff;
+    --bs-btn-hover-bg: #3758ff;
+    --bs-btn-active-bg: #3758ff;
+    --bs-btn-active-border-color: #2a4eff;
+    --bs-btn-hover-color: #fff;
 
-    &:hover{
-        color: #fff;
-        background-color: #3758ff;
-        border-color: #2a4eff;
-    }
     svg g [fill]{
         fill: #ffffff;
     }
@@ -345,12 +345,7 @@ select.form-control:not([multiple]){
         //color: #000000;
     }
 }
-.dropdown-toggle{
 
-    &:hover{
-        background-color: #F3F6F9;
-    }
-}
 .row {
     margin-right: -10px;
     margin-left: -10px;

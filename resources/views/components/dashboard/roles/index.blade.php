@@ -3,7 +3,7 @@
         <div class="card mb-4">
             <x-dashboard.layouts.partials.card-header :createRoute="route('dashboard.roles.create')"/>
             <div class="card-body">
-                <form class="ml-auto row d-flex  justify-content-between flex-wrap"
+                <form class="ms-auto row d-flex  justify-content-between flex-wrap"
                       id="dataTable__search__form">
                     <div class="row col-md-11 p-0 m-0">
                         <div class="col-md-4 form-group">
@@ -11,7 +11,7 @@
                         </div>
 
                     </div>
-                    <div class="col-md-1 form-group text-right d-flex flex-column justify-content-end">
+                    <div class="col-md-1 form-group text-end d-flex flex-column justify-content-end">
                         <x-dashboard.form._loader_btn/>
                     </div>
                 </form>

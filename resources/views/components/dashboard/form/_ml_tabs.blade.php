@@ -7,7 +7,7 @@
     <ul class="nav nav-tabs" id="{{$tabId}}" role="tablist">
         @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
             <li class="nav-item">
-                <a class="nav-link @if(!$loop->index) active @endif" id="{{$localeCode}}" data-toggle="tab" href="#{{$tabLocalId}}__{{$localeCode}}" role="tab" aria-controls="home"
+                <a class="nav-link @if(!$loop->index) active @endif" id="{{$localeCode}}" data-bs-toggle="tab" href="#{{$tabLocalId}}__{{$localeCode}}" role="tab" aria-controls="home"
                    aria-selected="true">{{ $properties['name'] }}</a>
             </li>
         @endforeach

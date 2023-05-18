@@ -22,7 +22,7 @@
                     </x-dashboard.form.modals._modal>
 
                     <!-- Button trigger info modal -->
-                    <button type="button" class="btn btn-success mb-4" data-toggle="modal" data-target="#infoModal">
+                    <button type="button" class="btn btn-success mb-4" data-bs-toggle="modal" data-bs-target="#infoModal">
                         Launch info modal
                     </button>
 
