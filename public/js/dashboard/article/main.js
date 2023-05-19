@@ -57,5 +57,5 @@ function infoModalEvent() {
 }
 
 // Bootstrap5 modal show part
-// var modal = new bootstrap.Modal($('#exampleModal'));
+// const modal = new bootstrap.Modal($('#exampleModal'));
 // modal.show();
