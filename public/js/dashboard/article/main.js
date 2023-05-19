@@ -55,3 +55,7 @@ function infoModalEvent() {
   //   console.log('custom-save-btn');
   // });
 }
+
+// Bootstrap5 modal show part
+// var modal = new bootstrap.Modal($('#exampleModal'));
+// modal.show();
