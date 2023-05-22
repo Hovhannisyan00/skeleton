@@ -37,6 +37,7 @@ class UserService extends BaseService
 
     public function createOrUpdate($data, int $id = null): Model
     {
+        $data = array_filter($data);
         if (!empty($data['password'])) {
             $data['password'] = Hash::make($data['password']);
         }
