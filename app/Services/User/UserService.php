@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Hash;
 class UserService extends BaseService
 {
     public function __construct(
-        IUserRepository           $repository,
-        FileTempService           $fileService,
+        IUserRepository $repository,
+        FileTempService $fileService,
         protected IRoleRepository $roleRepository
     ) {
         $this->repository = $repository;
@@ -37,7 +37,9 @@ class UserService extends BaseService
 
     public function createOrUpdate($data, int $id = null): Model
     {
-        $data['password'] = Hash::make($data['password']);
+        if (!empty($data['password'])) {
+            $data['password'] = Hash::make($data['password']);
+        }
 
         return DB::transaction(function () use ($id, $data) {
             $user = $id ? $this->repository->update($id, $data) : $this->repository->create($data);
