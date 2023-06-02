@@ -93,12 +93,14 @@ class MlTabs extends Base
         $this->lngCode = $lngCode;
         $this->mlData = $mlData;
         $dom = new DOMDocument('1.0', 'UTF-8');
-        $dom->loadHTML($html);
+        $dom->loadHTML('<?xml encoding="UTF-8">' . $html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+
         $xpath = new DOMXPath($dom);
         $this->find($xpath, '//span[@data-name]', self::ATTRIBUTE_DATA_NAME);
         $this->find($xpath, '//input[@name]');
         $this->find($xpath, '//textarea[@name]');
-        echo $dom->saveHTML();
+
+        echo mb_convert_encoding($dom->saveHTML(), 'UTF-8', 'HTML-ENTITIES');
     }
 
     /**

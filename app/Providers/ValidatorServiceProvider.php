@@ -62,7 +62,7 @@ class ValidatorServiceProvider extends ServiceProvider
         Validator::extend(
             'double_with_max',
             function ($attribute, $value) use ($minDoubleLength, $maxDoubleLength) {
-                $rules = [$attribute => "numeric|between:$minDoubleLength,$maxDoubleLength"];
+                $rules = [$attribute => "numeric|gt:0|between:$minDoubleLength,$maxDoubleLength"];
 
                 return $this->validator($this->getAttributeValue($attribute, $value), $rules);
             },
