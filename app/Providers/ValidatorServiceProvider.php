@@ -74,7 +74,7 @@ class ValidatorServiceProvider extends ServiceProvider
             'phone_number_validator',
             function ($attribute, $value) use ($minPhoneNumberLength, $maxPhoneNumberLength) {
                 $rules = [
-                    $attribute => "between:$minPhoneNumberLength,$maxPhoneNumberLength|regex:/^([0-9\s\-\+\(\)]*)$/"
+                    $attribute => "gt:0|between:$minPhoneNumberLength,$maxPhoneNumberLength|regex:/^([0-9\s\-\+\(\)]*)$/"
                 ];
 
                 return $this->validator($this->getAttributeValue($attribute, $value), $rules);
