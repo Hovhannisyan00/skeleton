@@ -14,6 +14,7 @@
         class="form-control {{ $class ?? '' }}"
         @isset($multiple) multiple @endisset
         @isset($allowClear) data-allow-clear="true" @endisset
+        @isset($allowTags) data-allow-tags="true" @endisset
         @if(!empty($disabled)) disabled @endif
 >
     @if(isset($defaultOption))

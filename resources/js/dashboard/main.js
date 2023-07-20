@@ -26,6 +26,7 @@ select2Init = function (div = undefined, className = 'select2') {
     $(this).select2({
       placeholder: $trans('__dashboard.select.option.default'),
       minimumResultsForSearch: 10,
+      tags: $(this).data('allow-tags') || false,
       allowClear: $(this).data('allow-clear') || false,
     });
   });

@@ -10,9 +10,10 @@ use App\Repositories\Article\ArticleRepository;
 use App\Repositories\File\FileRepository;
 use App\Repositories\Role\RoleRepository;
 use App\Repositories\User\UserRepository;
+use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class RepositoryServiceProvider extends ServiceProvider
+class RepositoryServiceProvider extends ServiceProvider implements DeferrableProvider
 {
     /**
      * @var array|string[]
@@ -36,5 +37,17 @@ class RepositoryServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+    }
+
+    /**
+     * Get the services provided by the provider.
+     *
+     * @return array<int, string>
+     */
+    public function provides(): array
+    {
+        return [
+            UserRepository::class,
+        ];
     }
 }
