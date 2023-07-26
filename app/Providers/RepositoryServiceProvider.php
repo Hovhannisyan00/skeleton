@@ -47,7 +47,7 @@ class RepositoryServiceProvider extends ServiceProvider implements DeferrablePro
     public function provides(): array
     {
         return [
-            UserRepository::class,
+            IUserRepository::class,
         ];
     }
 }
