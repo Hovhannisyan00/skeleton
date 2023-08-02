@@ -5,33 +5,31 @@ namespace App\Models\Base;
 use App\Models\Base\Traits\BaseModelScopes;
 use App\Models\Base\Traits\ModelHelperFunctions;
 use App\Models\Scopes\Base\DeletedScope;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
 class BaseModel extends Model
 {
-    use HasFactory;
     use ModelHelperFunctions;
     use BaseModelScopes;
 
     /**
      * @var string
      */
-    public const TRUE = 1;
-    public const FALSE = 0;
+    final public const TRUE = 1;
+    final public const FALSE = 0;
 
     /**
      * @var string
      */
-    public const SHOW_STATUS_ACTIVE = '1';
-    public const SHOW_STATUS_INACTIVE = '2';
-    public const SHOW_STATUS_DELETED = '0';
+    final public const SHOW_STATUS_ACTIVE = '1';
+    final public const SHOW_STATUS_INACTIVE = '2';
+    final public const SHOW_STATUS_DELETED = '0';
 
     /**
      * @var array
      */
-    public const SHOW_STATUSES = [
+    final public const SHOW_STATUSES = [
         self::SHOW_STATUS_ACTIVE,
         self::SHOW_STATUS_INACTIVE,
         self::SHOW_STATUS_DELETED
@@ -40,7 +38,7 @@ class BaseModel extends Model
     /**
      * @var array
      */
-    public const SHOW_STATUSES_FOR_SELECT = [
+    final public const SHOW_STATUSES_FOR_SELECT = [
         self::SHOW_STATUS_ACTIVE,
         self::SHOW_STATUS_INACTIVE
     ];

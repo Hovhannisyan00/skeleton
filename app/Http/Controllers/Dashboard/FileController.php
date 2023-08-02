@@ -11,7 +11,7 @@ class FileController extends BaseController
 {
     public function __construct(
         IFileRepository $repository,
-        private FileTempService $fileService
+        private readonly FileTempService $fileService
     ) {
         $this->repository = $repository;
     }
