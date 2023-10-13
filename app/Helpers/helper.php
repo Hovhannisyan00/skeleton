@@ -194,8 +194,12 @@ if (!function_exists("getStartOfDay")) {
 }
 
 if (!function_exists("getEndOfDay")) {
-    function getEndOfDay(string $date): string|Carbon
+    function getEndOfDay(string|null $date): string|Carbon
     {
+        if (is_null($date)) {
+            return '';
+        }
+
         return Carbon::parse($date)->endOfDay();
     }
 }
