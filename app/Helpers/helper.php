@@ -182,6 +182,24 @@ if (!function_exists("getDateTimeFormatFront")) {
     }
 }
 
+if (!function_exists("getStartOfDay")) {
+    function getStartOfDay(string|null $date): string|Carbon
+    {
+        if (is_null($date)) {
+            return '';
+        }
+
+        return Carbon::parse($date)->startOfDay();
+    }
+}
+
+if (!function_exists("getEndOfDay")) {
+    function getEndOfDay(string $date): string|Carbon
+    {
+        return Carbon::parse($date)->endOfDay();
+    }
+}
+
 if (!function_exists("formattedDate")) {
     function formattedDate($date): string
     {
