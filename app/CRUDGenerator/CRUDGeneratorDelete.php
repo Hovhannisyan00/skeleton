@@ -26,6 +26,11 @@ class CRUDGeneratorDelete
      */
     public function deleteCrudData(): void
     {
+        if (empty($this->className)) {
+            (new ConsoleOutput())->writeln("<fg=red>ClassName is empty!!</>");
+            return;
+        }
+
         $crudConfig = config('crud');
         $disk = Storage::disk('base');
         $escapeModules = ['model_with_ml', 'ml_model', 'model_search', 'search_request'];

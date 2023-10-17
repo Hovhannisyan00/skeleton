@@ -40,25 +40,16 @@ class Menu extends BaseModel
         'show_status'
     ];
 
-    /**
-     * The "booted" method of the model.
-     */
     protected static function booted(): void
     {
         static::addGlobalScope(new UserMenuScope());
     }
 
-    /**
-     * Function to get admin type menu
-     */
     public function scopeAdmin(Builder $builder): void
     {
         $builder->where('type', self::MENU_TYPE_ADMIN);
     }
 
-    /**
-     * Function to get child menus
-     */
     public function subMenu(): HasMany
     {
         return $this->hasMany(self::class, 'parent_id')->orderBy('sort_order');

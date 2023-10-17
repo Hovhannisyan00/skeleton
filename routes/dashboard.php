@@ -5,7 +5,10 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\FileController;
 use App\Http\Controllers\Dashboard\ProfileController;
 use App\Http\Controllers\Dashboard\UserController;
+use App\Models\RoleAndPermission\Role;
 use Illuminate\Support\Facades\Route;
+
+$roleAdmin = Role::ROLE_ADMIN;
 
 //
 Route::get('/', [DashboardController::class, 'index'])->name('index');
@@ -23,7 +26,7 @@ Route::controller(Barryvdh\TranslationManager\Controller::class)->as('translatio
 });
 
 // Middleware(Admin)
-Route::group(['middleware' => ['role:admin']], function () {
+Route::group(['middleware' => ["role:$roleAdmin"]], function () {
 
     // Users
     Route::resource('users', UserController::class);

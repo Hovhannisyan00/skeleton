@@ -3,12 +3,13 @@
 namespace App\Models\File;
 
 use App\Models\Base\BaseModel;
+use App\Models\File\Traits\FileAccessors;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Support\Facades\Storage;
 
 class File extends BaseModel
 {
     use HasFactory;
+    use FileAccessors;
 
     /**
      * @var bool
@@ -48,31 +49,4 @@ class File extends BaseModel
         'file_url',
         'file_original_name',
     ];
-
-    /**
-     * Function to generate file url
-     */
-    public function getFileUrlAttribute(): string
-    {
-        return Storage::disk('uploads')
-            ->url($this->dir_prefix . '/' . $this->field_name . '/' . $this->file_name);
-    }
-
-    /**
-     * Function to generate file path
-     */
-    public function getFilePathAttribute(): string
-    {
-        return Storage::disk('uploads')
-            ->path($this->dir_prefix . '/' . $this->field_name . '/' . $this->file_name);
-    }
-
-    /**
-     * Function to get file original name
-     */
-    public function getFileOriginalNameAttribute(): string
-    {
-        $explodedFileName = explode('_', $this->file_name, 2);
-        return $explodedFileName[1] ?? '';
-    }
 }

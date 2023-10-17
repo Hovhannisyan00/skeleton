@@ -6,10 +6,10 @@ use App\Casts\DateCast;
 use App\Models\Base\Traits\HasFileData;
 use App\Models\Base\Traits\ModelHelperFunctions;
 use App\Models\File\File;
-use Illuminate\Database\Eloquent\Casts\Attribute;
+use App\Models\User\Traits\UserAccessors;
+use App\Models\User\Traits\UserRelations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
@@ -23,6 +23,8 @@ class User extends Authenticatable
     use HasRoles;
     use ModelHelperFunctions;
     use Notifiable;
+    use UserRelations;
+    use UserAccessors;
 
     /**
      * The attributes that are mass assignable.
@@ -59,9 +61,6 @@ class User extends Authenticatable
         'created_at' => DateCast::class,
     ];
 
-    /**
-     * @var array
-     */
     public array $defaultValues = [];
 
     public function setFileConfigName(): string
@@ -78,17 +77,5 @@ class User extends Authenticatable
             ->when($fileType, function ($query) use ($fileType) {
                 $query->where('file_type', $fileType);
             });
-    }
-
-    public function avatar(): MorphOne
-    {
-        return $this->morphOne(File::class, 'fileable')->where('field_name', 'avatar');
-    }
-
-    public function name(): Attribute
-    {
-        return new Attribute(
-            get: fn() => $this->first_name . ' ' . $this->last_name
-        );
     }
 }

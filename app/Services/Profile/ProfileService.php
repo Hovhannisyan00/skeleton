@@ -3,7 +3,6 @@
 namespace App\Services\Profile;
 
 use App\Contracts\User\IUserRepository;
-use App\Repositories\User\UserRepository;
 use App\Services\BaseService;
 use App\Services\File\FileTempService;
 use Illuminate\Database\Eloquent\Model;
