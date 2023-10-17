@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Dashboard;
+namespace App\Http\Controllers\Dashboard\Base;
 
 use App\Contracts\IBaseRepository;
 use App\Http\Controllers\Controller;

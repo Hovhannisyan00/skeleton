@@ -1,10 +1,10 @@
 <?php
 
 use App\Http\Controllers\Dashboard\ArticleController;
+use App\Http\Controllers\Dashboard\Base\FileController;
 use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Dashboard\FileController;
-use App\Http\Controllers\Dashboard\ProfileController;
-use App\Http\Controllers\Dashboard\UserController;
+use App\Http\Controllers\Dashboard\User\ProfileController;
+use App\Http\Controllers\Dashboard\User\UserController;
 use App\Models\RoleAndPermission\Role;
 use Illuminate\Support\Facades\Route;
 
