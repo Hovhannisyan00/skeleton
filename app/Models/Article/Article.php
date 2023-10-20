@@ -59,7 +59,7 @@ class Article extends BaseModel
     ];
 
 //    /**
-//     * If custom Ml model open comment and set you model ml
+//     * If custom Ml model open comment and set your model ml
 //     * Function to set ml class
 //     *
 //     * @return BaseMlModel
