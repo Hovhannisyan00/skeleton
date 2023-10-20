@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard\User;
 
 use App\Contracts\User\IUserRepository;
-use App\Http\Controllers\Dashboard\Base\BaseController;
+use App\Http\Controllers\Dashboard\BaseController;
 use App\Http\Requests\User\UserRequest;
 use App\Http\Requests\User\UserSearchRequest;
 use App\Models\User\User;

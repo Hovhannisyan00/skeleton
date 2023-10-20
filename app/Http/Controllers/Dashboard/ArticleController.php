@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Dashboard;
 
-use App\Http\Controllers\Dashboard\Base\BaseController;
 use App\Http\Requests\Article\ArticleRequest;
 use App\Http\Requests\Article\ArticleSearchRequest;
 use App\Models\Article\Article;

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard\User;
 
-use App\Http\Controllers\Dashboard\Base\BaseController;
+use App\Http\Controllers\Dashboard\BaseController;
 use App\Http\Requests\Profile\ProfileRequest;
 use App\Services\Profile\ProfileService;
 use Illuminate\Contracts\View\View;

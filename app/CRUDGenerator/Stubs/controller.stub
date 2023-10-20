@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard;
 
+use App\Http\Controllers\Dashboard\Base\BaseController;
 use App\Http\Requests\{{ CLASS_NAME }}\{{ CLASS_NAME }}Request;
 use App\Http\Requests\{{ CLASS_NAME }}\{{ CLASS_NAME }}SearchRequest;
 use App\Models\{{ CLASS_NAME }}\{{ CLASS_NAME }}Search;

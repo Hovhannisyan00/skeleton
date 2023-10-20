@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\Dashboard\ArticleController;
-use App\Http\Controllers\Dashboard\Base\FileController;
 use App\Http\Controllers\Dashboard\DashboardController;
+use App\Http\Controllers\Dashboard\FileController;
 use App\Http\Controllers\Dashboard\User\ProfileController;
 use App\Http\Controllers\Dashboard\User\UserController;
 use App\Models\RoleAndPermission\Role;
@@ -27,7 +27,6 @@ Route::controller(Barryvdh\TranslationManager\Controller::class)->as('translatio
 
 // Middleware(Admin)
 Route::group(['middleware' => ["role:$roleAdmin"]], function () {
-
     // Users
     Route::resource('users', UserController::class);
     Route::get('users/dataTable/get-list', [UserController::class, 'getListData'])->name('users.getListData');

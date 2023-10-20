@@ -5,15 +5,16 @@ namespace App\Providers;
 use App\Contracts\Article\IArticleRepository;
 use App\Contracts\File\IFileRepository;
 use App\Contracts\Role\IRoleRepository;
+use App\Contracts\Test\ITestRepository;
 use App\Contracts\User\IUserRepository;
 use App\Repositories\Article\ArticleRepository;
 use App\Repositories\File\FileRepository;
 use App\Repositories\Role\RoleRepository;
+use App\Repositories\Test\TestRepository;
 use App\Repositories\User\UserRepository;
-use Illuminate\Contracts\Support\DeferrableProvider;
 use Illuminate\Support\ServiceProvider;
 
-class RepositoryServiceProvider extends ServiceProvider implements DeferrableProvider
+class RepositoryServiceProvider extends ServiceProvider
 {
     /**
      * @var array|string[]
@@ -23,6 +24,7 @@ class RepositoryServiceProvider extends ServiceProvider implements DeferrablePro
         IRoleRepository::class => RoleRepository::class,
         IFileRepository::class => FileRepository::class,
         IArticleRepository::class => ArticleRepository::class,
+        ITestRepository::class => TestRepository::class,
     ];
 
     /**
@@ -37,17 +39,5 @@ class RepositoryServiceProvider extends ServiceProvider implements DeferrablePro
      */
     public function boot(): void
     {
-    }
-
-    /**
-     * Get the services provided by the provider.
-     *
-     * @return array<int, string>
-     */
-    public function provides(): array
-    {
-        return [
-            IUserRepository::class,
-        ];
     }
 }

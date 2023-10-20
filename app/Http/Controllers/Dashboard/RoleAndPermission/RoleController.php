@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Dashboard\RoleAndPermission;
 
 use App\Contracts\Role\IRoleRepository;
-use App\Http\Controllers\Dashboard\Base\BaseController;
+use App\Http\Controllers\Dashboard\BaseController;
 use App\Http\Requests\Role\RoleSearchRequest;
 use App\Models\RoleAndPermission\RoleSearch;
 use Illuminate\Contracts\View\View;
