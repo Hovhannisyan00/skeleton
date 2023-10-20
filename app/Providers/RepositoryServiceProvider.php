@@ -5,12 +5,10 @@ namespace App\Providers;
 use App\Contracts\Article\IArticleRepository;
 use App\Contracts\File\IFileRepository;
 use App\Contracts\Role\IRoleRepository;
-use App\Contracts\Test\ITestRepository;
 use App\Contracts\User\IUserRepository;
 use App\Repositories\Article\ArticleRepository;
 use App\Repositories\File\FileRepository;
 use App\Repositories\Role\RoleRepository;
-use App\Repositories\Test\TestRepository;
 use App\Repositories\User\UserRepository;
 use Illuminate\Support\ServiceProvider;
 
@@ -24,7 +22,6 @@ class RepositoryServiceProvider extends ServiceProvider
         IRoleRepository::class => RoleRepository::class,
         IFileRepository::class => FileRepository::class,
         IArticleRepository::class => ArticleRepository::class,
-        ITestRepository::class => TestRepository::class,
     ];
 
     /**
