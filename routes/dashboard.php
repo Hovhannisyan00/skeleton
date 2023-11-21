@@ -3,7 +3,6 @@
 use App\Http\Controllers\Dashboard\ArticleController;
 use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\FileController;
-use App\Http\Controllers\Dashboard\TestController;
 use App\Http\Controllers\Dashboard\User\ProfileController;
 use App\Http\Controllers\Dashboard\User\UserController;
 use App\Models\RoleAndPermission\Role;
@@ -42,7 +41,3 @@ Route::controller(ProfileController::class)->as('profile.')->group(function () {
     Route::get('profile', 'index')->name('index');
     Route::put('profile/{id}', 'update')->whereNumber('id')->name('update');
 });
-
-// Tests
-Route::resource('tests', TestController::class);
-Route::get('tests/dataTable/get-list', [TestController::class, 'getListData'])->name('tests.getListData');
