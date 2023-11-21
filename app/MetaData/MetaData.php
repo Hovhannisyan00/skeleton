@@ -11,6 +11,14 @@ class MetaData
     private string $og_type = 'website';
     private string $keywords = '';
 
+    public function getDefaultData(): static
+    {
+        $this->setTitle(config('app.name') ?? trans('meta.home.title'));
+        $this->setDescription(trans('meta.home.description'));
+
+        return $this;
+    }
+
     public function getTitle(): string
     {
         return $this->title;
@@ -67,14 +75,6 @@ class MetaData
     public function setOgType(string $ogType): static
     {
         $this->og_type = $ogType;
-
-        return $this;
-    }
-
-    public function getDefaultData(): static
-    {
-        $this->setTitle(config('app.name') ?? trans('meta.home.title'));
-        $this->setDescription(trans('meta.home.description'));
 
         return $this;
     }
