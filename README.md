@@ -11,7 +11,8 @@ Everything is Perfect. ;)
 - php artisan db:seed
 - php artisan storage:link
 
-[To learn Core you can watch core tutorials](https://academy.munich.ventures/courses/core/)
+[To learn Core you can watch core tutorials.](https://academy.munich.ventures/courses/core/)
+
 -------------------------------------------------------------------
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"> </a></p>
