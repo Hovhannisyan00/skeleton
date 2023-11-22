@@ -11,7 +11,7 @@ Everything is Perfect. ;)
 - php artisan db:seed
 - php artisan storage:link
 
-[To learn Core you can watch core tutorials.](https://academy.munich.ventures/courses/core/)
+[To learn Core you can watch tutorials.](https://academy.munich.ventures/courses/core/)
 
 -------------------------------------------------------------------
 
