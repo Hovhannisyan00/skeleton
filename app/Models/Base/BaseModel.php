@@ -2,6 +2,7 @@
 
 namespace App\Models\Base;
 
+use App\Models\Base\Enums\ShowStatus;
 use App\Models\Base\Traits\BaseModelScopes;
 use App\Models\Base\Traits\ModelHelperFunctions;
 use App\Models\Scopes\Base\DeletedScope;
@@ -18,30 +19,6 @@ class BaseModel extends Model
      */
     final public const TRUE = 1;
     final public const FALSE = 0;
-
-    /**
-     * @var string
-     */
-    final public const SHOW_STATUS_ACTIVE = '1';
-    final public const SHOW_STATUS_INACTIVE = '2';
-    final public const SHOW_STATUS_DELETED = '0';
-
-    /**
-     * @var array
-     */
-    final public const SHOW_STATUSES = [
-        self::SHOW_STATUS_ACTIVE,
-        self::SHOW_STATUS_INACTIVE,
-        self::SHOW_STATUS_DELETED
-    ];
-
-    /**
-     * @var array
-     */
-    final public const SHOW_STATUSES_FOR_SELECT = [
-        self::SHOW_STATUS_ACTIVE,
-        self::SHOW_STATUS_INACTIVE
-    ];
 
     /**
      * In Create/Update or Delete functions save user_id and user_ip values
@@ -97,10 +74,10 @@ class BaseModel extends Model
         // Updating
         static::updating(function ($model) {
             if ($model->hasUserInfo) {
-                if ($model->show_status == self::SHOW_STATUS_ACTIVE) {
+                if ($model->show_status == ShowStatus::ACTIVE) {
                     $model->updated_user_id = Auth::check() ? Auth::user()->id : $model->updated_user_id;
                     $model->updated_user_ip = request()->ip();
-                } elseif ($model->show_status == self::SHOW_STATUS_DELETED) {
+                } elseif ($model->show_status == ShowStatus::DELETED) {
                     $model->deleted_user_id = Auth::check() ? Auth::user()->id : $model->deleted_user_id;
                     $model->deleted_user_ip = request()->ip();
                 }

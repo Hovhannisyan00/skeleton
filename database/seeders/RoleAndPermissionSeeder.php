@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\RoleAndPermission\Enums\RoleType;
 use App\Models\RoleAndPermission\Role;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +16,7 @@ class RoleAndPermissionSeeder extends Seeder
      */
     public function run()
     {
-        foreach (Role::ROLES as $role) {
+        foreach (RoleType::ALL as $role) {
             Role::query()->create([
                 'name' => $role,
                 'guard_name' => 'web',

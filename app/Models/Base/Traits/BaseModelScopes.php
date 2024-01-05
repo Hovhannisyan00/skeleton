@@ -2,7 +2,7 @@
 
 namespace App\Models\Base\Traits;
 
-use App\Models\Base\BaseModel;
+use App\Models\Base\Enums\ShowStatus;
 use Illuminate\Database\Eloquent\Builder;
 
 trait BaseModelScopes
@@ -54,6 +54,6 @@ trait BaseModelScopes
      */
     public function scopeActive($query): Builder
     {
-        return $query->where($this->getTable() . '.show_status', BaseModel::SHOW_STATUS_ACTIVE);
+        return $query->where($this->getTable() . '.show_status', ShowStatus::ACTIVE);
     }
 }

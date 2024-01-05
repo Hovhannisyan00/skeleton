@@ -5,10 +5,10 @@ use App\Http\Controllers\Dashboard\DashboardController;
 use App\Http\Controllers\Dashboard\FileController;
 use App\Http\Controllers\Dashboard\User\ProfileController;
 use App\Http\Controllers\Dashboard\User\UserController;
-use App\Models\RoleAndPermission\Role;
+use App\Models\RoleAndPermission\Enums\RoleType;
 use Illuminate\Support\Facades\Route;
 
-$roleAdmin = Role::ROLE_ADMIN;
+$roleAdmin = RoleType::ADMIN;
 
 //
 Route::get('/', [DashboardController::class, 'index'])->name('index');

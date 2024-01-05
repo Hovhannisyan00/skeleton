@@ -17,20 +17,6 @@ class File extends BaseModel
     public $incrementing = false;
 
     /**
-     * @var string
-     */
-    public const TYPE_IMAGE = 'image';
-    public const TYPE_FILE = 'file';
-
-    /**
-     * @var array
-     */
-    public const TYPES = [
-        self::TYPE_IMAGE,
-        self::TYPE_FILE,
-    ];
-
-    /**
      * @var string[]
      */
     protected $fillable = [

@@ -2,7 +2,7 @@
 
 namespace App\Macros;
 
-use App\Models\Base\BaseModel;
+use App\Models\Base\Enums\ShowStatus;
 use Closure;
 
 class BluePrintMacros
@@ -24,7 +24,7 @@ class BluePrintMacros
     public function showStatus(): Closure
     {
         return function () {
-            $this->enum('show_status', BaseModel::SHOW_STATUSES)->default(BaseModel::SHOW_STATUS_ACTIVE);
+            $this->enum('show_status', ShowStatus::ALL)->default(ShowStatus::ACTIVE);
         };
     }
 

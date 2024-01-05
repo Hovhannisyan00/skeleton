@@ -3,7 +3,7 @@
 namespace App\Repositories;
 
 use App\Contracts\IBaseRepository;
-use App\Models\Base\BaseModel;
+use App\Models\Base\Enums\ShowStatus;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Auth;
@@ -148,7 +148,7 @@ class BaseRepository implements IBaseRepository
         }
 
         $updateData = [
-            'show_status' => BaseModel::SHOW_STATUS_DELETED,
+            'show_status' => ShowStatus::DELETED,
         ];
 
         if ($this->model->hasUserInfo) {

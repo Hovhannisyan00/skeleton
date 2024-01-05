@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Models\Base\BaseModel;
+use App\Models\Base\Enums\ShowStatus;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
 
@@ -84,7 +84,7 @@ class ValidatorServiceProvider extends ServiceProvider
 
         // Show status
         Validator::extend('show_status_validator', function ($attribute, $value) {
-            $rules = [$attribute => "in:" . implode(',', BaseModel::SHOW_STATUSES_FOR_SELECT)];
+            $rules = [$attribute => "in:" . implode(',', ShowStatus::FOR_SELECT)];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
         }, trans('validation.invalid'));

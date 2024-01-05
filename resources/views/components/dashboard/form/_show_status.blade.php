@@ -11,7 +11,7 @@
     @if(isset($defaultOption))
         <option value="">{{ __('__dashboard.select.option.all') }}</option>
     @endif
-    @foreach(\App\Models\Base\BaseModel::SHOW_STATUSES_FOR_SELECT as $item)
+    @foreach(\App\Models\Base\Enums\ShowStatus::FOR_SELECT as $item)
         <option value="{{ $item }}"
                 @if(isset($value) && $item == $value) selected @endif
         >

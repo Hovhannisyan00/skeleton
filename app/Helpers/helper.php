@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\RoleAndPermission\Enums\RoleType;
 use App\Models\RoleAndPermission\Role;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -267,7 +268,7 @@ if (!function_exists("getRoles")) {
     function getRoles(): array
     {
         $roles = [];
-        foreach (Role::ROLES as $role) {
+        foreach (RoleType::ALL as $role) {
             $roles[Str::upper($role)] = $role;
         }
         return $roles;

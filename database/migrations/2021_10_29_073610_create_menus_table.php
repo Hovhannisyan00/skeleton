@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\Menu\Menu;
+use App\Models\Menu\Enums\MenuType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -22,7 +22,7 @@ class CreateMenusTable extends Migration
             $table->string('group_name')->nullable();
             $table->string('url')->nullable();
             $table->string('icon')->nullable();
-            $table->enum('type', [Menu::MENU_TYPE_ADMIN, Menu::MENU_TYPE_PROFILE]);
+            $table->enum('type', [MenuType::ADMIN, MenuType::PROFILE]);
             $table->boolean('check_permission')->default(1)->nullable();
             $table->showStatus();
             $table->sortOrder();
