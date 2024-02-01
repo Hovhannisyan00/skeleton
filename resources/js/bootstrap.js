@@ -1,4 +1,4 @@
-import 'element-ui/lib/theme-chalk/index.css';
+import 'element-plus/dist/index.css';
 
 window._ = require('lodash');
 

@@ -52,6 +52,14 @@ class MenuSeeder extends Seeder
                     ]
                 ],*/
             ],
+            [
+                'title' => 'Vue3',
+                'slug' => 'vue-example',
+                'url' => route('dashboard.vue-example.index', [], false),
+                'icon' => 'fab fa-vuejs',
+                'type' => 'admin',
+                'role' => [RoleType::ADMIN],
+            ],
         ];
 
         foreach ($menus as $key => $menu) {

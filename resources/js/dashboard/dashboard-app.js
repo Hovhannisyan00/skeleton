@@ -1,8 +1,8 @@
-import { Message, Notification } from 'element-ui';
+import { ElMessage, ElNotification } from 'element-plus/dist/index.full';
 
 window.El = {
-  Message,
-  Notification,
+  Message: ElMessage,
+  Notification: ElNotification,
 };
 
 require('../bootstrap');
@@ -16,3 +16,5 @@ require('./plugins/jquery.mask.min');
 require('jquery-datetimepicker');
 require('../common/axios/axios');
 require('../common/axios/errorHandler');
+
+require('./vue-init');
