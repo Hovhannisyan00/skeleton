@@ -42,4 +42,5 @@ Route::controller(ProfileController::class)->as('profile.')->group(function () {
     Route::put('profile/{id}', 'update')->whereNumber('id')->name('update');
 });
 
-Route::view('vue-example', 'components.dashboard.vue-example.index');
+// Vue Example
+Route::view('vue-example', 'components.dashboard.vue-example.index')->name('vue-example.index');

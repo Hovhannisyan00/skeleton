@@ -6,7 +6,7 @@ use Carbon\Carbon;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Database\Eloquent\Model;
 
-class DateCast implements CastsAttributes
+final class DateCast implements CastsAttributes
 {
     public function __construct(
         private readonly bool $withFormatted = false,
