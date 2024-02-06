@@ -356,6 +356,12 @@ if (!function_exists('isProduction')) {
     }
 }
 
+if (!function_exists('isAwsFilesystem')) {
+    function isAwsFilesystem(): bool
+    {
+        return config('filesystems.default') === 's3';
+    }
+}
 
 /* ========================================================================================
                                 Global Functions - Start

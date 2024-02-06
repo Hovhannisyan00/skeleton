@@ -14,6 +14,7 @@ abstract class FileService
 {
     protected Filesystem $uploadsDisk;
     protected Filesystem $pendingDisk;
+    protected Filesystem $awsDisk;
 
     public function __construct(protected FileRepository $repository)
     {
@@ -25,8 +26,8 @@ abstract class FileService
      */
     protected function movePendingFileToUploadsFolder(
         string $fileName,
-        array  $config = [],
-        array  $directoryData = []
+        array $config = [],
+        array $directoryData = []
     ): bool {
         if ($this->pendingDisk->exists($directoryData['pending'])) {
             // convert to full paths
@@ -38,6 +39,10 @@ abstract class FileService
 
             // make destination folder
             $this->makeDirectory($fullPathUploads);
+
+            if (isAwsFilesystem() && !isset($config['disk'])) {
+                return $this->awsDisk->move($fullPathPending, $fullPathUploads);
+            }
 
             // save thumb
             if (isset($config['thumb'])) {
@@ -58,8 +63,8 @@ abstract class FileService
     protected function saveThumb(
         string $fileName,
         string $filePath,
-        array  $thumbConfig,
-        array  $directoryData = []
+        array $thumbConfig,
+        array $directoryData = []
     ): void {
         foreach ($thumbConfig as $thumb) {
             $thumbWidth = $thumb['width'];
@@ -162,5 +167,9 @@ abstract class FileService
     {
         $this->uploadsDisk = Storage::disk('uploads');
         $this->pendingDisk = Storage::disk('pending');
+
+        if (isAwsFilesystem()) {
+            $this->awsDisk = Storage::disk('s3');
+        }
     }
 }

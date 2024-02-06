@@ -46,12 +46,43 @@ return [
             'visibility' => 'public',
         ],
 
+        // Local
         'uploads' => [
             'driver' => 'local',
             'root' => storage_path('app/public/uploads'),
             'url' => '/storage/uploads',
-            'visibility' => 'public',
         ],
+
+        'pending' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/pending'),
+            'url' => '/storage/pending',
+        ],
+
+        // Amazon -> FILESYSTEM_DRIVER set to s3!
+       /* 'uploads' => [
+            'driver' => env('FILESYSTEM_DRIVER', 's3'),
+            'root' => 'uploads',
+            'url' => env('AWS_CDN_URL') ?? env('AWS_URL'),
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION'),
+            'bucket' => env('AWS_BUCKET'),
+            'endpoint' => env('AWS_ENDPOINT'),
+            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+        ],
+
+        'pending' => [
+            'driver' => env('FILESYSTEM_DRIVER', 's3'),
+            'root' => 'pending',
+            'url' => env('AWS_CDN_URL') ?? env('AWS_URL'),
+            'key' => env('AWS_ACCESS_KEY_ID'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY'),
+            'region' => env('AWS_DEFAULT_REGION'),
+            'bucket' => env('AWS_BUCKET'),
+            'endpoint' => env('AWS_ENDPOINT'),
+            'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
+        ],*/
 
         's3' => [
             'driver' => 's3',
@@ -64,11 +95,6 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
         ],
 
-        'pending' => [
-            'driver' => 'local',
-            'root' => storage_path('app/public/pending'),
-            'url' => '/storage/pending',
-        ],
     ],
 
     /*
