@@ -11,7 +11,7 @@ onMounted(() => {
     <div class="card-header">Vue 3</div>
 
     <div class="card-body">
-      Hello From Core Team.
+      Hello From Core Team. :)
     </div>
   </div>
 </template>
