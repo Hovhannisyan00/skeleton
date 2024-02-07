@@ -16,8 +16,9 @@ abstract class FileService
     protected Filesystem $pendingDisk;
     protected Filesystem $awsDisk;
 
-    public function __construct(protected FileRepository $repository)
-    {
+    public function __construct(
+        protected FileRepository $repository
+    ) {
         $this->setDisks();
     }
 
