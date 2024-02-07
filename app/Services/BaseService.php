@@ -35,7 +35,9 @@ abstract class BaseService
      */
     public function createOrUpdateWithoutTransaction(array $data, int $id = null): Model
     {
-        $model = $id ? $this->repository->update($id, $data) : $this->repository->create($data);
+        $model = $id
+            ? $this->repository->update($id, $data)
+            : $this->repository->create($data);
 
         // Ml
         if (isset($data['ml'])) {
