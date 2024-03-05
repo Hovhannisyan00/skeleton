@@ -21,7 +21,7 @@ class CreateMenusTable extends Migration
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->string('group_name')->nullable();
             $table->string('url')->nullable();
-            $table->string('icon')->nullable();
+            $table->string('icon',50)->nullable();
             $table->enum('type', [MenuType::ADMIN, MenuType::PROFILE]);
             $table->boolean('check_permission')->default(1)->nullable();
             $table->showStatus();
