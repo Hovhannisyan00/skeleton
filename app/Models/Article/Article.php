@@ -3,16 +3,16 @@
 namespace App\Models\Article;
 
 use App\Casts\DateCast;
+use App\Models\Article\Traits\ArticleRelations;
 use App\Models\Base\BaseModel;
 use App\Models\Base\Traits\HasFileData;
 use App\Models\Base\Traits\HasMlData;
-use App\Models\File\File;
-use Illuminate\Database\Eloquent\Relations\MorphOne;
 
 class Article extends BaseModel
 {
     use HasFileData;
     use HasMlData;
+    use ArticleRelations;
 
     /**
      * in create/update set default values for model
@@ -36,27 +36,30 @@ class Article extends BaseModel
     /**
      * The attributes that should be cast.
      *
-     * @var array
+     * @return array
      */
-    protected $casts = [
-        'created_at' => DateCast::class,
+    protected function casts(): array
+    {
+        return [
+            'created_at' => DateCast::class,
 
-        'multiple_group_data' => 'array',
-        'multiple_author' => 'array',
+            'multiple_group_data' => 'array',
+            'multiple_author' => 'array',
 
-        // Will be changed price field
+            // Will be changed price field
 //        'price' => CurrencyCast::class,
 
-        // Will be added new attribute, get data with icon and formatted
+            // Will be added new attribute, get data with icon and formatted
 //        'price_formatted' => CurrencyCast::class . ':1,1',
 
-        // Will be added new attribute, get data with formatted
+            // Will be added new attribute, get data with formatted
 //        'price_formatted' => CurrencyCast::class . ':0,1',
 
-        'publish_date' => DateCast::class,
-        'release_date_time' => DateCast::class . ':0,1',
+            'publish_date' => DateCast::class,
+            'release_date_time' => DateCast::class . ':0,1',
 //        'publish_date_formatted' => DateCast::class.':1'
-    ];
+        ];
+    }
 
 //    /**
 //     * If custom Ml model open comment and set your model ml
@@ -68,12 +71,4 @@ class Article extends BaseModel
 //    {
 //        return new ArticleMls();
 //    }
-
-    /**
-     * Function to return photo
-     */
-    public function photo(): MorphOne
-    {
-        return $this->morphOne(File::class, 'fileable')->where('field_name', 'photo');
-    }
 }
