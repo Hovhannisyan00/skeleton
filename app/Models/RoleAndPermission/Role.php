@@ -19,4 +19,9 @@ class Role extends SpatieRole
     {
         return implode('|', RoleType::ALL);
     }
+
+    public static function getRoleNames(array $ids)
+    {
+        return Role::whereIn('id', $ids)->pluck('name')->all();
+    }
 }

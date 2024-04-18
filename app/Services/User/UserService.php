@@ -48,7 +48,7 @@ class UserService extends BaseService
                 : $this->repository->create($data);
 
             // Roles
-            $user->syncRoles($data['role_ids']);
+            $user->syncRolesData($data['role_ids']);
 
             // File
             $this->fileService->storeFile($user, $data);

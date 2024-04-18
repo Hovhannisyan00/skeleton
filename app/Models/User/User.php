@@ -7,6 +7,7 @@ use App\Models\Base\Traits\HasFileData;
 use App\Models\Base\Traits\ModelHelperFunctions;
 use App\Models\File\File;
 use App\Models\User\Traits\UserAccessors;
+use App\Models\User\Traits\UserHelperMethods;
 use App\Models\User\Traits\UserRelations;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
@@ -25,6 +26,7 @@ class User extends Authenticatable
     use Notifiable;
     use UserRelations;
     use UserAccessors;
+    use UserHelperMethods;
 
     /**
      * The attributes that are mass assignable.
