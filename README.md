@@ -1,7 +1,7 @@
 
 ## About Core, Created By AREG & GEVOR
 
-Everything is Perfect. ;)
+[To learn Core you can watch tutorials.](https://academy.munich.ventures/courses/core/)
 
 ## Run Commands
 - composer install
@@ -10,8 +10,6 @@ Everything is Perfect. ;)
 - php artisan migrate
 - php artisan db:seed
 - php artisan storage:link
-
-[To learn Core you can watch tutorials.](https://academy.munich.ventures/courses/core/)
 
 -------------------------------------------------------------------
 
