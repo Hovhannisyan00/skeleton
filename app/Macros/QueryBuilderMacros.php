@@ -32,4 +32,14 @@ class QueryBuilderMacros
             });
         };
     }
+
+    public function likeJson(): Closure
+    {
+        return function (string $jsonColumnName, string $attribute, string $searchTerm) {
+            return $this->whereRaw(
+                'LOWER(' . $jsonColumnName . '->>"$.' . $attribute . '") LIKE ?',
+                ['%' . strtolower($searchTerm) . '%']
+            );
+        };
+    }
 }
