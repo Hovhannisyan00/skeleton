@@ -2,7 +2,7 @@
 
 namespace App\DTO\Article;
 
-// EXAMPLE ONLY
+// EXAMPLE
 final class ArticleExampleDTO
 {
     public function __construct(
