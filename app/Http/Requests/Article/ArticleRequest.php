@@ -29,7 +29,7 @@ class ArticleRequest extends FormRequest
                 'show_status' => 'required|show_status_validator',
 
                 'ml' => 'required|array',
-                "ml.*.title" => 'required|string_with_max',
+                'ml.*.title' => 'required|string_with_max',
                 'ml.*.short_description' => 'required|string_with_max',
                 'ml.*.description' => 'required|text_with_max',
             ] + MetaDataValidation::rules();

@@ -9,10 +9,10 @@ class MetaDataValidation
         $requiredRule = $isRequired ? 'required' : 'nullable';
 
         return [
-            "ml" => "$requiredRule|array",
-            "ml.*.meta_title" => "$requiredRule|string_with_max",
-            "ml.*.meta_description" => "$requiredRule|text_with_max",
-            "ml.*.meta_keywords" => "$requiredRule|string_with_max",
+            'ml' => "$requiredRule|array",
+            'ml.*.meta_title' => "$requiredRule|string_with_max",
+            'ml.*.meta_description' => "$requiredRule|text_with_max",
+            'ml.*.meta_keywords' => "$requiredRule|string_with_max",
         ];
     }
 }
