@@ -30,7 +30,6 @@ trait ModelHelperFunctions
     public function getClassNamespace(): string
     {
         $namespace = new ReflectionClass(static::class);
-
         return $namespace->getNamespaceName();
     }
 
@@ -69,10 +68,10 @@ trait ModelHelperFunctions
      */
     public function getFileConfig(): array
     {
-        if (! $this->hasFilesData()) {
+        if (!$this->hasFilesData()) {
             throw new Exception('In Model Please use HasFilesData trait');
         }
 
-        return config('files.'.$this->getFileConfigName());
+        return config('files.' . $this->getFileConfigName());
     }
 }

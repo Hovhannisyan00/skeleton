@@ -53,7 +53,7 @@ class RouteServiceProvider extends ServiceProvider
                 ->namespace($this->namespace)
                 ->group(base_path('routes/web.php'));
 
-            Route::prefix(LaravelLocalization::setLocale().'/dashboard')
+            Route::prefix(LaravelLocalization::setLocale() . '/dashboard')
                 ->as('dashboard.')
                 ->middleware([
                     'web',
@@ -61,7 +61,7 @@ class RouteServiceProvider extends ServiceProvider
                     'localizationRedirect',
                     'localeViewPath',
                     'auth',
-                    'role:'.Role::getRolesFormatted(),
+                    'role:' . Role::getRolesFormatted(),
                 ])
                 ->namespace($this->namespace)
                 ->group(base_path('routes/dashboard.php'));

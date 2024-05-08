@@ -41,7 +41,7 @@ class CreateBlades extends CRUDGeneratorAbstract
         return [
             'CLASS_NAME' => $className,
             'VARIABLE_NAME' => $variableName,
-            'ROUTE_NAME' => $routeName,
+            'ROUTE_NAME' => $routeName
         ];
     }
 }

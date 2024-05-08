@@ -26,7 +26,7 @@ final class DateCast implements CastsAttributes
     private function getFormatted(Model $model, string $key): string
     {
         $result = '';
-        if (! str_contains($key, '_formatted')) {
+        if (!str_contains($key, '_formatted')) {
             return $result;
         }
 
@@ -39,7 +39,7 @@ final class DateCast implements CastsAttributes
         return $result;
     }
 
-    private function getCarbonFormattedValue(?string $value): string
+    private function getCarbonFormattedValue(string|null $value): string
     {
         $result = '';
         if ($value) {

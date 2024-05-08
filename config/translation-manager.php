@@ -49,12 +49,12 @@ return [
      *        'de',
      *    )
      */
-    'exclude_langs' => [],
+    'exclude_langs'  => [],
 
     /**
      * Export translations with keys output alphabetically.
      */
-    'sort_keys' => false,
+    'sort_keys'     => false,
 
     'trans_functions' => [
         'trans',

@@ -26,6 +26,8 @@ class RegisterController extends Controller
 
     /**
      * Where to redirect users after registration.
+     *
+     * @var string
      */
     protected string $redirectTo = RouteServiceProvider::HOME;
 
@@ -51,7 +53,7 @@ class RegisterController extends Controller
             ],
             'cv' => [
                 'required',
-                'file',
+                'file'
             ],
 
             'program_id' => [
@@ -64,7 +66,7 @@ class RegisterController extends Controller
 
             'position1' => [
                 'required',
-            ],
+            ]
         ]);
     }
 

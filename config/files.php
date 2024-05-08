@@ -2,6 +2,7 @@
 
 use App\Models\Article\Article;
 use App\Models\File\Enums\FileType;
+use App\Models\File\File;
 use App\Models\User\User;
 
 return [
@@ -10,7 +11,7 @@ return [
             'field_name' => 'signature',
             'file_type' => FileType::IMAGE,
             'validation' => 'nullable|mimes:jpg,jpeg,png,bmp,tiff|max:4096',
-            //            'multiple' => true
+//            'multiple' => true
         ],
 
         'avatar' => [
@@ -37,5 +38,5 @@ return [
                 ],
             ]*/
         ],
-    ],
+    ]
 ];

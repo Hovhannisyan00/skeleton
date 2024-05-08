@@ -27,7 +27,7 @@ interface IBaseRepository
 
     public function all(): Collection;
 
-    public function get(?array $columns = null): Collection;
+    public function get(array $columns = null): Collection;
 
     public function getWith(array $with = []): Collection;
 

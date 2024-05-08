@@ -15,18 +15,22 @@ class MlTabs extends Base
      * @var string
      */
     public const ATTRIBUTE_NAME = 'name';
-
     public const ATTRIBUTE_DATA_NAME = 'data-name';
 
     /**
      * @var string
      */
     public const TAG_INPUT = 'input';
-
     public const TAG_TEXTAREA = 'textarea';
 
+    /**
+     * @var string
+     */
     protected string $lngCode;
 
+    /**
+     * @var mixed
+     */
     protected mixed $mlData;
 
     /**
@@ -50,7 +54,7 @@ class MlTabs extends Base
             }
 
             $multipleName = '';
-            if (($pos = strpos($name, '[')) !== false) {
+            if (($pos = strpos($name, "[")) !== false) {
                 $multipleName = substr($name, $pos);
                 $name = explode('[', $name, 2)[0];
             }
@@ -89,7 +93,7 @@ class MlTabs extends Base
         $this->lngCode = $lngCode;
         $this->mlData = $mlData;
         $dom = new DOMDocument('1.0', 'UTF-8');
-        $dom->loadHTML('<?xml encoding="UTF-8">'.$html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $dom->loadHTML('<?xml encoding="UTF-8">' . $html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 
         $xpath = new DOMXPath($dom);
         $this->find($xpath, '//span[@data-name]', self::ATTRIBUTE_DATA_NAME);

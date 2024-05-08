@@ -20,15 +20,11 @@ class MultipleGroup extends Base
     public $xpath;
 
     public const ATTRIBUTE_NAME = 'name';
-
     public const ATTRIBUTE_DATA_NAME = 'data-name';
 
     public const TAG_INPUT = 'input';
-
     public const TAG_TEXTAREA = 'textarea';
-
     public const TAG_SELECT = 'select';
-
     public const TAG_CHECKBOX = 'checkbox';
 
     public function __construct(
@@ -87,7 +83,7 @@ class MultipleGroup extends Base
             } else {
                 $name = $input->getAttribute($attribute);
 
-                if (! empty($this->multipleData)) {
+                if (!empty($this->multipleData)) {
                     $this->setValue($input, $input->getAttribute('data-name'));
                 }
 
@@ -128,7 +124,7 @@ class MultipleGroup extends Base
                 }
 
                 $inputId = $input->getAttribute('id');
-                $newId = $input->getAttribute('name').'_'.rand();
+                $newId = $input->getAttribute('name') . '_' . rand();
                 $label = $this->xpath->query("//label[@for='$inputId']")->item(0);
 
                 $label->setAttribute('for', $newId);
@@ -137,7 +133,7 @@ class MultipleGroup extends Base
                 break;
 
             case self::TAG_SELECT:
-                $input->setAttribute('id', $input->getAttribute('id').'_'.rand());
+                $input->setAttribute('id', $input->getAttribute('id') . '_' . rand());
                 $optionTags = $input->getElementsByTagName('option');
                 foreach ($optionTags as $tag) {
                     if ($tag->getAttribute('value') == $columnValue) {

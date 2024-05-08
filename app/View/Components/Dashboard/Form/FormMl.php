@@ -7,18 +7,33 @@ use Illuminate\Contracts\View\View;
 
 class FormMl extends Base
 {
+    /**
+     * @var string|null
+     */
     public ?string $showStatus;
 
+    /**
+     * @var string
+     */
     public string $action;
 
+    /**
+     * @var string
+     */
     public string $indexUrl;
 
+    /**
+     * @var string
+     */
     public string $method;
 
+    /**
+     * @var string
+     */
     public string $viewMode;
 
     public function __construct(
-        ?string $showStatus = null,
+        string $showStatus = null,
         string $action = '',
         string $indexUrl = '',
         string $method = '',

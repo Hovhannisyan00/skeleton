@@ -38,7 +38,7 @@ class CreateJs extends CRUDGeneratorAbstract
 
         return [
             'CLASS_NAME' => $className,
-            'ROUTE_NAME' => $routeName,
+            'ROUTE_NAME' => $routeName
         ];
     }
 }

@@ -9,7 +9,7 @@ trait UserAccessors
     public function getNameAttribute(): Attribute
     {
         return new Attribute(
-            get: fn () => $this->first_name.' '.$this->last_name
+            get: fn() => $this->first_name . ' ' . $this->last_name
         );
     }
 }

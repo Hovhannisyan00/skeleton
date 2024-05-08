@@ -47,7 +47,7 @@ class ArticleController extends BaseController
         $this->service->createOrUpdate($request->validated());
 
         return $this->sendOkCreated([
-            'redirectUrl' => route('dashboard.articles.index'),
+            'redirectUrl' => route('dashboard.articles.index')
         ]);
     }
 
@@ -74,7 +74,7 @@ class ArticleController extends BaseController
         $this->service->createOrUpdate($request->validated(), $article->id);
 
         return $this->sendOkUpdated([
-            'redirectUrl' => route('dashboard.articles.index'),
+            'redirectUrl' => route('dashboard.articles.index')
         ]);
     }
 

@@ -21,13 +21,13 @@ class RoleSearch extends Search
             'name',
             'created_at'
         )
-            ->when(! empty($filters['id']), function ($query) use ($filters) {
+            ->when(!empty($filters['id']), function ($query) use ($filters) {
                 $query->where('id', $filters['id']);
             })
-            ->when(! empty($filters['name']), function ($query) use ($filters) {
+            ->when(!empty($filters['name']), function ($query) use ($filters) {
                 $query->like('name', $filters['name']);
             })
-            ->when(! empty($filters['created_at']), function ($query) use ($filters) {
+            ->when(!empty($filters['created_at']), function ($query) use ($filters) {
                 $query->orderBy('created_at', $filters['created_at']);
             });
     }

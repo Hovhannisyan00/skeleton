@@ -21,7 +21,7 @@ trait BaseModelScopes
             $localKey = $params['l_k'] ?? 'id';
             $foreignKey = $params['f_k'] ?? $this->getForeignKey();
 
-            $query->on($joinTable.'.'.$foreignKey, '=', $table.'.'.$localKey);
+            $query->on($joinTable . '.' . $foreignKey, '=', $table . '.' . $localKey);
 
             if (isset($params['where'])) {
                 $query->where($params['where']);
@@ -35,8 +35,7 @@ trait BaseModelScopes
     public function scopeOrdered($query, string $mode = 'ASC'): Builder
     {
         $table = $this->getTable();
-
-        return $query->orderBy($table.'.sort_order', $mode)->orderByDesc($table.'.id');
+        return $query->orderBy($table . '.sort_order', $mode)->orderByDesc($table . '.id');
     }
 
     /**
@@ -55,6 +54,6 @@ trait BaseModelScopes
      */
     public function scopeActive($query): Builder
     {
-        return $query->where($this->getTable().'.show_status', ShowStatus::ACTIVE);
+        return $query->where($this->getTable() . '.show_status', ShowStatus::ACTIVE);
     }
 }

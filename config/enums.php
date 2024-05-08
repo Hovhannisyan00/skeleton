@@ -5,17 +5,17 @@ return [
         'EUR' => [
             'name' => 'Euro',
             'code' => 'EUR',
-            'icon' => '€',
+            'icon' => '€'
         ],
         'USD' => [
             'name' => 'Dollar',
             'code' => 'USD',
-            'icon' => '$',
+            'icon' => '$'
         ],
         'CHF' => [
             'name' => 'Franc',
             'code' => 'CHF',
-            'icon' => '₣',
+            'icon' => '₣'
         ],
     ],
 ];

@@ -10,12 +10,14 @@ use App\Models\Base\Traits\HasMlData;
 
 class Article extends BaseModel
 {
-    use ArticleRelations;
     use HasFileData;
     use HasMlData;
+    use ArticleRelations;
 
     /**
      * in create/update set default values for model
+     *
+     * @var array
      */
     public array $defaultValues = [];
 
@@ -28,11 +30,13 @@ class Article extends BaseModel
         'release_date_time',
         'multiple_group_data',
         'multiple_author',
-        'show_status',
+        'show_status'
     ];
 
     /**
      * The attributes that should be cast.
+     *
+     * @return array
      */
     protected function casts(): array
     {
@@ -43,28 +47,28 @@ class Article extends BaseModel
             'multiple_author' => 'array',
 
             // Will be changed price field
-            //        'price' => CurrencyCast::class,
+//        'price' => CurrencyCast::class,
 
             // Will be added new attribute, get data with icon and formatted
-            //        'price_formatted' => CurrencyCast::class . ':1,1',
+//        'price_formatted' => CurrencyCast::class . ':1,1',
 
             // Will be added new attribute, get data with formatted
-            //        'price_formatted' => CurrencyCast::class . ':0,1',
+//        'price_formatted' => CurrencyCast::class . ':0,1',
 
             'publish_date' => DateCast::class,
-            'release_date_time' => DateCast::class.':0,1',
-            //        'publish_date_formatted' => DateCast::class.':1'
+            'release_date_time' => DateCast::class . ':0,1',
+//        'publish_date_formatted' => DateCast::class.':1'
         ];
     }
 
-    //    /**
-    //     * If custom Ml model open comment and set your model ml
-    //     * Function to set ml class
-    //     *
-    //     * @return BaseMlModel
-    //     */
-    //    protected function setMlClass(): BaseMlModel
-    //    {
-    //        return new ArticleMls();
-    //    }
+//    /**
+//     * If custom Ml model open comment and set your model ml
+//     * Function to set ml class
+//     *
+//     * @return BaseMlModel
+//     */
+//    protected function setMlClass(): BaseMlModel
+//    {
+//        return new ArticleMls();
+//    }
 }

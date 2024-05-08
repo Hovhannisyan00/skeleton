@@ -9,10 +9,19 @@ abstract class CRUDGeneratorAbstract
 {
     use CRUDHelper;
 
+    /**
+     * @var array
+     */
     protected array $arguments;
 
+    /**
+     * @var string
+     */
     protected string $className;
 
+    /**
+     * @var array
+     */
     protected array $config;
 
     public function __construct($arguments)
@@ -53,7 +62,7 @@ abstract class CRUDGeneratorAbstract
      */
     protected function getStubDirectoryPath($fileInfo): string
     {
-        return isset($fileInfo['stub_directory_path']) ? $fileInfo['stub_directory_path'].'/' : '';
+        return isset($fileInfo['stub_directory_path']) ? $fileInfo['stub_directory_path'] . '/' : '';
     }
 
     /**
@@ -68,7 +77,7 @@ abstract class CRUDGeneratorAbstract
             $stub_file_name = $fileInfo['stub_file_name_ml'];
         }
 
-        return __DIR__."/Stubs/$path$stub_file_name.stub";
+        return __DIR__ . "/Stubs/$path$stub_file_name.stub";
     }
 
     /**
@@ -89,12 +98,12 @@ abstract class CRUDGeneratorAbstract
     /**
      * Get the stub path and the stub variables
      */
-    protected function getSourceFile(?array $fileInfo = null): array
+    protected function getSourceFile(array $fileInfo = null): array
     {
         return [
             'content' => $this->getStubContents($this->getStubFilePath($fileInfo), $this->stubVariables()),
             'variables' => $this->stubVariables(),
-            'fileInfo' => $fileInfo,
+            'fileInfo' => $fileInfo
         ];
     }
 

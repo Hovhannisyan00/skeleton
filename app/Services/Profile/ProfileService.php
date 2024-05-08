@@ -19,7 +19,7 @@ class ProfileService extends BaseService
         $this->fileService = $fileService;
     }
 
-    public function update($data, ?int $id = null): Model
+    public function update($data, int $id = null): Model
     {
         return DB::transaction(function () use ($id, $data) {
             $user = $this->repository->update($id, $data);
@@ -27,7 +27,7 @@ class ProfileService extends BaseService
 
             if (isset($data['new_password'])) {
                 $user->fill([
-                    'password' => Hash::make($data['new_password']),
+                    'password' => Hash::make($data['new_password'])
                 ])->save();
             }
 

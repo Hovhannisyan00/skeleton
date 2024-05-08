@@ -9,6 +9,7 @@ use Illuminate\Database\Seeder;
 
 /**
  * Class AdminUserSeeder
+ * @package Database\Seeders
  */
 class AdminUserSeeder extends Seeder
 {

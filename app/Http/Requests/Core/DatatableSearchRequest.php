@@ -11,7 +11,7 @@ class DatatableSearchRequest extends FormRequest
         return true;
     }
 
-    public function rules(): array
+    public function rules() :array
     {
         return [
             'start' => 'required|integer_with_max',

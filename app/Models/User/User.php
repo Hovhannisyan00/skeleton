@@ -24,9 +24,9 @@ class User extends Authenticatable
     use HasRoles;
     use ModelHelperFunctions;
     use Notifiable;
+    use UserRelations;
     use UserAccessors;
     use UserHelperMethods;
-    use UserRelations;
 
     /**
      * The attributes that are mass assignable.
@@ -55,6 +55,8 @@ class User extends Authenticatable
 
     /**
      * The attributes that should be cast.
+     *
+     * @return array
      */
     protected function casts(): array
     {
@@ -71,7 +73,7 @@ class User extends Authenticatable
         return self::getClassName();
     }
 
-    public function files(?string $fieldName = null, ?string $fileType = null): MorphMany
+    public function files(string $fieldName = null, string $fileType = null): MorphMany
     {
         return $this->morphMany(File::class, 'fileable')
             ->when($fieldName, function ($query) use ($fieldName) {

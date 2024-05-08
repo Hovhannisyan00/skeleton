@@ -21,7 +21,7 @@ class UserService extends BaseService
         $this->fileService = $fileService;
     }
 
-    public function getViewData(?int $id = null): array
+    public function getViewData(int $id = null): array
     {
         if ($id) {
             $user = $this->repository->find($id);
@@ -35,10 +35,10 @@ class UserService extends BaseService
         ];
     }
 
-    public function createOrUpdate($data, ?int $id = null): Model
+    public function createOrUpdate($data, int $id = null): Model
     {
         $data = array_filter($data);
-        if (! empty($data['password'])) {
+        if (!empty($data['password'])) {
             $data['password'] = Hash::make($data['password']);
         }
 

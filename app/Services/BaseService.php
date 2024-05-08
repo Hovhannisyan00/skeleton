@@ -10,14 +10,20 @@ use Illuminate\Support\Facades\DB;
 
 abstract class BaseService
 {
+    /**
+     * @var IBaseRepository
+     */
     protected IBaseRepository $repository;
 
+    /**
+     * @var FileService
+     */
     protected FileService $fileService;
 
     /**
      * Function to create or update model
      */
-    public function createOrUpdate(array $data, ?int $id = null): Model
+    public function createOrUpdate(array $data, int $id = null): Model
     {
         return DB::transaction(function () use ($data, $id) {
             return $this->createOrUpdateWithoutTransaction($data, $id);
@@ -27,7 +33,7 @@ abstract class BaseService
     /**
      * Function to create or update model without transaction
      */
-    public function createOrUpdateWithoutTransaction(array $data, ?int $id = null): Model
+    public function createOrUpdateWithoutTransaction(array $data, int $id = null): Model
     {
         $model = $id
             ? $this->repository->update($id, $data)
@@ -49,14 +55,13 @@ abstract class BaseService
     /**
      * Function to return view data
      */
-    public function getViewData(?int $id = null): array
+    public function getViewData(int $id = null): array
     {
         // Add Mode
         if ($id === null) {
             $model = $this->repository->getInstance();
-
             return [
-                $model::getClassNameCamelCase() => $this->repository->getInstance(),
+                $model::getClassNameCamelCase() => $this->repository->getInstance()
             ];
         }
 
@@ -65,7 +70,7 @@ abstract class BaseService
         $variableKey = $model::getClassNameCamelCase();
 
         $data = [
-            $variableKey => $model,
+            $variableKey => $model
         ];
 
         if ($model->mls) {

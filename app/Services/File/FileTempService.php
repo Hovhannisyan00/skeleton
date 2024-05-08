@@ -29,12 +29,12 @@ class FileTempService extends FileService
         $fileType = $config['file_type'];
 
         $dirPrefix = $model::getClassName();
-        $path = $dirPrefix.'/'.$fieldName;
+        $path = $dirPrefix . '/' . $fieldName;
         $fileBaseName = explode('/', $fileName)[1] ?? null;
 
         // temp file move upload
         if ($fileBaseName) {
-            if (! isset($config['multiple'])) {
+            if (!isset($config['multiple'])) {
                 $this->deleteModelFile($model, $config['field_name']);
             }
 
@@ -49,7 +49,7 @@ class FileTempService extends FileService
                     'field_name' => $fieldName,
                     'file_name' => $fileBaseName,
                     'file_type' => $fileType,
-                    'dir_prefix' => $dirPrefix,
+                    'dir_prefix' => $dirPrefix
                 ]);
             }
         }
@@ -71,8 +71,8 @@ class FileTempService extends FileService
 
         return [
             'status' => 'OK',
-            'file_url' => $this->pendingDisk->url($path.'/'.$filename),
-            'name' => $path.'/'.$filename,
+            'file_url' => $this->pendingDisk->url($path . '/' . $filename),
+            'name' => $path . '/' . $filename,
             'original_name' => $file->getClientOriginalName(),
             'file_type' => $config['file_type'],
         ];
@@ -86,11 +86,11 @@ class FileTempService extends FileService
         $file = $data['file'];
         $fileName = $data['name'];
 
-        $file = str_replace('data:image/png;base64,', '', $file);
+        $file = str_replace("data:image/png;base64,", "", $file);
 
-        //        $extension = explode('/', mime_content_type($file))[1];
+//        $extension = explode('/', mime_content_type($file))[1];
 
-        $croppedImageFileName = now()->format('d-m-Y').'/'.$fileName;
+        $croppedImageFileName = now()->format('d-m-Y') . '/' . $fileName;
 
         $tmpFilePath = $this->pendingDisk->path($croppedImageFileName);
         $this->makeDirectory($tmpFilePath);
@@ -119,7 +119,7 @@ class FileTempService extends FileService
 
         foreach ($directories as $directory) {
             $directoryDate = Carbon::parse($directory);
-            if (! $pastDay->lt($directoryDate)) {
+            if (!$pastDay->lt($directoryDate)) {
                 $disk->deleteDirectory($directory);
             }
         }
@@ -134,7 +134,7 @@ class FileTempService extends FileService
 
         $this->movePendingFileToUploadsFolder(fileName: $fileBaseName, config: $config, directoryData: [
             'pending' => $fileName,
-            'uploads' => $customDirectory,
+            'uploads' => $customDirectory
         ]);
 
         return $fileBaseName;

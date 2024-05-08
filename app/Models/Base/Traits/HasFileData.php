@@ -16,7 +16,7 @@ trait HasFileData
     public function getFileConfigName(): string
     {
         $configKey = "files.{$this->setFileConfigName()}";
-        if (! config()->has($configKey)) {
+        if (!config()->has($configKey)) {
             throw new Exception("Config: $configKey Not found");
         }
 
@@ -26,7 +26,7 @@ trait HasFileData
     /**
      * Function to get model files (morph table)
      */
-    public function files(?string $fieldName = null, ?string $fileType = null): MorphMany
+    public function files(string $fieldName = null, string $fileType = null): MorphMany
     {
         return $this->morphMany(File::class, 'fileable')
             ->when($fieldName, function ($query) use ($fieldName) {

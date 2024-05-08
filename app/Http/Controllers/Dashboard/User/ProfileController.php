@@ -29,7 +29,7 @@ class ProfileController extends BaseController
         $this->service->update($profileRequest->validated(), $id);
 
         return $this->sendOkUpdated([
-            'redirectUrl' => route('dashboard.profile.index'),
+            'redirectUrl' => route('dashboard.profile.index')
         ]);
     }
 }

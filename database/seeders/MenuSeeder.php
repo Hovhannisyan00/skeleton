@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Menu\Menu;
-use App\Models\RoleAndPermission\Enums\RoleType;
 use Illuminate\Database\Seeder;
+use App\Models\RoleAndPermission\Enums\RoleType;
 
 class MenuSeeder extends Seeder
 {
@@ -63,7 +63,7 @@ class MenuSeeder extends Seeder
         ];
 
         foreach ($menus as $key => $menu) {
-            if (! isset($menu['sort_order'])) {
+            if (!isset($menu['sort_order'])) {
                 $menu['sort_order'] = $key + 1;
             }
 

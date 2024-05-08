@@ -13,5 +13,5 @@ return [
         'date_time_format_front' => env('JS_DATE_TIME_FORMAT_FRONT', 'DD.MM.YYYY HH:mm'),
     ],
 
-    'show_notification' => env('SHOW_NOTIFICATION', true),
+    'show_notification' => env('SHOW_NOTIFICATION', true)
 ];

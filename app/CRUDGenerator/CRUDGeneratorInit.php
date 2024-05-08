@@ -9,8 +9,14 @@ use Symfony\Component\Console\Output\ConsoleOutput;
 
 class CRUDGeneratorInit
 {
+    /**
+     * @var array
+     */
     protected array $arguments;
 
+    /**
+     * @var ConsoleOutput
+     */
     protected ConsoleOutput $consoleOutput;
 
     public function __construct($arguments)
@@ -26,8 +32,8 @@ class CRUDGeneratorInit
      */
     public function init(): void
     {
-        foreach (glob('app/CRUDGenerator/CRUDClasses/*.php') as $filename) {
-            $class = str_replace('/', '\\', ucfirst(explode('.', $filename)[0]));
+        foreach (glob("app/CRUDGenerator/CRUDClasses/*.php") as $filename) {
+            $class = str_replace('/', '\\', ucfirst(explode(".", $filename)[0]));
             $classInstance = app()->makeWith($class, ['arguments' => $this->arguments]);
             $classInstance->make();
             $classInstance->showMessage();
@@ -46,7 +52,7 @@ class CRUDGeneratorInit
     {
         $tableName = Str::plural(Str::snake($this->arguments['className']));
         Artisan::call("make:migration create_{$tableName}_table");
-        $this->consoleOutput->writeln('<fg=green>Migration created successfully</>');
+        $this->consoleOutput->writeln("<fg=green>Migration created successfully</>");
     }
 
     /**
@@ -57,7 +63,7 @@ class CRUDGeneratorInit
         if ($this->arguments['migrationMl']) {
             $tableName = Str::snake($this->arguments['className']);
             Artisan::call("make:migration create_{$tableName}_mls_table");
-            $this->consoleOutput->writeln('<fg=green>Migration ml created successfully</>');
+            $this->consoleOutput->writeln("<fg=green>Migration ml created successfully</>");
         }
     }
 
@@ -67,7 +73,7 @@ class CRUDGeneratorInit
     private function successMessage(): void
     {
         $routeName = Str::snake(Str::plural($this->arguments['className']), '-');
-        //        $name = Str::snake(Str::plural($this->arguments['className']), '.');
+//        $name = Str::snake(Str::plural($this->arguments['className']), '.');
         $plural = Str::plural($this->arguments['className']);
 
         $textMessage = "
