@@ -10,14 +10,8 @@ use Illuminate\Support\Str;
 
 trait HasMlData
 {
-    /**
-     * @var string
-     */
     private string $mlClassPrefix = 'Mls';
 
-    /**
-     * @var BaseMlModel|null
-     */
     protected static ?BaseMlModel $mlClass = null;
 
     /**
@@ -35,13 +29,13 @@ trait HasMlData
     {
         $params = func_get_args();
         $table = $this->getTable();
-        $tableMl = $params[1]['t_ml'] ?? Str::singular($table) . '_mls';
+        $tableMl = $params[1]['t_ml'] ?? Str::singular($table).'_mls';
         $locale = $params[1]['locale'] ?? currentLanguageCode();
 
         return $query->join($tableMl, function ($query) use ($table, $params, $tableMl, $locale) {
             $foreignKey = $params[1]['f_k'] ?? $this->getForeignKey();
 
-            $query->on($tableMl . '.' . $foreignKey, '=', $table . '.id')->where($tableMl . '.lng_code', '=', $locale);
+            $query->on($tableMl.'.'.$foreignKey, '=', $table.'.id')->where($tableMl.'.lng_code', '=', $locale);
         });
     }
 
@@ -78,6 +72,6 @@ trait HasMlData
      */
     protected function setMlClass(): BaseMlModel
     {
-        return app()->make($this->getClassNamespace() . '\\' . class_basename($this) . $this->mlClassPrefix);
+        return app()->make($this->getClassNamespace().'\\'.class_basename($this).$this->mlClassPrefix);
     }
 }

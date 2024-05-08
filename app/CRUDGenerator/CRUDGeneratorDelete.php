@@ -11,9 +11,6 @@ class CRUDGeneratorDelete
 {
     use CRUDHelper;
 
-    /**
-     * @var string
-     */
     protected string $className;
 
     public function __construct($arguments)
@@ -27,7 +24,8 @@ class CRUDGeneratorDelete
     public function deleteCrudData(): void
     {
         if (empty($this->className)) {
-            (new ConsoleOutput())->writeln("<fg=red>ClassName is empty!!</>");
+            (new ConsoleOutput())->writeln('<fg=red>ClassName is empty!!</>');
+
             return;
         }
 
@@ -54,7 +52,7 @@ class CRUDGeneratorDelete
                     (new ConsoleOutput())->writeln("<fg=red>$absolutePath :Not Found!!</>");
                 }
             } else {
-                $absolutePath = $module['path'] . '\\' . $this->replaceAttributeByClassName($module['file_name']);
+                $absolutePath = $module['path'].'\\'.$this->replaceAttributeByClassName($module['file_name']);
 
                 if ($disk->exists($absolutePath)) {
                     $disk->delete($absolutePath);
@@ -64,9 +62,9 @@ class CRUDGeneratorDelete
             }
         }
 
-        (new ConsoleOutput())->writeln("<fg=red>Migration Please remove Manually!!</>");
-        (new ConsoleOutput())->writeln("<fg=red>From RepositoryServiceProvider Please remove Manually!!</>");
-        (new ConsoleOutput())->writeln("<fg=red>From Routes Please remove Manually!!</>");
-        (new ConsoleOutput())->writeln("<fg=green>SuccessFully Deleted!!</>");
+        (new ConsoleOutput())->writeln('<fg=red>Migration Please remove Manually!!</>');
+        (new ConsoleOutput())->writeln('<fg=red>From RepositoryServiceProvider Please remove Manually!!</>');
+        (new ConsoleOutput())->writeln('<fg=red>From Routes Please remove Manually!!</>');
+        (new ConsoleOutput())->writeln('<fg=green>SuccessFully Deleted!!</>');
     }
 }

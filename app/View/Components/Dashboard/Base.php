@@ -17,10 +17,10 @@ class Base extends Component
     /**
      * Function to show dashboard component
      */
-    public function dashboardComponent(string $componentName = null, ?array $vars = []): View
+    public function dashboardComponent(?string $componentName = null, ?array $vars = []): View
     {
         return view(
-            view: self::DASHBOARD_COMPONENTS_PREFIX . ($componentName ? '.' . $componentName : $componentName),
+            view: self::DASHBOARD_COMPONENTS_PREFIX.($componentName ? '.'.$componentName : $componentName),
             data: $vars
         );
     }

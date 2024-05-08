@@ -1,21 +1,21 @@
 <?php
 
-if (!function_exists('isProduction')) {
+if (! function_exists('isProduction')) {
     function isProduction(): bool
     {
         return config('app.env') === 'production';
     }
 }
 
-if (!function_exists('isAwsFilesystem')) {
+if (! function_exists('isAwsFilesystem')) {
     function isAwsFilesystem(): bool
     {
         return config('filesystems.default') === 's3';
     }
 }
 
-if (!function_exists('formattedPrice')) {
-    function formattedPrice(string|null $price = '', bool $addIcon = false): string
+if (! function_exists('formattedPrice')) {
+    function formattedPrice(?string $price = '', bool $addIcon = false): string
     {
         $result = 0;
         if ($price) {
@@ -33,7 +33,7 @@ if (!function_exists('formattedPrice')) {
             $result = number_format($price, 2, $decimalOperator, $thousandOperator);
 
             if ($addIcon) {
-                $result = $result . ' ' . getCurrencyIcon();
+                $result = $result.' '.getCurrencyIcon();
             }
         }
 
@@ -41,7 +41,7 @@ if (!function_exists('formattedPrice')) {
     }
 }
 
-if (!function_exists('getCurrencyIcon')) {
+if (! function_exists('getCurrencyIcon')) {
     function getCurrencyIcon(): string
     {
         return match (currentLanguageCode()) {

@@ -28,7 +28,7 @@ final class CurrencyCast implements CastsAttributes
     private function getFormatted(Model $model, string $key): string
     {
         $result = 0;
-        if (!str_contains($key, '_formatted')) {
+        if (! str_contains($key, '_formatted')) {
             return $result;
         }
 

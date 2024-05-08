@@ -51,7 +51,7 @@ class UserController extends BaseController
         $this->service->createOrUpdate($request->validated());
 
         return $this->sendOkCreated([
-            'redirectUrl' => route('dashboard.users.index')
+            'redirectUrl' => route('dashboard.users.index'),
         ]);
     }
 
@@ -78,7 +78,7 @@ class UserController extends BaseController
         $this->service->createOrUpdate($request->validated(), $user->id);
 
         return $this->sendOkUpdated([
-            'redirectUrl' => route('dashboard.users.index')
+            'redirectUrl' => route('dashboard.users.index'),
         ]);
     }
 

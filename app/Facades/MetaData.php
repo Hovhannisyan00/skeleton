@@ -8,8 +8,6 @@ use Illuminate\Support\Facades\Facade;
  * Class MetaData
  *
  * @mixin \App\MetaData\MetaData
- *
- * @package App\Facades
  */
 class MetaData extends Facade
 {

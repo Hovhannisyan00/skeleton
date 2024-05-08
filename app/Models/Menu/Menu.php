@@ -15,9 +15,6 @@ class Menu extends BaseModel
     use HasFactory;
     use HasRoles;
 
-    /**
-     * @var string
-     */
     protected string $guard_name = 'web';
 
     /**
@@ -32,7 +29,7 @@ class Menu extends BaseModel
         'icon',
         'type',
         'sort_order',
-        'show_status'
+        'show_status',
     ];
 
     protected static function booted(): void

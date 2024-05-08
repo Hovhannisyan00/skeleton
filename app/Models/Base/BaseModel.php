@@ -11,30 +11,28 @@ use Illuminate\Support\Facades\Auth;
 
 class BaseModel extends Model
 {
-    use ModelHelperFunctions;
     use BaseModelScopes;
+    use ModelHelperFunctions;
 
     /**
      * @var string
      */
     final public const TRUE = 1;
+
     final public const FALSE = 0;
 
     /**
      * In Create/Update or Delete functions save user_id and user_ip values
-     * @var bool
      */
     public bool $hasUserInfo = false;
 
     /**
      * Create function set default values for create data
-     * @var array
      */
     public array $defaultValues = [];
 
     /**
      * Default get all rows (show_status != 0)
-     * @var bool
      */
     protected static bool $getNotDeletedRows = true;
 

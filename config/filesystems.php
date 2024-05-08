@@ -60,7 +60,7 @@ return [
         ],
 
         // Amazon -> FILESYSTEM_DRIVER set to s3!
-       /* 'uploads' => [
+        /* 'uploads' => [
             'driver' => env('FILESYSTEM_DRIVER', 's3'),
             'root' => 'uploads',
             'url' => env('AWS_CDN_URL') ?? env('AWS_URL'),

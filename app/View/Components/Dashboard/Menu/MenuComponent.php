@@ -26,7 +26,7 @@ class MenuComponent extends Base
             ->groupBy('group_name');
 
         return $this->dashboardComponent('menu.menu-component', [
-            'groupName' => $groupName
+            'groupName' => $groupName,
         ]);
     }
 }

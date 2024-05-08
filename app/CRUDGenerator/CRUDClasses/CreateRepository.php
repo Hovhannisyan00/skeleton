@@ -28,7 +28,7 @@ class CreateRepository extends CRUDGeneratorAbstract
     protected function stubVariables(): array
     {
         return [
-            'CLASS_NAME' => $this->className
+            'CLASS_NAME' => $this->className,
         ];
     }
 }

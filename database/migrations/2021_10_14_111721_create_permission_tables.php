@@ -11,6 +11,7 @@ class CreatePermissionTables extends Migration
      * Run the migrations.
      *
      * @return void
+     *
      * @throws Exception
      */
     public function up()
@@ -78,7 +79,7 @@ class CreatePermissionTables extends Migration
                             $columnNames['team_foreign_key'],
                             PermissionRegistrar::$pivotPermission,
                             $columnNames['model_morph_key'],
-                            'model_type'
+                            'model_type',
                         ],
                         'model_has_permissions_permission_model_type_primary'
                     );
@@ -114,7 +115,7 @@ class CreatePermissionTables extends Migration
                             $columnNames['team_foreign_key'],
                             PermissionRegistrar::$pivotRole,
                             $columnNames['model_morph_key'],
-                            'model_type'
+                            'model_type',
                         ],
                         'model_has_roles_role_model_type_primary'
                     );

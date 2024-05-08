@@ -15,13 +15,13 @@ class ArticleService extends BaseService
         $this->repository = $repository;
     }
 
-    public function getViewData(int $id = null): array
+    public function getViewData(?int $id = null): array
     {
         $viewData = parent::getViewData($id);
 
         return $viewData + [
-                'users' => $this->userRepository->getForSelect()
-            ];
+            'users' => $this->userRepository->getForSelect(),
+        ];
     }
 
     /* public function createOrUpdate(array $data, int $id = null): Model

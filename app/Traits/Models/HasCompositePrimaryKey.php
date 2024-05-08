@@ -9,7 +9,7 @@ trait HasCompositePrimaryKey
     protected function setKeysForSaveQuery($query): Builder
     {
         $keys = $this->getKeyName();
-        if (!is_array($keys)) {
+        if (! is_array($keys)) {
             return parent::setKeysForSaveQuery($query);
         }
 

@@ -24,9 +24,9 @@ class ProfileRequest extends FormRequest
                 Password::min(6)
 //                    ->mixedCase()
                     ->letters()
-                    ->numbers()
-//                    ->symbols()
-//                    ->uncompromised()
+                    ->numbers(),
+                //                    ->symbols()
+                //                    ->uncompromised()
             ],
         ];
     }

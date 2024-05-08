@@ -2,36 +2,36 @@
 
 use Carbon\Carbon;
 
-if (!function_exists('getDateFormat')) {
+if (! function_exists('getDateFormat')) {
     function getDateFormat()
     {
         return config('dashboard.date_format');
     }
 }
 
-if (!function_exists('getDateFormatFront')) {
+if (! function_exists('getDateFormatFront')) {
     function getDateFormatFront()
     {
         return config('dashboard.date_format_front');
     }
 }
 
-if (!function_exists('getDateTimeFormat')) {
+if (! function_exists('getDateTimeFormat')) {
     function getDateTimeFormat()
     {
         return config('dashboard.date_time_format');
     }
 }
 
-if (!function_exists('getDateTimeFormatFront')) {
+if (! function_exists('getDateTimeFormatFront')) {
     function getDateTimeFormatFront()
     {
         return config('dashboard.date_time_format_front');
     }
 }
 
-if (!function_exists('getStartOfDay')) {
-    function getStartOfDay(string|null $date): string|Carbon
+if (! function_exists('getStartOfDay')) {
+    function getStartOfDay(?string $date): string|Carbon
     {
         if (is_null($date)) {
             return '';
@@ -41,8 +41,8 @@ if (!function_exists('getStartOfDay')) {
     }
 }
 
-if (!function_exists('getEndOfDay')) {
-    function getEndOfDay(string|null $date): string|Carbon
+if (! function_exists('getEndOfDay')) {
+    function getEndOfDay(?string $date): string|Carbon
     {
         if (is_null($date)) {
             return '';
@@ -52,14 +52,14 @@ if (!function_exists('getEndOfDay')) {
     }
 }
 
-if (!function_exists('formattedDate')) {
+if (! function_exists('formattedDate')) {
     function formattedDate($date): string
     {
         return Carbon::parse($date)->format(getDateFormatFront());
     }
 }
 
-if (!function_exists('formatDateForBackend')) {
+if (! function_exists('formatDateForBackend')) {
     function formatDateForBackend($date): string
     {
         $dateObject = DateTime::createFromFormat(getDateFormat(), $date);
@@ -71,7 +71,7 @@ if (!function_exists('formatDateForBackend')) {
     }
 }
 
-if (!function_exists('formatDateTimeForBackend')) {
+if (! function_exists('formatDateTimeForBackend')) {
     function formatDateTimeForBackend($dateTime): string
     {
         $dateObject = DateTime::createFromFormat(getDateTimeFormat(), $dateTime);
@@ -84,7 +84,7 @@ if (!function_exists('formatDateTimeForBackend')) {
     }
 }
 
-if (!function_exists('getDashboardDates')) {
+if (! function_exists('getDashboardDates')) {
     function getDashboardDates(): array
     {
         return [
@@ -97,7 +97,7 @@ if (!function_exists('getDashboardDates')) {
                 'date_time_format' => config('dashboard.js.date_time_format'),
                 'date_format_front' => config('dashboard.js.date_format_front'),
                 'date_time_format_front' => config('dashboard.js.date_time_format_front'),
-            ]
+            ],
         ];
     }
 }

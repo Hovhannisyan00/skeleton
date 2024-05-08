@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Storage;
 abstract class FileService
 {
     protected Filesystem $uploadsDisk;
+
     protected Filesystem $pendingDisk;
+
     protected Filesystem $awsDisk;
 
     public function __construct(
@@ -34,14 +36,14 @@ abstract class FileService
             // convert to full paths
             $fullPathPending = $this->getFilePathPendingDisk($directoryData['pending']);
             $filePath = isset($directoryData['uploads'])
-                ? '/' . $directoryData['uploads'] . '/' . $fileName
+                ? '/'.$directoryData['uploads'].'/'.$fileName
                 : $fileName;
             $fullPathUploads = $this->getFilePathUploadsDisk($filePath);
 
             // make destination folder
             $this->makeDirectory($fullPathUploads);
 
-            if (isAwsFilesystem() && !isset($config['disk'])) {
+            if (isAwsFilesystem() && ! isset($config['disk'])) {
                 return $this->awsDisk->move($fullPathPending, $fullPathUploads);
             }
 
@@ -74,8 +76,8 @@ abstract class FileService
             $thumbResizePath = $this->getThumbResizePath($thumbWidth, $thumbHeight);
 
             $fileThumbPath = isset($directoryData['uploads'])
-                ? '/' . $directoryData['uploads'] . '/thumbs/' . "$thumbResizePath/" . $fileName
-                : '/thumbs/' . $fileName;
+                ? '/'.$directoryData['uploads'].'/thumbs/'."$thumbResizePath/".$fileName
+                : '/thumbs/'.$fileName;
 
             $fullThumbPathUploads = $this->getFilePathUploadsDisk($fileThumbPath);
 
@@ -109,16 +111,16 @@ abstract class FileService
 
     private function deleteFilePhysically($file): void
     {
-        $this->uploadsDisk->delete($file->dir_prefix . '/' . $file->field_name . '/' . $file->file_name);
+        $this->uploadsDisk->delete($file->dir_prefix.'/'.$file->field_name.'/'.$file->file_name);
 
-        if ($this->uploadsDisk->exists($file->dir_prefix . '/' . $file->field_name . '/thumbs/')) {
+        if ($this->uploadsDisk->exists($file->dir_prefix.'/'.$file->field_name.'/thumbs/')) {
             $config = config("files.$file->dir_prefix.$file->field_name");
 
             if (isset($config['thumb'])) {
                 foreach ($config['thumb'] as $thumb) {
                     $thumbResizePath = $this->getThumbResizePath($thumb['width'], $thumb['height'] ?? null);
-                    $thumbFilePath = $file->dir_prefix . '/' . $file->field_name . '/thumbs/' . $thumbResizePath;
-                    $thumbFilePath .= '/' . $file->file_name;
+                    $thumbFilePath = $file->dir_prefix.'/'.$file->field_name.'/thumbs/'.$thumbResizePath;
+                    $thumbFilePath .= '/'.$file->file_name;
 
                     if ($this->uploadsDisk->exists($thumbFilePath)) {
                         $this->uploadsDisk->delete($thumbFilePath);
@@ -132,7 +134,7 @@ abstract class FileService
     {
         $thumbResizePath = $thumbWidth;
         if ($thumbHeight) {
-            $thumbResizePath .= '_' . $thumbHeight;
+            $thumbResizePath .= '_'.$thumbHeight;
         }
 
         return $thumbResizePath;
@@ -141,15 +143,15 @@ abstract class FileService
     protected function getFileName(UploadedFile $file): string
     {
         $originalName = $file->getClientOriginalName();
-        $filename = basename($originalName, '.' . pathinfo($originalName, PATHINFO_EXTENSION));
-        $uniqueID = uniqid() . '_' . mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $filename);
+        $filename = basename($originalName, '.'.pathinfo($originalName, PATHINFO_EXTENSION));
+        $uniqueID = uniqid().'_'.mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $filename);
 
-        return $uniqueID . '.' . $file->getClientOriginalExtension();
+        return $uniqueID.'.'.$file->getClientOriginalExtension();
     }
 
     protected function makeDirectory(string $path): void
     {
-        if (!File::exists(dirname($path))) {
+        if (! File::exists(dirname($path))) {
             File::makeDirectory(dirname($path), 0755, true);
         }
     }

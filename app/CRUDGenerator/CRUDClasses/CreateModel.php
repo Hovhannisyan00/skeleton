@@ -7,6 +7,7 @@ use App\CRUDGenerator\CRUDGeneratorAbstract;
 class CreateModel extends CRUDGeneratorAbstract
 {
     public const MODEL = 'model';
+
     public const MODEL_WITH_ML = 'model_with_ml';
 
     public function __construct($arguments)
@@ -23,13 +24,13 @@ class CreateModel extends CRUDGeneratorAbstract
 
     public function getMessageText(): string
     {
-        return $this->className . ' model';
+        return $this->className.' model';
     }
 
     protected function stubVariables(): array
     {
         return [
-            'CLASS_NAME' => $this->className
+            'CLASS_NAME' => $this->className,
         ];
     }
 }

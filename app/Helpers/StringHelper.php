@@ -1,6 +1,6 @@
 <?php
 
-if (!function_exists('replaceNameWithDots')) {
+if (! function_exists('replaceNameWithDots')) {
     function replaceNameWithDots($name): string
     {
         if (str_contains($name, '[')) {

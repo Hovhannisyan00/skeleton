@@ -8,11 +8,13 @@ use Illuminate\Support\Collection;
 abstract class Search
 {
     protected int $perPage = 25;
+
     protected int $start = 0;
+
     protected array $filters = [];
 
     protected array $order = [
-        ['sort_by' => 'id', 'dir' => 'desc']
+        ['sort_by' => 'id', 'dir' => 'desc'],
     ];
 
     /**
@@ -24,11 +26,11 @@ abstract class Search
 
     public function __construct($data)
     {
-        if (!empty($data['f'])) {
+        if (! empty($data['f'])) {
             $this->filters = $data['f'];
         }
 
-        if (!empty($data['order'])) {
+        if (! empty($data['order'])) {
             $this->order = $data['order'];
         }
 
@@ -62,6 +64,7 @@ abstract class Search
         $query = $this->query();
         $this->setOrdering($query);
         $this->setLimits($query);
+
         return $this->setReturnData($query);
     }
 

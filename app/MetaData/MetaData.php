@@ -5,10 +5,15 @@ namespace App\MetaData;
 class MetaData
 {
     private string $title = '';
+
     private string $description = '';
+
     private string $og_image = 'img/logo.jpg';
+
     private string $og_url = '/';
+
     private string $og_type = 'website';
+
     private string $keywords = '';
 
     public function getDefaultData(): static

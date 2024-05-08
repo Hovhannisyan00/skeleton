@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class File extends BaseModel
 {
-    use HasFactory;
     use FileAccessors;
+    use HasFactory;
 
     /**
      * @var bool

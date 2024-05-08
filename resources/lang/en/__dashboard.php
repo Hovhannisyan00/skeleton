@@ -1,36 +1,33 @@
 <?php
 
-return array(
-    'title' => "Dashboard",
+return [
+    'title' => 'Dashboard',
 
     'global' => [
-        'log_out' => "logout",
+        'log_out' => 'logout',
     ],
-    'menu' =>
-        array(
-            'translation-manager' => 'Translation Manager',
-            'articles' => 'Articles',
-            'users' => 'Users',
-            'research-areas' => 'Research Areas',
-        ),
-    'user' =>
-        array(
-            'index' =>
-                array(
-                    'title' => 'Users',
-                    'create' => 'Create User'
-                ),
+    'menu' => [
+        'translation-manager' => 'Translation Manager',
+        'articles' => 'Articles',
+        'users' => 'Users',
+        'research-areas' => 'Research Areas',
+    ],
+    'user' => [
+        'index' => [
+            'title' => 'Users',
+            'create' => 'Create User',
+        ],
 
-            'form' => [
-                'add' => [
-                    'title' => 'Create User',
-                ],
-                'edit' => [
-                    'title' => 'Edit User',
-                    'description' => '',
-                ],
-            ]
-        ),
+        'form' => [
+            'add' => [
+                'title' => 'Create User',
+            ],
+            'edit' => [
+                'title' => 'Edit User',
+                'description' => '',
+            ],
+        ],
+    ],
 
     'article' => [
         'form' => [
@@ -42,7 +39,7 @@ return array(
             'add' => [
                 'title' => 'Create Article',
                 'description' => '',
-            ]
+            ],
         ],
 
         'index' => [
@@ -59,7 +56,7 @@ return array(
             'description' => '',
         ],
 
-        'dropdown' => 'My Profile'
+        'dropdown' => 'My Profile',
     ],
 
     'button' => [
@@ -125,12 +122,12 @@ return array(
         'are_you_sure' => 'Are you sure?',
         'confirm_action' => 'Confirm action',
         'title' => [
-            'info' => "Modal info title"
-        ]
+            'info' => 'Modal info title',
+        ],
     ],
 
     'translations' => [
-        'title' => 'Translations Manager'
+        'title' => 'Translations Manager',
     ],
 
     'message' => [
@@ -144,6 +141,6 @@ return array(
     ],
 
     'datatable' => [
-        'search_input_placeholder' => 'Search...'
-    ]
-);
+        'search_input_placeholder' => 'Search...',
+    ],
+];
