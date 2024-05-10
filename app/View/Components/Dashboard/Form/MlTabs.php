@@ -48,7 +48,7 @@ class MlTabs extends Base
             }
 
             $multipleName = '';
-            if (($pos = strpos($name, "[")) !== false) {
+            if (($pos = strpos($name, '[')) !== false) {
                 $multipleName = substr($name, $pos);
                 $name = explode('[', $name, 2)[0];
             }
