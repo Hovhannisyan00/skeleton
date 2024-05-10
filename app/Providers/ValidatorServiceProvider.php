@@ -150,7 +150,7 @@ class ValidatorServiceProvider extends ServiceProvider
     private function dataArray($array, $value): array
     {
         $resultArray = $value;
-        for ($i = count($array) - 1; $i >= 0; --$i) {
+        for ($i = count($array) - 1; $i >= 0; $i--) {
             $resultArray = [$array[$i] => $resultArray];
         }
 
