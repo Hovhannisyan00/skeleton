@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 if (!function_exists('urlWithLng')) {
     function urlWithLng($url): string
     {
-        return url(currentLanguageCode().'/'.ltrim($url, '/'));
+        return url(currentLanguageCode() . '/' . ltrim($url, '/'));
     }
 }
 
@@ -19,7 +19,7 @@ if (!function_exists('routeWithLng')) {
 if (!function_exists('dashboardRoute')) {
     function dashboardRoute($name): string
     {
-        return route('dashboard.'.$name);
+        return route('dashboard.' . $name);
     }
 }
 

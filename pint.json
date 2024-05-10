@@ -8,6 +8,9 @@
         "combine_consecutive_unsets": true,
         "fully_qualified_strict_types": true,
         "global_namespace_import": true,
-        "blank_line_after_namespace": false
+        "blank_line_after_namespace": false,
+        "concat_space": {
+            "spacing": "one"
+        }
     }
 }

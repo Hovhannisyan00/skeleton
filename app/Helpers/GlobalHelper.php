@@ -33,7 +33,7 @@ if (!function_exists('formattedPrice')) {
             $result = number_format($price, 2, $decimalOperator, $thousandOperator);
 
             if ($addIcon) {
-                $result = $result.' '.getCurrencyIcon();
+                $result = $result . ' ' . getCurrencyIcon();
             }
         }
 

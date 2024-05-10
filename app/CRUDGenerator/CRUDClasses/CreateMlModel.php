@@ -25,7 +25,7 @@ class CreateMlModel extends CRUDGeneratorAbstract
 
     public function getMessageText(): string
     {
-        return $this->arguments['migrationMl'] ? $this->className.' ml model' : '';
+        return $this->arguments['migrationMl'] ? $this->className . ' ml model' : '';
     }
 
     /**

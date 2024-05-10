@@ -73,6 +73,6 @@ trait ModelHelperFunctions
             throw new Exception('In Model Please use HasFilesData trait');
         }
 
-        return config('files.'.$this->getFileConfigName());
+        return config('files.' . $this->getFileConfigName());
     }
 }

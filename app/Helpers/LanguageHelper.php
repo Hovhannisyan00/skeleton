@@ -47,7 +47,7 @@ if (!function_exists('getTrans')) {
             'validation',
         ];
 
-        $langFiles = File::files(resource_path().'/lang/'.currentLanguageCode());
+        $langFiles = File::files(resource_path() . '/lang/' . currentLanguageCode());
 
         $trans = [];
         foreach ($langFiles as $f) {
@@ -78,6 +78,6 @@ if (!function_exists('getCurrentAlternateHref')) {
     {
         $path = strstr(request()->path(), '/');
 
-        return config('app.url').'/'.$locale.$path;
+        return config('app.url') . '/' . $locale . $path;
     }
 }

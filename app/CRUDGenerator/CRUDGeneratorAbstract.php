@@ -53,7 +53,7 @@ abstract class CRUDGeneratorAbstract
      */
     protected function getStubDirectoryPath($fileInfo): string
     {
-        return isset($fileInfo['stub_directory_path']) ? $fileInfo['stub_directory_path'].'/' : '';
+        return isset($fileInfo['stub_directory_path']) ? $fileInfo['stub_directory_path'] . '/' : '';
     }
 
     /**
@@ -68,7 +68,7 @@ abstract class CRUDGeneratorAbstract
             $stub_file_name = $fileInfo['stub_file_name_ml'];
         }
 
-        return __DIR__."/Stubs/$path$stub_file_name.stub";
+        return __DIR__ . "/Stubs/$path$stub_file_name.stub";
     }
 
     /**

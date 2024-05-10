@@ -127,7 +127,7 @@ class MultipleGroup extends Base
                 }
 
                 $inputId = $input->getAttribute('id');
-                $newId = $input->getAttribute('name').'_'.rand();
+                $newId = $input->getAttribute('name') . '_' . rand();
                 $label = $this->xpath->query("//label[@for='$inputId']")->item(0);
 
                 $label->setAttribute('for', $newId);
@@ -136,7 +136,7 @@ class MultipleGroup extends Base
                 break;
 
             case self::TAG_SELECT:
-                $input->setAttribute('id', $input->getAttribute('id').'_'.rand());
+                $input->setAttribute('id', $input->getAttribute('id') . '_' . rand());
                 $optionTags = $input->getElementsByTagName('option');
                 foreach ($optionTags as $tag) {
                     if ($tag->getAttribute('value') == $columnValue) {

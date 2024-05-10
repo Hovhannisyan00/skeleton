@@ -20,7 +20,7 @@ class Base extends Component
     public function dashboardComponent(?string $componentName = null, ?array $vars = []): View
     {
         return view(
-            view: self::DASHBOARD_COMPONENTS_PREFIX.($componentName ? '.'.$componentName : $componentName),
+            view: self::DASHBOARD_COMPONENTS_PREFIX . ($componentName ? '.' . $componentName : $componentName),
             data: $vars
         );
     }

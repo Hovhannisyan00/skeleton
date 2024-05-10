@@ -24,7 +24,7 @@ class CreateModel extends CRUDGeneratorAbstract
 
     public function getMessageText(): string
     {
-        return $this->className.' model';
+        return $this->className . ' model';
     }
 
     protected function stubVariables(): array

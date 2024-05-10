@@ -35,14 +35,14 @@ class ValidatorServiceProvider extends ServiceProvider
 
         // Max String
         Validator::extend('string_with_max', function ($attribute, $value) use ($maxStringLength) {
-            $rules = [$attribute => 'string|max:'.$maxStringLength];
+            $rules = [$attribute => 'string|max:' . $maxStringLength];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
         }, trans('validation.max.string', ['max' => $maxStringLength]));
 
         // Max Text
         Validator::extend('text_with_max', function ($attribute, $value) use ($maxTextLength) {
-            $rules = [$attribute => 'string|max:'.$maxTextLength];
+            $rules = [$attribute => 'string|max:' . $maxTextLength];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
         }, trans('validation.max.string', ['max' => $maxTextLength]));
@@ -84,28 +84,28 @@ class ValidatorServiceProvider extends ServiceProvider
 
         // Show status
         Validator::extend('show_status_validator', function ($attribute, $value) {
-            $rules = [$attribute => 'in:'.implode(',', ShowStatus::FOR_SELECT)];
+            $rules = [$attribute => 'in:' . implode(',', ShowStatus::FOR_SELECT)];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
         }, trans('validation.invalid'));
 
         // Datetime
         Validator::extend('datetime', function ($attribute, $value) {
-            $rules = [$attribute => 'date_format:'.getDateTimeFormat()];
+            $rules = [$attribute => 'date_format:' . getDateTimeFormat()];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
         }, trans('validation.invalid'));
 
         // Date
         Validator::extend('date_validator', function ($attribute, $value) {
-            $rules = [$attribute => 'date_format:'.getDateFormat()];
+            $rules = [$attribute => 'date_format:' . getDateFormat()];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
         }, trans('validation.invalid'));
 
         // After or equal today
         Validator::extend('after_or_equal_today', function ($attribute, $value) {
-            $rules = [$attribute => 'date_validator|after_or_equal:'.today()];
+            $rules = [$attribute => 'date_validator|after_or_equal:' . today()];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
         }, trans('validation.custom.after_or_equal', ['date' => now()->format(getDateFormatFront())]));
@@ -117,7 +117,7 @@ class ValidatorServiceProvider extends ServiceProvider
             $tableName = $parameters[0];
             $checkField = $parameters[1] ?? 'id';
 
-            $rules = ['integer_with_max|exists:'.$tableName.','.$checkField];
+            $rules = ['integer_with_max|exists:' . $tableName . ',' . $checkField];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
         }, trans('validation.invalid'));

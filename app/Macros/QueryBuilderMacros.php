@@ -37,8 +37,8 @@ class QueryBuilderMacros
     {
         return function (string $jsonColumnName, string $attribute, string $searchTerm) {
             return $this->whereRaw(
-                'LOWER('.$jsonColumnName.'->>"$.'.$attribute.'") LIKE ?',
-                ['%'.strtolower($searchTerm).'%']
+                'LOWER(' . $jsonColumnName . '->>"$.' . $attribute . '") LIKE ?',
+                ['%' . strtolower($searchTerm) . '%']
             );
         };
     }

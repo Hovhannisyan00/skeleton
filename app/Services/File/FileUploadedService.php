@@ -31,7 +31,7 @@ class FileUploadedService extends FileService
         $savedFile = $this->uploadsDisk->putFileAs(
             path: $model::getClassName(),
             file: $file,
-            name: $fieldName.'/'.$fileName
+            name: $fieldName . '/' . $fileName
         );
 
         if (isset($config['thumb'])) {
@@ -40,7 +40,7 @@ class FileUploadedService extends FileService
                 filePath: $this->getFilePathUploadsDisk($savedFile),
                 thumbConfig: $config['thumb'],
                 directoryData: [
-                    'uploads' => $model::getClassName().'/'.$fieldName,
+                    'uploads' => $model::getClassName() . '/' . $fieldName,
                 ]
             );
         }

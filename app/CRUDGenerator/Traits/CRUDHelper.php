@@ -18,7 +18,7 @@ trait CRUDHelper
         $fileName = $this->replaceAttributeByClassName($fileName);
         $path = $this->replaceAttributeByClassName($this->config['path'], $variables['CLASS_NAME'] ?? '');
 
-        $absolutePath = $path.'\\'.$fileName;
+        $absolutePath = $path . '\\' . $fileName;
 
         if (!$disk->exists($absolutePath)) {
             $disk->put($absolutePath, $data['content']);

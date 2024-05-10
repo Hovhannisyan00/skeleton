@@ -29,7 +29,7 @@ class FileTempService extends FileService
         $fileType = $config['file_type'];
 
         $dirPrefix = $model::getClassName();
-        $path = $dirPrefix.'/'.$fieldName;
+        $path = $dirPrefix . '/' . $fieldName;
         $fileBaseName = explode('/', $fileName)[1] ?? null;
 
         // temp file move upload
@@ -71,8 +71,8 @@ class FileTempService extends FileService
 
         return [
             'status' => 'OK',
-            'file_url' => $this->pendingDisk->url($path.'/'.$filename),
-            'name' => $path.'/'.$filename,
+            'file_url' => $this->pendingDisk->url($path . '/' . $filename),
+            'name' => $path . '/' . $filename,
             'original_name' => $file->getClientOriginalName(),
             'file_type' => $config['file_type'],
         ];
@@ -90,7 +90,7 @@ class FileTempService extends FileService
 
         //        $extension = explode('/', mime_content_type($file))[1];
 
-        $croppedImageFileName = now()->format('d-m-Y').'/'.$fileName;
+        $croppedImageFileName = now()->format('d-m-Y') . '/' . $fileName;
 
         $tmpFilePath = $this->pendingDisk->path($croppedImageFileName);
         $this->makeDirectory($tmpFilePath);

@@ -52,7 +52,7 @@ class Article extends BaseModel
             //        'price_formatted' => CurrencyCast::class . ':0,1',
 
             'publish_date' => DateCast::class,
-            'release_date_time' => DateCast::class.':0,1',
+            'release_date_time' => DateCast::class . ':0,1',
             //        'publish_date_formatted' => DateCast::class.':1'
         ];
     }

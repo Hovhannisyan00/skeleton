@@ -22,7 +22,7 @@ class CreateModelSearch extends CRUDGeneratorAbstract
 
     public function getMessageText(): string
     {
-        return $this->className.'Search';
+        return $this->className . 'Search';
     }
 
     protected function stubVariables(): array

@@ -12,7 +12,7 @@ class ArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'slug' => 'required|string_with_max|unique:'.Article::getTableName().',slug,'.$this->article?->id,
+            'slug' => 'required|string_with_max|unique:' . Article::getTableName() . ',slug,' . $this->article?->id,
             'publish_date' => 'required|after_or_equal_today',
             'release_date_time' => 'required|datetime',
             'photo' => 'required|string_with_max',
@@ -21,7 +21,7 @@ class ArticleRequest extends FormRequest
             'multiple_group_data.*.title' => 'nullable|string_with_max',
             'multiple_group_data.*.link' => 'nullable|url|string_with_max',
             'multiple_group_data.*.desc' => 'nullable|string_with_max',
-            'multiple_group_data.*.user' => 'nullable|exist_validator:'.User::getTableName(),
+            'multiple_group_data.*.user' => 'nullable|exist_validator:' . User::getTableName(),
 
             'multiple_author' => 'nullable|array',
             'multiple_author.*' => 'nullable|string_with_max',
