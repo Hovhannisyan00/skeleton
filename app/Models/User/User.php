@@ -9,7 +9,6 @@ use App\Models\File\File;
 use App\Models\User\Traits\UserAccessors;
 use App\Models\User\Traits\UserHelperMethods;
 use App\Models\User\Traits\UserRelations;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -19,7 +18,6 @@ use Spatie\Permission\Traits\HasRoles;
 class User extends Authenticatable
 {
     use HasApiTokens;
-    use HasFactory;
     use HasFileData;
     use HasRoles;
     use ModelHelperFunctions;

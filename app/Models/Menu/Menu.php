@@ -6,13 +6,11 @@ use App\Models\Base\BaseModel;
 use App\Models\Menu\Enums\MenuType;
 use App\Models\Scopes\Menu\UserMenuScope;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Spatie\Permission\Traits\HasRoles;
 
 class Menu extends BaseModel
 {
-    use HasFactory;
     use HasRoles;
 
     protected string $guard_name = 'web';
