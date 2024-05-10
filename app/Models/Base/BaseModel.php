@@ -14,10 +14,8 @@ class BaseModel extends Model
     use BaseModelScopes;
     use ModelHelperFunctions;
 
-    /**
-     * @var string
-     */
     final public const TRUE = 1;
+
     final public const FALSE = 0;
 
     /**

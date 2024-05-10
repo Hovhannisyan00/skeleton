@@ -7,6 +7,7 @@ use App\CRUDGenerator\CRUDGeneratorAbstract;
 class CreateModel extends CRUDGeneratorAbstract
 {
     public const MODEL = 'model';
+
     public const MODEL_WITH_ML = 'model_with_ml';
 
     public function __construct($arguments)

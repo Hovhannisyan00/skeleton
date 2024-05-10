@@ -20,11 +20,15 @@ class MultipleGroup extends Base
     public $xpath;
 
     public const ATTRIBUTE_NAME = 'name';
+
     public const ATTRIBUTE_DATA_NAME = 'data-name';
 
     public const TAG_INPUT = 'input';
+
     public const TAG_TEXTAREA = 'textarea';
+
     public const TAG_SELECT = 'select';
+
     public const TAG_CHECKBOX = 'checkbox';
 
     public function __construct(

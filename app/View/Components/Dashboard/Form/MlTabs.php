@@ -15,12 +15,14 @@ class MlTabs extends Base
      * @var string
      */
     public const ATTRIBUTE_NAME = 'name';
+
     public const ATTRIBUTE_DATA_NAME = 'data-name';
 
     /**
      * @var string
      */
     public const TAG_INPUT = 'input';
+
     public const TAG_TEXTAREA = 'textarea';
 
     protected string $lngCode;

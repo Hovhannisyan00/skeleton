@@ -13,7 +13,9 @@ use Illuminate\Support\Facades\Storage;
 abstract class FileService
 {
     protected Filesystem $uploadsDisk;
+
     protected Filesystem $pendingDisk;
+
     protected Filesystem $awsDisk;
 
     public function __construct(
