@@ -15,7 +15,7 @@ class QueryBuilderMacros
 
     public function likeOr(): Closure
     {
-        return function (array $fields, array $searchFields = [], Closure $orWhere = null) {
+        return function (array $fields, array $searchFields = [], ?Closure $orWhere = null) {
             $searchTerm = $searchFields['search'];
             $searchFields = array_filter($searchFields);
 
@@ -37,8 +37,8 @@ class QueryBuilderMacros
     {
         return function (string $jsonColumnName, string $attribute, string $searchTerm) {
             return $this->whereRaw(
-                'LOWER(' . $jsonColumnName . '->>"$.' . $attribute . '") LIKE ?',
-                ['%' . strtolower($searchTerm) . '%']
+                'LOWER('.$jsonColumnName.'->>"$.'.$attribute.'") LIKE ?',
+                ['%'.strtolower($searchTerm).'%']
             );
         };
     }

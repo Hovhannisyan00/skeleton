@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Auth;
 
 class BaseModel extends Model
 {
-    use ModelHelperFunctions;
     use BaseModelScopes;
+    use ModelHelperFunctions;
 
     /**
      * @var string
@@ -21,20 +21,17 @@ class BaseModel extends Model
     final public const FALSE = 0;
 
     /**
-     * In Create/Update or Delete functions save user_id and user_ip values
-     * @var bool
+     * In Create/Update or Delete functions save user_id and user_ip values.
      */
     public bool $hasUserInfo = false;
 
     /**
-     * Create function set default values for create data
-     * @var array
+     * Create function set default values for create data.
      */
     public array $defaultValues = [];
 
     /**
-     * Default get all rows (show_status != 0)
-     * @var bool
+     * Default get all rows (show_status != 0).
      */
     protected static bool $getNotDeletedRows = true;
 
@@ -53,7 +50,7 @@ class BaseModel extends Model
     ];
 
     /**
-     * Function to boot model creating/updating
+     * Function to boot model creating/updating.
      */
     public static function boot(): void
     {
@@ -74,10 +71,10 @@ class BaseModel extends Model
         // Updating
         static::updating(function ($model) {
             if ($model->hasUserInfo) {
-                if ($model->show_status == ShowStatus::ACTIVE) {
+                if (ShowStatus::ACTIVE == $model->show_status) {
                     $model->updated_user_id = Auth::check() ? Auth::user()->id : $model->updated_user_id;
                     $model->updated_user_ip = request()->ip();
-                } elseif ($model->show_status == ShowStatus::DELETED) {
+                } elseif (ShowStatus::DELETED == $model->show_status) {
                     $model->deleted_user_id = Auth::check() ? Auth::user()->id : $model->deleted_user_id;
                     $model->deleted_user_ip = request()->ip();
                 }
@@ -86,7 +83,7 @@ class BaseModel extends Model
     }
 
     /**
-     * Function to set file config key
+     * Function to set file config key.
      */
     public function setFileConfigName(): string
     {

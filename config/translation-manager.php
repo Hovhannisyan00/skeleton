@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Routes group config
@@ -18,14 +17,14 @@ return [
         ],
     ],
 
-    /**
+    /*
      * Enable deletion of translations
      *
      * @type bool
      */
     'delete_enabled' => true,
 
-    /**
+    /*
      * Exclude specific groups from Laravel Translation Manager.
      * This is useful if, for example, you want to avoid editing the official Laravel language files.
      *
@@ -39,7 +38,7 @@ return [
      */
     'exclude_groups' => [],
 
-    /**
+    /*
      * Exclude specific languages from Laravel Translation Manager.
      *
      * @type array
@@ -49,12 +48,12 @@ return [
      *        'de',
      *    )
      */
-    'exclude_langs'  => [],
+    'exclude_langs' => [],
 
-    /**
+    /*
      * Export translations with keys output alphabetically.
      */
-    'sort_keys'     => false,
+    'sort_keys' => false,
 
     'trans_functions' => [
         'trans',
@@ -68,5 +67,4 @@ return [
         '__',
         '$trans.get',
     ],
-
 ];

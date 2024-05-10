@@ -11,7 +11,7 @@ trait HasFileData
     abstract public function setFileConfigName(): string;
 
     /**
-     * Function to get model file config name
+     * Function to get model file config name.
      */
     public function getFileConfigName(): string
     {
@@ -24,9 +24,9 @@ trait HasFileData
     }
 
     /**
-     * Function to get model files (morph table)
+     * Function to get model files (morph table).
      */
-    public function files(string $fieldName = null, string $fileType = null): MorphMany
+    public function files(?string $fieldName = null, ?string $fileType = null): MorphMany
     {
         return $this->morphMany(File::class, 'fileable')
             ->when($fieldName, function ($query) use ($fieldName) {

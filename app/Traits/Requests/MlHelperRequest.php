@@ -5,7 +5,7 @@ namespace App\Traits\Requests;
 trait MlHelperRequest
 {
     /**
-     * Function to making rules set default lng required, other languages set nullable(for default)
+     * Function to making rules set default lng required, other languages set nullable(for default).
      */
     public function makeMlRules(array $rules = []): array
     {

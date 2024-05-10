@@ -20,7 +20,7 @@ class FileUploadedService extends FileService
     }
 
     /**
-     * Function to put file to folder and save to db
+     * Function to put file to folder and save to db.
      */
     private function create(Model $model, $file, $config): void
     {
@@ -31,7 +31,7 @@ class FileUploadedService extends FileService
         $savedFile = $this->uploadsDisk->putFileAs(
             path: $model::getClassName(),
             file: $file,
-            name: $fieldName . '/' . $fileName
+            name: $fieldName.'/'.$fileName
         );
 
         if (isset($config['thumb'])) {
@@ -40,7 +40,7 @@ class FileUploadedService extends FileService
                 filePath: $this->getFilePathUploadsDisk($savedFile),
                 thumbConfig: $config['thumb'],
                 directoryData: [
-                    'uploads' => $model::getClassName() . '/' . $fieldName
+                    'uploads' => $model::getClassName().'/'.$fieldName,
                 ]
             );
         }
@@ -50,7 +50,7 @@ class FileUploadedService extends FileService
             'field_name' => $fieldName,
             'file_name' => $fileName,
             'file_type' => $fileType,
-            'dir_prefix' => $model::getClassName()
+            'dir_prefix' => $model::getClassName(),
         ]);
     }
 }

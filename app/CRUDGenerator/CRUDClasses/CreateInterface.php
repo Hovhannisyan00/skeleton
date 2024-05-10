@@ -26,12 +26,12 @@ class CreateInterface extends CRUDGeneratorAbstract
     }
 
     /**
-     * Function to return stub variables
+     * Function to return stub variables.
      */
     protected function stubVariables(): array
     {
         return [
-            'CLASS_NAME' => $this->className
+            'CLASS_NAME' => $this->className,
         ];
     }
 }

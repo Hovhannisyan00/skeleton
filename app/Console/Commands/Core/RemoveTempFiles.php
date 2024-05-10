@@ -27,7 +27,7 @@ class RemoveTempFiles extends Command
     }
 
     /**
-     * Function to remove old temp files
+     * Function to remove old temp files.
      */
     public function handle()
     {

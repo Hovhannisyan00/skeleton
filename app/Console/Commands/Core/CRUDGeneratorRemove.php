@@ -28,7 +28,7 @@ class CRUDGeneratorRemove extends Command
     }
 
     /**
-     * Function to remove crud generated data
+     * Function to remove crud generated data.
      */
     public function handle(): void
     {

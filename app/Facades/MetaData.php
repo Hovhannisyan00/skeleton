@@ -5,11 +5,9 @@ namespace App\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * Class MetaData
+ * Class MetaData.
  *
  * @mixin \App\MetaData\MetaData
- *
- * @package App\Facades
  */
 class MetaData extends Facade
 {

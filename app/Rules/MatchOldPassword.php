@@ -9,7 +9,6 @@ class MatchOldPassword implements Rule
 {
     public function __construct()
     {
-        //
     }
 
     /**

@@ -15,7 +15,7 @@ if (!function_exists('isAwsFilesystem')) {
 }
 
 if (!function_exists('formattedPrice')) {
-    function formattedPrice(string|null $price = '', bool $addIcon = false): string
+    function formattedPrice(?string $price = '', bool $addIcon = false): string
     {
         $result = 0;
         if ($price) {
@@ -33,7 +33,7 @@ if (!function_exists('formattedPrice')) {
             $result = number_format($price, 2, $decimalOperator, $thousandOperator);
 
             if ($addIcon) {
-                $result = $result . ' ' . getCurrencyIcon();
+                $result = $result.' '.getCurrencyIcon();
             }
         }
 

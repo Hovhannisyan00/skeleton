@@ -39,7 +39,7 @@ final class DateCast implements CastsAttributes
         return $result;
     }
 
-    private function getCarbonFormattedValue(string|null $value): string
+    private function getCarbonFormattedValue(?string $value): string
     {
         $result = '';
         if ($value) {

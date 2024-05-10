@@ -5,7 +5,7 @@ if (!function_exists('modifyDataForSelect')) {
     {
         $result = [];
         foreach ($data as $key => $value) {
-            $result[$customKey ? $key : $value] = $addTransKey ? trans($addTransKey . '.' . $value) : $value;
+            $result[$customKey ? $key : $value] = $addTransKey ? trans($addTransKey.'.'.$value) : $value;
         }
 
         return $result;

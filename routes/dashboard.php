@@ -10,7 +10,6 @@ use Illuminate\Support\Facades\Route;
 
 $roleAdmin = RoleType::ADMIN;
 
-//
 Route::get('/', [DashboardController::class, 'index'])->name('index');
 
 // Files

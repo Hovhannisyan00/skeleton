@@ -25,11 +25,11 @@ class CreateMlModel extends CRUDGeneratorAbstract
 
     public function getMessageText(): string
     {
-        return $this->arguments['migrationMl'] ? $this->className . ' ml model' : '';
+        return $this->arguments['migrationMl'] ? $this->className.' ml model' : '';
     }
 
     /**
-     * Function to return stub variables
+     * Function to return stub variables.
      */
     protected function stubVariables(): array
     {
@@ -37,7 +37,7 @@ class CreateMlModel extends CRUDGeneratorAbstract
 
         return [
             'CLASS_NAME' => $this->className,
-            'VARIABLE_NAME' => $variableName
+            'VARIABLE_NAME' => $variableName,
         ];
     }
 }

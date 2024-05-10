@@ -19,6 +19,3 @@ Auth::routes(['register' => false, 'reset' => false]);
 Route::get('/', function () {
     return redirect(route('login'));
 });
-
-
-

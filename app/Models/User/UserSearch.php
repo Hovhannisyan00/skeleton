@@ -24,7 +24,7 @@ class UserSearch extends Search
             'first_name',
             'last_name',
             'email',
-            'created_at'
+            'created_at',
         ])
             ->when(!empty($filters['search']), function ($query) use ($filters) {
                 $query->likeOr(['id', 'first_name', 'last_name', 'email'], $filters);

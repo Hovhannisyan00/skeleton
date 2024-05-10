@@ -31,7 +31,7 @@ if (!function_exists('getDateTimeFormatFront')) {
 }
 
 if (!function_exists('getStartOfDay')) {
-    function getStartOfDay(string|null $date): string|Carbon
+    function getStartOfDay(?string $date): string|Carbon
     {
         if (is_null($date)) {
             return '';
@@ -42,7 +42,7 @@ if (!function_exists('getStartOfDay')) {
 }
 
 if (!function_exists('getEndOfDay')) {
-    function getEndOfDay(string|null $date): string|Carbon
+    function getEndOfDay(?string $date): string|Carbon
     {
         if (is_null($date)) {
             return '';
@@ -97,7 +97,7 @@ if (!function_exists('getDashboardDates')) {
                 'date_time_format' => config('dashboard.js.date_time_format'),
                 'date_format_front' => config('dashboard.js.date_format_front'),
                 'date_time_format_front' => config('dashboard.js.date_time_format_front'),
-            ]
+            ],
         ];
     }
 }

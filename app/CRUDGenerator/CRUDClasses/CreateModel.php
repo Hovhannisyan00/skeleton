@@ -23,13 +23,13 @@ class CreateModel extends CRUDGeneratorAbstract
 
     public function getMessageText(): string
     {
-        return $this->className . ' model';
+        return $this->className.' model';
     }
 
     protected function stubVariables(): array
     {
         return [
-            'CLASS_NAME' => $this->className
+            'CLASS_NAME' => $this->className,
         ];
     }
 }

@@ -18,7 +18,7 @@ trait CRUDHelper
         $fileName = $this->replaceAttributeByClassName($fileName);
         $path = $this->replaceAttributeByClassName($this->config['path'], $variables['CLASS_NAME'] ?? '');
 
-        $absolutePath = $path . '\\' . $fileName;
+        $absolutePath = $path.'\\'.$fileName;
 
         if (!$disk->exists($absolutePath)) {
             $disk->put($absolutePath, $data['content']);
@@ -26,10 +26,10 @@ trait CRUDHelper
     }
 
     /**
-     * Function to replace :attribute to class name
+     * Function to replace :attribute to class name.
      */
     protected function replaceAttributeByClassName(string $fileName, $CLASS_NAME = null): string
     {
-        return str_replace(':attribute', ($CLASS_NAME ?? $this->className), $fileName);
+        return str_replace(':attribute', $CLASS_NAME ?? $this->className, $fileName);
     }
 }

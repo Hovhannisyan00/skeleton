@@ -10,7 +10,7 @@ class RoleAndPermissionSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * Role And Permission Seeder
+     * Role And Permission Seeder.
      *
      * @return void
      */

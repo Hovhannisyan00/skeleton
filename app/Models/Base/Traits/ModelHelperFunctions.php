@@ -9,7 +9,7 @@ use ReflectionClass;
 trait ModelHelperFunctions
 {
     /**
-     * Function to get model class name
+     * Function to get model class name.
      */
     public static function getClassName(): string
     {
@@ -17,7 +17,7 @@ trait ModelHelperFunctions
     }
 
     /**
-     * Function to get model class name camel case
+     * Function to get model class name camel case.
      */
     public static function getClassNameCamelCase(): string
     {
@@ -25,16 +25,17 @@ trait ModelHelperFunctions
     }
 
     /**
-     * Function to get class namespace
+     * Function to get class namespace.
      */
     public function getClassNamespace(): string
     {
         $namespace = new ReflectionClass(static::class);
+
         return $namespace->getNamespaceName();
     }
 
     /**
-     * Function to get table name
+     * Function to get table name.
      */
     public static function getTableName(): string
     {
@@ -42,7 +43,7 @@ trait ModelHelperFunctions
     }
 
     /**
-     * Function to check model has files
+     * Function to check model has files.
      */
     public function hasFilesData(): bool
     {
@@ -50,7 +51,7 @@ trait ModelHelperFunctions
     }
 
     /**
-     * Function to check model has show_status column
+     * Function to check model has show_status column.
      */
     public function hasShowStatus(): bool
     {
@@ -62,7 +63,7 @@ trait ModelHelperFunctions
     }
 
     /**
-     * Function to get model file config file
+     * Function to get model file config file.
      *
      * @throws Exception
      */
@@ -72,6 +73,6 @@ trait ModelHelperFunctions
             throw new Exception('In Model Please use HasFilesData trait');
         }
 
-        return config('files.' . $this->getFileConfigName());
+        return config('files.'.$this->getFileConfigName());
     }
 }

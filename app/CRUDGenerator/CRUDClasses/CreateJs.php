@@ -29,7 +29,7 @@ class CreateJs extends CRUDGeneratorAbstract
     }
 
     /**
-     * Function to return stub variables
+     * Function to return stub variables.
      */
     protected function stubVariables(): array
     {
@@ -38,7 +38,7 @@ class CreateJs extends CRUDGeneratorAbstract
 
         return [
             'CLASS_NAME' => $className,
-            'ROUTE_NAME' => $routeName
+            'ROUTE_NAME' => $routeName,
         ];
     }
 }

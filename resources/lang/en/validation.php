@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Validation Language Lines
@@ -143,7 +142,6 @@ return [
         ],
 
         'after_or_equal' => 'The field must be a date after or equal to :date.',
-
     ],
 
     /*
@@ -158,5 +156,4 @@ return [
     */
 
     'attributes' => [],
-
 ];

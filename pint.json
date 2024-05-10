@@ -1,0 +1,17 @@
+{
+    "preset": "symfony",
+    "rules": {
+        "yoda_style" : false,
+        "not_operator_with_successor_space": false,
+        "combine_consecutive_issets": true,
+        "combine_consecutive_unsets": true,
+        "fully_qualified_strict_types": true,
+        "global_namespace_import": {
+            "import_classes": true
+        },
+        "no_unused_imports" : true,
+        "ordered_imports": true,
+        "single_import_per_statement": true,
+        "single_line_after_imports": true
+    }
+}

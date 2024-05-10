@@ -73,7 +73,7 @@ class BaseRepository implements IBaseRepository
         return $this->model->all();
     }
 
-    public function get(array $columns = null): Collection
+    public function get(?array $columns = null): Collection
     {
         return $columns ? $this->model->get($columns) : $this->model->get();
     }
@@ -116,6 +116,7 @@ class BaseRepository implements IBaseRepository
         }
 
         $model->update($data);
+
         return $model->refresh();
     }
 
@@ -164,7 +165,7 @@ class BaseRepository implements IBaseRepository
             $model->mls()->updateOrCreate(
                 [
                     $this->model->getForeignKey() => $model->id,
-                    'lng_code' => $lngCode
+                    'lng_code' => $lngCode,
                 ],
                 $mlData
             );

@@ -39,7 +39,7 @@ class MultipleGroup extends Base
     }
 
     /**
-     * Function to render html
+     * Function to render html.
      */
     public function renderHtml(string $html, mixed $multipleData, string $index): void
     {
@@ -50,7 +50,6 @@ class MultipleGroup extends Base
         $xpath = new DOMXPath($dom);
         $this->xpath = $xpath;
 
-        //
         $this->find($xpath, '//span[@data-name]', self::ATTRIBUTE_DATA_NAME);
         $this->find($xpath, '//input[@name]');
         $this->find($xpath, '//textarea[@name]');
@@ -60,7 +59,7 @@ class MultipleGroup extends Base
     }
 
     /**
-     * Function to find by selector and change html tag
+     * Function to find by selector and change html tag.
      */
     private function find($xpath, string $selector, string $attribute = self::ATTRIBUTE_NAME): void
     {
@@ -70,7 +69,7 @@ class MultipleGroup extends Base
     }
 
     /**
-     * Function to change html tag name and set value
+     * Function to change html tag name and set value.
      */
     private function changeNameAndSetValue($inputs, $attribute): void
     {
@@ -95,7 +94,7 @@ class MultipleGroup extends Base
     }
 
     /**
-     * Function to element set value
+     * Function to element set value.
      */
     private function setValue($input, $name): void
     {
@@ -124,7 +123,7 @@ class MultipleGroup extends Base
                 }
 
                 $inputId = $input->getAttribute('id');
-                $newId = $input->getAttribute('name') . '_' . rand();
+                $newId = $input->getAttribute('name').'_'.rand();
                 $label = $this->xpath->query("//label[@for='$inputId']")->item(0);
 
                 $label->setAttribute('for', $newId);
@@ -133,7 +132,7 @@ class MultipleGroup extends Base
                 break;
 
             case self::TAG_SELECT:
-                $input->setAttribute('id', $input->getAttribute('id') . '_' . rand());
+                $input->setAttribute('id', $input->getAttribute('id').'_'.rand());
                 $optionTags = $input->getElementsByTagName('option');
                 foreach ($optionTags as $tag) {
                     if ($tag->getAttribute('value') == $columnValue) {

@@ -27,7 +27,7 @@ class CreateController extends CRUDGeneratorAbstract
     }
 
     /**
-     * Function to return stub variables
+     * Function to return stub variables.
      */
     protected function stubVariables(): array
     {

@@ -23,18 +23,12 @@ class MlTabs extends Base
     public const TAG_INPUT = 'input';
     public const TAG_TEXTAREA = 'textarea';
 
-    /**
-     * @var string
-     */
     protected string $lngCode;
 
-    /**
-     * @var mixed
-     */
     protected mixed $mlData;
 
     /**
-     * Function to find by selector and change html tag
+     * Function to find by selector and change html tag.
      */
     private function find(DOMXPath $xpath, string $selector, string $attribute = self::ATTRIBUTE_NAME): void
     {
@@ -43,7 +37,7 @@ class MlTabs extends Base
     }
 
     /**
-     * Function to change html tag name and set value
+     * Function to change html tag name and set value.
      */
     private function changeNameAndSetValue(DOMNodeList $inputs, string $attribute): void
     {
@@ -72,7 +66,7 @@ class MlTabs extends Base
     }
 
     /**
-     * Function to element set value
+     * Function to element set value.
      */
     private function setValue(DOMElement $input, string $name): void
     {
@@ -86,14 +80,14 @@ class MlTabs extends Base
     }
 
     /**
-     * Function to render html
+     * Function to render html.
      */
     public function renderHtml(string $html, string $lngCode, mixed $mlData = null): void
     {
         $this->lngCode = $lngCode;
         $this->mlData = $mlData;
         $dom = new DOMDocument('1.0', 'UTF-8');
-        $dom->loadHTML('<?xml encoding="UTF-8">' . $html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $dom->loadHTML('<?xml encoding="UTF-8">'.$html, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
 
         $xpath = new DOMXPath($dom);
         $this->find($xpath, '//span[@data-name]', self::ATTRIBUTE_DATA_NAME);

@@ -10,11 +10,10 @@ class MenuComponent extends Base
 {
     public function __construct()
     {
-        //
     }
 
     /**
-     * Function to render Menu view
+     * Function to render Menu view.
      */
     public function render(): View
     {
@@ -26,7 +25,7 @@ class MenuComponent extends Base
             ->groupBy('group_name');
 
         return $this->dashboardComponent('menu.menu-component', [
-            'groupName' => $groupName
+            'groupName' => $groupName,
         ]);
     }
 }

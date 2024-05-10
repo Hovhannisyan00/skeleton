@@ -8,7 +8,7 @@ use Symfony\Component\HttpFoundation\Response;
 trait ResponseFunctions
 {
     /**
-     * Function to send response
+     * Function to send response.
      */
     public function sendResponse(array $result = [], int $statusCode = Response::HTTP_OK): JsonResponse
     {
@@ -16,7 +16,7 @@ trait ResponseFunctions
     }
 
     /**
-     * Function to send OK response
+     * Function to send OK response.
      */
     public function sendOk(array $response = []): JsonResponse
     {
@@ -26,7 +26,7 @@ trait ResponseFunctions
     }
 
     /**
-     * Function to send OK response with created message
+     * Function to send OK response with created message.
      */
     public function sendOkCreated(array $response = []): JsonResponse
     {
@@ -37,7 +37,7 @@ trait ResponseFunctions
     }
 
     /**
-     * Function to send OK response with updated message
+     * Function to send OK response with updated message.
      */
     public function sendOkUpdated(array $response = []): JsonResponse
     {
@@ -48,7 +48,7 @@ trait ResponseFunctions
     }
 
     /**
-     * Function to send OK response with deleted message
+     * Function to send OK response with deleted message.
      */
     public function sendOkDeleted(array $response = []): JsonResponse
     {
@@ -59,7 +59,7 @@ trait ResponseFunctions
     }
 
     /**
-     * Function to send OK response with notification
+     * Function to send OK response with notification.
      */
     public function sendOkWithNotification(array $response = []): JsonResponse
     {
@@ -71,7 +71,7 @@ trait ResponseFunctions
     }
 
     /**
-     * Function to send invalid response
+     * Function to send invalid response.
      */
     public function sendInvalid(array $response = [], int $statusCode = Response::HTTP_OK): JsonResponse
     {

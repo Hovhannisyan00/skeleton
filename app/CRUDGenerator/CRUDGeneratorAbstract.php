@@ -9,19 +9,10 @@ abstract class CRUDGeneratorAbstract
 {
     use CRUDHelper;
 
-    /**
-     * @var array
-     */
     protected array $arguments;
 
-    /**
-     * @var string
-     */
     protected string $className;
 
-    /**
-     * @var array
-     */
     protected array $config;
 
     public function __construct($arguments)
@@ -35,7 +26,7 @@ abstract class CRUDGeneratorAbstract
     abstract protected function getMessageText(): string;
 
     /**
-     * Function to show message in terminal
+     * Function to show message in terminal.
      */
     public function showMessage(): void
     {
@@ -45,7 +36,7 @@ abstract class CRUDGeneratorAbstract
     }
 
     /**
-     * Function to get CRUD config by key
+     * Function to get CRUD config by key.
      */
     protected function getConfig($key): array
     {
@@ -53,20 +44,20 @@ abstract class CRUDGeneratorAbstract
     }
 
     /**
-     * Map the stub variables present in stub to its value
+     * Map the stub variables present in stub to its value.
      */
     abstract protected function stubVariables(): array;
 
     /**
-     * Function to return stub directory path
+     * Function to return stub directory path.
      */
     protected function getStubDirectoryPath($fileInfo): string
     {
-        return isset($fileInfo['stub_directory_path']) ? $fileInfo['stub_directory_path'] . '/' : '';
+        return isset($fileInfo['stub_directory_path']) ? $fileInfo['stub_directory_path'].'/' : '';
     }
 
     /**
-     * Return the stub file path
+     * Return the stub file path.
      */
     protected function getStubFilePath(array $fileInfo): string
     {
@@ -77,11 +68,11 @@ abstract class CRUDGeneratorAbstract
             $stub_file_name = $fileInfo['stub_file_name_ml'];
         }
 
-        return __DIR__ . "/Stubs/$path$stub_file_name.stub";
+        return __DIR__."/Stubs/$path$stub_file_name.stub";
     }
 
     /**
-     * Replace the stub variables(key) with the desire value
+     * Replace the stub variables(key) with the desire value.
      */
     protected function getStubContents($stub, array $stubVariables = []): string
     {
@@ -96,19 +87,19 @@ abstract class CRUDGeneratorAbstract
     }
 
     /**
-     * Get the stub path and the stub variables
+     * Get the stub path and the stub variables.
      */
-    protected function getSourceFile(array $fileInfo = null): array
+    protected function getSourceFile(?array $fileInfo = null): array
     {
         return [
             'content' => $this->getStubContents($this->getStubFilePath($fileInfo), $this->stubVariables()),
             'variables' => $this->stubVariables(),
-            'fileInfo' => $fileInfo
+            'fileInfo' => $fileInfo,
         ];
     }
 
     /**
-     * Function to check crud has ml
+     * Function to check crud has ml.
      */
     public function hasMl(): bool
     {

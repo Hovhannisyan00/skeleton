@@ -19,7 +19,7 @@ class CreateBlades extends CRUDGeneratorAbstract
     public function make(): void
     {
         foreach ($this->config['files'] as $file) {
-            if ($this->hasMl() && $file['stub_file_name'] === 'form.blade') {
+            if ($this->hasMl() && 'form.blade' === $file['stub_file_name']) {
                 $file['stub_file_name'] = 'form_ml.blade';
             }
 
@@ -41,7 +41,7 @@ class CreateBlades extends CRUDGeneratorAbstract
         return [
             'CLASS_NAME' => $className,
             'VARIABLE_NAME' => $variableName,
-            'ROUTE_NAME' => $routeName
+            'ROUTE_NAME' => $routeName,
         ];
     }
 }

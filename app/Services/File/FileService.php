@@ -8,7 +8,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
-//use Intervention\Image\Facades\Image;
+// use Intervention\Image\Facades\Image;
 
 abstract class FileService
 {
@@ -23,7 +23,7 @@ abstract class FileService
     }
 
     /**
-     * Function to move tmp file from pending dir to upload dir
+     * Function to move tmp file from pending dir to upload dir.
      */
     protected function movePendingFileToUploadsFolder(
         string $fileName,
@@ -34,7 +34,7 @@ abstract class FileService
             // convert to full paths
             $fullPathPending = $this->getFilePathPendingDisk($directoryData['pending']);
             $filePath = isset($directoryData['uploads'])
-                ? '/' . $directoryData['uploads'] . '/' . $fileName
+                ? '/'.$directoryData['uploads'].'/'.$fileName
                 : $fileName;
             $fullPathUploads = $this->getFilePathUploadsDisk($filePath);
 
@@ -74,8 +74,8 @@ abstract class FileService
             $thumbResizePath = $this->getThumbResizePath($thumbWidth, $thumbHeight);
 
             $fileThumbPath = isset($directoryData['uploads'])
-                ? '/' . $directoryData['uploads'] . '/thumbs/' . "$thumbResizePath/" . $fileName
-                : '/thumbs/' . $fileName;
+                ? '/'.$directoryData['uploads'].'/thumbs/'."$thumbResizePath/".$fileName
+                : '/thumbs/'.$fileName;
 
             $fullThumbPathUploads = $this->getFilePathUploadsDisk($fileThumbPath);
 
@@ -109,16 +109,16 @@ abstract class FileService
 
     private function deleteFilePhysically($file): void
     {
-        $this->uploadsDisk->delete($file->dir_prefix . '/' . $file->field_name . '/' . $file->file_name);
+        $this->uploadsDisk->delete($file->dir_prefix.'/'.$file->field_name.'/'.$file->file_name);
 
-        if ($this->uploadsDisk->exists($file->dir_prefix . '/' . $file->field_name . '/thumbs/')) {
+        if ($this->uploadsDisk->exists($file->dir_prefix.'/'.$file->field_name.'/thumbs/')) {
             $config = config("files.$file->dir_prefix.$file->field_name");
 
             if (isset($config['thumb'])) {
                 foreach ($config['thumb'] as $thumb) {
                     $thumbResizePath = $this->getThumbResizePath($thumb['width'], $thumb['height'] ?? null);
-                    $thumbFilePath = $file->dir_prefix . '/' . $file->field_name . '/thumbs/' . $thumbResizePath;
-                    $thumbFilePath .= '/' . $file->file_name;
+                    $thumbFilePath = $file->dir_prefix.'/'.$file->field_name.'/thumbs/'.$thumbResizePath;
+                    $thumbFilePath .= '/'.$file->file_name;
 
                     if ($this->uploadsDisk->exists($thumbFilePath)) {
                         $this->uploadsDisk->delete($thumbFilePath);
@@ -132,7 +132,7 @@ abstract class FileService
     {
         $thumbResizePath = $thumbWidth;
         if ($thumbHeight) {
-            $thumbResizePath .= '_' . $thumbHeight;
+            $thumbResizePath .= '_'.$thumbHeight;
         }
 
         return $thumbResizePath;
@@ -141,10 +141,10 @@ abstract class FileService
     protected function getFileName(UploadedFile $file): string
     {
         $originalName = $file->getClientOriginalName();
-        $filename = basename($originalName, '.' . pathinfo($originalName, PATHINFO_EXTENSION));
-        $uniqueID = uniqid() . '_' . mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $filename);
+        $filename = basename($originalName, '.'.pathinfo($originalName, PATHINFO_EXTENSION));
+        $uniqueID = uniqid().'_'.mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $filename);
 
-        return $uniqueID . '.' . $file->getClientOriginalExtension();
+        return $uniqueID.'.'.$file->getClientOriginalExtension();
     }
 
     protected function makeDirectory(string $path): void

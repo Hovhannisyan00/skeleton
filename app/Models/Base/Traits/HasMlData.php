@@ -10,18 +10,12 @@ use Illuminate\Support\Str;
 
 trait HasMlData
 {
-    /**
-     * @var string
-     */
     private string $mlClassPrefix = 'Mls';
 
-    /**
-     * @var BaseMlModel|null
-     */
     protected static ?BaseMlModel $mlClass = null;
 
     /**
-     * Function Initialize the trait
+     * Function Initialize the trait.
      */
     protected function initializeHasMlData(): void
     {
@@ -29,24 +23,24 @@ trait HasMlData
     }
 
     /**
-     * Function to get model current ml data
+     * Function to get model current ml data.
      */
     public function scopeJoinMl($query): Builder
     {
         $params = func_get_args();
         $table = $this->getTable();
-        $tableMl = $params[1]['t_ml'] ?? Str::singular($table) . '_mls';
+        $tableMl = $params[1]['t_ml'] ?? Str::singular($table).'_mls';
         $locale = $params[1]['locale'] ?? currentLanguageCode();
 
         return $query->join($tableMl, function ($query) use ($table, $params, $tableMl, $locale) {
             $foreignKey = $params[1]['f_k'] ?? $this->getForeignKey();
 
-            $query->on($tableMl . '.' . $foreignKey, '=', $table . '.id')->where($tableMl . '.lng_code', '=', $locale);
+            $query->on($tableMl.'.'.$foreignKey, '=', $table.'.id')->where($tableMl.'.lng_code', '=', $locale);
         });
     }
 
     /**
-     * Function to get ml data
+     * Function to get ml data.
      */
     public function mls(): HasMany
     {
@@ -54,7 +48,7 @@ trait HasMlData
     }
 
     /**
-     * Function to return current ml
+     * Function to return current ml.
      */
     public function currentMl(): HasOne
     {
@@ -62,7 +56,7 @@ trait HasMlData
     }
 
     /**
-     * Function to init Ml Class
+     * Function to init Ml Class.
      */
     private function initMlClass(): BaseMlModel
     {
@@ -74,10 +68,10 @@ trait HasMlData
     }
 
     /**
-     * Function to set ml class
+     * Function to set ml class.
      */
     protected function setMlClass(): BaseMlModel
     {
-        return app()->make($this->getClassNamespace() . '\\' . class_basename($this) . $this->mlClassPrefix);
+        return app()->make($this->getClassNamespace().'\\'.class_basename($this).$this->mlClassPrefix);
     }
 }

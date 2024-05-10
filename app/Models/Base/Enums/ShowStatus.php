@@ -11,11 +11,11 @@ final class ShowStatus
     final public const ALL = [
         self::ACTIVE,
         self::INACTIVE,
-        self::DELETED
+        self::DELETED,
     ];
 
     final public const FOR_SELECT = [
         self::ACTIVE,
-        self::INACTIVE
+        self::INACTIVE,
     ];
 }

@@ -11,6 +11,7 @@ class CreatePermissionTables extends Migration
      * Run the migrations.
      *
      * @return void
+     *
      * @throws Exception
      */
     public function up()
@@ -20,14 +21,10 @@ class CreatePermissionTables extends Migration
         $teams = config('permission.teams');
 
         if (empty($tableNames)) {
-            throw new Exception(
-                'Error: config/permission.php not loaded. Run [php artisan config:clear] and try again.'
-            );
+            throw new Exception('Error: config/permission.php not loaded. Run [php artisan config:clear] and try again.');
         }
         if ($teams && empty($columnNames['team_foreign_key'] ?? null)) {
-            throw new Exception(
-                'Error: team_foreign_key on config/permission.php not loaded. Run [php artisan config:clear] and try again.'
-            );
+            throw new Exception('Error: team_foreign_key on config/permission.php not loaded. Run [php artisan config:clear] and try again.');
         }
 
         Schema::create($tableNames['permissions'], function (Blueprint $table) {
@@ -78,7 +75,7 @@ class CreatePermissionTables extends Migration
                             $columnNames['team_foreign_key'],
                             PermissionRegistrar::$pivotPermission,
                             $columnNames['model_morph_key'],
-                            'model_type'
+                            'model_type',
                         ],
                         'model_has_permissions_permission_model_type_primary'
                     );
@@ -114,7 +111,7 @@ class CreatePermissionTables extends Migration
                             $columnNames['team_foreign_key'],
                             PermissionRegistrar::$pivotRole,
                             $columnNames['model_morph_key'],
-                            'model_type'
+                            'model_type',
                         ],
                         'model_has_roles_role_model_type_primary'
                     );
@@ -144,7 +141,7 @@ class CreatePermissionTables extends Migration
         });
 
         app('cache')
-            ->store(config('permission.cache.store') != 'default' ? config('permission.cache.store') : null)
+            ->store('default' != config('permission.cache.store') ? config('permission.cache.store') : null)
             ->forget(config('permission.cache.key'));
     }
 
@@ -158,9 +155,7 @@ class CreatePermissionTables extends Migration
         $tableNames = config('permission.table_names');
 
         if (empty($tableNames)) {
-            throw new Exception(
-                'Error: config/permission.php not found and defaults could not be merged. Please publish the package configuration before proceeding, or drop the tables manually.'
-            );
+            throw new Exception('Error: config/permission.php not found and defaults could not be merged. Please publish the package configuration before proceeding, or drop the tables manually.');
         }
 
         Schema::drop($tableNames['role_has_permissions']);

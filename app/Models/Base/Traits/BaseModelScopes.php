@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Builder;
 trait BaseModelScopes
 {
     /**
-     * Function to join tables
+     * Function to join tables.
      */
     public function scopeJoinTo($query): Builder
     {
@@ -21,7 +21,7 @@ trait BaseModelScopes
             $localKey = $params['l_k'] ?? 'id';
             $foreignKey = $params['f_k'] ?? $this->getForeignKey();
 
-            $query->on($joinTable . '.' . $foreignKey, '=', $table . '.' . $localKey);
+            $query->on($joinTable.'.'.$foreignKey, '=', $table.'.'.$localKey);
 
             if (isset($params['where'])) {
                 $query->where($params['where']);
@@ -30,16 +30,17 @@ trait BaseModelScopes
     }
 
     /**
-     * Function to order by sort_order
+     * Function to order by sort_order.
      */
     public function scopeOrdered($query, string $mode = 'ASC'): Builder
     {
         $table = $this->getTable();
-        return $query->orderBy($table . '.sort_order', $mode)->orderByDesc($table . '.id');
+
+        return $query->orderBy($table.'.sort_order', $mode)->orderByDesc($table.'.id');
     }
 
     /**
-     * Function to exclude select data
+     * Function to exclude select data.
      */
     public function scopeExclude($query, array $excludeColumns = []): Builder
     {
@@ -50,10 +51,10 @@ trait BaseModelScopes
     }
 
     /**
-     * Function to get only active data
+     * Function to get only active data.
      */
     public function scopeActive($query): Builder
     {
-        return $query->where($this->getTable() . '.show_status', ShowStatus::ACTIVE);
+        return $query->where($this->getTable().'.show_status', ShowStatus::ACTIVE);
     }
 }

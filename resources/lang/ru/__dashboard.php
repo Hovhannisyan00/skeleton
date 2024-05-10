@@ -1,12 +1,11 @@
 <?php
 
-return array(
-    'title' => "Dashboard",
-    'menu' =>
-        array(
-            'translation-manager' => 'Менеджер переводов',
-            'users' => 'Пользователи',
-        ),
+return [
+    'title' => 'Dashboard',
+    'menu' => [
+        'translation-manager' => 'Менеджер переводов',
+        'users' => 'Пользователи',
+    ],
     'select' => [
         'option' => [
             'show_status_1' => 'Active',
@@ -14,6 +13,5 @@ return array(
             'default' => 'Select',
             'all' => 'All',
         ],
-
     ],
-);
+];

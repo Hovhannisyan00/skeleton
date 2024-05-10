@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Menu\Menu;
-use Illuminate\Database\Seeder;
 use App\Models\RoleAndPermission\Enums\RoleType;
+use Illuminate\Database\Seeder;
 
 class MenuSeeder extends Seeder
 {

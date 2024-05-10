@@ -12,7 +12,7 @@ class ArticleSearch extends Search
         'title',
         'publish_date',
         'description',
-        'created_at'
+        'created_at',
     ];
 
     protected function query(): Builder
@@ -25,7 +25,7 @@ class ArticleSearch extends Search
             'title',
             'description',
             'show_status',
-            'created_at'
+            'created_at',
         ])
             ->when(!empty($filters['search']), function ($query) use ($filters) {
                 $query->likeOr(['id', 'title', 'description'], $filters);

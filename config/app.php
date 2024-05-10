@@ -1,7 +1,6 @@
 <?php
 
 return [
-
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -41,7 +40,7 @@ return [
     |
     */
 
-    'debug' => (bool)env('APP_DEBUG', false),
+    'debug' => (bool) env('APP_DEBUG', false),
 
     /*
     |--------------------------------------------------------------------------
@@ -137,7 +136,6 @@ return [
     */
 
     'providers' => [
-
         /*
          * Laravel Framework Service Providers...
          */
@@ -194,10 +192,10 @@ return [
         App\Providers\ValidatorServiceProvider::class,
 
         // Blade
-        App\Providers\BladeServiceProvider::class
+        App\Providers\BladeServiceProvider::class,
 
         // Image Resize
-//        Intervention\Image\ImageServiceProvider::class
+        //        Intervention\Image\ImageServiceProvider::class
     ],
 
     /*
@@ -212,7 +210,6 @@ return [
     */
 
     'aliases' => [
-
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
@@ -251,7 +248,6 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-//        'Image' => Intervention\Image\Facades\Image::class
+        //        'Image' => Intervention\Image\Facades\Image::class
     ],
-
 ];

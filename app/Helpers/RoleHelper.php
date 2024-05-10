@@ -12,6 +12,7 @@ if (!function_exists('getRoles')) {
         foreach (RoleType::ALL as $role) {
             $roles[Str::upper($role)] = $role;
         }
+
         return $roles;
     }
 }
@@ -21,7 +22,7 @@ if (!function_exists('getAuthUserRolesName')) {
     {
         $roles = [];
         foreach (Role::all() as $role) {
-            $roles[Str::upper($role->name)] = (string)$role->id;
+            $roles[Str::upper($role->name)] = (string) $role->id;
         }
 
         return $roles;

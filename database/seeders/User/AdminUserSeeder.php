@@ -8,14 +8,13 @@ use Hash;
 use Illuminate\Database\Seeder;
 
 /**
- * Class AdminUserSeeder
- * @package Database\Seeders
+ * Class AdminUserSeeder.
  */
 class AdminUserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
-     * Admin Seeder
+     * Admin Seeder.
      *
      * @return void
      */

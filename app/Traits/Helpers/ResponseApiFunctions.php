@@ -9,10 +9,6 @@ trait ResponseApiFunctions
 {
     /**
      * Success Response.
-     *
-     * @param mixed $data
-     * @param int $status
-     * @return JsonResponse
      */
     public function successResponse(mixed $data, int $status = Response::HTTP_OK): JsonResponse
     {
@@ -21,11 +17,6 @@ trait ResponseApiFunctions
 
     /**
      * Error Response.
-     *
-     * @param mixed $data
-     * @param string $message
-     * @param int $status
-     * @return JsonResponse
      */
     public function errorResponse(
         mixed $data,
@@ -46,10 +37,6 @@ trait ResponseApiFunctions
 
     /**
      * Error Response.
-     *
-     * @param mixed $data
-     * @param int $status
-     * @return JsonResponse
      */
     public function errorWithoutMessageResponse(
         mixed $data,
@@ -60,9 +47,6 @@ trait ResponseApiFunctions
 
     /**
      * Response with status code 200.
-     *
-     * @param mixed $data
-     * @return JsonResponse
      */
     public function okResponse(mixed $data): JsonResponse
     {
@@ -71,9 +55,6 @@ trait ResponseApiFunctions
 
     /**
      * Response with status code 201.
-     *
-     * @param mixed $data
-     * @return JsonResponse
      */
     public function createdResponse(mixed $data): JsonResponse
     {
@@ -82,8 +63,6 @@ trait ResponseApiFunctions
 
     /**
      * Response with status code 204.
-     *
-     * @return JsonResponse
      */
     public function noContentResponse(): JsonResponse
     {
@@ -92,10 +71,6 @@ trait ResponseApiFunctions
 
     /**
      * Response with status code 400.
-     *
-     * @param mixed $data
-     * @param string $message
-     * @return JsonResponse
      */
     public function badRequestResponse(mixed $data, string $message = ''): JsonResponse
     {
@@ -108,10 +83,6 @@ trait ResponseApiFunctions
 
     /**
      * Response with status code 401.
-     *
-     * @param mixed $data
-     * @param string $message
-     * @return JsonResponse
      */
     public function unauthorizedResponse(mixed $data, string $message = ''): JsonResponse
     {
@@ -124,8 +95,6 @@ trait ResponseApiFunctions
 
     /**
      * Response with status code 401.
-     *
-     * @return JsonResponse
      */
     public function unauthorizedWithoutDataResponse(): JsonResponse
     {
@@ -137,10 +106,6 @@ trait ResponseApiFunctions
 
     /**
      * Response with status code 403.
-     *
-     * @param mixed $data
-     * @param string $message
-     * @return JsonResponse
      */
     public function forbiddenResponse(mixed $data, string $message = ''): JsonResponse
     {
@@ -153,10 +118,6 @@ trait ResponseApiFunctions
 
     /**
      * Response with status code 404.
-     *
-     * @param mixed $data
-     * @param string $message
-     * @return JsonResponse
      */
     public function notFoundResponse(mixed $data, string $message = ''): JsonResponse
     {
@@ -169,10 +130,6 @@ trait ResponseApiFunctions
 
     /**
      * Response with status code 404 by attribute.
-     *
-     * @param string $attribute
-     * @param string $message
-     * @return JsonResponse
      */
     public function notFoundWithAttributeResponse(string $attribute = '', string $message = ''): JsonResponse
     {
@@ -189,10 +146,6 @@ trait ResponseApiFunctions
 
     /**
      * Response with status code 409.
-     *
-     * @param mixed $data
-     * @param string $message
-     * @return JsonResponse
      */
     public function conflictResponse(mixed $data, string $message = ''): JsonResponse
     {
@@ -205,10 +158,6 @@ trait ResponseApiFunctions
 
     /**
      * Response with status code 422.
-     *
-     * @param mixed $data
-     * @param string $message
-     * @return JsonResponse
      */
     public function unprocessableResponse(mixed $data, string $message = ''): JsonResponse
     {
@@ -221,8 +170,6 @@ trait ResponseApiFunctions
 
     /**
      * Response with status code 400.
-     *
-     * @return JsonResponse
      */
     public function badRequestWithoutDataResponse(): JsonResponse
     {
@@ -234,8 +181,6 @@ trait ResponseApiFunctions
 
     /**
      * Response with status code 403.
-     *
-     * @return JsonResponse
      */
     public function forbiddenWithoutDataResponse(): JsonResponse
     {
