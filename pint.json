@@ -9,7 +9,14 @@
         "fully_qualified_strict_types": true,
         "global_namespace_import": true,
         "blank_line_after_namespace": false,
-        "cast_spaces" : false,
+        "cast_spaces": false,
+        "trailing_comma_in_multiline": false,
+        "class_attributes_separation": {
+            "elements": {
+                "method": "one",
+                "property": "one"
+            }
+        },
         "concat_space": {
             "spacing": "one"
         }

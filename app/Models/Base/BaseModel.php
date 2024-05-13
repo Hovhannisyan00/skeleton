@@ -15,7 +15,6 @@ class BaseModel extends Model
     use ModelHelperFunctions;
 
     final public const TRUE = 1;
-
     final public const FALSE = 0;
 
     /**
