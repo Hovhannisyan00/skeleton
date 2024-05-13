@@ -13,8 +13,7 @@
         "trailing_comma_in_multiline": false,
         "class_attributes_separation": {
             "elements": {
-                "method": "one",
-                "property": "one"
+                "method": "one"
             }
         },
         "concat_space": {
