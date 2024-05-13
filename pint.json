@@ -9,6 +9,7 @@
         "fully_qualified_strict_types": true,
         "global_namespace_import": true,
         "blank_line_after_namespace": false,
+        "cast_spaces" : false,
         "concat_space": {
             "spacing": "one"
         }
