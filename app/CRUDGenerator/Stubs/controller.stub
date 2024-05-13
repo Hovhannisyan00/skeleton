@@ -16,7 +16,7 @@ class {{ CLASS_NAME }}Controller extends BaseController
     public function __construct(
         {{ CLASS_NAME }}Service $service,
         I{{ CLASS_NAME }}Repository $repository
-    ){
+    ) {
         $this->service = $service;
         $this->repository = $repository;
     }
