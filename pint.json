@@ -11,6 +11,11 @@
         "blank_line_after_namespace": false,
         "cast_spaces": false,
         "trailing_comma_in_multiline": false,
+        "function_declaration": {
+            "closure_function_spacing": "one",
+            "closure_fn_spacing": "none"
+        },
+        "function_typehint_space" : false,
         "class_attributes_separation": {
             "elements": {
                 "method": "one"
