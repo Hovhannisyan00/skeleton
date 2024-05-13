@@ -47,8 +47,8 @@ class {{ CLASS_NAME }}Controller extends BaseController
 
     public function store({{ CLASS_NAME }}Request $request): JsonResponse
     {
-     // For storing relations, sending emails, ...etc(extra functionality) use service
-     // $this->service->createOrUpdate($request->validated());
+        // For storing relations, sending emails, ...etc(extra functionality) use service
+        // $this->service->createOrUpdate($request->validated());
         $this->repository->create($request->validated());
 
         return $this->sendOkCreated([
@@ -83,8 +83,8 @@ class {{ CLASS_NAME }}Controller extends BaseController
 
     public function update({{ CLASS_NAME }}Request $request, {{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}): JsonResponse
     {
-     // For updating relations, sending emails, ...etc(extra functionality) use service
-     // $this->service->createOrUpdate($request->validated(), ${{ LOWER_CLASS_NAME }}->id);
+        // For updating relations, sending emails, ...etc(extra functionality) use service
+        // $this->service->createOrUpdate($request->validated(), ${{ LOWER_CLASS_NAME }}->id);
         $this->repository->update(${{ LOWER_CLASS_NAME }}->id, $request->validated());
 
         return $this->sendOkUpdated([
@@ -94,8 +94,8 @@ class {{ CLASS_NAME }}Controller extends BaseController
 
     public function destroy({{ CLASS_NAME }} ${{ LOWER_CLASS_NAME }}): JsonResponse
     {
-     // If deleting other data except model use service
-     // $this->service->delete(${{ LOWER_CLASS_NAME }}->id);
+        // If deleting other data except model use service
+        // $this->service->delete(${{ LOWER_CLASS_NAME }}->id);
         $this->repository->destroy(${{ LOWER_CLASS_NAME }}->id);
 
         return $this->sendOkDeleted();
