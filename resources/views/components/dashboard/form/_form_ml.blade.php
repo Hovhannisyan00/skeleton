@@ -1,6 +1,6 @@
 <form action="{{ $action ?? '' }}" method="{{ $formMethod ?? 'post'}}" id="{{ $id ?? '__form__request' }}"  @if($viewMode == 'show') class="show-mode" @endif>
 
-<div class="card-header">
+<div class="card-header sticky-top">
     <div class="form-bottom-buttons">
         <a href="{{ $indexUrl }}" class="btn btn-secondary ms-2">{{ __('__dashboard.button.cancel') }}</a>
 
@@ -80,7 +80,7 @@
 
 </div>
 
-<div class="card-footer">
+{{--<div class="card-footer">
     <div class="form-bottom-buttons">
         @isset($footer)
             {{ $footer }}
@@ -95,7 +95,7 @@
             @endif
         @endisset
     </div>
-</div>
+</div>--}}
 
 </form>
 

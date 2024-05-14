@@ -23,18 +23,18 @@
 <body>
 
 <main class="d-flex page">
-    <x-dashboard.layouts.partials.sidebar></x-dashboard.layouts.partials.sidebar>
+    <x-dashboard.layouts.partials.sidebar />
 
     <div class="wrapper w-100 d-flex flex-column">
-        <x-dashboard.layouts.partials.header></x-dashboard.layouts.partials.header>
+        <x-dashboard.layouts.partials.header />
         <div class="content d-flex flex-column flex-column-fluid">
-            <x-dashboard.layouts.partials.subheader></x-dashboard.layouts.partials.subheader>
+            <x-dashboard.layouts.partials.subheader />
             {{ $slot ?? '' }}
         </div>
     </div>
 </main>
 
-<x-dashboard.partials.modals></x-dashboard.partials.modals>
+<x-dashboard.partials.modals />
 
 {{-- Core Js  --}}
 <script src="{{ mix('/js/dashboard/dashboard-app.js') }}"></script>
