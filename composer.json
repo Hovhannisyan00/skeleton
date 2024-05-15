@@ -16,6 +16,7 @@
         "laravel/ui": "^4.2",
         "mcamara/laravel-localization": "v2.0.1",
         "predis/predis": "^2.1",
+        "reedware/laravel-relation-joins": "^6.0",
         "spatie/ignition": "*"
     },
     "require-dev": {
