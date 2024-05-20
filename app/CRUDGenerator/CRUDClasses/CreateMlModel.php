@@ -9,7 +9,7 @@ class CreateMlModel extends CRUDGeneratorAbstract
 {
     public const ML_MODEL = 'ml_model';
 
-    public function __construct($arguments)
+    public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 

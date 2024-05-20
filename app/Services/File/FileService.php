@@ -4,6 +4,7 @@ namespace App\Services\File;
 
 use App\Repositories\File\FileRepository;
 use Illuminate\Contracts\Filesystem\Filesystem;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -91,7 +92,7 @@ abstract class FileService
         }
     }
 
-    public function deleteModelFile($model, $fieldName = null): void
+    public function deleteModelFile(Model $model, ?string $fieldName = null): void
     {
         $files = $model->files($fieldName)->get();
         if ($files->count()) {
@@ -144,7 +145,7 @@ abstract class FileService
     {
         $originalName = $file->getClientOriginalName();
         $filename = basename($originalName, '.' . pathinfo($originalName, PATHINFO_EXTENSION));
-        $uniqueID = uniqid() . '_' . mb_ereg_replace("([^\w\s\d\-_~,;\[\]\(\).])", '', $filename);
+        $uniqueID = uniqid() . '_' . mb_ereg_replace('([^\\w\\s\\d\\-_~,;\\[\\]\\(\\).])', '', $filename);
 
         return $uniqueID . '.' . $file->getClientOriginalExtension();
     }
@@ -156,12 +157,12 @@ abstract class FileService
         }
     }
 
-    protected function getFilePathUploadsDisk($path): string
+    protected function getFilePathUploadsDisk(string $path): string
     {
         return $this->uploadsDisk->path($path);
     }
 
-    protected function getFilePathPendingDisk($path): string
+    protected function getFilePathPendingDisk(string $path): string
     {
         return $this->pendingDisk->path($path);
     }

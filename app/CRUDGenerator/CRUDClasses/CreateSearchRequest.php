@@ -9,7 +9,7 @@ class CreateSearchRequest extends CRUDGeneratorAbstract
 {
     public const REQUEST_REQUEST = 'search_request';
 
-    public function __construct($arguments)
+    public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 

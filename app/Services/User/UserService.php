@@ -35,7 +35,7 @@ class UserService extends BaseService
         ];
     }
 
-    public function createOrUpdate($data, ?int $id = null): Model
+    public function createOrUpdate(array $data, ?int $id = null): Model
     {
         $data = array_filter($data);
         if (!empty($data['password'])) {

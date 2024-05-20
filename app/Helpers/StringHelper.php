@@ -1,7 +1,7 @@
 <?php
 
 if (!function_exists('replaceNameWithDots')) {
-    function replaceNameWithDots($name): string
+    function replaceNameWithDots(mixed $name): string
     {
         if (str_contains($name, '[')) {
             $name = str_replace(['[', ''], '.', $name);

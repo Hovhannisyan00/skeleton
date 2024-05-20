@@ -19,7 +19,7 @@ class ProfileService extends BaseService
         $this->fileService = $fileService;
     }
 
-    public function update($data, ?int $id = null): Model
+    public function update(array $data, ?int $id = null): Model
     {
         return DB::transaction(function () use ($id, $data) {
             $user = $this->repository->update($id, $data);

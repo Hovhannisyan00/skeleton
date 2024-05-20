@@ -45,9 +45,9 @@ interface IBaseRepository
 
     public function updateOrCreate(array $whereData, array $data): Model;
 
-    public function updateIn(array $ids, array $data): bool;
+    public function updateIn(array $ids, array $data): int;
 
-    public function updateWhere(array $whereData, array $data): bool;
+    public function updateWhere(array $whereData, array $data): int;
 
     public function destroy(int|string $id): bool;
 

@@ -3,35 +3,35 @@
 use Carbon\Carbon;
 
 if (!function_exists('getDateFormat')) {
-    function getDateFormat()
+    function getDateFormat(): string
     {
         return config('dashboard.date_format');
     }
 }
 
 if (!function_exists('getDateFormatFront')) {
-    function getDateFormatFront()
+    function getDateFormatFront(): string
     {
         return config('dashboard.date_format_front');
     }
 }
 
 if (!function_exists('getDateTimeFormat')) {
-    function getDateTimeFormat()
+    function getDateTimeFormat(): string
     {
         return config('dashboard.date_time_format');
     }
 }
 
 if (!function_exists('getDateTimeFormatFront')) {
-    function getDateTimeFormatFront()
+    function getDateTimeFormatFront(): string
     {
         return config('dashboard.date_time_format_front');
     }
 }
 
 if (!function_exists('getStartOfDay')) {
-    function getStartOfDay(?string $date): string|Carbon
+    function getStartOfDay(?string $date): Carbon|string
     {
         if (is_null($date)) {
             return '';
@@ -42,7 +42,7 @@ if (!function_exists('getStartOfDay')) {
 }
 
 if (!function_exists('getEndOfDay')) {
-    function getEndOfDay(?string $date): string|Carbon
+    function getEndOfDay(?string $date): Carbon|string
     {
         if (is_null($date)) {
             return '';
@@ -53,14 +53,14 @@ if (!function_exists('getEndOfDay')) {
 }
 
 if (!function_exists('formattedDate')) {
-    function formattedDate($date): string
+    function formattedDate(string $date): string
     {
         return Carbon::parse($date)->format(getDateFormatFront());
     }
 }
 
 if (!function_exists('formatDateForBackend')) {
-    function formatDateForBackend($date): string
+    function formatDateForBackend(string $date): string
     {
         $dateObject = DateTime::createFromFormat(getDateFormat(), $date);
         if ($dateObject !== false && $dateObject->format(getDateFormat()) === $date) {
@@ -72,7 +72,7 @@ if (!function_exists('formatDateForBackend')) {
 }
 
 if (!function_exists('formatDateTimeForBackend')) {
-    function formatDateTimeForBackend($dateTime): string
+    function formatDateTimeForBackend(string $dateTime): string
     {
         $dateObject = DateTime::createFromFormat(getDateTimeFormat(), $dateTime);
         if ($dateObject !== false && $dateObject->format(getDateTimeFormat()) === $dateTime) {

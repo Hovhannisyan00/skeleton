@@ -9,7 +9,7 @@ class CreateController extends CRUDGeneratorAbstract
 {
     public const CONTROLLER = 'controller';
 
-    public function __construct($arguments)
+    public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 

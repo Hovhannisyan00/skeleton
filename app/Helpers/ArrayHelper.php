@@ -1,7 +1,7 @@
 <?php
 
 if (!function_exists('modifyDataForSelect')) {
-    function modifyDataForSelect(array $data, $customKey = false, string $addTransKey = ''): array
+    function modifyDataForSelect(array $data, bool $customKey = false, string $addTransKey = ''): array
     {
         $result = [];
         foreach ($data as $key => $value) {

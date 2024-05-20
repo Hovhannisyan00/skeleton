@@ -125,12 +125,12 @@ class BaseRepository implements IBaseRepository
         return $this->model->updateOrCreate($whereData, $data);
     }
 
-    public function updateIn(array $ids, array $data): bool
+    public function updateIn(array $ids, array $data): int
     {
         return $this->model->whereIn('id', $ids)->update($data);
     }
 
-    public function updateWhere(array $whereData, array $data): bool
+    public function updateWhere(array $whereData, array $data): int
     {
         return $this->model->where($whereData)->update($data);
     }
@@ -140,7 +140,7 @@ class BaseRepository implements IBaseRepository
         return $this->model->destroy($id);
     }
 
-    public function softDelete(int $id): bool
+    public function softDelete(int $id): bool|int
     {
         $currentModel = $this->model->findOrFail($id);
 

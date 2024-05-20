@@ -23,6 +23,7 @@ return (new Config())
         'blank_line_after_namespace' => false,
         'cast_spaces' => false,
         'trailing_comma_in_multiline' => false,
+        'ordered_class_elements' => false,
         'single_line_empty_body' => true,
         'function_declaration' => [
             'closure_function_spacing' => 'one',

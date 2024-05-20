@@ -25,7 +25,7 @@ trait HasMlData
     /**
      * Function to get model current ml data.
      */
-    public function scopeJoinMl($query): Builder
+    public function scopeJoinMl(Builder $query): Builder
     {
         $params = func_get_args();
         $table = $this->getTable();

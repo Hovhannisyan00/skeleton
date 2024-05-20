@@ -27,7 +27,7 @@ abstract class BaseController extends Controller
         return view(self::DASHBOARD_VIEW_PREFIX . '.' . $view, $vars);
     }
 
-    protected function renderDashboardView($view, array $vars = []): string
+    protected function renderDashboardView(string $view, array $vars = []): string
     {
         return view(self::DASHBOARD_VIEW_PREFIX . '.' . $view, $vars)->render();
     }

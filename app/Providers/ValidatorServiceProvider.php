@@ -74,7 +74,7 @@ class ValidatorServiceProvider extends ServiceProvider
             'phone_number_validator',
             function ($attribute, $value) use ($minPhoneNumberLength, $maxPhoneNumberLength) {
                 $rules = [
-                    $attribute => "gt:0|between:$minPhoneNumberLength,$maxPhoneNumberLength|regex:/^([0-9\s\-\+\(\)]*)$/",
+                    $attribute => "gt:0|between:$minPhoneNumberLength,$maxPhoneNumberLength|regex:/^([0-9\\s\\-\\+\\(\\)]*)$/",
                 ];
 
                 return $this->validator($this->getAttributeValue($attribute, $value), $rules);
@@ -123,7 +123,7 @@ class ValidatorServiceProvider extends ServiceProvider
         }, trans('validation.invalid'));
     }
 
-    private function getAttributeValue($attribute, $value): array
+    private function getAttributeValue(mixed $attribute, mixed $value): array
     {
         $data = [];
 
@@ -136,7 +136,7 @@ class ValidatorServiceProvider extends ServiceProvider
         return $data;
     }
 
-    private function validator($data, $rules): bool
+    private function validator(array $data, array $rules): bool
     {
         $validator = Validator::make($data, $rules);
 
@@ -147,7 +147,7 @@ class ValidatorServiceProvider extends ServiceProvider
         return true;
     }
 
-    private function dataArray($array, $value): array
+    private function dataArray(array $array, array|string $value): array
     {
         $resultArray = $value;
         for ($i = count($array) - 1; $i >= 0; $i--) {

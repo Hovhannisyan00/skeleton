@@ -1,0 +1,14 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+
+parameters:
+    level: 6
+
+    ignoreErrors:
+            - '#Access to an undefined property#'
+            - '#Call to an undefined method#'
+            - '#Property .* does not accept#'
+            - '#Method .* return type has no value type specified in iterable type array.#'
+            - '#Method .* has parameter .* with no value type specified in iterable type array.#'
+            - '#Method .* return type with generic class .* does not specify its types: TKey, TValue#'
+            - '#Property .* type has no value type specified in iterable type array.#'

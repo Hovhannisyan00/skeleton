@@ -10,7 +10,7 @@ trait BaseModelScopes
     /**
      * Function to join tables.
      */
-    public function scopeJoinTo($query): Builder
+    public function scopeJoinTo(Builder $query): Builder
     {
         $params = func_get_args()[1];
         $table = $this->getTable();
@@ -32,7 +32,7 @@ trait BaseModelScopes
     /**
      * Function to order by sort_order.
      */
-    public function scopeOrdered($query, string $mode = 'ASC'): Builder
+    public function scopeOrdered(Builder $query, string $mode = 'ASC'): Builder
     {
         $table = $this->getTable();
 
@@ -42,7 +42,7 @@ trait BaseModelScopes
     /**
      * Function to exclude select data.
      */
-    public function scopeExclude($query, array $excludeColumns = []): Builder
+    public function scopeExclude(Builder $query, array $excludeColumns = []): Builder
     {
         $selectColumns = array_diff($this->fillable, $excludeColumns);
         $selectColumns[] = 'id';
@@ -53,7 +53,7 @@ trait BaseModelScopes
     /**
      * Function to get only active data.
      */
-    public function scopeActive($query): Builder
+    public function scopeActive(Builder $query): Builder
     {
         return $query->where($this->getTable() . '.show_status', ShowStatus::ACTIVE);
     }

@@ -10,7 +10,7 @@ class CreateModel extends CRUDGeneratorAbstract
 
     public const MODEL_WITH_ML = 'model_with_ml';
 
-    public function __construct($arguments)
+    public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 

@@ -8,7 +8,7 @@ class CreateModelSearch extends CRUDGeneratorAbstract
 {
     public const MODEL_SEARCH = 'model_search';
 
-    public function __construct($arguments)
+    public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 

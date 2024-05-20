@@ -29,7 +29,7 @@ class RemoveTempFiles extends Command
     /**
      * Function to remove old temp files.
      */
-    public function handle()
+    public function handle(): void
     {
         FileTempService::removeTempFiles();
     }

@@ -8,7 +8,7 @@ class CreateService extends CRUDGeneratorAbstract
 {
     public const SERVICE = 'service';
 
-    public function __construct($arguments)
+    public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 

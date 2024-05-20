@@ -8,7 +8,7 @@ class CreateRepository extends CRUDGeneratorAbstract
 {
     public const REPOSITORY = 'repository';
 
-    public function __construct($arguments)
+    public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 

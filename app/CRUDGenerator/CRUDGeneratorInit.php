@@ -13,7 +13,7 @@ class CRUDGeneratorInit
 
     protected ConsoleOutput $consoleOutput;
 
-    public function __construct($arguments)
+    public function __construct(array $arguments)
     {
         $this->arguments = $arguments;
         $this->consoleOutput = new ConsoleOutput();

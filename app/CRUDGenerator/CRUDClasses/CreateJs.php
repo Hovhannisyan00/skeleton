@@ -9,7 +9,7 @@ class CreateJs extends CRUDGeneratorAbstract
 {
     public const JS = 'js';
 
-    public function __construct($arguments)
+    public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 
