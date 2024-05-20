@@ -21,10 +21,10 @@ return (new Config())
         'fully_qualified_strict_types' => true,
         'global_namespace_import' => true,
         'blank_line_after_namespace' => false,
+        'ordered_class_elements' => false,
         'cast_spaces' => false,
         'trailing_comma_in_multiline' => false,
-        'ordered_class_elements' => false,
-        'single_line_empty_body' => true,
+        'single_line_empty_body' => false,
         'function_declaration' => [
             'closure_function_spacing' => 'one',
             'closure_fn_spacing' => 'none',

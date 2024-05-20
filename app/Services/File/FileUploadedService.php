@@ -22,7 +22,7 @@ class FileUploadedService extends FileService
     /**
      * Function to put file to folder and save to db.
      */
-    private function create(Model $model, $file,array $config): void
+    private function create(Model $model, $file, array $config): void
     {
         $fieldName = $config['field_name'];
         $fileType = $config['file_type'];
