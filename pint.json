@@ -11,6 +11,7 @@
         "blank_line_after_namespace": false,
         "cast_spaces": false,
         "trailing_comma_in_multiline": false,
+        "single_line_empty_body": true,
         "function_declaration": {
             "closure_function_spacing": "one",
             "closure_fn_spacing": "none"
