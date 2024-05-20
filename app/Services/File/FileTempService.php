@@ -23,7 +23,7 @@ class FileTempService extends FileService
         }
     }
 
-    private function create(Model $model, array $config, $fileName): void
+    private function create(Model $model, array $config, string $fileName): void
     {
         $fieldName = $config['field_name'];
         $fileType = $config['file_type'];

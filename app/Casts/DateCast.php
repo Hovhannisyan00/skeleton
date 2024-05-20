@@ -11,8 +11,7 @@ final class DateCast implements CastsAttributes
     public function __construct(
         private readonly bool $withFormatted = false,
         private readonly bool $isDateTime = false,
-    ) {
-    }
+    ) {}
 
     public function get(Model $model, string $key, mixed $value, array $attributes): string
     {
@@ -32,8 +31,8 @@ final class DateCast implements CastsAttributes
 
         $replacedKey = str_replace('_formatted', '', $key);
 
-        if (isset($model->$replacedKey)) {
-            $result = $this->getCarbonFormattedValue($model->$replacedKey);
+        if (isset($model->{$replacedKey})) {
+            $result = $this->getCarbonFormattedValue($model->{$replacedKey});
         }
 
         return $result;

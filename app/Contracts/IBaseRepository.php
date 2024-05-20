@@ -49,7 +49,7 @@ interface IBaseRepository
 
     public function updateWhere(array $whereData, array $data): int;
 
-    public function destroy(int|string $id): bool;
+    public function destroy(int|string $id): int;
 
     public function saveMl(Model $model, array $mlsData): void;
 }

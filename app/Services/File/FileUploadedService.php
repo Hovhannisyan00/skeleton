@@ -22,7 +22,7 @@ class FileUploadedService extends FileService
     /**
      * Function to put file to folder and save to db.
      */
-    private function create(Model $model, $file, $config): void
+    private function create(Model $model, $file,array $config): void
     {
         $fieldName = $config['field_name'];
         $fileType = $config['file_type'];
@@ -36,7 +36,7 @@ class FileUploadedService extends FileService
 
         if (isset($config['thumb'])) {
             $this->saveThumb(
-                filename: $fileName,
+                fileName: $fileName,
                 filePath: $this->getFilePathUploadsDisk($savedFile),
                 thumbConfig: $config['thumb'],
                 directoryData: [

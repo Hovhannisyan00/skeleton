@@ -24,14 +24,14 @@ if (!function_exists('currentLanguageName')) {
 }
 
 if (!function_exists('currentLanguageImg')) {
-    function currentLanguageImg()
+    function currentLanguageImg(): string
     {
         return LaravelLocalization::getSupportedLocales()[LaravelLocalization::getCurrentLocale()]['img'];
     }
 }
 
 if (!function_exists('languageDisplayName')) {
-    function languageDisplayName($lang)
+    function languageDisplayName(string $lang): string
     {
         return LaravelLocalization::getSupportedLocales()[$lang]['displayName'];
     }
@@ -62,7 +62,7 @@ if (!function_exists('getTrans')) {
 }
 
 if (!function_exists('langIconPath')) {
-    function langIconPath($lang = null): string
+    function langIconPath(?string $lang = null): string
     {
         return match ($lang) {
             'de' => '/img/germany.svg',
@@ -74,7 +74,7 @@ if (!function_exists('langIconPath')) {
 }
 
 if (!function_exists('getCurrentAlternateHref')) {
-    function getCurrentAlternateHref($locale): string
+    function getCurrentAlternateHref(string $locale): string
     {
         $path = strstr(request()->path(), '/');
 

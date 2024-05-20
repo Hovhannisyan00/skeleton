@@ -5,6 +5,7 @@ namespace App\View\Components\Dashboard\Form;
 use App\View\Components\Dashboard\Base;
 use DOMDocument;
 use DOMElement;
+use DOMNode;
 use DOMNodeList;
 use DOMXPath;
 use Illuminate\Contracts\View\View;
@@ -70,9 +71,9 @@ class MlTabs extends Base
     /**
      * Function to element set value.
      */
-    private function setValue(DOMElement $input, string $name): void
+    private function setValue(DOMElement|DOMNode $input, string $name): void
     {
-        $columnValue = $this->mlData[$this->lngCode]->$name;
+        $columnValue = $this->mlData[$this->lngCode]->{$name};
         $tagName = $input->tagName;
         if ($tagName === self::TAG_INPUT) {
             $input->setAttribute('value', $columnValue);

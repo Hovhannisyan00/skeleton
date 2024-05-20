@@ -15,7 +15,7 @@ abstract class CRUDGeneratorAbstract
 
     protected array $config;
 
-    public function __construct($arguments)
+    public function __construct(array $arguments)
     {
         $this->arguments = $arguments;
         $this->className = $arguments['className'];
@@ -38,7 +38,7 @@ abstract class CRUDGeneratorAbstract
     /**
      * Function to get CRUD config by key.
      */
-    protected function getConfig($key): array
+    protected function getConfig(string $key): array
     {
         return config("crud.$key");
     }
@@ -51,7 +51,7 @@ abstract class CRUDGeneratorAbstract
     /**
      * Function to return stub directory path.
      */
-    protected function getStubDirectoryPath($fileInfo): string
+    protected function getStubDirectoryPath(array $fileInfo): string
     {
         return isset($fileInfo['stub_directory_path']) ? $fileInfo['stub_directory_path'] . '/' : '';
     }
@@ -74,7 +74,7 @@ abstract class CRUDGeneratorAbstract
     /**
      * Replace the stub variables(key) with the desire value.
      */
-    protected function getStubContents($stub, array $stubVariables = []): string
+    protected function getStubContents(string $stub, array $stubVariables = []): string
     {
         $stubVariables['ROOT_NAMESPACE'] = app()->getNamespace();
 

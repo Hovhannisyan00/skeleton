@@ -7,9 +7,6 @@ use Spatie\Permission\Models\Role as SpatieRole;
 
 class Role extends SpatieRole
 {
-    /**
-     * @var string[]
-     */
     protected $fillable = ['name', 'guard_name'];
 
     public static function getRolesFormatted(): string
@@ -17,7 +14,7 @@ class Role extends SpatieRole
         return implode('|', RoleType::ALL);
     }
 
-    public static function getRoleNames(array $ids)
+    public static function getRoleNames(array $ids): array
     {
         return Role::whereIn('id', $ids)->pluck('name')->all();
     }

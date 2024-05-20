@@ -24,7 +24,7 @@ abstract class Search
         'id',
     ];
 
-    public function __construct($data)
+    public function __construct(mixed $data)
     {
         if (!empty($data['f'])) {
             $this->filters = $data['f'];
@@ -45,14 +45,14 @@ abstract class Search
 
     abstract protected function query(): Builder;
 
-    protected function setOrdering($query): void
+    protected function setOrdering(Builder $query): void
     {
         if (in_array($this->order['sort_by'] ?? '', $this->orderables)) {
             $query->orderBy($this->order['sort_by'], $this->order['sort_desc']);
         }
     }
 
-    protected function setLimits($query): void
+    protected function setLimits(Builder $query): void
     {
         $query
             ->skip($this->start)
@@ -68,7 +68,7 @@ abstract class Search
         return $this->setReturnData($query);
     }
 
-    public function setReturnData($query): mixed
+    public function setReturnData(Builder $query): mixed
     {
         return $query->get();
     }

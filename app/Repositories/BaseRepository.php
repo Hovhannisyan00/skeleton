@@ -135,7 +135,7 @@ class BaseRepository implements IBaseRepository
         return $this->model->where($whereData)->update($data);
     }
 
-    public function destroy(int|string $id): bool
+    public function destroy(int|string $id): int
     {
         return $this->model->destroy($id);
     }

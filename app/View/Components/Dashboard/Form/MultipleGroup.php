@@ -4,6 +4,9 @@ namespace App\View\Components\Dashboard\Form;
 
 use App\View\Components\Dashboard\Base;
 use DOMDocument;
+use DOMElement;
+use DOMNode;
+use DOMNodeList;
 use DOMXPath;
 use Illuminate\Contracts\View\View;
 
@@ -65,7 +68,7 @@ class MultipleGroup extends Base
     /**
      * Function to find by selector and change html tag.
      */
-    private function find($xpath, string $selector, string $attribute = self::ATTRIBUTE_NAME): void
+    private function find(DOMXPath $xpath, string $selector, string $attribute = self::ATTRIBUTE_NAME): void
     {
         $elements = $xpath->query($selector);
 
@@ -75,7 +78,7 @@ class MultipleGroup extends Base
     /**
      * Function to change html tag name and set value.
      */
-    private function changeNameAndSetValue($inputs, $attribute): void
+    private function changeNameAndSetValue(DOMNodeList $inputs, string $attribute): void
     {
         foreach ($inputs as $input) {
             $name = $input->getAttribute($attribute);
@@ -100,7 +103,7 @@ class MultipleGroup extends Base
     /**
      * Function to element set value.
      */
-    private function setValue($input, $name): void
+    private function setValue(DOMElement|DOMNode $input, mixed $name): void
     {
         $columnValue = $this->multipleData;
         if ($name) {

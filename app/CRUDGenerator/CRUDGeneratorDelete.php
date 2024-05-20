@@ -13,7 +13,7 @@ class CRUDGeneratorDelete
 
     protected string $className;
 
-    public function __construct($arguments)
+    public function __construct(array $arguments)
     {
         $this->className = $arguments['className'];
     }

@@ -10,8 +10,7 @@ final class CurrencyCast implements CastsAttributes
     public function __construct(
         private readonly bool $addIcon = false,
         private readonly bool $withFormatted = false,
-    ) {
-    }
+    ) {}
 
     public function get(Model $model, string $key, mixed $value, array $attributes): string
     {
@@ -25,7 +24,7 @@ final class CurrencyCast implements CastsAttributes
         );
     }
 
-    private function getFormatted(Model $model, string $key): string
+    private function getFormatted(Model $model, string $key): int|string
     {
         $result = 0;
         if (!str_contains($key, '_formatted')) {
@@ -34,9 +33,9 @@ final class CurrencyCast implements CastsAttributes
 
         $replacedKey = str_replace('_formatted', '', $key);
 
-        if (isset($model->$replacedKey)) {
+        if (isset($model->{$replacedKey})) {
             $result = formattedPrice(
-                price: $model->$replacedKey,
+                price: $model->{$replacedKey},
                 addIcon: $this->addIcon
             );
         }
