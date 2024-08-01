@@ -450,7 +450,6 @@ class DataTable {
   }
 
   createDataTable() {
-    console.log(this.options)
     this.table = this.tableEl.DataTable(this.options);
   }
 
