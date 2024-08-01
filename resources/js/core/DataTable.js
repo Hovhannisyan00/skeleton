@@ -168,12 +168,12 @@ class DataTable {
   // eslint-disable-next-line class-methods-use-this
   generateRequestData(data) {
     let orderColumn = data.order[0];
-    if (this.options.order) {
+   /* if (this.options.order) {
       orderColumn = {
         column: this.options.order[0][0],
         dir: this.options.order[0][1],
       };
-    }
+    }*/
 
     return {
       'order[sort_by]': data.columns[orderColumn.column].name,

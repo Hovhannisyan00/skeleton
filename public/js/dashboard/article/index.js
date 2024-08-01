@@ -14,6 +14,7 @@ const options = {
     // }
   },
 
+  // Need to check
   // order: [[2, 'desc']],
 
   // Search input hide
