@@ -7,7 +7,7 @@ return [
         'path' => "$rootNamespace\\Http\\Controllers\\Dashboard",
         'file_name' => ':attributeController.php',
         'stub_file_name' => 'controller',
-        'stub_file_name_ml' => 'controllerMl',
+        'stub_file_name_ml' => 'ml-controller',
     ],
 
     'interface' => [
@@ -53,6 +53,7 @@ return [
         'path' => "$rootNamespace\\Models\\:attribute",
         'file_name' => ':attributeSearch.php',
         'stub_file_name' => 'model.search',
+        'stub_file_name_ml' => 'ml-model.search',
         'stub_directory_path' => 'models',
     ],
 
@@ -60,6 +61,7 @@ return [
         'path' => "$rootNamespace\\Http\\Requests\\:attribute",
         'file_name' => ':attributeRequest.php',
         'stub_file_name' => 'request',
+        'stub_file_name_ml' => 'ml-request',
         'stub_directory_path' => 'requests',
     ],
 
@@ -76,6 +78,7 @@ return [
             [
                 'file_name' => 'index.blade.php',
                 'stub_file_name' => 'index.blade',
+                'stub_file_name_ml' => 'ml-index.blade',
                 'stub_directory_path' => 'blades',
             ],
             [
