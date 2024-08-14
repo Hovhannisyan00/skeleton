@@ -257,7 +257,7 @@ class DataTable {
       },
       language: {
         search: '',
-        searchPlaceholder: $trans('__dashboard.datatable.search_input_placeholder')
+        searchPlaceholder: $trans('__dashboard.datatable.search_input_placeholder'),
       },
     };
 
@@ -410,6 +410,13 @@ class DataTable {
           if (!Array.isArray(value) && searchInput.attr('multiple')) {
             addArrayBrackets = '[]';
           }
+
+          // Search Input of Datatable
+          /*if (key === 'search') {
+            setTimeout(function () {
+              $('.dataTables_filter').find('input').val(value);
+            }, 200);
+          }*/
 
           //
           searchInput.val(value);
