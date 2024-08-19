@@ -6,13 +6,13 @@ use App\CRUDGenerator\CRUDGeneratorAbstract;
 
 class CreateInterface extends CRUDGeneratorAbstract
 {
-    public const INTERFACE = 'interface';
+    public const CONFIG_NAME = 'interface';
 
     public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 
-        $this->config = $this->getConfig(self::INTERFACE);
+        $this->config = $this->getConfig(self::CONFIG_NAME);
     }
 
     public function make(): void

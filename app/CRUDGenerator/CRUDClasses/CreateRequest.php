@@ -7,13 +7,13 @@ use Illuminate\Support\Str;
 
 class CreateRequest extends CRUDGeneratorAbstract
 {
-    public const REQUEST = 'request';
+    public const CONFIG_NAME = 'request';
 
     public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 
-        $this->config = $this->getConfig(self::REQUEST);
+        $this->config = $this->getConfig(self::CONFIG_NAME);
     }
 
     public function make(): void
@@ -28,13 +28,10 @@ class CreateRequest extends CRUDGeneratorAbstract
 
     protected function stubVariables(): array
     {
-        $singularClassName = strtolower(Str::singular($this->className));
-        $pluralClassName = strtolower(Str::plural($this->className));
-
         return [
             'CLASS_NAME' => $this->className,
-            'SINGULAR_CLASS_NAME' => $singularClassName,
-            'PLURAL_CLASS_NAME' => $pluralClassName,
+            'SINGULAR_CLASS_NAME' => strtolower(Str::singular($this->className)),
+            'PLURAL_CLASS_NAME' => strtolower(Str::plural($this->className)),
         ];
     }
 }

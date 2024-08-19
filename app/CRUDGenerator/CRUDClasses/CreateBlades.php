@@ -7,13 +7,13 @@ use Illuminate\Support\Str;
 
 class CreateBlades extends CRUDGeneratorAbstract
 {
-    public const BLADES = 'blades';
+    public const CONFIG_NAME = 'blades';
 
     public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 
-        $this->config = $this->getConfig(self::BLADES);
+        $this->config = $this->getConfig(self::CONFIG_NAME);
     }
 
     public function make(): void
@@ -29,7 +29,7 @@ class CreateBlades extends CRUDGeneratorAbstract
 
     public function getMessageText(): string
     {
-        return ucfirst(self::BLADES);
+        return ucfirst(self::CONFIG_NAME);
     }
 
     protected function stubVariables(): array

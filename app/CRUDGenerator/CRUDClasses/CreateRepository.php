@@ -6,13 +6,13 @@ use App\CRUDGenerator\CRUDGeneratorAbstract;
 
 class CreateRepository extends CRUDGeneratorAbstract
 {
-    public const REPOSITORY = 'repository';
+    public const CONFIG_NAME = 'repository';
 
     public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 
-        $this->config = $this->getConfig(self::REPOSITORY);
+        $this->config = $this->getConfig(self::CONFIG_NAME);
     }
 
     public function make(): void

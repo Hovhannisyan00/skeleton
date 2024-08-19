@@ -6,13 +6,13 @@ use App\CRUDGenerator\CRUDGeneratorAbstract;
 
 class CreateModelSearch extends CRUDGeneratorAbstract
 {
-    public const MODEL_SEARCH = 'model_search';
+    public const CONFIG_NAME = 'model_search';
 
     public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 
-        $this->config = $this->getConfig(self::MODEL_SEARCH);
+        $this->config = $this->getConfig(self::CONFIG_NAME);
     }
 
     public function make(): void

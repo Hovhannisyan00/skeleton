@@ -7,13 +7,13 @@ use Illuminate\Support\Str;
 
 class CreateSearchRequest extends CRUDGeneratorAbstract
 {
-    public const REQUEST_REQUEST = 'search_request';
+    public const CONFIG_NAME = 'search_request';
 
     public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 
-        $this->config = $this->getConfig(self::REQUEST_REQUEST);
+        $this->config = $this->getConfig(self::CONFIG_NAME);
     }
 
     public function make(): void

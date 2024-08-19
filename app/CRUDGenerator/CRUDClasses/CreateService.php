@@ -6,13 +6,13 @@ use App\CRUDGenerator\CRUDGeneratorAbstract;
 
 class CreateService extends CRUDGeneratorAbstract
 {
-    public const SERVICE = 'service';
+    public const CONFIG_NAME = 'service';
 
     public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 
-        $this->config = $this->getConfig(self::SERVICE);
+        $this->config = $this->getConfig(self::CONFIG_NAME);
     }
 
     public function make(): void

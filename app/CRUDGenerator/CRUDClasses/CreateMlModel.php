@@ -7,13 +7,13 @@ use Illuminate\Support\Str;
 
 class CreateMlModel extends CRUDGeneratorAbstract
 {
-    public const ML_MODEL = 'ml_model';
+    public const CONFIG_NAME = 'ml_model';
 
     public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 
-        $this->config = $this->getConfig(self::ML_MODEL);
+        $this->config = $this->getConfig(self::CONFIG_NAME);
     }
 
     public function make(): void
@@ -33,11 +33,9 @@ class CreateMlModel extends CRUDGeneratorAbstract
      */
     protected function stubVariables(): array
     {
-        $variableName = Str::snake($this->className);
-
         return [
             'CLASS_NAME' => $this->className,
-            'VARIABLE_NAME' => $variableName,
+            'VARIABLE_NAME' => Str::snake($this->className),
         ];
     }
 }

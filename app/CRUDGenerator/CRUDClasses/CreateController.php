@@ -7,13 +7,13 @@ use Illuminate\Support\Str;
 
 class CreateController extends CRUDGeneratorAbstract
 {
-    public const CONTROLLER = 'controller';
+    public const CONFIG_NAME = 'controller';
 
     public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 
-        $this->config = $this->getConfig(self::CONTROLLER);
+        $this->config = $this->getConfig(self::CONFIG_NAME);
     }
 
     public function make(): void

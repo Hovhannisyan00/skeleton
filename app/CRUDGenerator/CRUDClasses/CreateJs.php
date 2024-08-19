@@ -7,13 +7,13 @@ use Illuminate\Support\Str;
 
 class CreateJs extends CRUDGeneratorAbstract
 {
-    public const JS = 'js';
+    public const CONFIG_NAME = 'js';
 
     public function __construct(array $arguments)
     {
         parent::__construct($arguments);
 
-        $this->config = $this->getConfig(self::JS);
+        $this->config = $this->getConfig(self::CONFIG_NAME);
     }
 
     public function make(): void
@@ -25,7 +25,7 @@ class CreateJs extends CRUDGeneratorAbstract
 
     public function getMessageText(): string
     {
-        return ucfirst(self::JS);
+        return ucfirst(self::CONFIG_NAME);
     }
 
     /**
