@@ -64,11 +64,12 @@ if (!function_exists('getTrans')) {
 if (!function_exists('langIconPath')) {
     function langIconPath(?string $lang = null): string
     {
+        $flagsPath = '/img/flags';
         return match ($lang) {
-            'de' => '/img/germany.svg',
-            'ru' => '/img/Flag_of_Russia.svg',
-            'hy' => '/img/Armenia_-_Rounded_Rectangle.svg',
-            default => '/img/united-states.svg'
+            'de' => "$flagsPath/germany.svg",
+            'ru' => "$flagsPath/russia.svg",
+            'hy' => "$flagsPath/armenia.svg",
+            default => "$flagsPath/united_states.svg"
         };
     }
 }

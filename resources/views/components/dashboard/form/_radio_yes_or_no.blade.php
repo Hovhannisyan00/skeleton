@@ -6,6 +6,7 @@
     $yesValue = '1';
     $noValue = '0';
 @endphp
+
 <div>
     <label class="control-label">{{$title}}</label>
 </div>

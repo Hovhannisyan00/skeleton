@@ -3,6 +3,7 @@
     $title = __('__dashboard.label.'.($title ?? $replacedName));
     $labelId = empty($id) ? $name.'_'.rand() : $id;
 @endphp
+
 <div class="custom-radio-block mb-2">
     <input type="radio"
            id="{{$labelId}}"

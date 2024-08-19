@@ -14,7 +14,6 @@
 </div>
 
 <div class="card-body loading-content">
-
     @method($method ?? 'post')
     @csrf
 
@@ -76,8 +75,6 @@
             @endif
         </div>
     </div>
-
-
 </div>
 
 {{--<div class="card-footer">

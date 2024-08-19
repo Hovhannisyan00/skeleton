@@ -7,6 +7,7 @@
 @if(!isset($noLabel))
     <label for="{{ $labelId }}" class="control-label">{{ $title }}</label>
 @endif
+
 <input type="{{ $type ?? 'text' }}"
        id="{{$labelId}}"
        @isset($autocomplete) autocomplete="off" @endisset

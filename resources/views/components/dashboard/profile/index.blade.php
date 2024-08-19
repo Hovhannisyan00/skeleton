@@ -17,7 +17,11 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="form-group">
-                        <x-dashboard.form.uploader._file name="avatar" :value="$user->avatar" :crop="true" :configKey="$user->getFileConfigName()"/>
+                        <x-dashboard.form.uploader._file
+                                name="avatar"
+                                :value="$user->avatar"
+                                :crop="true"
+                                :configKey="$user->getFileConfigName()"/>
                     </div>
                 </div>
             </div>

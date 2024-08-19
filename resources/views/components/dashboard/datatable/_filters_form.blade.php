@@ -1,7 +1,7 @@
 @php
     $target = 'searchFormCollapse_'.rand();
     $addCollapse = !isset($withoutCollapse);
-    $showCollapse = (bool)array_filter($_GET)
+    $showCollapse = (bool)array_filter($_GET);
 @endphp
 
 <div class="text-end">

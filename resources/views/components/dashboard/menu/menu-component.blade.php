@@ -4,7 +4,6 @@
     @endif
     @foreach($menus as $menu)
         @if($menu->subMenu->count())
-
             @php
                 $hasActiveSubMenu = $menu->subMenu->contains(fn ($menu) => Str::is('*'.$menu->url.'*', request()->path()));
             @endphp
@@ -32,6 +31,7 @@
                         @endforeach
                     </ul>
                 </div>
+            </li>
         @elseif($menu->url)
             <li class="menu-item ">
                 <a href="{{ urlWithLng($menu->url) }}" class="menu-link {{(request()->is('*'.$menu->url.'*')) ? 'active' : ''}}">

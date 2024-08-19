@@ -3,6 +3,7 @@
     $title = __('__dashboard.label.'.($title ?? $replacedName));
     $labelId = empty($id) ? $name.'_'.rand() : $id;
 @endphp
+
 <div class="custom-checkbox mb-2">
     <input type="checkbox"
            id="{{$labelId}}"
