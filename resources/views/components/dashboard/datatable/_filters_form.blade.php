@@ -24,7 +24,10 @@
                 {{ $slot }}
             </div>
             <div class="text-end">
-                <x-dashboard.form._loader_btn/>
+                <div class="spinner-border loading__form__icon" role="status"></div>
+                <button class="btn btn-primary search__form__btn">
+                    {{ __('__dashboard.button.search') }}
+                </button>
                 <button class="btn btn-danger reset__form__btn ms-2" type="button">
                     {{__('__dashboard.button.reset')}}
                 </button>

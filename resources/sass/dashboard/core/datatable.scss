@@ -218,7 +218,7 @@ div.table-responsive > div.dataTables_wrapper > div.row > div[class^=col-]:last-
     width: 14px;
 }
 
-table.dataTable {
+table.dt__table {
     width: 100%;
     margin: 0 auto;
     clear: both;
@@ -451,7 +451,7 @@ div.dataTables_wrapper div.dataTables_length select {
     }
 }
 
-table.dataTable td{
+table.dt__table td{
     border-bottom-width: 0;
     font-size: 14px;
     padding-block: 12px;

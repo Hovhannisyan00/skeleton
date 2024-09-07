@@ -366,6 +366,11 @@ span.show-status-1 {
     height: 1.2rem;
     margin-bottom: 2px;
     margin-left: 2px;
+
+    &.loading__form__icon{
+        vertical-align: middle;
+        margin-right: 4px;
+    }
 }
 
 .file__uploader__box {

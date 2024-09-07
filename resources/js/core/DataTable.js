@@ -209,7 +209,7 @@ class DataTable {
         searchInput.prop('readOnly', false);
       });
 
-    this.searchFromLoader();
+    this.searchFromLoading();
   }
 
   errorHandler(error) {
@@ -279,13 +279,24 @@ class DataTable {
     });
   }
 
-  searchFromLoader(is) {
-    const spinner = this.searchFormEl.find('button.search__form__btn .spinner-border');
-    if (is) spinner.css({ display: 'inline-block' }); else spinner.hide();
+  searchFromLoading(is) {
+    const searchFormBtn = this.searchFormEl.find('button.search__form__btn');
+    const searchFormResetBtn = this.searchFormEl.find('button.reset__form__btn');
+    const spinner = this.searchFormEl.find('.loading__form__icon');
+    if (is) {
+      spinner.addClass('d-inline-block ');
+      searchFormBtn.prop('disabled', true);
+      searchFormResetBtn.prop('disabled', true);
+    } else {
+      spinner.removeClass('d-inline-block');
+      searchFormBtn.prop('disabled', false);
+      searchFormResetBtn.prop('disabled', false);
+    }
   }
 
   searchFormReset() {
     this.searchFormEl.find('.reset__form__btn').click(() => {
+      this.searchFromLoading(true);
       this.searchData = {};
       this.searchFormEl[0].reset();
       this.table.search('');
@@ -301,7 +312,7 @@ class DataTable {
     const el = event.target;
     this.searchData = {};
 
-    this.searchFromLoader(true);
+    this.searchFromLoading(true);
     const searchData = $(el).serializeArray();
 
     searchData.map((item, id) => {
@@ -474,7 +485,7 @@ class DataTable {
 
           self.tableReload();
           self.storeSearchedData();
-        }, 500);
+        }, 330);
       });
   }
 
