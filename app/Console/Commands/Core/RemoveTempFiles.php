@@ -12,7 +12,7 @@ class RemoveTempFiles extends Command
      *
      * @var string
      */
-    protected $signature = 'command:removeTempFiles';
+    protected $signature = 'file:remove-temp-data';
 
     /**
      * The console command description.
