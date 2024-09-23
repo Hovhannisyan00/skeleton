@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User\User;
+use Database\Seeders\Menu\MenuSeeder;
+use Database\Seeders\RoleAndPermission\RoleAndPermissionSeeder;
 use Database\Seeders\User\AdminUserSeeder;
 use Database\Seeders\User\UserSeeder;
 use Illuminate\Database\Seeder;

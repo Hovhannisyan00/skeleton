@@ -1,6 +1,6 @@
 <?php
 
-namespace Database\Seeders;
+namespace Database\Seeders\RoleAndPermission;
 
 use App\Models\RoleAndPermission\Enums\RoleType;
 use App\Models\RoleAndPermission\Role;
