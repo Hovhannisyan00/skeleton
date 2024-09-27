@@ -31,7 +31,7 @@ trait ResponseFunctions
     public function sendOkCreated(array $response = []): JsonResponse
     {
         $response['status'] = 'OK';
-        $response['message'] = trans('__dashboard.message.successfully_created');
+        $response['message'] = trans('message.successfully_created');
 
         return response()->json($response);
     }

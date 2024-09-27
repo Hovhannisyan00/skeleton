@@ -6,68 +6,6 @@ return [
     'global' => [
         'log_out' => 'logout',
     ],
-    'menu' => [
-        'translation-manager' => 'Translation Manager',
-        'articles' => 'Articles',
-        'users' => 'Users',
-        'research-areas' => 'Research Areas',
-    ],
-    'user' => [
-        'index' => [
-            'title' => 'Users',
-            'create' => 'Create User',
-        ],
-
-        'form' => [
-            'add' => [
-                'title' => 'Create User',
-            ],
-            'edit' => [
-                'title' => 'Edit User',
-                'description' => '',
-            ],
-        ],
-    ],
-
-    'article' => [
-        'form' => [
-            'edit' => [
-                'title' => 'Edit Article',
-                'description' => '',
-            ],
-
-            'add' => [
-                'title' => 'Create Article',
-                'description' => '',
-            ],
-        ],
-
-        'index' => [
-            'title' => 'Articles',
-            'create' => 'Create Article',
-            'description' => '',
-        ],
-    ],
-
-    'profile' => [
-        'index' => [
-            'title' => 'My Profile',
-            'description' => '',
-        ],
-
-        'dropdown' => 'My Profile',
-    ],
-
-    'button' => [
-        'search' => 'Search',
-        'cancel' => 'Cancel',
-        'save' => 'Save',
-        'delete' => 'Delete',
-        'add_more' => 'Add more',
-        'crop' => 'Crop',
-        'create' => 'Create',
-        'reset' => 'Reset',
-    ],
 
     'label' => [
         'id' => 'ID',
@@ -97,6 +35,7 @@ return [
         'password_confirmation' => 'Confirm Password',
         'grouped_title' => 'Title',
         'grouped_link' => 'Link',
+        'grouped_desc' => 'Desc',
         'multiple_author' => 'Author',
         'release_date_time' => 'Release datetime',
         'avatar' => 'Avatar',
@@ -126,13 +65,11 @@ return [
         'title' => 'Translations Manager',
     ],
 
-    'message' => [
-        'successfully_created' => 'Successfully Created',
-        'successfully_updated' => 'Successfully Updated',
-        'successfully_deleted' => 'Successfully Deleted',
-    ],
-
     'tab' => [
         'general' => 'General',
+    ],
+
+    'datatable' => [
+        'search_input_placeholder' => 'Search...',
     ],
 ];

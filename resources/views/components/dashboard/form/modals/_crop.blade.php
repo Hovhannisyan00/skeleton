@@ -32,10 +32,10 @@ $modalId = $id . "Modal";
                 @else
 
                     <button type="button" class="btn btn-secondary py-2 cancel-btn"
-                            data-bs-dismiss="modal">{{__('__dashboard.button.'.$cancelBtnKey)}}</button>
+                            data-bs-dismiss="modal">{{__('button.'.$cancelBtnKey)}}</button>
 
                     <button type="button"
-                            class="btn btn-{{$saveBtnClass}} py-2 save-btn">{{__('__dashboard.button.'.$saveBtnKey)}}</button>
+                            class="btn btn-{{$saveBtnClass}} py-2 save-btn">{{__('button.'.$saveBtnKey)}}</button>
 
                 @endisset
             </div>

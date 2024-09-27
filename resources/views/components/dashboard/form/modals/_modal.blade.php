@@ -33,11 +33,11 @@ $modalId = $id . "Modal";
 
                 @if(!isset($cancelHide))
                     <button type="button" class="btn btn-secondary py-2 cancel-btn"
-                            data-bs-dismiss="modal">{{__('__dashboard.button.'.$cancelBtnKey)}}</button>@endif
+                            data-bs-dismiss="modal">{{__('button.'.$cancelBtnKey)}}</button>@endif
 
                 @if(!isset($saveHide))
                     <button type="button"
-                            class="btn btn-{{$saveBtnClass}} py-2 save-btn">{{__('__dashboard.button.'.$saveBtnKey)}}</button>@endif
+                            class="btn btn-{{$saveBtnClass}} py-2 save-btn">{{__('button.'.$saveBtnKey)}}</button>@endif
 
             @endisset
             </div>

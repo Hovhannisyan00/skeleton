@@ -2,7 +2,7 @@
 
 <div class="card-header sticky-top">
     <div class="form-bottom-buttons">
-        <a href="{{ $indexUrl }}" class="btn btn-secondary ms-2">{{ __('__dashboard.button.cancel') }}</a>
+        <a href="{{ $indexUrl }}" class="btn btn-secondary ms-2">{{ __('button.cancel') }}</a>
 
         @if($viewMode != 'show')
         <x-dashboard.form._loader_btn disabled
@@ -82,7 +82,7 @@
         @isset($footer)
             {{ $footer }}
         @else
-            <a href="{{ $indexUrl }}" class="btn btn-secondary ms-2">{{ __('__dashboard.button.cancel') }}</a>
+            <a href="{{ $indexUrl }}" class="btn btn-secondary ms-2">{{ __('button.cancel') }}</a>
 
             @if($viewMode != 'show')
             <x-dashboard.form._loader_btn disabled

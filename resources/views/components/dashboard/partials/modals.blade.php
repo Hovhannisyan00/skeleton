@@ -11,9 +11,9 @@
                 {{ __('__dashboard.modal.are_you_sure') }}
             </div>
             <div class="modal-footer border-0 py-0 pb-2">
-                <button type="button" class="btn btn-secondary py-2" data-bs-dismiss="modal">{{ __('__dashboard.button.cancel') }}</button>
+                <button type="button" class="btn btn-secondary py-2" data-bs-dismiss="modal">{{ __('button.cancel') }}</button>
                 <button type="button" class="btn btn-danger py-2 delete-btn">
-                    {{ __('__dashboard.button.delete') }}
+                    {{ __('button.delete') }}
                     <div class="spinner-border" role="status">
                         <span class="sr-only">Loading...</span>
                     </div>

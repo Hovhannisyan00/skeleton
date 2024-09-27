@@ -3,7 +3,7 @@
 <div class="card-header sticky-top">
     <div class="form-bottom-buttons">
         @if(!isset($hideCancelBtn))
-        <a href="{{ $indexUrl }}" class="btn btn-secondary ms-2">{{ __('__dashboard.button.cancel') }}</a>
+        <a href="{{ $indexUrl }}" class="btn btn-secondary ms-2">{{ __('button.cancel') }}</a>
         @endif
 
         @if($viewMode != 'show')
@@ -40,7 +40,7 @@
             {{ $footer }}
         @else
             @if(!isset($hideCancelBtn))
-            <a href="{{ $indexUrl }}" class="btn btn-secondary ms-2">{{ __('__dashboard.button.cancel') }}</a>
+            <a href="{{ $indexUrl }}" class="btn btn-secondary ms-2">{{ __('button.cancel') }}</a>
             @endif
 
             @if($viewMode != 'show')

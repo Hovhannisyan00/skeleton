@@ -10,7 +10,7 @@
             data-bs-target="#{{$target}}"
             aria-expanded="{{$showCollapse ? 'true' : 'false'}}"
             aria-controls="{{$target}}">
-        <span class="text-search"><img class="me-2" src="/img/filter-icon.svg" /> {{__('__dashboard.button.filters')}}</span>
+        <span class="text-search"><img class="me-2" src="/img/filter-icon.svg" /> {{__('button.filters')}}</span>
         <span class="close-search"><i class="fa fa-times"></i></span>
     </button>
     @endif
@@ -26,10 +26,10 @@
             <div class="text-end">
                 <div class="spinner-border loading__form__icon" role="status"></div>
                 <button class="btn btn-primary search__form__btn">
-                    {{ __('__dashboard.button.search') }}
+                    {{ __('button.search') }}
                 </button>
                 <button class="btn btn-danger reset__form__btn ms-2" type="button">
-                    {{__('__dashboard.button.reset')}}
+                    {{__('button.reset')}}
                 </button>
             </div>
         </form>

@@ -7,12 +7,12 @@
 
     @isset($createRoute)
         @php
-            $pageName = isset($addPageName) ? '.'.$subHeaderData['pageName'] : '';
+            $pageName = isset($addPageName) ? $subHeaderData['pageName'].'.' : '';
         @endphp
         <div class="ms-auto">
             <a href="{{ $createRoute }}" class="btn btn-create">
                 <i class="flaticon2-plus me-2"></i>
-                {{ __("__dashboard$pageName.button.create") }}
+                {{ __("{$pageName}button.create") }}
             </a>
         </div>
     @endisset

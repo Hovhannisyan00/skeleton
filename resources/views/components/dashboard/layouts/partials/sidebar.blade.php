@@ -36,7 +36,7 @@
 
     <div id="simple-bar" class="simple-bar">
         <ul class="menu-nav" id="menu-nav">
-            <x-dashboard.menu.menu-component></x-dashboard.menu.menu-component>
+            <x-dashboard.menu.menu-component />
         </ul>
     </div>
 
