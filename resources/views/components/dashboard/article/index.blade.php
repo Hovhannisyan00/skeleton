@@ -21,14 +21,13 @@
                 </x-dashboard.datatable._filters_form>
 
                 <x-dashboard.datatable._table>
-                    <th data-key="id">{{ __('__dashboard.label.id') }}</th>
-                    <th data-key="title">{{ __('__dashboard.label.title') }}</th>
-                    <th data-key="description">{{ __('__dashboard.label.description') }}</th>
-                    <th data-key="publish_date">{{ __('__dashboard.label.publish_date') }}</th>
-                    <th data-key="created_at">{{ __('__dashboard.label.created_at') }}</th>
-                    <th data-key="show_status"
-                        data-orderable="false">{{ __('__dashboard.label.show_status') }}</th>
-                    <th class="text-center">{{ __('__dashboard.label.actions') }}</th>
+                    <th data-key="id">{{ __('label.id') }}</th>
+                    <th data-key="title">{{ __('label.title') }}</th>
+                    <th data-key="description">{{ __('label.description') }}</th>
+                    <th data-key="publish_date">{{ __('label.publish_date') }}</th>
+                    <th data-key="created_at">{{ __('label.created_at') }}</th>
+                    <th data-key="show_status" data-orderable="false">{{ __('label.show_status') }}</th>
+                    <th class="text-center">{{ __('label.actions') }}</th>
                 </x-dashboard.datatable._table>
             </div>
         </div>

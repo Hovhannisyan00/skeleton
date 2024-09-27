@@ -1,6 +1,6 @@
 @php
     $replacedName = replaceNameWithDots($name);
-    $title = __('__dashboard.label.'.($title ?? $replacedName));
+    $title = __('label.'.($title ?? $replacedName));
     $labelId = empty($id) ? $name.'_'.rand() : $id;
 
     $yesValue = '1';
@@ -21,7 +21,7 @@
                value="{{$yesValue}}"
                class="custom-radio {{ $class ?? '' }}"
         >
-        <label for="{{ $labelId.'_yes' }}" class="form-check-label">{{__('__dashboard.label.boolean.1')}}</label>
+        <label for="{{ $labelId.'_yes' }}" class="form-check-label">{{__('label.boolean.1')}}</label>
     </div>
 </div>
 <div class="form-check form-check-inline">
@@ -36,7 +36,7 @@
                value="{{$noValue}}"
                class="custom-radio {{ $class ?? '' }}"
         >
-        <label for="{{ $labelId.'_no' }}" class="form-check-label">{{__('__dashboard.label.boolean.0')}}</label>
+        <label for="{{ $labelId.'_no' }}" class="form-check-label">{{__('label.boolean.0')}}</label>
     </div>
 </div>
 <x-dashboard.form._error :name="$replacedName"></x-dashboard.form._error>

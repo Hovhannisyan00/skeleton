@@ -2,6 +2,7 @@
     <div class="container-fluid">
         <div class="card mb-4">
             <x-dashboard.layouts.partials.card-header :createRoute="route('dashboard.users.create')"/>
+
             <div class="card-body">
                 <x-dashboard.datatable._filters_form>
                     <div class="col-md-4 form-group">
@@ -16,13 +17,13 @@
                 </x-dashboard.datatable._filters_form>
 
                 <x-dashboard.datatable._table>
-                    <th data-key="id">{{ __('__dashboard.label.id') }}</th>
-                    <th data-key="first_name">{{ __('__dashboard.label.first_name') }}</th>
-                    <th data-key="last_name">{{ __('__dashboard.label.last_name') }}</th>
-                    <th data-key="email">{{ __('__dashboard.label.email') }}</th>
-                    <th data-key="roles" data-orderable="false">{{ __('__dashboard.label.roles') }}</th>
-                    <th data-key="created_at">{{ __('__dashboard.label.created_at') }}</th>
-                    <th class="text-center" style="width: 90px">{{ __('__dashboard.label.actions') }}</th>
+                    <th data-key="id">{{ __('label.id') }}</th>
+                    <th data-key="first_name">{{ __('label.first_name') }}</th>
+                    <th data-key="last_name">{{ __('label.last_name') }}</th>
+                    <th data-key="email">{{ __('label.email') }}</th>
+                    <th data-key="roles" data-orderable="false">{{ __('label.roles') }}</th>
+                    <th data-key="created_at">{{ __('label.created_at') }}</th>
+                    <th class="text-center" style="width: 90px">{{ __('label.actions') }}</th>
                 </x-dashboard.datatable._table>
             </div>
         </div>

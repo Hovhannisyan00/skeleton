@@ -1,6 +1,6 @@
 @php
     $replacedName = replaceNameWithDots($name);
-    $title = __('__dashboard.label.'.($title ?? $replacedName));
+    $title = __('label.'.($title ?? $replacedName));
     $labelId = empty($id) ? $title.'.'.rand() : $id
 @endphp
 

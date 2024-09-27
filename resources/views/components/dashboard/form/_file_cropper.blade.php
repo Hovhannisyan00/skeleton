@@ -1,6 +1,6 @@
 @php
     $randomNum = rand();
-    $title ??= __('__dashboard.label.choose_crop');
+    $title ??= __('label.choose_crop');
 @endphp
 
 <div class="file__uploader__box">

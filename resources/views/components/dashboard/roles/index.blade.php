@@ -20,8 +20,8 @@
                     <table class="table w-100 table-hover" id="__data__table">
                         <thead>
                         <tr>
-                            <th data-key="id">{{ __('__dashboard.label.id') }}</th>
-                            <th class="text-center">{{ __('__dashboard.label.actions') }}</th>
+                            <th data-key="id">{{ __('label.id') }}</th>
+                            <th class="text-center">{{ __('label.actions') }}</th>
                         </tr>
                         </thead>
                     </table>

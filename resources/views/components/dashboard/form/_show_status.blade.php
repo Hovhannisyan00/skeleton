@@ -1,7 +1,7 @@
 @php
     $name = 'show_status';
     $randomNum = rand();
-    $title = __('__dashboard.label.'.$name);
+    $title = __('label.'.$name);
 @endphp
 
 <label for="{{ $name }}_{{ $randomNum }}" class="control-label">{{ $title }}</label>

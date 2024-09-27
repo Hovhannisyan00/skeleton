@@ -15,10 +15,10 @@
                 </x-dashboard.datatable._filters_form>
 
                 <x-dashboard.datatable._table>
-                   <th data-key="id">{{ __('__dashboard.label.id') }}</th>
-                   <th data-key="name">{{ __('__dashboard.label.name') }}</th>
-                   <th data-key="title" data-orderable="false">{{ __('__dashboard.label.title') }}</th>
-                   <th class="text-center">{{ __('__dashboard.label.actions') }}</th>
+                   <th data-key="id">{{ __('label.id') }}</th>
+                   <th data-key="name">{{ __('label.name') }}</th>
+                   <th data-key="title" data-orderable="false">{{ __('label.title') }}</th>
+                   <th class="text-center">{{ __('label.actions') }}</th>
                 </x-dashboard.datatable._table>
             </div>
         </div>

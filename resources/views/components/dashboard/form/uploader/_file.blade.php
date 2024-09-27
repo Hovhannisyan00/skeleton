@@ -1,6 +1,6 @@
 @php
     $randomNum = rand();
-    $title = __('__dashboard.label.'.(str_replace('[]', '', $title ?? $name)));
+    $title = __('label.'.(str_replace('[]', '', $title ?? $name)));
     $hasCrop = $crop ?? false;
 @endphp
 <label for="{{ $title }}.{{ $randomNum }}" class="control-label">{{ $title }}</label>
