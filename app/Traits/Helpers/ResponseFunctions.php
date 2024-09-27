@@ -42,7 +42,7 @@ trait ResponseFunctions
     public function sendOkUpdated(array $response = []): JsonResponse
     {
         $response['status'] = 'OK';
-        $response['message'] = trans('__dashboard.message.successfully_updated');
+        $response['message'] = trans('message.successfully_updated');
 
         return response()->json($response);
     }
@@ -53,7 +53,7 @@ trait ResponseFunctions
     public function sendOkDeleted(array $response = []): JsonResponse
     {
         $response['status'] = 'OK';
-        $response['message'] = trans('__dashboard.message.successfully_deleted');
+        $response['message'] = trans('message.successfully_deleted');
 
         return response()->json($response);
     }
@@ -64,7 +64,7 @@ trait ResponseFunctions
     public function sendOkWithNotification(array $response = []): JsonResponse
     {
         $response['status'] = 'OK';
-        $response['message'] = trans('__dashboard.message.successfully_created');
+        $response['message'] = trans('message.successfully_created');
         $response['update_notifications'] = true;
 
         return response()->json($response);
