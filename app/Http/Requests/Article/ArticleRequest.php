@@ -12,7 +12,7 @@ class ArticleRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'slug' => 'required|string_with_max|unique:' . Article::getTableName() . ',slug,' . $this->article?->id,
+            'slug' => 'required|string|max:50|unique:' . Article::getTableName() . ',slug,' . $this->article?->id,
             'publish_date' => 'required|after_or_equal_today',
             'release_date_time' => 'required|datetime',
             'photo' => 'required|string_with_max',
@@ -29,7 +29,7 @@ class ArticleRequest extends FormRequest
             'show_status' => 'required|show_status_validator',
 
             'ml' => 'required|array',
-            'ml.*.title' => 'required|string_with_max',
+            'ml.*.title' => 'required|string|max:100',
             'ml.*.short_description' => 'required|string_with_max',
             'ml.*.description' => 'required|text_with_max',
         ] + MetaDataValidation::rules();

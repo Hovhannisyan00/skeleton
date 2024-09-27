@@ -17,8 +17,8 @@ class CreateArticleMlsTable extends Migration
         Schema::create('article_mls', function (Blueprint $table) {
             $table->foreignIdFor(Article::class)->constrained()->cascadeOnDelete();
             $table->char('lng_code', 2);
-            $table->string('title')->nullable();
-            $table->text('short_description')->nullable();
+            $table->string('title', 100)->nullable();
+            $table->string('short_description')->nullable();
             $table->text('description')->nullable();
             $table->metaData();
             $table->primary(['article_id', 'lng_code']);

@@ -109,6 +109,13 @@ class ValidatorServiceProvider extends ServiceProvider
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
         }, trans('validation.custom.after_or_equal', ['date' => now()->format(getDateFormatFront())]));
+
+        // Email Validator
+        Validator::extend('email_validator', function ($attribute, $value) {
+            $rules = [$attribute => 'string|email|max:60'];
+
+            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
+        }, trans('validation.max.string', ['max' => 50]));
     }
 
     private function existsValidators(): void

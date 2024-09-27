@@ -11,10 +11,10 @@ class UserRequest extends FormRequest
         $passwordRule = $this->user ? 'nullable' : 'required';
 
         return [
-            'first_name' => 'required|string_with_max',
-            'last_name' => 'required|string_with_max',
+            'first_name' => 'required|string|max:50',
+            'last_name' => 'required|string|max:50',
 
-            'email' => 'required|string|string_with_max|email|unique:users,email,' . $this->user?->id,
+            'email' => 'required|email_validator|unique:users,email,' . $this->user?->id,
             'avatar' => 'required|string_with_max',
 
             'role_ids' => 'required|array',

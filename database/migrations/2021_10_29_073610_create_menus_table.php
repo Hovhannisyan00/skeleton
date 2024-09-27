@@ -16,11 +16,11 @@ class CreateMenusTable extends Migration
     {
         Schema::create('menus', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug')->unique();
+            $table->string('title', 100);
+            $table->string('slug', 50)->unique();
             $table->unsignedBigInteger('parent_id')->nullable();
-            $table->string('group_name')->nullable();
-            $table->string('url')->nullable();
+            $table->string('group_name', 40)->nullable();
+            $table->string('url', 100)->nullable();
             $table->string('icon', 50)->nullable();
             $table->enum('type', [MenuType::ADMIN, MenuType::PROFILE]);
             $table->boolean('check_permission')->default(1)->nullable();

@@ -12,12 +12,7 @@ use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): void
     {
         DB::statement('SET FOREIGN_KEY_CHECKS=0;');
         DB::table('roles')->truncate();
@@ -27,6 +22,7 @@ class DatabaseSeeder extends Seeder
         DB::table('role_has_permissions')->truncate();
         User::truncate();
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
+
         $this->call([
             RoleAndPermissionSeeder::class,
             AdminUserSeeder::class,
