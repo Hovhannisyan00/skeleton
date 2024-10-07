@@ -2,7 +2,7 @@
 
 namespace App\Http\Requests\Profile;
 
-use App\Rules\MatchOldPassword;
+use App\Rules\Password\MatchOldPassword;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
 
