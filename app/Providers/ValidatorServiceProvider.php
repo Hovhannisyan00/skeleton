@@ -112,7 +112,7 @@ class ValidatorServiceProvider extends ServiceProvider
 
         // Email Validator
         Validator::extend('email_validator', function ($attribute, $value) {
-            $rules = [$attribute => 'string|email|max:60'];
+            $rules = [$attribute => 'string|email:rfc,dns|min:5|max:60'];
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
         }, trans('validation.max.string', ['max' => 50]));
