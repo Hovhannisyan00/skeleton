@@ -4,10 +4,10 @@ namespace App\Models\File\Enums;
 
 final class FileType
 {
-    final public const IMAGE = 'image';
-    final public const FILE = 'file';
+    public const IMAGE = 'image';
+    public const FILE = 'file';
 
-    final public const ALL = [
+    public const ALL = [
         self::IMAGE,
         self::FILE,
     ];

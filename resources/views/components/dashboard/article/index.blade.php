@@ -15,8 +15,7 @@
                         <x-dashboard.form._input name="description"/>
                     </div>
                     <div class="col-md-4 form-group">
-                        <x-dashboard.form._show_status class="default-search" defaultOption
-                                                       :value="\App\Models\Base\Enums\ShowStatus::ACTIVE"/>
+                        <x-dashboard.form._show_status showAllOption/>
                     </div>
                 </x-dashboard.datatable._filters_form>
 
