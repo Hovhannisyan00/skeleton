@@ -48,9 +48,7 @@ class ValidatorServiceProvider extends ServiceProvider
         }, trans('validation.max.string', ['max' => $maxTextLength]));
 
         // Max Integer
-        Validator::extend(
-            'integer_with_max',
-            function ($attribute, $value) use ($minIntegerLength, $maxIntegerLength) {
+        Validator::extend('integer_with_max', function ($attribute, $value) use ($minIntegerLength, $maxIntegerLength) {
                 $rules = [$attribute => "integer|between:$minIntegerLength,$maxIntegerLength"];
 
                 return $this->validator($this->getAttributeValue($attribute, $value), $rules);
@@ -59,9 +57,7 @@ class ValidatorServiceProvider extends ServiceProvider
         );
 
         // Max Double
-        Validator::extend(
-            'double_with_max',
-            function ($attribute, $value) use ($minDoubleLength, $maxDoubleLength) {
+        Validator::extend('double_with_max', function ($attribute, $value) use ($minDoubleLength, $maxDoubleLength) {
                 $rules = [$attribute => "numeric|gt:0|between:$minDoubleLength,$maxDoubleLength"];
 
                 return $this->validator($this->getAttributeValue($attribute, $value), $rules);
@@ -70,9 +66,7 @@ class ValidatorServiceProvider extends ServiceProvider
         );
 
         // Phone number
-        Validator::extend(
-            'phone_number_validator',
-            function ($attribute, $value) use ($minPhoneNumberLength, $maxPhoneNumberLength) {
+        Validator::extend('phone_number_validator', function ($attribute, $value) use ($minPhoneNumberLength, $maxPhoneNumberLength) {
                 $rules = [
                     $attribute => "gt:0|between:$minPhoneNumberLength,$maxPhoneNumberLength|regex:/^([0-9\\s\\-\\+\\(\\)]*)$/",
                 ];
