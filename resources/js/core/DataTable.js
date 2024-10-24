@@ -253,7 +253,14 @@ class DataTable {
       columns: this.getAndGenerateColumns(),
       bStateSave: true,
       stateSaveCallback(oSettings, oData) {
-        localStorage.setItem(SEARCH_DATATABLE_STATE_KEY, JSON.stringify({ [moduleName]: oData }));
+        const storeData = {};
+        if (oData.search) {
+          oData.search.search = '';
+        }
+
+        storeData[moduleName] = oData;
+
+        localStorage.setItem(SEARCH_DATATABLE_STATE_KEY, JSON.stringify(storeData));
       },
       language: {
         search: '',
@@ -339,9 +346,9 @@ class DataTable {
       const moduleName = this.getCurrentModuleName();
 
       const storeData = {};
-      if (this.table.search()) {
+     /* if (this.table.search()) {
         searchDataValues.push({ name: 'search', value: this.table.search() });
-      }
+      }*/
 
       storeData[moduleName] = searchDataValues;
 
@@ -395,7 +402,7 @@ class DataTable {
         $.each(storedDataModified, (key, value) => {
           const searchInput = self.searchFormEl.find(`:input[name='${key}']`);
 
-          // Checkbox
+       /*   // Checkbox
           if (searchInput.is(':checkbox')) {
             searchInput.prop('checked', true);
           }
@@ -415,7 +422,7 @@ class DataTable {
                   .format($dashboardDates.js.date_time_format_front));
             }
           }
-
+*/
           //
           let addArrayBrackets = '';
           if (!Array.isArray(value) && searchInput.attr('multiple')) {
@@ -430,8 +437,8 @@ class DataTable {
           }*/
 
           //
-          searchInput.val(value);
-          self.searchData[`f[${key}]${addArrayBrackets}`] = value;
+          // searchInput.val(value);
+          // self.searchData[`f[${key}]${addArrayBrackets}`] = value;
         });
 
         if (this.options.afterSetSearchStoredData) {
