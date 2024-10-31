@@ -3,7 +3,7 @@
     <div class="brand d-flex align-items-center">
 
         <div>
-            <a href="/" class="brand-logo" aria-label="brand">
+            <a href="{{route('dashboard.index')}}" class="brand-logo" aria-label="brand">
                 {{config('app.name')}}
             </a>
             @if(!isProduction())
