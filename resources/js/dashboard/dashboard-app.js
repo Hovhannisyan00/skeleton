@@ -1,4 +1,4 @@
-import { ElMessage, ElNotification } from 'element-plus/dist/index.full';
+import { ElMessage, ElNotification } from 'element-plus/dist/index.full.min';
 
 window.El = {
   Message: ElMessage,
