@@ -23,7 +23,7 @@ class CreateMenusTable extends Migration
             $table->string('url', 100)->nullable();
             $table->string('icon', 50)->nullable();
             $table->enum('type', [MenuType::ADMIN, MenuType::PROFILE]);
-            $table->boolean('check_permission')->default(1)->nullable();
+            $table->unsignedTinyInteger('check_permission')->default(1)->nullable();
             $table->showStatus();
             $table->sortOrder();
             $table->timestamps();
