@@ -110,6 +110,13 @@ class ValidatorServiceProvider extends ServiceProvider
 
             return $this->validator($this->getAttributeValue($attribute, $value), $rules);
         }, trans('validation.max.string', ['max' => 50]));
+
+        // Name Validator
+        Validator::extend('name_validator', function ($attribute, $value, $parameters) {
+            $rules = [$attribute => 'string_with_max|regex:/^[^@\d]+$/u'];
+
+            return $this->validator($this->getAttributeValue($attribute, $value), $rules);
+        }, trans('validation.invalid'));
     }
 
     private function existsValidators(): void
