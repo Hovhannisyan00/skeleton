@@ -1,6 +1,6 @@
 @php
     $replacedName = replaceNameWithDots($name);
-    $title = __('__dashboard.label.'.($title ?? $replacedName));
+    $title = __('label.'.($title ?? $replacedName));
     $labelId = empty($id) ? $name.'_'.rand() : $id;
 @endphp
 @if(!isset($noLabel))
@@ -12,7 +12,6 @@
         data-min-input-length="2"
         @isset($dataMode) data-mode="{{$dataMode}}" @endisset
         @isset($multiple) multiple data-is-multiple @endisset
-        @isset($placeholder) placeholder="{{ $placeholder }}" @endisset
         @isset($url) data-url="{{$url}}" @endisset
         @if(isset($disabled) && $disabled) disabled @endisset
         @if(isset($template) && $template) data-template="{{$template}}" @endif
