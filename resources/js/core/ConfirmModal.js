@@ -41,7 +41,7 @@ class ConfirmModal {
           resp = resp.data;
           _selfConfirmModal.deleteEvent();
           // eslint-disable-next-line no-undef
-          if (resp.message) El.Message.success(resp.message);
+          if (resp.message) showSuccessMessage(resp.message);
         });
     } else {
       _selfConfirmModal.deleteEvent();

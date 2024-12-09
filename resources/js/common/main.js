@@ -16,6 +16,18 @@ $(function () {
   minimizeMenu();
 });
 
+showSuccessMessage = function (message) {
+  $.toast({
+    text: message,
+    hideAfter: 2000,
+    position: 'top-right',
+    stack: false,
+    loader: false,
+    icon: 'success',
+    allowToastClose: false,
+  });
+};
+
 select2Init = function (div = undefined, className = 'select2') {
   let select2 = $(`select.${className}`);
   if (typeof div !== 'undefined') {
@@ -189,7 +201,7 @@ function responseMessage() {
   const responseMessageStorage = localStorage.getItem('_message');
   if (responseMessageStorage) {
     // eslint-disable-next-line no-undef
-    El.Message.success(responseMessageStorage);
+    showSuccessMessage(responseMessageStorage);
   }
   localStorage.removeItem('_message');
 }

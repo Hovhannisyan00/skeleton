@@ -1,5 +1,3 @@
-import 'element-plus/dist/index.css';
-
 window._ = require('lodash');
 
 /**

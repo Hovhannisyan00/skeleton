@@ -24,7 +24,8 @@ mix.combine([
 ], 'public/js/dashboard/bundle.js').minify('public/js/dashboard/bundle.js');
 
 mix.js('resources/js/app.js', 'public/js')
-  .js('resources/js/dashboard/dashboard-app.js', 'public/js/dashboard').vue()
+  .js('resources/js/dashboard/dashboard-app.js', 'public/js/dashboard')
+  .js('resources/js/dashboard/dashboard-app-vue.js', 'public/js/dashboard').vue()
   .sass('resources/sass/dashboard/dashboard-app.scss', 'public/css/dashboard', [])
   .sass('resources/sass/app.scss', 'public/css')
   .version();

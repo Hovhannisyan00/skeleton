@@ -64,6 +64,10 @@ class DataTable {
       },
 
       delete(row) {
+        if (typeof row.canDelete !== 'undefined' && !row.canDelete) {
+          return '';
+        }
+
         return `<button type="button" data-url="${replaceId(row.id, 'delete')}" data-event-name="deleteDataTableRow" class="btn __confirm__delete__btn" title="Delete">
                     <i class="flaticon2-trash"></i>
                 </button>`;

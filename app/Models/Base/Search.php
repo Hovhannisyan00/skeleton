@@ -59,7 +59,7 @@ abstract class Search
             ->take($this->perPage);
     }
 
-    public function search(): Collection
+    public function search(): Collection|array
     {
         $query = $this->query();
         $this->setOrdering($query);
