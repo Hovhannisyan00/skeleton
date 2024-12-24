@@ -21,7 +21,7 @@ class QueryBuilderMacros
 
             $fields = array_diff($fields, array_keys($searchFields));
 
-            return $this->orWhere(function ($q) use ($fields, $searchTerm, $orWhere) {
+            return $this->where(function ($q) use ($fields, $searchTerm, $orWhere) {
                 foreach ($fields as $field) {
                     $q->orWhere($field, 'like', "%$searchTerm%");
                 }
