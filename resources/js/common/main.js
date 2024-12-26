@@ -28,6 +28,19 @@ showSuccessMessage = function (message) {
   });
 };
 
+showErrorMessage = function (message) {
+  $.toast({
+    heading: 'Error',
+    hideAfter: 2000,
+    text: message,
+    position: 'top-right',
+    stack: false,
+    loader: false,
+    icon: 'error',
+    allowToastClose: false,
+  });
+};
+
 select2Init = function (div = undefined, className = 'select2') {
   let select2 = $(`select.${className}`);
   if (typeof div !== 'undefined') {
