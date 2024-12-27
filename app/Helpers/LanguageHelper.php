@@ -66,10 +66,10 @@ if (!function_exists('langIconPath')) {
     {
         $flagsPath = '/img/flags';
         return match ($lang) {
-            'de' => "$flagsPath/germany.svg",
+            'de' => "$flagsPath/germany.webp",
             'ru' => "$flagsPath/russia.svg",
             'hy' => "$flagsPath/armenia.svg",
-            default => "$flagsPath/united_states.svg"
+            default => "$flagsPath/united_states.webp"
         };
     }
 }
