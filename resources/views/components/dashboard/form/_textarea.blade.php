@@ -20,4 +20,4 @@
        class="form-control {{ $class ?? '' }}"
        cols="{{ $cols ?? 30 }}" rows="{{ $rows ?? 10 }}"
 >{{ $value ?? '' }}</textarea>
-<x-dashboard.form._error :name="$replacedName"></x-dashboard.form._error>
+<x-dashboard.form._error :name="$replacedName" />

@@ -16,5 +16,5 @@
     >
     <label for="{{ $labelId }}" class="form-check-label">{{ $title }}</label>
 </div>
-<x-dashboard.form._error :name="$replacedName"></x-dashboard.form._error>
+<x-dashboard.form._error :name="$replacedName" />
 

@@ -39,4 +39,4 @@
         <label for="{{ $labelId.'_no' }}" class="form-check-label">{{__('label.boolean.0')}}</label>
     </div>
 </div>
-<x-dashboard.form._error :name="$replacedName"></x-dashboard.form._error>
+<x-dashboard.form._error :name="$replacedName" />

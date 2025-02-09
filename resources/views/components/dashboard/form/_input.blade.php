@@ -23,5 +23,6 @@
        @endif
        name="{{ $name ?? '' }}"
        value="{{ $value ?? '' }}"
-       class="form-control {{ $class ?? '' }}">
-<x-dashboard.form._error :name="$replacedName"></x-dashboard.form._error>
+       class="form-control {{ $class ?? '' }}"
+>
+<x-dashboard.form._error :name="$replacedName" />

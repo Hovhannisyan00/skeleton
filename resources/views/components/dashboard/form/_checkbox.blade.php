@@ -18,5 +18,5 @@
            class="form-check-input {{ $class ?? '' }}">
     <label for="{{ $labelId }}" class="control-label checkbox-label">{{ $title }}</label>
 </div>
-<x-dashboard.form._error :name="$replacedName"></x-dashboard.form._error>
+<x-dashboard.form._error :name="$replacedName" />
 
