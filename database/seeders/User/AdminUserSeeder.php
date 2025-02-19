@@ -4,8 +4,8 @@ namespace Database\Seeders\User;
 
 use App\Models\RoleAndPermission\Enums\RoleType;
 use App\Models\User\User;
-use Hash;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * Class AdminUserSeeder.
