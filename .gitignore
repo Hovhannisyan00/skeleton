@@ -11,7 +11,6 @@
 /public/mix-manifest.json
 /storage/*.key
 /vendor
-.php-cs-fixer
 .env
 .env.backup
 .phpunit.result.cache
@@ -22,3 +21,4 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/.php-cs-fixer.cache
