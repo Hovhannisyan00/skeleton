@@ -1,4 +1,10 @@
 require('./core/bootstrap');
+import '../css/app.css';
+import $ from  'jquery';
+import  Jquery from 'jquery';
+
+
+window.$ = window.jQuery = $;
 
 window.Vue = require('vue').default;
 

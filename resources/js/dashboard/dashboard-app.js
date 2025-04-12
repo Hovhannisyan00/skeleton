@@ -1,12 +1,15 @@
-require('../core/bootstrap');
-require('../core/dashboard-init');
+import '../core/bootstrap';
+import '../core/dashboard-init';
 
-require('../plugins/select.min');
-require('../plugins/datatables.net');
-require('../plugins/dataTablesBootstrap');
-require('../plugins/jquery.mask.min');
+import '../plugins/select.min';
+import '../plugins/datatables.net';
+import '../plugins/dataTablesBootstrap';
+import '../plugins/jquery.mask.min';Ï
 
-require('jquery-datetimepicker');
-require('jquery-toast-plugin');
-require('../common/axios/axios');
-require('../common/axios/errorHandler');
+import 'jquery-datetimepicker';
+import 'jquery-toast-plugin';
+
+import '../common/axios/axios';
+import '../common/axios/errorHandler';
+
+import '../index.js';

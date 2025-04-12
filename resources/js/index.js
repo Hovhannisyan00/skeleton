@@ -1,3 +1,4 @@
+import { DataTable } from './core/DataTable.js';
 const options = {
   pathOptions: {
     searchPath: route('dashboard.users.getListData'),

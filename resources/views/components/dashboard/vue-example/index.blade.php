@@ -1,6 +1,7 @@
 <x-dashboard.layouts.app>
     <x-slot name="scripts">
-        <script src="{{ mix('/js/dashboard/dashboard-app-vue.js') }}"></script>
+        @routes
+        @vite(['resources/js/dashboard/dashboard-app-vue.js'])
     </x-slot>
 
     <div class="container-fluid">

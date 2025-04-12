@@ -2,7 +2,7 @@ const SEARCH_LOCALSTORAGE_KEY = 'datatable_search_values';
 const SEARCH_DATATABLE_STATE_KEY = 'datatable_search_state';
 
 // eslint-disable-next-line no-unused-vars
-class DataTable {
+export class DataTable {
   constructor(options = {}, tableId = '#__data__table') {
     this.initVariables(options, tableId);
     this.setSearchStoredData();
@@ -204,6 +204,7 @@ class DataTable {
           this.options.beforeSendRequest(resp.data);
         }
       }).catch((err) => {
+        console.log('err', err)
         this.errorHandler(err);
         callback({
           data: [],
