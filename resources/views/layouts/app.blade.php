@@ -29,7 +29,7 @@
 
 {{--    <link href="{{ asset('css/app.css') }}" rel="stylesheet">--}}
     @routes
-    @vite(['resources/js/dashboard/dashboard-app.js','resources/sass/app.scss', 'resources/sass/dashboard-app.scss'])
+    @vite(['resources/js/app.js','resources/js/dashboard/dashboard-app.js','resources/sass/app.scss', 'resources/sass/dashboard-app.scss'])
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">

@@ -3,7 +3,6 @@
     <x-slot name="head">
         <link rel="stylesheet" href="{{ asset('/plugins/croppie/croppie.min.css') }}" />
     </x-slot>
-
     <div class="container-fluid">
         <div class="card mb-4">
 
@@ -66,6 +65,7 @@
 
     <x-slot name="scripts">
         <script src="{{ asset('/plugins/croppie/croppie.min.js') }}"></script>
-        <script src="{{ asset('/js/dashboard/profile/main.js') }}"></script>
+{{--        <script src="{{ asset('/js/dashboard/profile/main.js') }}"></script>--}}
+        @vite(['resources/js/dashboard/profile/main.js'])
     </x-slot>
 </x-dashboard.layouts.app>

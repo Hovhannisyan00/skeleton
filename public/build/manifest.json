@@ -1,0 +1,303 @@
+{
+  "_bootstrap-DuCwewue.js": {
+    "file": "assets/bootstrap-DuCwewue.js",
+    "name": "bootstrap",
+    "dynamicImports": [
+      "node_modules/popper.js/dist/esm/popper.js",
+      "node_modules/bootstrap/dist/js/bootstrap.esm.js"
+    ]
+  },
+  "_bootstrap-legacy-RfFp_4iK.js": {
+    "file": "assets/bootstrap-legacy-RfFp_4iK.js",
+    "name": "bootstrap",
+    "dynamicImports": [
+      "node_modules/popper.js/dist/esm/popper-legacy.js",
+      "node_modules/bootstrap/dist/js/bootstrap.esm-legacy.js"
+    ]
+  },
+  "node_modules/bootstrap/dist/js/bootstrap.esm-legacy.js": {
+    "file": "assets/bootstrap.esm-legacy-BfOEhOfB.js",
+    "name": "bootstrap.esm",
+    "src": "node_modules/bootstrap/dist/js/bootstrap.esm-legacy.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/bootstrap/dist/js/bootstrap.esm.js": {
+    "file": "assets/bootstrap.esm-yrseZw9B.js",
+    "name": "bootstrap.esm",
+    "src": "node_modules/bootstrap/dist/js/bootstrap.esm.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/popper.js/dist/esm/popper-legacy.js": {
+    "file": "assets/popper-legacy-D0wEUa61.js",
+    "name": "popper",
+    "src": "node_modules/popper.js/dist/esm/popper-legacy.js",
+    "isDynamicEntry": true
+  },
+  "node_modules/popper.js/dist/esm/popper.js": {
+    "file": "assets/popper-DHfERy9M.js",
+    "name": "popper",
+    "src": "node_modules/popper.js/dist/esm/popper.js",
+    "isDynamicEntry": true
+  },
+  "resources/fonts/Flaticon.eot": {
+    "file": "assets/Flaticon-B2hDA3YS.eot",
+    "src": "resources/fonts/Flaticon.eot"
+  },
+  "resources/fonts/Flaticon.svg": {
+    "file": "assets/Flaticon-CPWmjjQ-.svg",
+    "src": "resources/fonts/Flaticon.svg"
+  },
+  "resources/fonts/Flaticon.ttf": {
+    "file": "assets/Flaticon-CuqKfEAX.ttf",
+    "src": "resources/fonts/Flaticon.ttf"
+  },
+  "resources/fonts/Flaticon.woff": {
+    "file": "assets/Flaticon-s3qBctEp.woff",
+    "src": "resources/fonts/Flaticon.woff"
+  },
+  "resources/fonts/Flaticon2.eot": {
+    "file": "assets/Flaticon2-BozDpjZF.eot",
+    "src": "resources/fonts/Flaticon2.eot"
+  },
+  "resources/fonts/Flaticon2.svg": {
+    "file": "assets/Flaticon2-BcSSGc_U.svg",
+    "src": "resources/fonts/Flaticon2.svg"
+  },
+  "resources/fonts/Flaticon2.ttf": {
+    "file": "assets/Flaticon2-ByghU1hn.ttf",
+    "src": "resources/fonts/Flaticon2.ttf"
+  },
+  "resources/fonts/Flaticon2.woff": {
+    "file": "assets/Flaticon2-CcA5V8Wx.woff",
+    "src": "resources/fonts/Flaticon2.woff"
+  },
+  "resources/js/app-legacy.js": {
+    "file": "assets/app-legacy-Cs7ReWD4.js",
+    "name": "app",
+    "src": "resources/js/app-legacy.js",
+    "isEntry": true,
+    "imports": [
+      "resources/sass/app-legacy.scss",
+      "_bootstrap-legacy-RfFp_4iK.js"
+    ]
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-DGzqqBhs.js",
+    "name": "app",
+    "src": "resources/js/app.js",
+    "isEntry": true,
+    "imports": [
+      "_bootstrap-DuCwewue.js"
+    ],
+    "css": [
+      "assets/app-BiB9zm6O.css"
+    ]
+  },
+  "resources/js/common/main-legacy.js": {
+    "file": "assets/main-legacy-JMLVkl0Q.js",
+    "name": "main",
+    "src": "resources/js/common/main-legacy.js",
+    "isEntry": true
+  },
+  "resources/js/common/main.js": {
+    "file": "assets/main-DMwvP1_z.js",
+    "name": "main",
+    "src": "resources/js/common/main.js",
+    "isEntry": true
+  },
+  "resources/js/core/ConfirmModal-legacy.js": {
+    "file": "assets/ConfirmModal-legacy-iXxYTW_r.js",
+    "name": "ConfirmModal",
+    "src": "resources/js/core/ConfirmModal-legacy.js",
+    "isEntry": true
+  },
+  "resources/js/core/ConfirmModal.js": {
+    "file": "assets/ConfirmModal-BBiIPeT7.js",
+    "name": "ConfirmModal",
+    "src": "resources/js/core/ConfirmModal.js",
+    "isEntry": true
+  },
+  "resources/js/core/DataTable-legacy.js": {
+    "file": "assets/DataTable-legacy-CtzCtnpX.js",
+    "name": "DataTable",
+    "src": "resources/js/core/DataTable-legacy.js",
+    "isEntry": true
+  },
+  "resources/js/core/DataTable.js": {
+    "file": "assets/DataTable-iXWZ9o46.js",
+    "name": "DataTable",
+    "src": "resources/js/core/DataTable.js",
+    "isEntry": true
+  },
+  "resources/js/core/FileUploader-legacy.js": {
+    "file": "assets/FileUploader-legacy-CloaZyvk.js",
+    "name": "FileUploader",
+    "src": "resources/js/core/FileUploader-legacy.js",
+    "isEntry": true
+  },
+  "resources/js/core/FileUploader.js": {
+    "file": "assets/FileUploader-BPLsGyw_.js",
+    "name": "FileUploader",
+    "src": "resources/js/core/FileUploader.js",
+    "isEntry": true
+  },
+  "resources/js/core/FormRequest-legacy.js": {
+    "file": "assets/FormRequest-legacy-BXwpr26J.js",
+    "name": "FormRequest",
+    "src": "resources/js/core/FormRequest-legacy.js",
+    "isEntry": true
+  },
+  "resources/js/core/FormRequest.js": {
+    "file": "assets/FormRequest-B-Lx1NLG.js",
+    "name": "FormRequest",
+    "src": "resources/js/core/FormRequest.js",
+    "isEntry": true
+  },
+  "resources/js/core/Modal-legacy.js": {
+    "file": "assets/Modal-legacy-thrsW4a0.js",
+    "name": "Modal",
+    "src": "resources/js/core/Modal-legacy.js",
+    "isEntry": true
+  },
+  "resources/js/core/Modal.js": {
+    "file": "assets/Modal-6F3hq9O7.js",
+    "name": "Modal",
+    "src": "resources/js/core/Modal.js",
+    "isEntry": true
+  },
+  "resources/js/core/MultipleInputs-legacy.js": {
+    "file": "assets/MultipleInputs-legacy-DyoiIWIF.js",
+    "name": "MultipleInputs",
+    "src": "resources/js/core/MultipleInputs-legacy.js",
+    "isEntry": true
+  },
+  "resources/js/core/MultipleInputs.js": {
+    "file": "assets/MultipleInputs-DDQT1cmD.js",
+    "name": "MultipleInputs",
+    "src": "resources/js/core/MultipleInputs.js",
+    "isEntry": true
+  },
+  "resources/js/dashboard/dashboard-app-legacy.js": {
+    "file": "assets/dashboard-app-legacy-BD5J9jtr.js",
+    "name": "dashboard-app",
+    "src": "resources/js/dashboard/dashboard-app-legacy.js",
+    "isEntry": true,
+    "imports": [
+      "_bootstrap-legacy-RfFp_4iK.js",
+      "resources/js/core/DataTable-legacy.js"
+    ]
+  },
+  "resources/js/dashboard/dashboard-app-vue-legacy.js": {
+    "file": "assets/dashboard-app-vue-legacy-BvanX-Q5.js",
+    "name": "dashboard-app-vue",
+    "src": "resources/js/dashboard/dashboard-app-vue-legacy.js",
+    "isEntry": true
+  },
+  "resources/js/dashboard/dashboard-app-vue.js": {
+    "file": "assets/dashboard-app-vue-DAcevYpS.js",
+    "name": "dashboard-app-vue",
+    "src": "resources/js/dashboard/dashboard-app-vue.js",
+    "isEntry": true
+  },
+  "resources/js/dashboard/dashboard-app.js": {
+    "file": "assets/dashboard-app-Ct7wY27H.js",
+    "name": "dashboard-app",
+    "src": "resources/js/dashboard/dashboard-app.js",
+    "isEntry": true,
+    "imports": [
+      "_bootstrap-DuCwewue.js",
+      "resources/js/core/DataTable.js"
+    ]
+  },
+  "resources/js/dashboard/profile/main-legacy.js": {
+    "file": "assets/main-legacy-DbRcPEwa.js",
+    "name": "main",
+    "src": "resources/js/dashboard/profile/main-legacy.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/core/FormRequest-legacy.js"
+    ]
+  },
+  "resources/js/dashboard/profile/main.js": {
+    "file": "assets/main-CVzGlPOM.js",
+    "name": "main",
+    "src": "resources/js/dashboard/profile/main.js",
+    "isEntry": true,
+    "imports": [
+      "resources/js/core/FormRequest.js"
+    ]
+  },
+  "resources/js/plugins/ckeditor-legacy.js": {
+    "file": "assets/ckeditor-legacy-NKc0UCFZ.js",
+    "name": "ckeditor",
+    "src": "resources/js/plugins/ckeditor-legacy.js",
+    "isEntry": true
+  },
+  "resources/js/plugins/ckeditor.js": {
+    "file": "assets/ckeditor-CP3-4pr_.js",
+    "name": "ckeditor",
+    "src": "resources/js/plugins/ckeditor.js",
+    "isEntry": true
+  },
+  "resources/js/plugins/moment.min-legacy.js": {
+    "file": "assets/moment.min-legacy-Byc1_JLD.js",
+    "name": "moment.min",
+    "src": "resources/js/plugins/moment.min-legacy.js",
+    "isEntry": true
+  },
+  "resources/js/plugins/moment.min.js": {
+    "file": "assets/moment.min-CTMCB5MD.js",
+    "name": "moment.min",
+    "src": "resources/js/plugins/moment.min.js",
+    "isEntry": true
+  },
+  "resources/sass/app-legacy.scss": {
+    "file": "assets/app-legacy-CSs6RtNO.js",
+    "name": "app",
+    "src": "resources/sass/app-legacy.scss",
+    "isEntry": true
+  },
+  "resources/sass/app.scss": {
+    "file": "assets/app-BiB9zm6O.css",
+    "src": "resources/sass/app.scss",
+    "isEntry": true
+  },
+  "resources/sass/dashboard/core/datatable-legacy.scss": {
+    "file": "assets/datatable-legacy-BENooKF9.js",
+    "name": "datatable",
+    "src": "resources/sass/dashboard/core/datatable-legacy.scss",
+    "isEntry": true
+  },
+  "resources/sass/dashboard/core/datatable.scss": {
+    "file": "assets/datatable-BpBMSMeB.css",
+    "src": "resources/sass/dashboard/core/datatable.scss",
+    "isEntry": true
+  },
+  "resources/sass/dashboard/dashboard-app-legacy.scss": {
+    "file": "assets/dashboard-app-legacy-DEORRDK0.js",
+    "name": "dashboard-app",
+    "src": "resources/sass/dashboard/dashboard-app-legacy.scss",
+    "isEntry": true,
+    "assets": [
+      "assets/Flaticon-B2hDA3YS.eot",
+      "assets/Flaticon-s3qBctEp.woff",
+      "assets/Flaticon-CuqKfEAX.ttf",
+      "assets/Flaticon-CPWmjjQ-.svg",
+      "assets/Flaticon2-BozDpjZF.eot",
+      "assets/Flaticon2-CcA5V8Wx.woff",
+      "assets/Flaticon2-ByghU1hn.ttf",
+      "assets/Flaticon2-BcSSGc_U.svg"
+    ]
+  },
+  "resources/sass/dashboard/dashboard-app.scss": {
+    "file": "assets/dashboard-app-D2rvhM3v.css",
+    "src": "resources/sass/dashboard/dashboard-app.scss",
+    "isEntry": true
+  },
+  "vite/legacy-polyfills-legacy": {
+    "file": "assets/polyfills-legacy-GsYEYDlJ.js",
+    "name": "polyfills",
+    "src": "vite/legacy-polyfills-legacy",
+    "isEntry": true
+  }
+}

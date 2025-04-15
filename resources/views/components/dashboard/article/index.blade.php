@@ -33,7 +33,8 @@
     </div>
 
     <x-slot name="scripts">
-        <script type="module" src="{{ asset('/js/dashboard/article/index.js') }}"></script>
+{{--        <script type="module" src="{{ asset('/js/dashboard/article/index.js') }}"></script>--}}
+        @vite(['resources/dashboard/article/index.js'])
     </x-slot>
 </x-dashboard.layouts.app>
 

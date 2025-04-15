@@ -1,12 +1,17 @@
-require('./core/bootstrap');
-import '../css/app.css';
+// require('./core/bootstrap');
+import '../sass/app.scss';
+import './core/bootstrap';
 import $ from  'jquery';
+import { createApp } from 'vue';
+
 import  Jquery from 'jquery';
 
 
 window.$ = window.jQuery = $;
 
-window.Vue = require('vue').default;
+
+const app = createApp({});
+window.Vue = app;
 
 /**
  * The following block of code may be used to automatically register your
@@ -27,6 +32,3 @@ window.Vue = require('vue').default;
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-  el: '#app',
-});

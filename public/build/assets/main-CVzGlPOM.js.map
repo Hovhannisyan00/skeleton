@@ -1,0 +1,1 @@
+{"version":3,"file":"main-CVzGlPOM.js","sources":["../../../resources/js/dashboard/profile/main.js"],"sourcesContent":["// eslint-disable-next-line no-undef\nimport { FormRequest } from '../../core/FormRequest.js';\n\nnew FormRequest();\n"],"names":["FormRequest"],"mappings":"iIAGA,IAAIA"}

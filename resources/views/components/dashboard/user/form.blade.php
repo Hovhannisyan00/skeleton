@@ -63,6 +63,8 @@
 
     <x-slot name="scripts">
         <script src="{{ asset('/plugins/croppie/croppie.min.js') }}"></script>
-        <script src="{{ asset('/js/dashboard/user/main.js') }}"></script>
+{{--        <script src="{{ asset('/js/dashboard/user/main.js') }}"></script>--}}
+        @vite(['resources/js/dashboard/user/main.js'])
+
     </x-slot>
 </x-dashboard.layouts.app>

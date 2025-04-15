@@ -10,16 +10,17 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- DataTables CSS --}}
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">
+{{--    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css">--}}
 
     {{-- Custom styles --}}
-    <link href="{{ asset('/css/dashboard/datatable.css') }}" rel="stylesheet">
+{{--    <link href="{{ asset('/css/dashboard/datatable.css') }}" rel="stylesheet">--}}
 
     {{-- Laravel routes for JS --}}
     @routes
 
     {{-- Vite build --}}
-    @vite(['resources/sass/dashboard/dashboard-app.scss', 'resources/js/dashboard/dashboard-app.js'])
+{{--    @vite(['resources/sass/dashboard/dashboard-app.scss', 'resources/js/dashboard/dashboard-app.js'])--}}
+    @vite(['resources/js/app.js','resources/sass/dashboard/core/datatable.scss', 'resources/js/dashboard/dashboard-app.js', 'resources/sass/dashboard/dashboard-app.scss' ])
 
     {{-- FontAwesome --}}
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-..." crossorigin="anonymous"/>

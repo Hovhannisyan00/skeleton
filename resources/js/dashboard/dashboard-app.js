@@ -4,7 +4,7 @@ import '../core/dashboard-init';
 import '../plugins/select.min';
 import '../plugins/datatables.net';
 import '../plugins/dataTablesBootstrap';
-import '../plugins/jquery.mask.min';Ï
+import '../plugins/jquery.mask.min';
 
 import 'jquery-datetimepicker';
 import 'jquery-toast-plugin';

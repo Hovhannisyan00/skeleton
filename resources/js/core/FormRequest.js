@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-unused-vars
-class FormRequest {
+export class FormRequest {
   constructor(options, formId = '__form__request') {
     this.options = options;
     this.formId = formId;
