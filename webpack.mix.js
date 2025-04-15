@@ -14,12 +14,14 @@ const mix = require('laravel-mix');
 mix.combine([
   'resources/js/plugins/ckeditor.js',
   'resources/js/plugins/moment.min.js',
+
   'resources/js/core/ConfirmModal.js',
   'resources/js/core/DataTable.js',
   'resources/js/core/FormRequest.js',
   'resources/js/core/Modal.js',
   'resources/js/core/MultipleInputs.js',
   'resources/js/core/FileUploader.js',
+
   'resources/js/common/main.js',
 ], 'public/js/dashboard/bundle.js').minify('public/js/dashboard/bundle.js');
 

@@ -1,4 +1,6 @@
+import Modal from '../core/Modal.js';
 // eslint-disable-next-line no-underscore-dangle,no-unused-vars
+
 // const cropperModal = new Modal('cropImageModal');
 const cropperModal = new Modal('cropImageModal');
 

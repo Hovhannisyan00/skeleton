@@ -1,1 +1,1 @@
-require('./src/vue-init');
+import './src/vue-init.js';

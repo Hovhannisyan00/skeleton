@@ -1,6 +1,5 @@
 <x-dashboard.layouts.app>
     <x-slot name="scripts">
-        @routes
         @vite(['resources/js/dashboard/dashboard-app-vue.js'])
     </x-slot>
 

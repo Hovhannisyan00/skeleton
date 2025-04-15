@@ -12,4 +12,4 @@ import 'jquery-toast-plugin';
 import '../common/axios/axios';
 import '../common/axios/errorHandler';
 
-import '../index.js';
+import './user/index.js';

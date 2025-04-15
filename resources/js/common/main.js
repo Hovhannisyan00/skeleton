@@ -15,8 +15,7 @@ $(function () {
 
   minimizeMenu();
 });
-
-showSuccessMessage = function (message) {
+function showSuccessMessage(message) {
   $.toast({
     text: message,
     hideAfter: 2000,
@@ -26,9 +25,9 @@ showSuccessMessage = function (message) {
     icon: 'success',
     allowToastClose: false,
   });
-};
 
-showErrorMessage = function (message) {
+};
+function showErrorMessage(message) {
   $.toast({
     heading: 'Error',
     hideAfter: 2000,
@@ -39,15 +38,15 @@ showErrorMessage = function (message) {
     icon: 'error',
     allowToastClose: false,
   });
+
 };
-
-select2Init = function (div = undefined, className = 'select2') {
-  let select2 = $(`select.${className}`);
-  if (typeof div !== 'undefined') {
+function select2Init (div = undefined, className = 'select2') {
+   let select2 = $(`select.${className}`);
+   if (typeof div !== 'undefined') {
     select2 = div.find(`select.${className}`);
-  }
 
-  $.each(select2, function () {
+  }
+   $.each(select2, function () {
     $(this).select2({
       placeholder: $trans('__dashboard.select.option.default'),
       minimumResultsForSearch: 10,
@@ -55,35 +54,36 @@ select2Init = function (div = undefined, className = 'select2') {
       allowClear: $(this).data('allow-clear') || false,
     });
   });
-};
 
-select2Reset = function (select) {
-  if (select.length) {
+};
+function select2Reset(select) {
+   if (select.length) {
     select.select2('val', '');
     select.find('option').not(':first-child').remove();
   }
-};
 
-select2SetValues = function (select, data) {
-  $.each(data, (key, value) => {
+};
+function select2SetValues (select, data) {
+   $.each(data, (key, value) => {
     select.append(new Option(value, key, false, false)).trigger('change.select2');
   });
-};
 
-disableField = function (field, disable) {
-  if (typeof disable === 'undefined') {
+};
+function disableField(field, disable) {
+   if (typeof disable === 'undefined') {
     disable = true;
+
   }
+   field.prop('disabled', disable);
 
-  field.prop('disabled', disable);
 };
-
-loadContent = function (content, removeLoad) {
-  if (typeof removeLoad === 'undefined') {
+function loadContent (content, removeLoad) {
+   if (typeof removeLoad === 'undefined') {
     content.addClass('loading-content position-relative');
   } else {
     content.removeClass('loading-content position-relative');
   }
+
 };
 
 function minimizeMenu() {
@@ -95,8 +95,8 @@ function minimizeMenu() {
     $('.open-menu').toggleClass('open-menu-opened');
   });
 }
-
 // ClassicEditor
+
 function ckEditorInit() {
   const ckeditorEls = document.querySelectorAll('.ckeditor5');
 
@@ -209,6 +209,7 @@ function copyMlInfo() {
     });
   }
 }
+
 
 function responseMessage() {
   const responseMessageStorage = localStorage.getItem('_message');

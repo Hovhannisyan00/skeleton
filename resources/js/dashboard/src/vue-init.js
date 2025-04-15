@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import VueExample from './components/VueExample';
+import VueExample from './components/VueExample.vue';
 
 const app = createApp({});
 app.config.globalProperties.trans = (key) => _.get(window.trans, key, key);

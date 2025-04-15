@@ -1,4 +1,4 @@
-class Modal {
+export default class Modal {
   constructor(id, options) {
     this.options = options;
     this.modalId = id;

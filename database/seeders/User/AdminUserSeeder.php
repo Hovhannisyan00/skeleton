@@ -24,7 +24,7 @@ class AdminUserSeeder extends Seeder
             'first_name' => 'Admin',
             'last_name' => 'Admin',
             'email' => 'admin@admin.com',
-            'password' => Hash::make('m67u12n7i938c789h1429v'),
+            'password' => Hash::make('password'),
         ]);
 
         $user->assignRole(RoleType::ADMIN);
