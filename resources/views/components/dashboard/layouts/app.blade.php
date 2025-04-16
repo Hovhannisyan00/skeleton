@@ -19,6 +19,7 @@
         'resources/sass/dashboard/dashboard-app.scss',
         'resources/sass/dashboard/core/datatable.scss',
         'resources/js/common/main.js',
+        'resources/js/core/ConfirmModal.js'
 //        'resources/js/dashboard/article/index.js'
     ])
 

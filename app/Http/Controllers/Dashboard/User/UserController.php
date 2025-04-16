@@ -84,8 +84,6 @@ class UserController extends BaseController
 
     public function destroy(User $user): JsonResponse
     {
-        dd(111111);
-
         $this->service->delete($user->id);
 
         return $this->sendOkDeleted();

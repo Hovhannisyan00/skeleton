@@ -1,0 +1,2 @@
+/* empty css            */import{$ as t}from"./bootstrap-DuCwewue.js";import{c as a}from"./vue.esm-bundler-Dx4Z2rw1.js";function r(){import.meta.url,import("_").catch(()=>1),async function*(){}().next()}const o={pathOptions:{searchPath:route("dashboard.articles.getListData"),deletePath:route("dashboard.articles.destroy",":id"),editPath:route("dashboard.articles.edit",":id")},actions:{show:!1}};new DataTable(o);window.$=window.jQuery=t;const e=a({});window.Vue=e;export{r as __vite_legacy_guard};
+//# sourceMappingURL=app-6K3sEWoW.js.map

@@ -1,145 +1,49 @@
 {
-  "_@popperjs-BEKk9TLb.js": {
-    "file": "js/@popperjs-BEKk9TLb.js",
-    "name": "@popperjs"
-  },
-  "_@popperjs-legacy-DiH5P8Gl.js": {
-    "file": "js/@popperjs-legacy-DiH5P8Gl.js",
-    "name": "@popperjs"
-  },
-  "_@vue-LqcVDoeS.js": {
-    "file": "js/@vue-LqcVDoeS.js",
-    "name": "@vue"
-  },
-  "_@vue-legacy-B_xJcjck.js": {
-    "file": "js/@vue-legacy-B_xJcjck.js",
-    "name": "@vue"
-  },
-  "_axios-BXRzA38r.js": {
-    "file": "js/axios-BXRzA38r.js",
-    "name": "axios"
-  },
-  "_axios-legacy-DkXXzkUY.js": {
-    "file": "js/axios-legacy-DkXXzkUY.js",
-    "name": "axios"
-  },
-  "_bootstrap-hhqakqpF.js": {
-    "file": "js/bootstrap-hhqakqpF.js",
+  "_bootstrap-DuCwewue.js": {
+    "file": "assets/bootstrap-DuCwewue.js",
     "name": "bootstrap",
-    "imports": [
-      "_lodash-DVkkE7RP.js",
-      "_jquery-CF0dLAmL.js",
-      "_axios-BXRzA38r.js"
-    ],
     "dynamicImports": [
       "node_modules/popper.js/dist/esm/popper.js",
       "node_modules/bootstrap/dist/js/bootstrap.esm.js"
     ]
   },
-  "_bootstrap-legacy-X6xkkCmQ.js": {
-    "file": "js/bootstrap-legacy-X6xkkCmQ.js",
+  "_bootstrap-legacy-RfFp_4iK.js": {
+    "file": "assets/bootstrap-legacy-RfFp_4iK.js",
     "name": "bootstrap",
-    "imports": [
-      "_lodash-legacy-hA8aMbXu.js",
-      "_jquery-legacy-YgY3bZ74.js",
-      "_axios-legacy-DkXXzkUY.js"
-    ],
     "dynamicImports": [
       "node_modules/popper.js/dist/esm/popper-legacy.js",
       "node_modules/bootstrap/dist/js/bootstrap.esm-legacy.js"
     ]
   },
-  "_jquery-CF0dLAmL.js": {
-    "file": "js/jquery-CF0dLAmL.js",
-    "name": "jquery",
-    "imports": [
-      "_axios-BXRzA38r.js"
-    ]
+  "_vue.esm-bundler-Dx4Z2rw1.js": {
+    "file": "assets/vue.esm-bundler-Dx4Z2rw1.js",
+    "name": "vue.esm-bundler"
   },
-  "_jquery-datetimepicker-D_67ST2j.js": {
-    "file": "js/jquery-datetimepicker-D_67ST2j.js",
-    "name": "jquery-datetimepicker",
-    "imports": [
-      "_jquery-CF0dLAmL.js"
-    ]
-  },
-  "_jquery-datetimepicker-legacy-Bpws3JuD.js": {
-    "file": "js/jquery-datetimepicker-legacy-Bpws3JuD.js",
-    "name": "jquery-datetimepicker",
-    "imports": [
-      "_jquery-legacy-YgY3bZ74.js"
-    ]
-  },
-  "_jquery-legacy-YgY3bZ74.js": {
-    "file": "js/jquery-legacy-YgY3bZ74.js",
-    "name": "jquery",
-    "imports": [
-      "_axios-legacy-DkXXzkUY.js"
-    ]
-  },
-  "_jquery-toast-plugin-DnTDIskf.js": {
-    "file": "js/jquery-toast-plugin-DnTDIskf.js",
-    "name": "jquery-toast-plugin"
-  },
-  "_jquery-toast-plugin-legacy-CI0KlXsZ.js": {
-    "file": "js/jquery-toast-plugin-legacy-CI0KlXsZ.js",
-    "name": "jquery-toast-plugin"
-  },
-  "_lodash-DVkkE7RP.js": {
-    "file": "js/lodash-DVkkE7RP.js",
-    "name": "lodash",
-    "imports": [
-      "_axios-BXRzA38r.js"
-    ]
-  },
-  "_lodash-legacy-hA8aMbXu.js": {
-    "file": "js/lodash-legacy-hA8aMbXu.js",
-    "name": "lodash",
-    "imports": [
-      "_axios-legacy-DkXXzkUY.js"
-    ]
-  },
-  "_vue-DhND2SuN.js": {
-    "file": "js/vue-DhND2SuN.js",
-    "name": "vue",
-    "imports": [
-      "_@vue-LqcVDoeS.js"
-    ]
-  },
-  "_vue-legacy-DKv3IG1j.js": {
-    "file": "js/vue-legacy-DKv3IG1j.js",
-    "name": "vue",
-    "imports": [
-      "_@vue-legacy-B_xJcjck.js"
-    ]
+  "_vue.esm-bundler-legacy-D3_wwj3x.js": {
+    "file": "assets/vue.esm-bundler-legacy-D3_wwj3x.js",
+    "name": "vue.esm-bundler"
   },
   "node_modules/bootstrap/dist/js/bootstrap.esm-legacy.js": {
-    "file": "js/bootstrap-legacy-ZKcz5Eqz.js",
-    "name": "bootstrap",
+    "file": "assets/bootstrap.esm-legacy-BfOEhOfB.js",
+    "name": "bootstrap.esm",
     "src": "node_modules/bootstrap/dist/js/bootstrap.esm-legacy.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_@popperjs-legacy-DiH5P8Gl.js"
-    ]
+    "isDynamicEntry": true
   },
   "node_modules/bootstrap/dist/js/bootstrap.esm.js": {
-    "file": "js/bootstrap-Dy7jgbWn.js",
-    "name": "bootstrap",
+    "file": "assets/bootstrap.esm-yrseZw9B.js",
+    "name": "bootstrap.esm",
     "src": "node_modules/bootstrap/dist/js/bootstrap.esm.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "_@popperjs-BEKk9TLb.js"
-    ]
+    "isDynamicEntry": true
   },
   "node_modules/popper.js/dist/esm/popper-legacy.js": {
-    "file": "js/popper.js-legacy-D0wEUa61.js",
-    "name": "popper.js",
+    "file": "assets/popper-legacy-D0wEUa61.js",
+    "name": "popper",
     "src": "node_modules/popper.js/dist/esm/popper-legacy.js",
     "isDynamicEntry": true
   },
   "node_modules/popper.js/dist/esm/popper.js": {
-    "file": "js/popper.js-DHfERy9M.js",
-    "name": "popper.js",
+    "file": "assets/popper-DHfERy9M.js",
+    "name": "popper",
     "src": "node_modules/popper.js/dist/esm/popper.js",
     "isDynamicEntry": true
   },
@@ -176,75 +80,67 @@
     "src": "resources/fonts/Flaticon2.woff"
   },
   "resources/js/app-legacy.js": {
-    "file": "js/app-legacy-DVEGikU5.js",
+    "file": "assets/app-legacy-BSTU6Ew2.js",
     "name": "app",
     "src": "resources/js/app-legacy.js",
     "isEntry": true,
     "imports": [
       "resources/sass/app-legacy.scss",
-      "_bootstrap-legacy-X6xkkCmQ.js",
-      "_jquery-legacy-YgY3bZ74.js",
-      "_vue-legacy-DKv3IG1j.js",
-      "_@vue-legacy-B_xJcjck.js",
-      "_lodash-legacy-hA8aMbXu.js",
-      "_axios-legacy-DkXXzkUY.js"
+      "_bootstrap-legacy-RfFp_4iK.js",
+      "_vue.esm-bundler-legacy-D3_wwj3x.js"
     ]
   },
   "resources/js/app.js": {
-    "file": "js/app-DgGdvKJd.js",
+    "file": "assets/app-6K3sEWoW.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "imports": [
-      "_bootstrap-hhqakqpF.js",
-      "_jquery-CF0dLAmL.js",
-      "_vue-DhND2SuN.js",
-      "_@vue-LqcVDoeS.js",
-      "_lodash-DVkkE7RP.js",
-      "_axios-BXRzA38r.js"
+      "_bootstrap-DuCwewue.js",
+      "_vue.esm-bundler-Dx4Z2rw1.js"
     ],
     "css": [
       "assets/app-CM8ewrrB.css"
     ]
   },
   "resources/js/common/main-legacy.js": {
-    "file": "js/main-legacy-BCcTrmSO.js",
+    "file": "assets/main-legacy-BCcTrmSO.js",
     "name": "main",
     "src": "resources/js/common/main-legacy.js",
     "isEntry": true
   },
   "resources/js/common/main.js": {
-    "file": "js/main-Dj2oJA3t.js",
+    "file": "assets/main-Dj2oJA3t.js",
     "name": "main",
     "src": "resources/js/common/main.js",
     "isEntry": true
   },
   "resources/js/core/ConfirmModal-legacy.js": {
-    "file": "js/ConfirmModal-legacy-iXxYTW_r.js",
+    "file": "assets/ConfirmModal-legacy-iXxYTW_r.js",
     "name": "ConfirmModal",
     "src": "resources/js/core/ConfirmModal-legacy.js",
     "isEntry": true
   },
   "resources/js/core/ConfirmModal.js": {
-    "file": "js/ConfirmModal-BBiIPeT7.js",
+    "file": "assets/ConfirmModal-BBiIPeT7.js",
     "name": "ConfirmModal",
     "src": "resources/js/core/ConfirmModal.js",
     "isEntry": true
   },
   "resources/js/core/DataTable-legacy.js": {
-    "file": "js/DataTable-legacy-CtzCtnpX.js",
+    "file": "assets/DataTable-legacy-CtzCtnpX.js",
     "name": "DataTable",
     "src": "resources/js/core/DataTable-legacy.js",
     "isEntry": true
   },
   "resources/js/core/DataTable.js": {
-    "file": "js/DataTable-iXWZ9o46.js",
+    "file": "assets/DataTable-iXWZ9o46.js",
     "name": "DataTable",
     "src": "resources/js/core/DataTable.js",
     "isEntry": true
   },
   "resources/js/core/FileUploader-legacy.js": {
-    "file": "js/FileUploader-legacy-B3O4JNFb.js",
+    "file": "assets/FileUploader-legacy-B3O4JNFb.js",
     "name": "FileUploader",
     "src": "resources/js/core/FileUploader-legacy.js",
     "isEntry": true,
@@ -253,7 +149,7 @@
     ]
   },
   "resources/js/core/FileUploader.js": {
-    "file": "js/FileUploader-YVmStNs2.js",
+    "file": "assets/FileUploader-YVmStNs2.js",
     "name": "FileUploader",
     "src": "resources/js/core/FileUploader.js",
     "isEntry": true,
@@ -262,117 +158,105 @@
     ]
   },
   "resources/js/core/FormRequest-legacy.js": {
-    "file": "js/FormRequest-legacy-thrsW4a0.js",
+    "file": "assets/FormRequest-legacy-thrsW4a0.js",
     "name": "FormRequest",
     "src": "resources/js/core/FormRequest-legacy.js",
     "isEntry": true
   },
   "resources/js/core/FormRequest.js": {
-    "file": "js/FormRequest-6F3hq9O7.js",
+    "file": "assets/FormRequest-6F3hq9O7.js",
     "name": "FormRequest",
     "src": "resources/js/core/FormRequest.js",
     "isEntry": true
   },
   "resources/js/core/Modal-legacy.js": {
-    "file": "js/Modal-legacy-DPamTmnJ.js",
+    "file": "assets/Modal-legacy-DPamTmnJ.js",
     "name": "Modal",
     "src": "resources/js/core/Modal-legacy.js",
     "isEntry": true
   },
   "resources/js/core/Modal.js": {
-    "file": "js/Modal-Bp3xbxpQ.js",
+    "file": "assets/Modal-Bp3xbxpQ.js",
     "name": "Modal",
     "src": "resources/js/core/Modal.js",
     "isEntry": true
   },
   "resources/js/core/MultipleInputs-legacy.js": {
-    "file": "js/MultipleInputs-legacy-DyoiIWIF.js",
+    "file": "assets/MultipleInputs-legacy-DyoiIWIF.js",
     "name": "MultipleInputs",
     "src": "resources/js/core/MultipleInputs-legacy.js",
     "isEntry": true
   },
   "resources/js/core/MultipleInputs.js": {
-    "file": "js/MultipleInputs-DDQT1cmD.js",
+    "file": "assets/MultipleInputs-DDQT1cmD.js",
     "name": "MultipleInputs",
     "src": "resources/js/core/MultipleInputs.js",
     "isEntry": true
   },
   "resources/js/dashboard/dashboard-app-legacy.js": {
-    "file": "js/dashboard-app-legacy-TJgn0qN8.js",
+    "file": "assets/dashboard-app-legacy-BD5J9jtr.js",
     "name": "dashboard-app",
     "src": "resources/js/dashboard/dashboard-app-legacy.js",
     "isEntry": true,
     "imports": [
-      "_bootstrap-legacy-X6xkkCmQ.js",
-      "_jquery-datetimepicker-legacy-Bpws3JuD.js",
-      "_jquery-toast-plugin-legacy-CI0KlXsZ.js",
-      "_axios-legacy-DkXXzkUY.js",
-      "resources/js/core/DataTable-legacy.js",
-      "_lodash-legacy-hA8aMbXu.js",
-      "_jquery-legacy-YgY3bZ74.js"
+      "_bootstrap-legacy-RfFp_4iK.js",
+      "resources/js/core/DataTable-legacy.js"
     ]
   },
   "resources/js/dashboard/dashboard-app-vue-legacy.js": {
-    "file": "js/dashboard-app-vue-legacy-s2mjQNFt.js",
+    "file": "assets/dashboard-app-vue-legacy-B0_YETeG.js",
     "name": "dashboard-app-vue",
     "src": "resources/js/dashboard/dashboard-app-vue-legacy.js",
     "isEntry": true,
     "imports": [
-      "_vue-legacy-DKv3IG1j.js",
-      "_@vue-legacy-B_xJcjck.js"
+      "_vue.esm-bundler-legacy-D3_wwj3x.js"
     ]
   },
   "resources/js/dashboard/dashboard-app-vue.js": {
-    "file": "js/dashboard-app-vue-DuGIS41n.js",
+    "file": "assets/dashboard-app-vue-CChR4rnP.js",
     "name": "dashboard-app-vue",
     "src": "resources/js/dashboard/dashboard-app-vue.js",
     "isEntry": true,
     "imports": [
-      "_vue-DhND2SuN.js",
-      "_@vue-LqcVDoeS.js"
+      "_vue.esm-bundler-Dx4Z2rw1.js"
     ]
   },
   "resources/js/dashboard/dashboard-app.js": {
-    "file": "js/dashboard-app-CLlOxi0B.js",
+    "file": "assets/dashboard-app-Ct7wY27H.js",
     "name": "dashboard-app",
     "src": "resources/js/dashboard/dashboard-app.js",
     "isEntry": true,
     "imports": [
-      "_bootstrap-hhqakqpF.js",
-      "_jquery-datetimepicker-D_67ST2j.js",
-      "_jquery-toast-plugin-DnTDIskf.js",
-      "_axios-BXRzA38r.js",
-      "resources/js/core/DataTable.js",
-      "_lodash-DVkkE7RP.js",
-      "_jquery-CF0dLAmL.js"
+      "_bootstrap-DuCwewue.js",
+      "resources/js/core/DataTable.js"
     ]
   },
   "resources/js/plugins/ckeditor-legacy.js": {
-    "file": "js/ckeditor-legacy-NKc0UCFZ.js",
+    "file": "assets/ckeditor-legacy-NKc0UCFZ.js",
     "name": "ckeditor",
     "src": "resources/js/plugins/ckeditor-legacy.js",
     "isEntry": true
   },
   "resources/js/plugins/ckeditor.js": {
-    "file": "js/ckeditor-CP3-4pr_.js",
+    "file": "assets/ckeditor-CP3-4pr_.js",
     "name": "ckeditor",
     "src": "resources/js/plugins/ckeditor.js",
     "isEntry": true
   },
   "resources/js/plugins/moment.min-legacy.js": {
-    "file": "js/moment.min-legacy-Byc1_JLD.js",
+    "file": "assets/moment.min-legacy-Byc1_JLD.js",
     "name": "moment.min",
     "src": "resources/js/plugins/moment.min-legacy.js",
     "isEntry": true
   },
   "resources/js/plugins/moment.min.js": {
-    "file": "js/moment.min-CTMCB5MD.js",
+    "file": "assets/moment.min-CTMCB5MD.js",
     "name": "moment.min",
     "src": "resources/js/plugins/moment.min.js",
     "isEntry": true
   },
   "resources/sass/app-legacy.scss": {
-    "file": "js/app-legacy-BSrBNipa.js",
+    "file": "assets/app-legacy-BSrBNipa.js",
     "name": "app",
     "src": "resources/sass/app-legacy.scss",
     "isEntry": true
@@ -383,7 +267,7 @@
     "isEntry": true
   },
   "resources/sass/dashboard/core/datatable-legacy.scss": {
-    "file": "js/datatable-legacy-BENooKF9.js",
+    "file": "assets/datatable-legacy-BENooKF9.js",
     "name": "datatable",
     "src": "resources/sass/dashboard/core/datatable-legacy.scss",
     "isEntry": true
@@ -394,7 +278,7 @@
     "isEntry": true
   },
   "resources/sass/dashboard/dashboard-app-legacy.scss": {
-    "file": "js/dashboard-app-legacy-DEORRDK0.js",
+    "file": "assets/dashboard-app-legacy-DEORRDK0.js",
     "name": "dashboard-app",
     "src": "resources/sass/dashboard/dashboard-app-legacy.scss",
     "isEntry": true,
@@ -415,7 +299,7 @@
     "isEntry": true
   },
   "vite/legacy-polyfills-legacy": {
-    "file": "js/polyfills-legacy-4dzWvwbv.js",
+    "file": "assets/polyfills-legacy-DB6XRXya.js",
     "name": "polyfills",
     "src": "vite/legacy-polyfills-legacy",
     "isEntry": true

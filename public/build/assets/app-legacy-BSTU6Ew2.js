@@ -1,0 +1,2 @@
+System.register(["./app-legacy-BSrBNipa.js","./bootstrap-legacy-RfFp_4iK.js","./vue.esm-bundler-legacy-D3_wwj3x.js"],(function(e,t){"use strict";var a,s;return{setters:[null,e=>{a=e.$},e=>{s=e.c}],execute:function(){const e={pathOptions:{searchPath:route("dashboard.articles.getListData"),deletePath:route("dashboard.articles.destroy",":id"),editPath:route("dashboard.articles.edit",":id")},actions:{show:!1}};new DataTable(e),window.$=window.jQuery=a;const t=s({});window.Vue=t}}}));
+//# sourceMappingURL=app-legacy-BSTU6Ew2.js.map
