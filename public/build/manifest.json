@@ -80,23 +80,25 @@
     "src": "resources/fonts/Flaticon2.woff"
   },
   "resources/js/app-legacy.js": {
-    "file": "assets/app-legacy-BSTU6Ew2.js",
+    "file": "assets/app-legacy-CJXQ96zz.js",
     "name": "app",
     "src": "resources/js/app-legacy.js",
     "isEntry": true,
     "imports": [
       "resources/sass/app-legacy.scss",
       "_bootstrap-legacy-RfFp_4iK.js",
+      "resources/js/dashboard/article/index-legacy.js",
       "_vue.esm-bundler-legacy-D3_wwj3x.js"
     ]
   },
   "resources/js/app.js": {
-    "file": "assets/app-6K3sEWoW.js",
+    "file": "assets/app-GcagN1qa.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "imports": [
       "_bootstrap-DuCwewue.js",
+      "resources/js/dashboard/article/index.js",
       "_vue.esm-bundler-Dx4Z2rw1.js"
     ],
     "css": [
@@ -104,13 +106,13 @@
     ]
   },
   "resources/js/common/main-legacy.js": {
-    "file": "assets/main-legacy-BCcTrmSO.js",
+    "file": "assets/main-legacy-4xk3o_-1.js",
     "name": "main",
     "src": "resources/js/common/main-legacy.js",
     "isEntry": true
   },
   "resources/js/common/main.js": {
-    "file": "assets/main-Dj2oJA3t.js",
+    "file": "assets/main-BF5AY4uM.js",
     "name": "main",
     "src": "resources/js/common/main.js",
     "isEntry": true
@@ -191,6 +193,18 @@
     "file": "assets/MultipleInputs-DDQT1cmD.js",
     "name": "MultipleInputs",
     "src": "resources/js/core/MultipleInputs.js",
+    "isEntry": true
+  },
+  "resources/js/dashboard/article/index-legacy.js": {
+    "file": "assets/index-legacy-2HfwjCkx.js",
+    "name": "index",
+    "src": "resources/js/dashboard/article/index-legacy.js",
+    "isEntry": true
+  },
+  "resources/js/dashboard/article/index.js": {
+    "file": "assets/index-Cse1E50T.js",
+    "name": "index",
+    "src": "resources/js/dashboard/article/index.js",
     "isEntry": true
   },
   "resources/js/dashboard/dashboard-app-legacy.js": {

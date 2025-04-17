@@ -18,9 +18,10 @@ const options = {
 // eslint-disable-next-line no-undef
 
 
-// import FormRequest from '../../core/FormRequest.js';
+import FormRequest from '../../core/FormRequest.js';
 
 new FormRequest();
+
 const infoModal = new Modal('infoModal');
 
 $(function () {

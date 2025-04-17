@@ -16,7 +16,7 @@ const options = {
 }
 */
 
-// import FormRequest from '../../../../resources/js/core/FormRequest.js';
+import FormRequest from '../../../../resources/js/core/FormRequest.js';
 
 new FormRequest();
 const infoModal = new Modal('infoModal');

@@ -1,9 +1,11 @@
+// import {DataTable} from "../../core/DataTable.js";
+
 const options = {
   pathOptions: {
     searchPath: route('dashboard.articles.getListData'),
     deletePath: route('dashboard.articles.destroy', ':id'),
     editPath: route('dashboard.articles.edit', ':id'),
-    // showPath: route('dashboard.articles.show', ':id'),
+    showPath: route('dashboard.articles.show', ':id'),
   },
 
   actions: {
@@ -46,4 +48,4 @@ const options = {
 
 };
 // eslint-disable-next-line no-new,no-undef
-new DataTable(options);
+// new DataTable(options);

@@ -13,3 +13,4 @@ import '../common/axios/axios';
 import '../common/axios/errorHandler';
 
 import './user/index.js';
+import './article/index.js';

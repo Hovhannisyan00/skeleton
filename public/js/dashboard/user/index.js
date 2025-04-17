@@ -1,5 +1,24 @@
 //user
-import {DataTable} from '../../../../resources/js/core/DataTable.js';
+document.addEventListener('DOMContentLoaded', () => {
+  window.route = (name, params = null) => {
+    const route = routesData[name];
+    let uri = route.uri.toString();
+
+    route.parameters.map((item, index) => {
+      if (Array.isArray(params)) {
+        uri = uri.replace(`{${item}}`, params[index]);
+      } else {
+        if (index) {
+          params = '';
+        }
+        uri = uri.replace(`{${item}}`, params);
+      }
+    });
+
+    return `${location.origin}/${uri}`;
+  };
+
+
 
 const options = {
   pathOptions: {
@@ -17,6 +36,6 @@ const options = {
     show: false,
   },
 };
-
+});
 // eslint-disable-next-line no-new,no-undef
-new DataTable(options);
+// new DataTable(options);

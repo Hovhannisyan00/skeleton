@@ -15,7 +15,7 @@ $(function () {
 
   minimizeMenu();
 });
-function showSuccessMessage(message) {
+window.showSuccessMessage = function (message) {
   $.toast({
     text: message,
     hideAfter: 2000,
@@ -25,9 +25,9 @@ function showSuccessMessage(message) {
     icon: 'success',
     allowToastClose: false,
   });
-
 };
-function showErrorMessage(message) {
+
+window.showErrorMessage = function (message) {
   $.toast({
     heading: 'Error',
     hideAfter: 2000,
@@ -38,8 +38,32 @@ function showErrorMessage(message) {
     icon: 'error',
     allowToastClose: false,
   });
-
 };
+// function showSuccessMessage(message) {
+//   $.toast({
+//     text: message,
+//     hideAfter: 2000,
+//     position: 'top-right',
+//     stack: false,
+//     loader: false,
+//     icon: 'success',
+//     allowToastClose: false,
+//   });
+//
+// };
+// function showErrorMessage(message) {
+//   $.toast({
+//     heading: 'Error',
+//     hideAfter: 2000,
+//     text: message,
+//     position: 'top-right',
+//     stack: false,
+//     loader: false,
+//     icon: 'error',
+//     allowToastClose: false,
+//   });
+//
+// };
 function select2Init (div = undefined, className = 'select2') {
    let select2 = $(`select.${className}`);
    if (typeof div !== 'undefined') {

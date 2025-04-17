@@ -111,7 +111,11 @@
     </div>
 
     <x-slot name="scripts">
-        <script src="{{ asset('/js/dashboard/article/main.js') }}"></script>
+        <script src="https://cdn.ckeditor.com/ckeditor5/35.3.0/classic/ckeditor.js"></script>
+        <script src="{{ asset('/plugins/croppie/croppie.min.js') }}"></script>
+
+{{--        <script type="module" src="{{ asset('/js/dashboard/article/main.js') }}"></script>--}}
+        @vite(['resources/js/dashboard/article/main.js'])
     </x-slot>
 </x-dashboard.layouts.app>
 
