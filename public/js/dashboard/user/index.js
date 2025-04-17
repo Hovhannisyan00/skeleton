@@ -37,5 +37,3 @@ const options = {
   },
 };
 });
-// eslint-disable-next-line no-new,no-undef
-// new DataTable(options);

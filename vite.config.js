@@ -16,8 +16,8 @@ export default defineConfig({
       'resources/js/app.js',
       'resources/js/dashboard/dashboard-app.js',
       'resources/js/dashboard/dashboard-app-vue.js',
-      'resources/js/dashboard/article/main.js',
-      // 'resources/js/dashboard/user/main.js',
+      // 'resources/js/dashboard/article/main.js',
+      // 'resources/js/dashboard/user/index.js',
       // 'resources/js/dashboard/article/index.js',
 
       // Plugins
